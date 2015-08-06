@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-07-08 22:22:48
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 17:34:15
          compiled from "application\views\templates\view-app-step3.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4009559d4048f021b7-77849945%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7c29d70db0065c4d7cd79ea51f30c4aa2124134d' => 
     array (
       0 => 'application\\views\\templates\\view-app-step3.tpl',
-      1 => 1430218729,
+      1 => 1438780994,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_559d4049c209c7_50177368',
   'variables' => 
   array (
     'data' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'val' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_559d4049c209c7_50177368',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_559d4049c209c7_50177368')) {function content_559d4049c209c7_50177368($_smarty_tpl) {?><script src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_js'];?>
 jquery.form.js"></script>

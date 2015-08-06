@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-07-08 22:22:49
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 17:34:16
          compiled from "application\views\templates\set_background_image_popup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:22830559d4049cd76d0-04495399%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'da88e95fc27e1a4c0657578c2f3621114e371315' => 
     array (
       0 => 'application\\views\\templates\\set_background_image_popup.tpl',
-      1 => 1429186153,
+      1 => 1438780998,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_559d404a294dd4_97980896',
   'variables' => 
   array (
     'lang' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_559d404a294dd4_97980896',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_559d404a294dd4_97980896')) {function content_559d404a294dd4_97980896($_smarty_tpl) {?><!-- Modal -->
 <div id="myModal_set_backimg" class="modal hide fade modalsetbg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

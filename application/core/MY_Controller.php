@@ -102,7 +102,7 @@ class MY_Controller extends CI_Controller
 					$language = 'rFrench';
 					$data = $this->session->set_userdata('language', $language);
 			}else{
-					$language = 'rEnglish';
+					$language = 'rFrench';//$language = 'rEnglish';
 					$data = $this->session->set_userdata('language', $language);	
 			}
 	}

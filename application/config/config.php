@@ -22,10 +22,8 @@ elseif($_SERVER["HTTP_HOST"] == '122.170.107.160')
 }
 else
 {
-	$sitefolder = "/easyapps/";
-  // $sitefolder = "/demo/ExtjsCI/shaad/index.php/";
-   //$pathfolder = "/demo/ExtjsCI/shaad/";
- //$sitefolder = "/localhost/projects/slb/";
+	$sitefolder = "/easyapps/gettingstarted/";
+	//$sitefolder = "/localhost/projects/slb/";
 }
 //$sitefolder = "/";
 //echo $sitefolder;exit;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-07-09 19:27:45
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 17:59:56
          compiled from "application\views\templates\ajax-appindustryfeature.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18891559e68c1666067-18748068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '33b2335035c97ef94dd81b359afb4bebc43316d0' => 
     array (
       0 => 'application\\views\\templates\\ajax-appindustryfeature.tpl',
-      1 => 1415015295,
+      1 => 1438781014,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_559e68c1810971_73482875',
   'variables' => 
   array (
     'data' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'val' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_559e68c1810971_73482875',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_559e68c1810971_73482875')) {function content_559e68c1810971_73482875($_smarty_tpl) {?><ul id="atleastone">
 	<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
