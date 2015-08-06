@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee9b021a-ddd8-407e-b902-945f40fde13a" name="Default" comment="" />
+    <ignored path="EasyApps.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="EasyApps" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="OrderDetailView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/OrderView/OrderDetailView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="33" selection-start="322" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
+              <folding>
+                <marker date="1432557282000" expanded="false" signature="633:673" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="703:740" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="866:922" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="952:969" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="1142:1186" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="1217:1259" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="1825:1869" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="1900:1942" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="2497:2556" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="2774:2841" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="2909:2931" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="2967:3003" placeholder="..." />
+                <marker date="1432557282000" expanded="false" signature="3139:3178" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/OrderController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="161" column="10" selection-start="5798" selection-end="5798" vertical-scroll-proportion="-19.038462" vertical-offset="1890" max-vertical-offset="8325">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppConstant.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helper/AppConstant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="6" selection-start="37" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="89" selection-start="2165" selection-end="2165" vertical-scroll-proportion="-12.192307" vertical-offset="508" max-vertical-offset="1845">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerDetails.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/OrderView/CustomerDetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="15" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CatalogController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/CatalogController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="273" column="56" selection-start="11080" selection-end="11080" vertical-scroll-proportion="-5.8461537" vertical-offset="3943" max-vertical-offset="6120">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="138" selection-start="1959" selection-end="1968" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderNavi.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/OrderView/OrderNavi.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="17" selection-start="764" selection-end="764" vertical-scroll-proportion="0.33294392" vertical-offset="0" max-vertical-offset="856">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/MainController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1170" column="74" selection-start="56143" selection-end="56160" vertical-scroll-proportion="-11.038462" vertical-offset="17263" max-vertical-offset="45000">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderCart.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/OrderView/OrderCart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="93" column="43" selection-start="4503" selection-end="4513" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <marker date="1432549344000" expanded="false" signature="1365:1405" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="1443:1480" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="1630:1686" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="1724:1741" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="1954:1998" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="2037:2079" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="2973:3017" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="3056:3098" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="3983:4042" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="4160:4227" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="4311:4333" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="4377:4402" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="4440:4465" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="4628:4666" placeholder="..." />
+                <marker date="1432549344000" expanded="false" signature="4858:4897" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/store/OrderStore.js" />
+        <option value="$PROJECT_DIR$/app/view/OrderView/OrderViewList.js" />
+        <option value="$PROJECT_DIR$/app/model/OrderModel.js" />
+        <option value="$PROJECT_DIR$/app/store/OrderDetailStore.js" />
+        <option value="$PROJECT_DIR$/app/model/OrderDetailModel.js" />
+        <option value="$PROJECT_DIR$/app/store/OrderCartStore.js" />
+        <option value="$PROJECT_DIR$/app/model/OrderCartModel.js" />
+        <option value="$PROJECT_DIR$/app/view/OrderView/OrderCart.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app/view/OrderView/CustomerDetails.js" />
+        <option value="$PROJECT_DIR$/js/index.js" />
+        <option value="$PROJECT_DIR$/app/controller/MainController.js" />
+        <option value="$PROJECT_DIR$/app/view/OrderView/OrderDetailView.js" />
+        <option value="$PROJECT_DIR$/app/controller/OrderController.js" />
+        <option value="$PROJECT_DIR$/app/view/OrderView/OrderNavi.js" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1676" />
+    <option name="height" value="1027" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OrderView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="catelog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="PublishConfig">
+    <servers>
+      <server id="11fcae2c-75f0-436a-9403-89518cffaf5a">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+      <server id="e35b34e4-f519-44c4-b261-3a7a99249c7c">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/view/OrderView" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee9b021a-ddd8-407e-b902-945f40fde13a" name="Default" comment="" />
+      <created>1432532344170</created>
+      <updated>1432532344170</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1676" height="1027" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25276074" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24969324" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/model/OrderDetailModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="43" selection-start="150" selection-end="686" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/AddCartStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="9" selection-start="0" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/OrderCartStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="42" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/catelog/CatelogNavi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="43" selection-start="891" selection-end="909" vertical-scroll-proportion="0.45560747" vertical-offset="0" max-vertical-offset="856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/catelog/CatalogCart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="133" selection-start="4310" selection-end="4329" vertical-scroll-proportion="0.0" vertical-offset="672" max-vertical-offset="1515">
+          <folding>
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1432127529000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/OrderCartModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="26" selection-start="168" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="138" selection-start="1959" selection-end="1968" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="89" selection-start="2165" selection-end="2165" vertical-scroll-proportion="-12.192307" vertical-offset="508" max-vertical-offset="1845">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/OrderView/CustomerDetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="15" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/CatalogController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="273" column="56" selection-start="11080" selection-end="11080" vertical-scroll-proportion="-5.8461537" vertical-offset="3943" max-vertical-offset="6120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/OrderView/OrderDetailView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="33" selection-start="322" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
+          <folding>
+            <marker date="1432557282000" expanded="false" signature="633:673" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="703:740" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="866:922" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="952:969" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="1142:1186" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="1217:1259" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="1825:1869" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="1900:1942" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="2497:2556" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="2774:2841" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="2909:2931" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="2967:3003" placeholder="..." />
+            <marker date="1432557282000" expanded="false" signature="3139:3178" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/OrderView/OrderCart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="43" selection-start="4503" selection-end="4513" vertical-scroll-proportion="0.0" vertical-offset="717" max-vertical-offset="1560">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1432549344000" expanded="false" signature="1365:1405" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="1443:1480" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="1630:1686" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="1724:1741" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="1954:1998" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="2037:2079" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="2973:3017" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="3056:3098" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="3983:4042" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="4160:4227" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="4311:4333" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="4377:4402" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="4440:4465" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="4628:4666" placeholder="..." />
+            <marker date="1432549344000" expanded="false" signature="4858:4897" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/MainController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1170" column="74" selection-start="56143" selection-end="56160" vertical-scroll-proportion="-11.038462" vertical-offset="17263" max-vertical-offset="45000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helper/AppConstant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="37" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/OrderController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="161" column="10" selection-start="5798" selection-end="5798" vertical-scroll-proportion="-19.038462" vertical-offset="1890" max-vertical-offset="8325">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/OrderView/OrderNavi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="17" selection-start="764" selection-end="764" vertical-scroll-proportion="0.33294392" vertical-offset="0" max-vertical-offset="856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'KleymisskyRegular';
+    src: url('../font/kleymissky/kleymissky.eot');
+    src: url('../font/kleymissky/kleymissky.eot') format('embedded-opentype'),
+         url('../font/kleymissky/kleymissky.woff2') format('woff2'),
+         url('../font/kleymissky/kleymissky.woff') format('woff'),
+         url('../font/kleymissky/kleymissky.ttf') format('truetype'),
+         url('../font/kleymissky/kleymissky.svg#KleymisskyRegular') format('svg');
+}

@@ -1,0 +1,7 @@
+callback==>jQuery191041386164305731654_1398247950540
+action==>register
+vDevicename==>espressorfdd
+vType==>Android
+vDeviceid==>fcead98bec343be2
+deviceToken==>APA91bHHrleugceindw_6GhqRUkJ5OK0UbcZ--0Q3h0WEAfppev6mysLVmOTzTSend4MfAgKltpqLBxLlQGfeN1GU-Eqw9-fayvRQEe2FxIZN2cbMsAD_SwnPPyNV_taP1Hal6fqtSroWjtGPOj4TFVIbqNLDRDjSw
+_==>1398247950541

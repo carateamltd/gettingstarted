@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+    <translation id="title">
+        <english>Description</english>
+        <French>description</French>
+    </translation>
+	<translation id="Website">
+        <english>Website</english>
+        <French>site Internet</French>
+    </translation>
+<translation id="Email">
+        <english>Email</english>
+        <French>E-mail</French>
+    </translation>
+<translation id="Telephone">
+        <english>Telephone</english>
+        <French>téléphone</French>
+    </translation>
+<translation id="Address 1">
+        <english>Address 1</english>
+        <French>adresse 1</French>
+    </translation>
+<translation id="Address 2">
+        <english>Address 2</english>
+        <French>adresse 2</French>
+    </translation> 	
+<translation id="City">
+        <english>City</english>
+        <French>ville</French>
+    </translation> 	
+<translation id="State">
+        <english>State</english>
+        <French>état</French>
+    </translation> 	
+<translation id="Zip">
+        <english>Zip</english>
+        <French>fermeture éclair</French>
+    </translation> 	
+<translation id="Latitude">
+        <english>Latitude</english>
+        <French>latitude</French>
+    </translation> 
+<translation id="Longitude">
+        <english>Longitude</english>
+        <French>longitude</French>
+</translation> 
+<translation id="GPS">
+        <english>GPS location look up</english>
+        <French>Localisation GPS lever les yeux</French>
+</translation> 	
+<translation id="distance">
+        <english>Distance Type</english>
+        <French>Type de Distance</French>
+</translation> 	
+<translation id="delete">
+        <english>Delete</english>
+        <French>effacer</French>
+</translation>
+<translation id="save">
+        <english>save</english>
+        <French>sauver</French>
+</translation>
+</translations>

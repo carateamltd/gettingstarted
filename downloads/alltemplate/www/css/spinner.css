@@ -1,0 +1,55 @@
+.x-mask .x-mask-inner {
+background: rgba(0,0,0,0);
+position: relative;
+color: #fff;
+text-align: center;
+padding: .4em;
+font-size: .95em;
+font-weight: bold;
+}
+.x-mask .x-mask-message {
+position: absolute;
+bottom: 5px;
+color: rgba(239, 0, 0, 0);
+left: 0;
+right: 0;
+-webkit-box-flex: 0;
+-ms-flex: 0 0 auto;
+flex: 0 0 auto;
+}
+.x-loading-spinner>span.x-loading-top {
+background-color: rgba(55, 230, 124,0.99);
+}
+.x-loading-spinner>span.x-loading-top::before {
+background-color: rgba(55, 230, 124, 0.15);
+}
+.x-loading-spinner>span.x-loading-top::after {
+background-color: rgba(55, 230, 124,0.9);
+}
+.x-loading-spinner>span.x-loading-right {
+background-color: rgba(55, 230, 124,0.25);
+}
+.x-loading-spinner>span.x-loading-right::before {
+background-color: rgba(55, 230, 124,0.3);
+}
+.x-loading-spinner>span.x-loading-right::after {
+background-color: rgba(55, 230, 124,0.2);
+}
+.x-loading-spinner>span.x-loading-bottom {
+background-color: rgba(55, 230, 124,0.4);
+}
+.x-loading-spinner>span.x-loading-bottom::before {
+background-color: rgba(55, 230, 124,0.5);
+}
+.x-loading-spinner>span.x-loading-bottom::after {
+background-color: rgba(55, 230, 124,0.35);
+}
+.x-loading-spinner>span.x-loading-left {
+background-color: rgba(55, 230, 124,0.7);
+}
+.x-loading-spinner>span.x-loading-left::before {
+background-color: rgba(55, 230, 124,0.8);
+}
+.x-loading-spinner>span.x-loading-left::after {
+background-color: rgba(55, 230, 124,0.6);
+}

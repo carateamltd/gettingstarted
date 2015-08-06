@@ -1,0 +1,11 @@
+#RewriteBase /~techiest/php/slb/
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l 
+RewriteCond $1 !^(index\.php|public|robots\.txt)
+RewriteCond $1 !^(index\.php|uploads|public|robots\.txt) 
+RewriteRule ^(.*)$ index.php
+
+php_value short_open_tag on
+php_value error_reporting 6143
