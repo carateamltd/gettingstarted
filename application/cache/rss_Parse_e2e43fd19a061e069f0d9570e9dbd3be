@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex, follow">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <title>SLB</title>
+        <link rel="stylesheet"  href="css/jquery.mobile-1.3.2.min.css">
+        <link rel="stylesheet"  href="css/jqm-demos.css">
+        <link rel="stylesheet"  href="css/style.css">
+        <link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+
+        <script type="text/javascript" src="javascripts/klass.min.js"></script>
+        <script type="text/javascript" src="javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="javascripts/jquery.mobile-1.3.2.min.js"></script>
+        <script type="text/javascript" src="javascripts/jquery.flipster.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <script type="text/javascript" src="javascripts/creditcard.js"></script>        
+        <script type="text/javascript" src="javascripts/code.photoswipe.jquery-3.0.5.min.js"></script>
+
+        <link rel="stylesheet" href="css/jquery.flipster.css">
+        <script type="text/javascript">
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1;
+        var isiPhone = ua.indexOf("iphone") > -1;
+        if(isAndroid) {
+            document.write('<script src="javascripts/cordova-2.6.0.js"><\/script>');
+            document.write('<script src="javascripts/childBrowser.js"><\/script>');
+            document.write('<script src="javascripts/email_composer.js"><\/script>');
+        }
+        if(isiPhone){
+            document.write('<script src="javascripts/cordova-ios.js"><\/script>');
+            document.write('<script src="javascripts/childbrowser-ios.js"><\/script>');
+            document.write('<script src="javascripts/EmailComposer.js"><\/script>');
+        }
+        </script>        
+        <script type="text/javascript" src="javascripts/script.js"></script>
+        <script type="text/javascript" src="javascripts/FBConnect.js"></script>
+        <script type="text/javascript" src="javascripts/owl.carousel.js"></script>
+        <script type="text/javascript" src="javascripts/jquery.bgswitcher.js"></script>
+        
+           
+       <!-- /*****************notpad css**************/-->
+      <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+      <link rel="stylesheet" href="css/notpad_font-awesome.min.css" type="text/css" />
+      <link rel="stylesheet" href="css/notpad_font.css" type="text/css" cache="false" />
+      <link rel="stylesheet" href="css/notpad_app.css" type="text/css" />
+      <!-- /*****************notpad css end**************/-->
+           
+    </head>
+    <body class="tab_bg">
+        <input type="hidden" name="menutype" id="menutype" value="Bottom"><input type="hidden" id="menu_column" name="menu_column" value="5"><input type="hidden" name="middlevalue" id="middlevalue" value="2"><div data-role="page" id="default_menu"><div data-role="header" id="hedbg" class="headerbg1">
+                            <div class="defaulthedbg bgcolor_hedlunch">
+                                <ul><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li></ul>
+                            </div></div>
+                        <div style="clear:both;"></div><div data-role="content" id="mainbackground"><div id="midpartwrap">&nbsp;</div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="dialog" id="Dialog">
+                <div data-role="header" data-theme="d" data-position="inline">
+                    <h1>Alert</h1>
+                </div>
+                <div data-role="content" data-theme="c">
+                    <h3 id="alertMsg">Please Enter Valid Zip Code.</h3>
+                    <a data-role="button" data-rel="back" data-theme="c">Cancel</a>   
+                </div>
+            </div>
+
+<div data-role="page" id="rss_feeds_0"><div data-role="header" id="hedbg" class="headerbg"><h1 class="hedbg">RSS Feeds</h1><div class="bgcolor_hed">&nbsp;</div><a href="#default_menu" class="backbutton_default_menu" data-role="button" data-rel="">Back</a></div><div style="clear:both;"></div><div style="clear:both;"></div>
+                            <div data-role="content">
+                    <div id="midpartwrap">
+                       <ul data-role="listview" data-inset="true" class="listradius" id="rss_feeds_list"><li class="list-odd-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_whitecolor">BARC scientist dies in road accident</h2>
+                                                    <p class="white_info">Published DateFri, 25 Jul 2014 09:49:04 GMT</p>
+                                                    <div style="display:none">A senior scientist of Bhabha Atomic Research Centre (BARC), Dr P M Pathak (45), was killed in a road accident which took place in Trombay last night.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cdb39ed/sc/10/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/a2.htm"><img src="http://da.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199120769938/u/0/f/533975/c/33039/s/3cdb39ed/sc/10/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-even-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_lackcolor">Court adjourns hearing in 2002 hit-and-run case involving actor Salman Khan</h2>
+                                                    <p class="black_info">Published DateFri, 25 Jul 2014 07:45:59 GMT</p>
+                                                    <div style="display:none">A sessions court on Friday adjourned the hearing in the 2002 hit-and-run case involving actor Salman Khan to August 21.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cda92b8/sc/8/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/a2.htm"><img src="http://da.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199120993345/u/0/f/533975/c/33039/s/3cda92b8/sc/8/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-odd-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_whitecolor">Eight superfast trains announced from Pune to Kamakhya</h2>
+                                                    <p class="white_info">Published DateFri, 25 Jul 2014 05:36:56 GMT</p>
+                                                    <div style="display:none">The railways will run 8 superfast weekly special trains between Pune and Kamakhya to clear the extra rush of passengers, officials at the CR headquarters in Mumbai said.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd94d7f/sc/8/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/a2.htm"><img src="http://da.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199109879238/u/0/f/533975/c/33039/s/3cd94d7f/sc/8/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-even-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_lackcolor">File reply on parking lot allotment in 3 weeks: HC</h2>
+                                                    <p class="black_info">Published DateFri, 25 Jul 2014 02:07:38 GMT</p>
+                                                    <div style="display:none">The Bombay high court on Thursday gave the state three weeks’ time to file its reply on the delay in the allotment of public parking lots.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd88560/sc/8/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/a2.htm"><img src="http://da.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199120756212/u/0/f/533975/c/33039/s/3cd88560/sc/8/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-odd-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_whitecolor">Customs seize Rs 3cr at airport in one night</h2>
+                                                    <p class="white_info">Published DateFri, 25 Jul 2014 01:36:11 GMT</p>
+                                                    <div style="display:none">In seven cases, Customs officials of Mumbai airport seized 11 kg of gold worth Rs 2.86 crore on Wednesday night.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd83cf7/sc/10/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/a2.htm"><img src="http://da.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199109874558/u/0/f/533975/c/33039/s/3cd83cf7/sc/10/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-even-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_lackcolor">State govt probe an eyewash? No order issued yet</h2>
+                                                    <p class="black_info">Published DateFri, 25 Jul 2014 01:31:40 GMT</p>
+                                                    <div style="display:none">The terms of reference for the probe have not been finalized either, a senior bureaucrat told TOI.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd83a51/sc/8/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/a2.htm"><img src="http://da.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199109874181/u/0/f/533975/c/33039/s/3cd83a51/sc/8/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-odd-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_whitecolor">Bomb scare at TV channel</h2>
+                                                    <p class="white_info">Published DateFri, 25 Jul 2014 01:30:34 GMT</p>
+                                                    <div style="display:none">A TV news channel received a threat call at its Lower Parel office on Thursday.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd83a54/sc/1/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/a2.htm"><img src="http://da.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199109874180/u/0/f/533975/c/33039/s/3cd83a54/sc/1/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-even-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_lackcolor">Bail for accused in slashing case, victim discharged</h2>
+                                                    <p class="black_info">Published DateFri, 25 Jul 2014 01:28:28 GMT</p>
+                                                    <div style="display:none">The class VIII student, who was booked on Monday for slashing a class X student of the Fatima Devi English High School, Malad, with a blade, was granted bail on Wednesday. The victim was discharged from the hospital on Thursday.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd83a59/sc/33/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/a2.htm"><img src="http://da.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199109874178/u/0/f/533975/c/33039/s/3cd83a59/sc/33/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-odd-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_whitecolor">Dead fireman’s wife, kin of another get jobs</h2>
+                                                    <p class="white_info">Published DateFri, 25 Jul 2014 01:15:42 GMT</p>
+                                                    <div style="display:none">The BMC has cleared the administrative process for recruiting Shubhangi Yewalekar, wife of fireman Nitin Yewalekar who died in the Lotus Business Park blaze in Andheri, as a nurse in a civic hospital.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd83a5b/sc/8/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/a2.htm"><img src="http://da.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199109874176/u/0/f/533975/c/33039/s/3cd83a5b/sc/8/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-even-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_lackcolor">Congress, NCP ready to sever ties over seats</h2>
+                                                    <p class="black_info">Published DateFri, 25 Jul 2014 00:11:51 GMT</p>
+                                                    <div style="display:none">The fate of decade-old alliance between the Congress and NCP hangs in balance with chief minister Prithviraj Chavan and senior NCP leader Ajit Pawar drawing swords over sharing seats for assembly polls, threatening to break ties if there is “no respectful settlement”. <img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd7a9d0/sc/7/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/a2.htm"><img src="http://da.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199121058614/u/0/f/533975/c/33039/s/3cd7a9d0/sc/7/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-odd-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_whitecolor">Bombay HC raps Maharashtra govt for telling war widow to pay market price for promised land</h2>
+                                                    <p class="white_info">Published DateThu, 24 Jul 2014 23:26:34 GMT</p>
+                                                    <div style="display:none">The Bombay high court on Thursday rapped the state government for telling a war widow of the 1965 India-Pakistan war to pay the market price for land it had promised her. Indira Jadhav, 24 at the time, is 72 today, and lives in Chinchwad, Pune.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd790af/sc/7/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/a2.htm"><img src="http://da.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199108380809/u/0/f/533975/c/33039/s/3cd790af/sc/7/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li><li class="list-even-bg rss_feeds_list">
+                                                <a class="listing_anr" href="">
+                                                    <img src="" class="image_sp"/>
+                                                    <h2 class="hd_lackcolor">Police can take suo motu action and file FIR against MPs: Legal experts</h2>
+                                                    <p class="black_info">Published DateThu, 24 Jul 2014 21:06:46 GMT</p>
+                                                    <div style="display:none">Police have powers to suo motu file a First Information Report (FIR) in the case involving force-feeding of a fasting Muslim catering supervisor by Shiv Sena MPs and should investigate the incident, said legal experts.<img width='1' height='1' src='http://timesofindia.feedsportal.com/c/33039/f/533975/s/3cd71229/sc/8/mf.gif' border='0'/><br clear='all'/><br/><br/><a href="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/rc/1/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/rc/1/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/rc/2/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/rc/2/rc.img" border="0"/></a><br/><a href="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/rc/3/rc.htm" rel="nofollow"><img src="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/rc/3/rc.img" border="0"/></a><br/><br/><a href="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/a2.htm"><img src="http://da.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/a2.img" border="0"/></a><img width="1" height="1" src="http://pi.feedsportal.com/r/199109869078/u/0/f/533975/c/33039/s/3cd71229/sc/8/a2t.img" border="0"/></div>
+                                                </a>
+                                            </li></ul>
+                    </div>
+                </div>
+                            <div style="clear:both;"></div>
+                            <div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div>
+                        </div>
+
+<div data-role="page" id="video_detail"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                            <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch" id="videoTitleId">&nbsp;</h1>;
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content">
+                            <div id="video_detail_main" class="midpartwrap">
+                                &nbsp;   
+                            </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="page" id="2tire_detail"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                            <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch"><span class="hdspage" id="2tireTitleId">&nbsp;</span></h1>
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content">
+                            <div id="2tire_detail_main" class="midpartwrap topspecing">
+                                &nbsp;   
+                            </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="page" id="news_detail"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                            <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch"><span class="hdspage" id="newsTitleId">&nbsp;</span></h1>;
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content">
+                            <div id="news_detail_main" class="midpartwrap">
+                                &nbsp;   
+                            </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="page" id="rss_detail"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                            <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch"><span class="hdspage" id="rssTitleId">&nbsp;</span></h1>
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content">
+                            <div id="rss_detail_main" class="midpartwrap">
+                                &nbsp;   
+                            </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="page" id="podcast_detail"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                                <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch"><span class="hdspage"  id="podcastTitleId">&nbsp;</span></h1>
+                                    <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                            <div style="clear:both;"></div>
+                            <div data-role="content">
+                                <div id="podcast_detail_main" class="midpartwrap">
+                                    &nbsp;   
+                                </div>
+                            </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="page" id="event_detail"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                            <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch"><span class="hdspage" id="titleId">&nbsp;</span></h1>
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content">
+                            <div id="event_detail_main" class="midpartwrap topspecing">
+                                &nbsp;   
+                            </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="dialog" id="fanDialog">
+                <div data-role="header" data-theme="d" data-position="inline">
+                    <h1>Alert</h1>
+                </div>
+                <div data-role="content" data-theme="c">
+
+                    <a data-role="button" data-rel="back" data-theme="c">Cancel</a>   
+                </div>
+            </div>
+
+<div data-role="page" id="payment_thanks"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                            <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch">&nbsp;</h1>
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content"><div id="midpartwrap"><div class="detail_part"><div class="thankscl"><p>Your payment pay successfully. Thank you for purchase item. Please check your confirm email.</p></div></div>
+                                    </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="page" id="map_container"><div data-role="header" id="hedbg" class="headerbg hbgglobal">
+                            <a href="/" data-role="button" data-rel="back">Back</a><h1 class="hedbglunch">Map Location</h1>
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content">
+                            <div id="map-canvas" >
+                                &nbsp;                  
+                            </div>
+                            <div class="buttonthree">
+                                <a class="callusnew" href="#" data-role="button">Call Us</a>
+                                <a style="width: 31%; float: left;"  href="" target="_blank" data-role="button">Website </a>
+                                <a class="sendemlbtn" href="#" data-role="button" data-inline="true">Send</a>
+                            </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+<div data-role="page" id="map_direction"><div data-role="header" id="hedbg" class="headerbg hbgglobal"><a href="#default_menu" data-role="button" data-rel="">Back</a><h1 class="hedbglunch">Map Direction</h1>
+                                <div class="bgcolor_hedlunch">&nbsp;</div></div>
+                        <div style="clear:both;"></div>
+                        <div data-role="content">
+                            <div id="map-canvas1" >
+                                &nbsp;                  
+                            </div>
+                        </div><div data-role="footer" class="footerpartmain" style="position:fixed;bottom:0;"><div id="demo">
+                        <div id="owl-demo" style="width:100%;" class="owl-carousel myowl"><div class="item" style=""><a class="mybg" href="#rss_feeds_0"><span class="nav_icon"><img src="http://localhost/restaurant_web/trunk/uploads/tab_icon/12/rss.png" alt="RSS Feeds"></span> <strong class="navtext">RSS Feeds</strong></a><a class="bgtabcol" href="#rss_feeds_0">&nbsp;</a>
+            </div></div> 
+                    </div>
+                </div></div>
+
+
+        </body>
+    <!--<script src="javascripts/notpad_jquery.min.js"></script>-->
+        <script src="javascripts/notpad_bootstrap.js"></script>
+        <!-- App -->
+        <!--<script src="js/app.js"></script>-->
+        <script src="javascripts/notpad_app.plugin.js"></script>
+        <script src="javascripts/notpad_app.data.js"></script>  
+        <script src="javascripts/notpad_underscore-min.js"></script>
+        <script src="javascripts/notpad_backbone-min.js"></script>
+        <script src="javascripts/notpad_backbone.localStorage-min.js"></script>  
+        <script src="javascripts/notpad_moment.min.js"></script>
+        <!-- Notes -->
+        <script src="javascripts/notpad_notes.js" cache="false"></script>
+        <script type="text/javascript" src="javascripts/jsOAuth-1.3.6.js"></script>
+        <script type="text/javascript" src="javascripts/twitter.js"></script>
+</html>
