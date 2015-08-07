@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-06-19 17:02:58
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 20:17:18
          compiled from "application/views/templates/view-notification.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2798697125583e8d2db1fe6-94433559%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b6c15b40a4ed967e3543cd93aa1254f99df57b21' => 
     array (
       0 => 'application/views/templates/view-notification.tpl',
-      1 => 1429789572,
+      1 => 1438864761,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5583e8d2e8aa62_25286356',
   'variables' => 
   array (
     'data' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'admin_url' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5583e8d2e8aa62_25286356',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5583e8d2e8aa62_25286356')) {function content_5583e8d2e8aa62_25286356($_smarty_tpl) {?><script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['data']->value['basedatatable_js'];?>
 notification_listing.js"></script>

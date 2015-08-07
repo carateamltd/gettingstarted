@@ -304,6 +304,9 @@ class webservice extends MY_Controller
 	        case 'easyapps_get_clients_paypal_info':
 	        	$this->easyapps_get_clients_paypal_info();
 	        	break;
+	        case 'easyapps_get_clients_currency';
+	        	$this->easyapps_get_clients_currency();
+	        	break;
 		    default:
 				break;
 		}
@@ -5943,6 +5946,35 @@ header('Access-Control-Allow-Origin: *');
  			$result['clientID'] = '';	
  		}
 
+ 		header('Content-type: application/json');
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+		echo json_encode($result);
+        exit;
+ 	}
+ 	
+ 	public function easyapps_get_clients_currency()
+ 	{
+ 		$appId = $this->input->post('appId'); //-- Application ID
+ 		if($appId)
+ 		{
+ 			$appDetails = $this->webservice_model->get_currency_for_order_details($appId);
+ 			if($appDetails){
+ 				$result['Status'] = "success";
+ 				$result['currencyCode'] = $appDetails['vCurrency'];
+ 			}else{
+ 				/* Fail */
+				$result['Status'] = 'fail';
+				$result['currencyCode'] = '';
+ 			}
+ 		}
+ 		else
+ 		{
+ 			$result['Status'] = 'fail';
+ 			$result['currencyCode'] = '';
+ 		}
+ 		
  		header('Content-type: application/json');
 		header('Access-Control-Allow-Origin: *');
 		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");

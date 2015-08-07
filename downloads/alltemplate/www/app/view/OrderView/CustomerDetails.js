@@ -16,6 +16,11 @@ Ext.define('MyApp.view.OrderView.CustomerDetails', {
                 margin:5
             },
             {
+				html: Loc.t('CATELOG.CLIENTDETAILS'),
+				styleHtmlContent: true,
+				style: 'margin: -15px;font-size: 24px;text-align: center;'
+			}, 
+            {
                 xtype: 'fieldset',
                 items: [
                     {
@@ -23,8 +28,8 @@ Ext.define('MyApp.view.OrderView.CustomerDetails', {
                         name: 'vName',
                         label: Loc.t('CATELOG.NAME'),
                         labelAlign: 'top',
-                        labelWidth: '100%'//,
-                        //readOnly: true
+                        labelWidth: '100%',
+                        required: true
                     },
                     {
                         xtype: 'emailfield',
@@ -49,11 +54,12 @@ Ext.define('MyApp.view.OrderView.CustomerDetails', {
                         //readOnly: true
                     },
                     {
-                        xtype: 'textfield',
-                        name: 'vState',
-                        label: Loc.t('CATELOG.STATE'),
+                        xtype: 'numberfield',
+                        name: 'vTel',
+                        label: Loc.t('CATELOG.TEL'),
                         labelAlign: 'top',
-                        labelWidth: '100%'
+                        labelWidth: '100%',
+                        required: true
                     },
                     {
                         xtype: 'textfield',

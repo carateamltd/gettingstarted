@@ -56,7 +56,7 @@ Ext.define('MyApp.view.catelog.CatalogProducts', {
                             'Prix : -' +
                         '</tpl>'+
                      '</div>'+
-                     '<div style="width:50%;float:left;margin-top:5px;font-weight:bold;font-size:12px">Qté : <input value="1" id="qty_{iCatelogueId}" type="text" style="width:40px;height:40px"></div>'+
+                     '<div style="width:50%;float:left;margin-top:5px;font-weight:bold;font-size:12px">Qté : <input value="1" id="qty_{iCatelogueId}" type="text" style="width:40px;height:40px;text-align:center;"></div>'+
                      '<div style="width:50%;float:right;margin-top:5px"><button id="cart_{iCatelogueId}" onclick="MyApp.app.getController(\'CatalogController\').addProductToCart(this)" class="cartBtn" style="float: right;width: 40px; height: 40px;" type="button"></button></div>'
         }]
     }

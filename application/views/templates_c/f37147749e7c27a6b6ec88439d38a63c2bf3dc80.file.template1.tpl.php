@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-06-19 15:12:52
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-07 17:12:48
          compiled from "application/views/templates/default_template/template1.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14192191665583cf04020d70-96720135%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f37147749e7c27a6b6ec88439d38a63c2bf3dc80' => 
     array (
       0 => 'application/views/templates/default_template/template1.tpl',
-      1 => 1432624266,
+      1 => 1438864761,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5583cf04086f18_76792640',
   'variables' => 
   array (
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5583cf04086f18_76792640',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5583cf04086f18_76792640')) {function content_5583cf04086f18_76792640($_smarty_tpl) {?><div class="main_iphonebg">
  <!--***************template 1**************-->	

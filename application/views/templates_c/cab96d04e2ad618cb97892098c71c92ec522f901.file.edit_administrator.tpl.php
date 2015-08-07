@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-07-30 16:24:12
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 21:20:43
          compiled from "application/views/templates/edit_administrator.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:94188178455855a80d56220-15615031%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cab96d04e2ad618cb97892098c71c92ec522f901' => 
     array (
       0 => 'application/views/templates/edit_administrator.tpl',
-      1 => 1438247654,
+      1 => 1438864761,
       2 => 'file',
     ),
   ),
@@ -721,31 +721,36 @@ administrator/save_paypal_onfo" method="post"
             <input type="hidden" name="Data[iClientId]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['admin']['iAdminId'];?>
 ">
 
-            <div class="control-group">
+            <div class="control-group" style="display:none;">
                 <label class="control-label">Username</label>
 
                 <div class="controls">
-                    <input type="text" placeholder="Paypal Username" class="input-large" id="vPusername"
+                    <!--<input type="text" placeholder="Paypal Username" class="input-large" id="vPusername"
                            name="Data[vUsername]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['paypal_info']['vUsername'];?>
-"/>
+"/>-->
+                    <input type="text" placeholder="Paypal Username" class="input-large" id="vPusername"
+                           name="Data[vUsername]" value="-"/>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="control-group" style="display:none;">
                 <label class="control-label">Paypal Password</label>
 
                 <div class="controls">
-                    <input type="text" placeholder="Paypal Password" class="input-large" id="vPpassword"
+                    <!--<input type="text" placeholder="Paypal Password" class="input-large" id="vPpassword"
                            name="Data[vPassword]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['paypal_info']['vPassword'];?>
-"/>
+"/>-->
+                    <input type="text" placeholder="Paypal Password" class="input-large" id="vPpassword"
+                           name="Data[vPassword]" value="-"/>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Paypal Signature</label>
+                <!--<label class="control-label">Paypal Signature</label>-->
+                <label class="control-label">Paypal App Client ID (LIVE)</label>
 
                 <div class="controls">
                     <input type="text" placeholder="Paypal Signature" class="input-large" id="vPsignature"
                            name="Data[vSignature]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['paypal_info']['vSignature'];?>
-"/>
+" style="width: 450px;" />
                 </div>
             </div>
             <div class="form-actions">

@@ -86,6 +86,19 @@ var app = {
    },
    createPayment : function () {
      // for simplicity use predefined amount
+     var papalSupportedCurrencies = [
+		'AUD', 'BRL', 'CAD', 'CZK', 'DKK',
+		'EUR', 'HKD', 'HUF', 'ILS', 'JPY',
+		'MYR', 'MXN', 'NOK', 'NZD', 'PHP',
+		'PLN', 'GBP', 'SGD', 'SEK', 'CHF',
+		'TWD', 'THB', 'USD'
+	];
+     var cCode = localStorage.getItem('cCode');
+     if(papalSupportedCurrencies.indexOf(cCode) === -1){
+		Ext.Msg.alert('Oops!', 'Currency code '+ cCode +' not Supported by PayPal');
+		console.log('Supported currencies are: AUD, BRL, CAD, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, NOK, NZD, PHP, PLN, GBP, SGD, SEK, CHF, TWD, THB, USD');
+		return;
+	}
       var num = TextConstants.TotalAmount;
     var n = num.toString();
      var paymentDetails = new PayPalPaymentDetails(n, "0.00", "0.00");
@@ -133,11 +146,31 @@ var app = {
    }
 };
 function OnBuy(){
-	if(typeof(PayPalMobile) != "undefined"){
-     PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment, app.onUserCanceled);
-    }
-    else{
-    	console.log("'PayPalMobile' is not defined.");
-    }
+	// get currency code and then init payment
+	Ext.Ajax.request({
+		url: URLConstants.URL + 'action=easyapps_get_clients_currency',
+		params: {
+			appId: TextConstants.ApplicationId
+		},
+		method: 'POST',
+		success: function(result){
+			try{
+				var res = Ext.decode(result.responseText);
+				localStorage.setItem('cCode', res.currencyCode);
+				if(typeof(PayPalMobile) != "undefined"){
+					PayPalMobile.renderSinglePaymentUI(app.createPayment(), app.onSuccesfulPayment, app.onUserCanceled);
+				}
+				else{
+					console.log("'PayPalMobile' is not defined.");
+				}
+			}
+			catch(e){
+				console.log(e);
+			}
+		},
+		failure: function(result){
+			console.log(result);
+		}
+	});
 }
 app.initialize();

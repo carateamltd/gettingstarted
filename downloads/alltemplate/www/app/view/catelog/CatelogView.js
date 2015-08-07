@@ -15,7 +15,8 @@ Ext.define('MyApp.view.catelog.CatelogView', {
                 onItemDisclosure: true,
                 getItemTextTpl: function(recordnode) {
                     return '<div style="height:100px;"><img width="100" height="100" src="http://{vImage}" /> <span style="position: relative;top:-85px;">{text}</span></div>';
-                }
+                },
+                backText: Loc.t('BUTTON.BACK')
             }
         ]
     }

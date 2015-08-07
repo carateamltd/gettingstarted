@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-06-18 17:41:32
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 20:17:01
          compiled from "application/views/templates/left-sidebar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5548081445582a05c19bc33-10989021%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '93384a38ce6e22dabb3822e348204524b98cb6fd' => 
     array (
       0 => 'application/views/templates/left-sidebar.tpl',
-      1 => 1429107932,
+      1 => 1438864761,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5582a05c30b189_33117425',
   'variables' => 
   array (
     'data' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'val' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5582a05c30b189_33117425',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5582a05c30b189_33117425')) {function content_5582a05c30b189_33117425($_smarty_tpl) {?><!-- BEGIN SIDEBAR -->
 <div class="leftpanel">

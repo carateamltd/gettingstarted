@@ -37,7 +37,7 @@ Ext.define('MyApp.controller.CatalogController', {
         var objCatelogStore = Ext.getStore('catelogestoreid');
         objCatelogStore.load({url: URLConstants.URL + 'action=easyapps_catalogue_category&iApplicationId=' + TextConstants.ApplicationId});
     },
-    onBtnSaveCustomerDetailsTap: function(){debugger;
+    onBtnSaveCustomerDetailsTap: function(){
     	if(this.getCatelogNavi()){
         var url = URLConstants.URL + 'action=easyapps_catalogue_customer_details&iApplicationId=' + TextConstants.ApplicationId + '&iUserId=' + TextConstants.UserId;
         var formValues = this.getCustomerdetails().getValues();
@@ -46,25 +46,25 @@ Ext.define('MyApp.controller.CatalogController', {
         	return;
         }
         if(formValues.vEmailId == ''){
-        	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMAILRRROR'));
+        	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMAILERROR'));
         	return;
         }
-        if(formValues.vAddress == ''){
+        /*if(formValues.vAddress == ''){
         	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.ADDRESSERROR'));
         	return;
         }
         if(formValues.vCity == ''){
         	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CITYERROR'));
         	return;
-        }
-        if(formValues.vState == ''){
-        	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.STATEERROR'));
+        }*/
+        if(formValues.vTel == null){
+        	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMPTYTEL'));
         	return;
         }
-        if(formValues.vPincode == ''){
+        /*if(formValues.vPincode == ''){
         	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.PINERROR'));
         	return;
-        }
+        }*/
         var a = Ext.getStore('OrderSummaryStore').getAt(0).data;
         a.deliverydate = a.deliverydate.toDateString();
         formValues.orderSummary = a;
@@ -97,7 +97,7 @@ Ext.define('MyApp.controller.CatalogController', {
     	var homeDelivery = Ext.ComponentQuery.query('#homeDelivery')[0];
     	var takeAway = Ext.ComponentQuery.query('#takeAway')[0];
     	if(!homeDelivery.isChecked() && !takeAway.isChecked()){
-    		Ext.Msg.alert(Loc.t('CATELOG.ALERT'), "Please select delivery option");
+    		Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.SELECTOPTION'));
     		return;
     	}
         var cart = new Array();
@@ -152,7 +152,7 @@ Ext.define('MyApp.controller.CatalogController', {
     loadProducts: function(listItem, list, index, target, record, e, eOpts){
         var catId = record.get('cat_id');
         Ext.getStore('CatalogProductStore').load({url: URLConstants.URL + 'action=easyapps_catalogue_product&cat_id=' + catId});
-        this.catalogProductView = Ext.create('MyApp.view.catelog.CatalogProducts',{title: record.get('text')});
+        this.catalogProductView = Ext.create('MyApp.view.catelog.CatalogProducts',{title: Loc.t('CATELOG.ARTICLES')});
         this.getCatelogNavi().push(this.catalogProductView);
     },
 
@@ -251,7 +251,7 @@ Ext.define('MyApp.controller.CatalogController', {
             }
         }
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('price_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrencyCode')+newPrice;
+        document.getElementById('price_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrencyCode')+newPrice;
     },
 
     changeProductOptionPrice: function(selectElement){
@@ -284,7 +284,7 @@ Ext.define('MyApp.controller.CatalogController', {
         }
 
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('price_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrencyCode')+newPrice;
+        document.getElementById('price_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrencyCode')+newPrice;
     },
 
     goToCart: function(){
@@ -300,7 +300,7 @@ Ext.define('MyApp.controller.CatalogController', {
             total = total + Number(record.get('price'));
             currency = record.get('vCurrencyCode');
         }
-        this.catalogCartView.query('#cartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' + currency + total+'</center>');
+        this.catalogCartView.query('#cartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' + currency + Number(total).toFixed(2) +'</center>');
         TextConstants.TotalAmount = total;
         TextConstants.PayOption = 'Catalog';
     },
@@ -366,7 +366,7 @@ Ext.define('MyApp.controller.CatalogController', {
 						currency = record.get('vCurrencyCode');
 					}
 					Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMDELETE'));
-					this.catalogCartView.query('#cartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency +total+'</center>');
+					this.catalogCartView.query('#cartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency +Number(total).toFixed(2)+'</center>');
 					TextConstants.TotalAmount = total;
                 }
             }
@@ -421,7 +421,7 @@ Ext.define('MyApp.controller.CatalogController', {
             total = total + Number(record.get('price'));
             currency = record.get('vCurrencyCode');
         }
-        this.catalogCartView.query('#cartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency + total+'</center>');
+        this.catalogCartView.query('#cartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency + Number(total).toFixed(2)+'</center>');
         TextConstants.TotalAmount = total;
         Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMUPDATE'));
         
@@ -431,23 +431,28 @@ Ext.define('MyApp.controller.CatalogController', {
     	var vals = btn.up('formpanel').getValues();
     	if(this.getCatelogNavi()){
 			var vals = btn.up('formpanel').getValues();
-			//create customer details
-			this.orderCustomerView = Ext.create('MyApp.view.OrderView.CustomerDetails', {title: Loc.t('CATELOG.CUSTOMER')});
-			this.getCatelogNavi().push(this.orderCustomerView);
-			this.orderCustomerView.setValues(vals);
+			if(vals.tel != null){
+				//create customer details
+				this.orderCustomerView = Ext.create('MyApp.view.OrderView.CustomerDetails', {title: Loc.t('CATELOG.CUSTOMER')});
+				this.getCatelogNavi().push(this.orderCustomerView);
+				this.orderCustomerView.setValues(vals);
 			
-			var orderType = null;
-			var homeDelivery = Ext.ComponentQuery.query('#homeDelivery')[0];
-    		var takeAway = Ext.ComponentQuery.query('#takeAway')[0];
-	    	if(homeDelivery.isChecked()){
-	    		vals.orderType = "Home Delivery";
+				var orderType = null;
+				var homeDelivery = Ext.ComponentQuery.query('#homeDelivery')[0];
+				var takeAway = Ext.ComponentQuery.query('#takeAway')[0];
+				if(homeDelivery.isChecked()){
+					vals.orderType = "Home Delivery";
+				}
+				else{
+					vals.orderType = "Take Out";
+				}
+				var orderSummaryStore = Ext.getStore('OrderSummaryStore');
+				orderSummaryStore.removeAll();
+				orderSummaryStore.add(vals);
 	    	}
 	    	else{
-	    		vals.orderType = "Take Out";
+	    		Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMPTYTEL'));
 	    	}
-	    	var orderSummaryStore = Ext.getStore('OrderSummaryStore');
-	    	orderSummaryStore.removeAll();
-	    	orderSummaryStore.add(vals);
 		}
     }
 });

@@ -43,56 +43,71 @@ Ext.define('MyApp.view.catelog.CatalogCart', {
                     wrap: true
                 },
                 itemCls: 'dataviewcart-item',
-                itemTpl: '<div style="height:100px;width:100%;font-size: 12px;">'+
-						 '<div style="text-align: left;float:left;width:30%">'+
-							'<img src="http://{vImage}" height="100px" width="100px"/>' +
-						 '</div>'+
-						 '<div style="text-align: left;float:right;padding-left:20px;width:70%">'+
-							'<div style="font-weight: bold">{text}</div>'+
-							'<div >{tDescription}</div>'+
-						 '</div>'+
-            		 '</div>'+
-            		 '<tpl if="sizes.length != 0" >'+
-                     	'<div style="margin-top:15px;height:25px;font-size: 12px;">'+
-                            '<span style="font-weight:bold;position:relative;top:5px">Size : </span>'+
-                            '<div class="styled-select">'+
-								'<select style="width:140px;" id="cartsize_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductSizePrice(this)"><option value="NA">-Select-</option>'+
-									'<tpl for="sizes">'+
-									'<tpl if="iSizeId == parent.selectedSize" >'+
-                						'<option value="{iSizeId}" selected>{text} ({parent.vCurrencyCode}{fSizePrice})</option>'+
-                					'<tpl else>'+
-                						'<option value="{iSizeId}">{text} ({parent.vCurrencyCode}{fSizePrice})</option>'+
-                					'</tpl>'+
-									'</tpl>'+
-								'</select>'+
-                            '</div>'+
-                     	'</div>'+
-                     '</tpl>'+
-                     '<tpl if="option.length != 0" >'+
-                     	'<div style="margin-top:15px;height:25px;font-size: 12px;">'+
-                            '<span style="font-weight:bold;position:relative;top:5px">Option : </span>'+
-                            '<div class="styled-select">'+
-								'<select style="width:140px;" id="cartoption_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductOptionPrice(this)"><option value="NA">-Select-</option>'+
-									'<tpl for="option">'+
-									'<tpl if="iOptionId == parent.selectedOption" >'+
-                						'<option value="{iOptionId}" selected>{text} ({parent.vCurrencyCode}{fOptionPrice})</option>'+
-                					'<tpl else>'+
-                						'<option value="{iOptionId}">{text} ({parent.vCurrencyCode}{fOptionPrice})</option>'+
-                					'</tpl>'+
-									'</tpl>'+
-								'</select>' +
-                            '</div>'+
-                     	'</div>'+
-                     '</tpl>'+
-                     '<div id="price_{iCatelogueId}"style="margin-top:5px;height:25px;font-size: 12px;font-weight:bold">'+
-                        'Price : {vCurrencyCode}{price}'+
-                     '</div>'+
-                     '<div style="width:50%;float:left;margin-top:5px;font-weight:bold;font-size:12px">Qty : <input value="{selectedQty}" id="cartQty_{iCatelogueId}" type="text" style="width:40px;height:40px"></div>'+
-                	'<div style="width:100%;margin-top:5px">'+
-                     '<div style="width:100%;margin-top:5px">'+
-                		'<button id="cart_{iCatelogueId}" onclick="MyApp.app.getController(\'CatalogController\').updateProductInCart(this)" class="cartBtn" style="float: left;width: 40px; height: 40px;" type="button"></button>'+
-                		'<button id="cart_{iCatelogueId}" onclick="MyApp.app.getController(\'CatalogController\').removeProductInCart(this)" class="cartDeleteBtn" style="float: right;width: 40px; height: 40px;" type="button"></button>'+
-                	'</div>'
+                itemTpl: Ext.create('Ext.XTemplate',
+                	'<div style="height:100px;width:100%;font-size: 12px;">',
+						 '<div style="text-align: left;float:left;width:30%">',
+							'<img src="http://{vImage}" height="100px" width="100px"/>' ,
+						 '</div>',
+						 '<div style="text-align: left;float:right;padding-left:20px;width:70%">',
+							'<div style="font-weight: bold">{text}</div>',
+							'<div >{tDescription}</div>',
+						 '</div>',
+            		 '</div>',
+            		 '<tpl if="sizes.length != 0" >',
+                     	'<div style="margin-top:15px;height:25px;font-size: 12px;">',
+                            '<span style="font-weight:bold;position:relative;top:5px">{[this.getSize()]} : </span>',
+                            '<div class="styled-select">',
+								'<select style="width:140px;" id="cartsize_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductSizePrice(this)"><option value="NA">-Select-</option>',
+									'<tpl for="sizes">',
+									'<tpl if="iSizeId == parent.selectedSize" >',
+                						'<option value="{iSizeId}" selected>{text} ({parent.vCurrencyCode}{fSizePrice})</option>',
+                					'<tpl else>',
+                						'<option value="{iSizeId}">{text} ({parent.vCurrencyCode}{fSizePrice})</option>',
+                					'</tpl>',
+									'</tpl>',
+								'</select>',
+                            '</div>',
+                     	'</div>',
+                     '</tpl>',
+                     '<tpl if="option.length != 0" >',
+                     	'<div style="margin-top:15px;height:25px;font-size: 12px;">',
+                            '<span style="font-weight:bold;position:relative;top:5px">{[this.getOption()]} : </span>',
+                            '<div class="styled-select">',
+								'<select style="width:140px;" id="cartoption_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductOptionPrice(this)"><option value="NA">-Select-</option>',
+									'<tpl for="option">',
+									'<tpl if="iOptionId == parent.selectedOption" >',
+                						'<option value="{iOptionId}" selected>{text} ({parent.vCurrencyCode}{fOptionPrice})</option>',
+                					'<tpl else>',
+                						'<option value="{iOptionId}">{text} ({parent.vCurrencyCode}{fOptionPrice})</option>',
+                					'</tpl>',
+									'</tpl>',
+								'</select>',
+                            '</div>',
+                     	'</div>',
+                     '</tpl>',
+                     '<div id="price_{iCatelogueId}"style="margin-top:5px;height:25px;font-size: 12px;font-weight:bold">',
+                        '{[this.getPrice(values.vCurrencyCode, values.price)]}',
+                     '</div>',
+                     '<div style="width:50%;float:left;margin-top:5px;font-weight:bold;font-size:12px">{[this.getQty()]} : <input value="{selectedQty}" id="cartQty_{iCatelogueId}" type="text" style="width:40px;height:40px;text-align:center;"></div>',
+                	'<div style="width:100%;margin-top:5px">',
+                     '<div style="width:100%;margin-top:5px">',
+                		'<button id="cart_{iCatelogueId}" onclick="MyApp.app.getController(\'CatalogController\').updateProductInCart(this)" class="cartBtn" style="float: left;width: 40px; height: 40px;" type="button"></button>',
+                		'<button id="cart_{iCatelogueId}" onclick="MyApp.app.getController(\'CatalogController\').removeProductInCart(this)" class="cartDeleteBtn" style="float: right;width: 40px; height: 40px;" type="button"></button>',
+                	'</div>',
+                    {
+                        getPrice: function(code, price) {
+                        	return Loc.t('CATELOG.PRICE') + ' : ' + code + '' + Number(price).toFixed(2);
+                        },
+                        getOption: function(){
+                        	return Loc.t('CATELOG.OPTION');
+                        },
+                        getSize: function(){
+                        	return Loc.t('CATELOG.SIZE');
+                        },
+                        getQty: function(){
+                        	return Loc.t('CATELOG.QTY');
+                        }
+                    })
         }, {
             	xtype: "fieldset",
             	margin: '0 0.5em',

@@ -89,25 +89,25 @@ Ext.define('MyApp.controller.OrderController', {
             return;
         }
         if(formValues.vEmailId == ''){
-            Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMAILRRROR'));
+            Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMAILERROR'));
             return;
         }
-        if(formValues.vAddress == ''){
+        /*if(formValues.vAddress == ''){
             Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.ADDRESSERROR'));
             return;
         }
         if(formValues.vCity == ''){
             Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CITYERROR'));
             return;
-        }
-        if(formValues.vState == ''){
-            Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.STATEERROR'));
+        }*/
+        if(formValues.vTel == null){
+            Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMPTYTEL'));
             return;
         }
-        if(formValues.vPincode == ''){
+        /*if(formValues.vPincode == ''){
             Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.PINERROR'));
             return;
-        }
+        }*/
         var a = Ext.getStore('OrderSummaryStore').getAt(0).data;
         a.deliverydate = a.deliverydate.toDateString();
         formValues.orderSummary = Ext.encode(a);
@@ -210,7 +210,7 @@ Ext.define('MyApp.controller.OrderController', {
             }
         }
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('orderprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+        document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
     },
 
     changeProductOptionPrice: function(selectElement){
@@ -243,7 +243,7 @@ Ext.define('MyApp.controller.OrderController', {
         }
 
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('orderprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+        document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
     },
 
     addProductToCart: function(btn){
@@ -328,7 +328,7 @@ Ext.define('MyApp.controller.OrderController', {
             total = total + Number(record.get('price'));
             currency = record.get('vCurrency');
         }
-        this.orderCartView.query('#orderCartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' + currency + total+'</center>');
+        this.orderCartView.query('#orderCartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' + currency + Number(total).toFixed(2)+'</center>');
         TextConstants.TotalAmount = total;
         TextConstants.PayOption = 'Order';
     },
@@ -378,9 +378,9 @@ Ext.define('MyApp.controller.OrderController', {
         }
         var newPrice = Number(sizePrice) + Number(optionPrice);
         if(view == 'cartView'){
-            document.getElementById('ordercartprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+            document.getElementById('ordercartprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
         }else{
-            document.getElementById('orderprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+            document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
         }
     },
 
@@ -430,9 +430,9 @@ Ext.define('MyApp.controller.OrderController', {
 
         var newPrice = Number(sizePrice) + Number(optionPrice);
         if(view == 'cartView'){
-            document.getElementById('ordercartprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+            document.getElementById('ordercartprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
         }else{
-            document.getElementById('orderprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+            document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
         }
     },
 
@@ -484,7 +484,7 @@ Ext.define('MyApp.controller.OrderController', {
             total = total + Number(record.get('price'));
             currency = record.get('vCurrency');
         }
-        this.orderCartView.query('#orderCartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency + total+'</center>');
+        this.orderCartView.query('#orderCartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency + Number(total).toFixed(2)+'</center>');
         TextConstants.TotalAmount = total;
         Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMUPDATE'));
 
@@ -520,7 +520,7 @@ Ext.define('MyApp.controller.OrderController', {
                         currency = record.get('vCurrency');
                     }
                     Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMDELETE'));
-                    this.orderCartView.query('#orderCartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency +total+'</center>');
+                    this.orderCartView.query('#orderCartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency +Number(total).toFixed(2)+'</center>');
                     TextConstants.TotalAmount = total;
                 }
             }
@@ -531,7 +531,7 @@ Ext.define('MyApp.controller.OrderController', {
     	var homeDelivery = Ext.ComponentQuery.query('#homeDelivery')[0];
     	var takeAway = Ext.ComponentQuery.query('#takeAway')[0];
     	if(!homeDelivery.isChecked() && !takeAway.isChecked()){
-    		Ext.Msg.alert(Loc.t('CATELOG.ALERT'), "Please select delivery option");
+    		Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.SELECTOPTION'));
     		return;
     	}
         var cart = new Array();
@@ -596,23 +596,29 @@ Ext.define('MyApp.controller.OrderController', {
     showCustomerDetailsView: function(btn){
     	if(this.getOrderNavi()){
 			var vals = btn.up('formpanel').getValues();
-			//create customer details
-			this.orderCustomerView = Ext.create('MyApp.view.OrderView.CustomerDetails', {title: Loc.t('CATELOG.CUSTOMER')});
-			this.getOrderNavi().push(this.orderCustomerView);
-			this.orderCustomerView.setValues(vals);
+			var vals = btn.up('formpanel').getValues();
+			if(vals.tel != null){
+				//create customer details
+				this.orderCustomerView = Ext.create('MyApp.view.OrderView.CustomerDetails', {title: Loc.t('CATELOG.CUSTOMER')});
+				this.getOrderNavi().push(this.orderCustomerView);
+				this.orderCustomerView.setValues(vals);
 			
-			var orderType = null;
-			var homeDelivery = Ext.ComponentQuery.query('#homeDelivery')[0];
-    		var takeAway = Ext.ComponentQuery.query('#takeAway')[0];
-	    	if(homeDelivery.isChecked()){
-	    		vals.orderType = "Home Delivery";
+				var orderType = null;
+				var homeDelivery = Ext.ComponentQuery.query('#homeDelivery')[0];
+				var takeAway = Ext.ComponentQuery.query('#takeAway')[0];
+				if(homeDelivery.isChecked()){
+					vals.orderType = "Home Delivery";
+				}
+				else{
+					vals.orderType = "Take Out";
+				}
+				var orderSummaryStore = Ext.getStore('OrderSummaryStore');
+				orderSummaryStore.removeAll();
+				orderSummaryStore.add(vals);
 	    	}
 	    	else{
-	    		vals.orderType = "Take Out";
+	    		Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMPTYTEL'));
 	    	}
-	    	var orderSummaryStore = Ext.getStore('OrderSummaryStore');
-	    	orderSummaryStore.removeAll();
-	    	orderSummaryStore.add(vals);
 		}
     }
 });

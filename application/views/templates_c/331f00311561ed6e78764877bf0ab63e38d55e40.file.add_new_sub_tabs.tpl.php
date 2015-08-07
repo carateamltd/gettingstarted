@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-06-19 13:40:12
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-07 16:45:50
          compiled from "application/views/templates/add_new_sub_tabs.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6512470395583b94c62e7d5-17593292%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '331f00311561ed6e78764877bf0ab63e38d55e40' => 
     array (
       0 => 'application/views/templates/add_new_sub_tabs.tpl',
-      1 => 1429177127,
+      1 => 1438864761,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5583b94c73d9c1_20912477',
   'variables' => 
   array (
     'lang' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5583b94c73d9c1_20912477',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5583b94c73d9c1_20912477')) {function content_5583b94c73d9c1_20912477($_smarty_tpl) {?> <div id="add_new_subtab" class="modal hide fade" tabindex="-1" >
    <div class="modal-header">

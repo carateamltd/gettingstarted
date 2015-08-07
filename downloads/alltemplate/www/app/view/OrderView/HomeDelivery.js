@@ -23,6 +23,10 @@ Ext.define('MyApp.view.OrderView.HomeDelivery', {
 				//MyApp.app.getController('OrderController').onBtnCheckOutTap();
 			}
 		}, {
+			html: Loc.t('CATELOG.ADDRESS'),
+			styleHtmlContent: true,
+			style: 'margin: -15px;font-size: 24px;text-align: center;'
+		}, {
 			xtype: "fieldset",
 			items: [{
 				xtype: "datepickerfield",
@@ -34,10 +38,6 @@ Ext.define('MyApp.view.OrderView.HomeDelivery', {
 				xtype: "textfield",
 				label: Loc.t('CATELOG.TIME'),
 				name: 'deliverytime'
-			}, {
-				html: Loc.t('CATELOG.ADDRESS'),
-				styleHtmlContent: true,
-				style: 'font-weight: bolder;'
 			}, {
 				xtype: "textfield",
 				label: Loc.t('CATELOG.NAME'),
@@ -57,7 +57,8 @@ Ext.define('MyApp.view.OrderView.HomeDelivery', {
 			}, {
 				xtype: "numberfield",
 				label: Loc.t('CATELOG.TEL'),
-				name: "tel"
+				name: "tel",
+				required: true
 			}, {
 				xtype: "textfield",
 				label: Loc.t('CATELOG.APARTMENTNO'),
