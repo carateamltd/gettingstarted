@@ -57,7 +57,7 @@ Ext.define('MyApp.controller.CatalogController', {
         	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CITYERROR'));
         	return;
         }*/
-        if(formValues.vTel == null){
+        if(formValues.tel == null){
         	Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMPTYTEL'));
         	return;
         }
@@ -66,7 +66,9 @@ Ext.define('MyApp.controller.CatalogController', {
         	return;
         }*/
         var a = Ext.getStore('OrderSummaryStore').getAt(0).data;
-        a.deliverydate = a.deliverydate.toDateString();
+        if(typeof a.deliverydate !="string"){
+			a.deliverydate = a.deliverydate.toDateString();
+        }
         formValues.orderSummary = a;
         formValues.cartItems = Ext.getStore('AddCartStore').getData();
          appMask();debugger;
@@ -251,7 +253,7 @@ Ext.define('MyApp.controller.CatalogController', {
             }
         }
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('price_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrencyCode')+newPrice;
+        document.getElementById('price_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrencyCode')+Number(newPrice).toFixed(2);
     },
 
     changeProductOptionPrice: function(selectElement){

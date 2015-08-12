@@ -850,6 +850,16 @@ function uploadHeaderImg(){
 	}	
 }
 
+function uploadGlobalHeaderImg(){
+	var imagename=$("#global_header_img").val();
+	if (imagename!='') {
+		$('#global_header_imgupload').ajaxSubmit(function(data) {			
+			$("#global_header_img_list").html(data.trim());			
+			$("#global_header_img").val('');			
+		});		
+	}	
+}
+
  function colordatepicker(id, val) {
     $("#" + id).css("background-color", val);
     $("#" + id).css("color", val);
@@ -11331,4 +11341,43 @@ function check_service_days(){
 	else{
 		$("#service_working_days_check input[type='checkbox']").attr ( 'checked' , false );
 	}
+}
+
+//-- New Functions --- 
+//function for adding/editing multiple sizes for e-commerce
+function add_size_catalogue_item_new(currency, type){
+	if(type === "edit"){
+		var trId = 'dyntable_catalogue_size';
+	}
+	else{
+		var trId = 'dyntable_size';
+	}
+	var rowCount = ($('#'+trId+' tr').length-1);
+	$("#"+trId).last().append("<tr><td><input type='text' name='size[vSizeName"+rowCount+"]' id='vSizeName"+rowCount+"' /></td><td><input type='text' name='size[fSizePrice"+rowCount+"]' value='0.00' id='fSizePrice"+rowCount+"' onkeypress='return isPriceKey(event);' /> "+currency+"</td><td colspan='2'><a class='button grey' onclick='delete_item_size_menu();' style='cursor:pointer;'><i class='icon-trash itemdel helper-font-24' title='' aria-describedby='ui-tooltip-0'></i></a></td></tr>");
+}
+
+//function for add/edit multiple options for e-commerce
+function edit_option_menu_item_new(currency){
+	var rowCount = ($('#dyntable_option tr').length-1);
+	$("#dyntable_option").last().append("<tr><td><input type='text' name='option[vOptionName"+rowCount+"]' id='vOptionName"+rowCount+"' /></td><td><input type='text' name='option[fOptionPrice"+rowCount+"]' value='0.00' id='fOptionPrice"+rowCount+"' onkeypress='return isPriceKey(event);' /> "+currency+"</td><td><a class='button grey' onclick='delete_item_option_menu();' style='cursor:pointer;'><i class='icon-trash itemdel helper-font-24' title='' aria-describedby='ui-tooltip-0'></i></a></td></tr>");
+}
+
+//function for add/edit multiple sizes for restaurant
+function add_size_menu_item_new(currency, type)
+ {
+ 	if(type === "edit"){
+		var trId = 'dyntable_size';
+	}
+	else{
+		var trId = 'dyntable_size';
+	}
+	var rowCount = ($('#'+trId+' tr').length-1);
+	$("#"+trId).last().append("<tr><td><input type='text' name='size[vSizeName"+rowCount+"]' id='vSizeName"+rowCount+"' /></td><td><input type='text' name='size[fPrice"+rowCount+"]' value='0.00' id='fPrice"+rowCount+"' onkeypress='return isPriceKey(event);' /> "+currency+"</td><td colspan='2'><a class='button grey' onclick='delete_item_size_menu();' style='cursor:pointer;'><i class='icon-trash itemdel helper-font-24' title='' aria-describedby='ui-tooltip-0'></i></a></td></tr>");
+ }
+ 
+ //function for add/edit options for restaurant
+ function add_option_menu_item_new(currency)
+{
+	var rowCount = ($('#dyntable_option tr').length-1);
+	$("#dyntable_option").last().append("<tr><td><input type='text' name='option[vOptName"+rowCount+"]' id='vOptName"+rowCount+"' /></td><td><input type='text' name='option[fCharge"+rowCount+"]' value='0.00' id='fCharge"+rowCount+"' onkeypress='return isPriceKey(event);' /> "+currency+"</td><td><a class='button grey' onclick='delete_item_option_menu();' style='cursor:pointer;'><i class='icon-trash itemdel helper-font-24' title='' aria-describedby='ui-tooltip-0'></i></a></td></tr>");
 }

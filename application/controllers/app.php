@@ -2566,20 +2566,20 @@ class App extends MY_Controller
 											$html.=''.$val['rField'].'';}}
 							$html.='</th>';
 
-					$html.='<th class="head0"><a class="button grey" onClick="update_size_catalogue_item(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
-						if(count($getoptioniteminfo) >0){
+					$html.='<th class="head0"><a class="button grey" onClick="add_size_catalogue_item_new(\''.$this->data['user_info']['vCurrency'].'\', \'edit\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+						if(count($getsizeiteminfo) >0){
 							$t = count($getsizeiteminfo);
 						}else{
 							$t = 1;
 						}
 						for($i=0;$i<$t;$i++){
 							$html.='<tr>
-								<td><input type="text" name="size[vSizeName'.$i.']" value="'.$getsizeiteminfo[$i]['vSizeName'].'" id="vSizeName" /></td>
+								<td><input type="text" name="size[vSizeName'.$i.']" value="'.htmlspecialchars($getsizeiteminfo[$i]['vSizeName']).'" id="vSizeName" /></td>
 								<td><input type="text" name="size[fSizePrice'.$i.']" id="fSizePrice" value="'.$getsizeiteminfo[$i]['fSizePrice'].'" onkeypress="return isPriceKey(event);" /> '.$this->data['user_info']['vCurrency'].'</td>
 								<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
 							  </tr>';
 						}				
-					$html.='<tr>';
+					//$html.='<tr>';
 					$html .='</table>';  
 							
 				$html .= '<br />';							
@@ -2604,7 +2604,7 @@ class App extends MY_Controller
 					}
 				}
 				$html.='</th>';
-				$html.='<th class="head0"><a class="button grey" onclick="edit_option_menu_item(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+				$html.='<th class="head0"><a class="button grey" onclick="edit_option_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
 				if(count($getoptioniteminfo) >0){
 					$t = count($getoptioniteminfo);
 				}else{
@@ -2613,8 +2613,8 @@ class App extends MY_Controller
 
 				for($k=0;$k<$t;$k++){
 				$html.='<tr>
-					<td><input type="text" name="option[vOptionName'.$k.']" value="'.$getoptioniteminfo[$k]['vOptionName'].'" id="vOptionName" /></td>
-					<td><input type="text" name="option[fOptionPrice'.$k.']" value="'.$getoptioniteminfo[$k]['fOptionPrice'].'" id="fOptionPrice" /> '.$this->data['user_info']['vCurrency'].'</td>
+					<td><input type="text" name="option[vOptionName'.$k.']" value="'.htmlspecialchars($getoptioniteminfo[$k]['vOptionName']).'" id="vOptionName'.$k.'" /></td>
+					<td><input type="text" name="option[fOptionPrice'.$k.']" value="'.$getoptioniteminfo[$k]['fOptionPrice'].'" id="fOptionPrice'.$k.'" onkeypress="return isPriceKey(event);" /> '.$this->data['user_info']['vCurrency'].'</td>
 					<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
 				</tr>';
 				}				
@@ -2908,19 +2908,23 @@ class App extends MY_Controller
     function update_sub_catalogue()
     {
     	/* save sub details */
-		$iApplicationId = $this->input->post('iApplicationId');
-		$data = $this->input->post('data');
+    	$postedData = $this->input->post('data');
+		//$iApplicationId = $this->input->post('iApplicationId');
+		$iApplicationId = $postedData['iApplicationId'];
+		//$data = $this->input->post('data');
 		$iCatalogueSubId = $this->input->post('iCatalogueSubId');
 		
 		/** post method **/
 		if($this->input->post())
 		{
 		    if($iApplicationId !=''){
-		        $data['iApplicationId'] = $iApplicationId;
+		       $data['iApplicationId'] = $iApplicationId;
 		    }
 
-		    $iCatalogueSubId = $this->app_model->update_catalogue_sub($data,$iCatalogueSubId);
-
+		   // $iCatalogueSubId = $this->app_model->update_catalogue_sub($data,$iCatalogueSubId);
+			
+			$this->app_model->update_catalogue_sub($data,$iCatalogueSubId);
+			
 		    /** image uploads **/	
 		    $size=array();
 		    $size['width']=200;
@@ -3866,11 +3870,12 @@ class App extends MY_Controller
         }
         if(!is_dir($folder.$iImageId)){
             @mkdir($folder.$iImageId, 0777);
-        }   
+        }
+        $fileName=preg_replace('/[^a-zA-Z0-9_.]/', '',$_FILES['vImage']['name']);
         $config = array(
           'allowed_types' => "gif|GIF|JPG|jpg|JPEG|jpeg||PNG|png",
           'upload_path' => $folder.$iImageId,
-          'file_name' => str_replace(' ','',$_FILES['vImage']['name']),
+          'file_name' => $fileName,
           'max_size'=>5380334
         );  
         
@@ -3881,7 +3886,7 @@ class App extends MY_Controller
         $image_data = $this->upload->data(); //get image data
           $config1 = array(
           'source_image' => $image_data['full_path'], //get original image
-          'new_image' => $folder.$iImageId.'/'.$image_data['file_name'], //save as new image //need to create thumbs first
+          'new_image' => $folder.$iImageId.'/'.$fileName, //save as new image //need to create thumbs first
           'maintain_ratio' => false,
           'width' => 60,
           'height' => 60
@@ -3889,7 +3894,7 @@ class App extends MY_Controller
         $this->image_lib->initialize($config1);
         $test1 = $this->image_lib->resize();
                 
-        $img_uploaded = $image_data['file_name'];
+        $img_uploaded = $fileName;
         //echo '<pre>';print_r($image_data);exit;
         return $img_uploaded;
     }
@@ -5080,11 +5085,12 @@ class App extends MY_Controller
 	   }elseif($folder=='background_image'){
 		  $userfile_extn = explode(".", strtolower($_FILES[$image]['name']));	  
 		  $fileName='bg'.$folderId.'.'.$userfile_extn[1];
-	   }elseif($folder=='app_icon'){
-		  $fileName=str_replace(' ','',$_FILES[$image]['name']);	  
-	   }else{
+	   }else{//($folder=='app_icon'){
+		  //$fileName=str_replace(' ','',$_FILES[$image]['name']);	  
+		  $fileName=preg_replace('/[^a-zA-Z0-9_.]/', '',$_FILES[$image]['name']);
+	   }/*else{
 	       $fileName=str_replace(' ','',$_FILES[$image]['name']);
-	   }
+	   }*/
        
        // echo $folder;exit;
 	   $config1 = array(	  
@@ -9043,11 +9049,14 @@ class App extends MY_Controller
 									}
 								$html.= '</th>';
 
-							$html.= '<th class="head0"><a class="button grey" style="cursor:pointer;" onClick="add_size_catalogue_item(\''.$this->data['user_info']['vCurrency'].'\');"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+							//$html.= '<th class="head0"><a class="button grey" style="cursor:pointer;" onClick="add_size_catalogue_item(\''.$this->data['user_info']['vCurrency'].'\');"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+
+							$html.= '<th class="head0"><a class="button grey" style="cursor:pointer;" onClick="add_size_catalogue_item_new(\''.$this->data['user_info']['vCurrency'].'\');"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+
 							for($i=0;$i<1;$i++){	
 								$html.= '<tr>
-											<td><input type="text" name="size[vSizeName'.$i.']" id="vSizeName" /></td>
-											<td><input type="text" value="'.number_format($number, 2, '.', '').'" name="size[fSizePrice'.$i.']" id="fSizePrice" onkeypress="return isPriceKey(event);" />'.$this->data['user_info']['vCurrency'].'</td>
+											<td><input type="text" name="size[vSizeName'.$i.']" id="vSizeName'.$i.'" /></td>
+											<td><input type="text" value="'.number_format($number, 2, '.', '').'" name="size[fSizePrice'.$i.']" id="fSizePrice'.$i.'" onkeypress="return isPriceKey(event);" />'.$this->data['user_info']['vCurrency'].'</td>
 											<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby="" onclick="delete_item_size_menu();"></i></a></td>
 										</tr>';
 							}
@@ -9070,12 +9079,12 @@ class App extends MY_Controller
 									}
 								}
 								$html.= '</th>';
-								$html.= '<th class="head0"><a class="button grey" onclick="add_option_menu_item(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+								$html.= '<th class="head0"><a class="button grey" onclick="edit_option_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
 								for($k=0;$k<1;$k++)
 								{
 									$html.='<tr>
-										<td><input type="text" name="option[vOptionName'.$k.']" id="vOptionName" /></td>
-										<td><input type="text" name="option[fOptionPrice'.$k.']" id="fOptionPrice" onkeypress="return isPriceKey(event);" value="'.number_format($number, 2, '.', '').'" />'.$this->data['user_info']['vCurrency'].'</td>
+										<td><input type="text" name="option[vOptionName'.$k.']" id="vOptionName'.$k.'" /></td>
+										<td><input type="text" name="option[fOptionPrice'.$k.']" id="fOptionPrice'.$k.'" onkeypress="return isPriceKey(event);" value="'.number_format($number, 2, '.', '').'" />'.$this->data['user_info']['vCurrency'].'</td>
 										<td colspan="2"><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
 									</tr>';
 								}
@@ -9473,12 +9482,12 @@ class App extends MY_Controller
 					}
 					$html.='</th>';
 					//$html.='<th class="head0">Delete</th>';
-					$html.='<th class="head0"><a class="button grey" style="cursor:pointer;" onClick="add_size_menu_item(\''.$this->data['user_info']['vCurrency'].'\');"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+					$html.='<th class="head0"><a class="button grey" style="cursor:pointer;" onClick="add_size_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\');"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
 					for($i=0;$i<1;$i++)
 					{	
 						$html.='<tr>
-							<td><input type="text" name="size[vSizeName'.$i.']" id="vSizeName" /></td>
-							<td><input type="text" value="'.number_format($number, 2, '.', '').'" name="size[fPrice'.$i.']" id="fPrice" onkeypress="return isPriceKey(event);" />'.$this->data['user_info']['vCurrency'].'</td>
+							<td><input type="text" name="size[vSizeName'.$i.']" id="vSizeName'.$i.'" /></td>
+							<td><input type="text" value="'.number_format($number, 2, '.', '').'" name="size[fPrice'.$i.']" id="fPrice'.$i.'" onkeypress="return isPriceKey(event);" />'.$this->data['user_info']['vCurrency'].'</td>
 							<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby="" onclick="delete_item_size_menu();"></i></a></td>
 						</tr>';
 					}
@@ -9502,12 +9511,12 @@ class App extends MY_Controller
 						}
 					}
 					$html.='</th>';
-					$html.='<th class="head0"><a class="button grey" onclick="add_option_menu_item(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+					$html.='<th class="head0"><a class="button grey" onclick="add_option_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
 					// <td><input type="text" name="option[vOptionGroup'.$k.']" id="vOptionGroup" /></td>
 					for($k=0;$k<1;$k++){
 						$html.='<tr>
-									<td><input type="text" name="option[vOptName'.$k.']" id="vOptName" /></td>
-									<td><input type="text" name="option[fCharge'.$k.']" id="fCharge" onkeypress="return isPriceKey(event);" value="'.number_format($number, 2, '.', '').'" />'.$this->data['user_info']['vCurrency'].'</td>
+									<td><input type="text" name="option[vOptName'.$k.']" id="vOptName'.$k.'" /></td>
+									<td><input type="text" name="option[fCharge'.$k.']" id="fCharge'.$k.'" onkeypress="return isPriceKey(event);" value="'.number_format($number, 2, '.', '').'" />'.$this->data['user_info']['vCurrency'].'</td>
 									<td colspan="2"><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
 								</tr>';
 					}
@@ -9907,15 +9916,15 @@ class App extends MY_Controller
 							}
 							$html.='</th>';
 						//$html.='<th class="head0">Delete</th>';
-						$html.='<th class="head0"><a class="button grey" onclick="edit_size_menu_item(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+						$html.='<th class="head0"><a class="button grey" onclick="add_size_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\', \'edit\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
 						for($i=0;$i<count($getsizeiteminfo);$i++){
 							$html.='<tr>
-								<td><input type="text" name="size[vSizeName'.$i.']" value="'.$getsizeiteminfo[$i]['vSizeName'].'" id="vSizeName" /></td>
-								<td><input type="text" name="size[fPrice'.$i.']" id="fPrice" value="'.$getsizeiteminfo[$i]['fPrice'].'" onkeypress="return isPriceKey(event);" /> '.$this->data['user_info']['vCurrency'].'</td>
+								<td><input type="text" name="size[vSizeName'.$i.']" value="'.htmlspecialchars($getsizeiteminfo[$i]['vSizeName']).'" id="vSizeName'.$i.'" /></td>
+								<td><input type="text" name="size[fPrice'.$i.']" id="fPrice'.$i.'" value="'.$getsizeiteminfo[$i]['fPrice'].'" onkeypress="return isPriceKey(event);" /> '.$this->data['user_info']['vCurrency'].'</td>
 								<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
 							  </tr>';
 						}				
-				$html.='<tr>';
+				//$html.='<tr>';
 				$html .='</table>';  
 							
 				$html .= '<br />';							
@@ -9940,12 +9949,12 @@ class App extends MY_Controller
 						}
 					}
 				$html.='</th>';
-				$html.='<th class="head0"><a class="button grey" onclick="edit_option_menu_item(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
+				$html.='<th class="head0"><a class="button grey" onclick="add_option_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
 				//<td><input type="text" name="option[vOptionGroup'.$i.']" value="'.$getoptioniteminfo[$k]['vOptionGroup'].'" id="vOptionGroup" /></td>
 				for($k=0;$k<count($getoptioniteminfo);$k++){
 				$html.='<tr>
-					<td><input type="text" name="option[vOptName'.$i.']" value="'.$getoptioniteminfo[$k]['vOptName'].'" id="vOptName" /></td>
-					<td><input type="text" name="option[fCharge'.$i.']" value="'.$getoptioniteminfo[$k]['fCharge'].'" id="fCharge" /> '.$this->data['user_info']['vCurrency'].'</td>
+					<td><input type="text" name="option[vOptName'.$k.']" value="'.htmlspecialchars($getoptioniteminfo[$k]['vOptName']).'" id="vOptName'.$k.'" /></td>
+					<td><input type="text" name="option[fCharge'.$k.']" value="'.$getoptioniteminfo[$k]['fCharge'].'" id="fCharge'.$k.'" /> '.$this->data['user_info']['vCurrency'].'</td>
 					<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
 					</tr>';
 				}				
@@ -9995,8 +10004,6 @@ class App extends MY_Controller
 					}
 				}';	
 		$html.='</script>';
-        
-     	    
                     
         echo $html;exit; 
     }
@@ -13112,6 +13119,7 @@ function save_hometabdata()
 				 
 				if($_FILES['vImage']['name'] !=''){
 				 	$eventfile = $_FILES['vImage']['name'];
+				 	$eventfile=preg_replace('/[^a-zA-Z0-9_.]/', '',$eventfile);
 				 	$fileName = $this->do_upload_img($iHometabId,'homes','vImage',$size);
 				 	if($fileName){
 				 		$data['vImage'] = $fileName;    
@@ -13934,11 +13942,13 @@ function save_hometabdata()
 		   @mkdir('uploads/'.$folder.'/'.$folderId, 0777);
 	   }   
 
-       $fileName=str_replace(' ','',$_FILES[$image]['name']);
-	   
+       //$fileName=str_replace(' ','_',str_replace('\"','',str_replace('\'','',$_FILES[$image]['name'])));
+       $fileName=preg_replace('/[^a-zA-Z0-9_.]/', '',$_FILES[$image]['name']);
+	   //$fileName=mysql_real_escape_string($fileName);
 		$config = array(
 		  'allowed_types' => "gif|GIF|JPG|jpg|JPEG|jpeg|PNG|png",
 		  'upload_path' => 'uploads/'.$folder.'/'.$folderId, 
+			'file_name' => $fileName,
 		  'max_size'=>5380334
 		);
 		$this->upload->initialize($config);
@@ -13988,11 +13998,12 @@ function save_hometabdata()
 		   @mkdir('uploads/'.$folder.'/'.$folderId, 0777);
 	   }   
 
-       $fileName=str_replace(' ','',$_FILES[$image]['name']);
-
+       //$fileName=str_replace(' ','',$_FILES[$image]['name']);
+		$fileName=preg_replace('/[^a-zA-Z0-9_.]/', '',$_FILES[$image]['name']);
      	$config = array(
 		  'allowed_types' => "gif|GIF|JPG|jpg|JPEG|jpeg|PNG|png",
 		  'upload_path' => 'uploads/'.$folder.'/'.$folderId, 
+		  'file_name' => $fileName,
 		  'max_size'=>5380334
 		);
 		$this->upload->initialize($config);
@@ -14095,13 +14106,14 @@ function save_hometabdata()
 
 
 
-       $fileName=str_replace(' ','',$_FILES[$image]['name']);
-	   
+       //$fileName=str_replace(' ','',$_FILES[$image]['name']);
+	   $fileName=preg_replace('/[^a-zA-Z0-9_.]/', '',$_FILES[$image]['name']);
 		$config = array(
 
 		  'allowed_types' => "gif|GIF|JPG|jpg|JPEG|jpeg|PNG|png",
 		  'upload_path' => 'uploads/'.$folder.'/'.$folderId, 
-		  'max_size'=>5380334
+		  'max_size'=>5380334,
+		  'file_name' => $fileName
 		);
 
 		$this->upload->initialize($config);

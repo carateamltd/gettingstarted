@@ -15,7 +15,7 @@ Ext.define('MyApp.controller.OrderController', {
             orderCustomerDetails: 'ordercustomerdetails',
             btnSaveOrderCustomerDetails: 'button[itemId=btnSaveOrderCustomerDetails]',
             orderHistoryBtnID: '#orderHistoryBtnID',
-            fillCustomerDetailsBtn: '#btnFillCustomerDetails'
+            fillCustomerDetailsBtn: 'button[itemId=btnFillCustomerDetails]'
         },
         control: {
             orderNavi: {
@@ -100,7 +100,7 @@ Ext.define('MyApp.controller.OrderController', {
             Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CITYERROR'));
             return;
         }*/
-        if(formValues.vTel == null){
+        if(formValues.tel == null){
             Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.EMPTYTEL'));
             return;
         }
@@ -109,7 +109,9 @@ Ext.define('MyApp.controller.OrderController', {
             return;
         }*/
         var a = Ext.getStore('OrderSummaryStore').getAt(0).data;
-        a.deliverydate = a.deliverydate.toDateString();
+        if(typeof a.deliverydate != "string"){
+			a.deliverydate = a.deliverydate.toDateString();
+        }
         formValues.orderSummary = Ext.encode(a);
         var cartStore = Ext.getStore('AddCartStore');
  		var cartArr = [];
@@ -210,7 +212,7 @@ Ext.define('MyApp.controller.OrderController', {
             }
         }
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
+        document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+Number(newPrice).toFixed(2);
     },
 
     changeProductOptionPrice: function(selectElement){
@@ -243,7 +245,7 @@ Ext.define('MyApp.controller.OrderController', {
         }
 
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
+        document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+Number(newPrice).toFixed(2);
     },
 
     addProductToCart: function(btn){
@@ -380,7 +382,7 @@ Ext.define('MyApp.controller.OrderController', {
         if(view == 'cartView'){
             document.getElementById('ordercartprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
         }else{
-            document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
+            document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+Number(newPrice).toFixed(2);
         }
     },
 
@@ -432,7 +434,7 @@ Ext.define('MyApp.controller.OrderController', {
         if(view == 'cartView'){
             document.getElementById('ordercartprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
         }else{
-            document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+newPrice;
+            document.getElementById('orderprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE') + ' : '+selectedProduct.get('vCurrency')+Number(newPrice).toFixed(2);
         }
     },
 

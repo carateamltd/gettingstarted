@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-06-19 17:01:16
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-12 16:47:08
          compiled from "application/views/templates/ajax_img_library.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10948387645583e86c3f8bb7-75991159%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '030a283c49546e5a8dce3c1acdb9da663f21bbee' => 
     array (
       0 => 'application/views/templates/ajax_img_library.tpl',
-      1 => 1429261147,
+      1 => 1438864761,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5583e86c4ceb35_59313427',
   'variables' => 
   array (
     'lang' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5583e86c4ceb35_59313427',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5583e86c4ceb35_59313427')) {function content_5583e86c4ceb35_59313427($_smarty_tpl) {?><div id="app_bgimage_gallaery" class="modal show fade">
  <div class="modal-header">

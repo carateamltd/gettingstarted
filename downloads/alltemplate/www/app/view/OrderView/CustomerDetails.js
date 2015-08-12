@@ -36,7 +36,8 @@ Ext.define('MyApp.view.OrderView.CustomerDetails', {
                         name: 'vEmailId',
                         label: Loc.t('CATELOG.EMAIL'),
                         labelAlign: 'top',
-                        labelWidth: '100%'
+                        labelWidth: '100%',
+                        required: true
                     },
                     {
                         xtype: 'textareafield',
@@ -55,7 +56,7 @@ Ext.define('MyApp.view.OrderView.CustomerDetails', {
                     },
                     {
                         xtype: 'numberfield',
-                        name: 'vTel',
+                        name: 'tel',
                         label: Loc.t('CATELOG.TEL'),
                         labelAlign: 'top',
                         labelWidth: '100%',

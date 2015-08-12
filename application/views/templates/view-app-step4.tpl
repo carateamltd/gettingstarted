@@ -428,21 +428,22 @@
 			      </div>
 			      <div id="appr-header-gh">
 				 <div class="button_1">
+				    <form name="header_imgupload" id="global_header_imgupload" method="post" action="{$data.base_url}app/upload_global_header_img" enctype="multipart/form-data">
 				    <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
 				    <tr>
 				    <td class="btnbrowse btnhelp"><label><span class="qmark">&nbsp;</span></label></td>
-				    <td class="btnbrowse"><input type="file" name="file_uploads_btn" onchange="CheckValidFile(this.value,'image_upload');" style="width:200px;"/>(200px X 200px)
+				    <td class="btnbrowse"><input type="file" id="global_header_img" name="file_uploads_btn" onchange="CheckValidFile(this.value,'global_header_img');" style="width:200px;"/>(200px X 200px)
 				    </td>
 				    <td>
 				    	{foreach from=$lang item=val}
 					 {if $val.rLabelName == 'Upload'}
-					 	<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="{$val.rField}"/>
+					 	<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="{$val.rField}" onclick="return uploadGlobalHeaderImg();"/>
 					 {/if}{/foreach}
 				    </td>
 				    </tr>
 				    </table>
 				 </div>
-				 <div class="button_1 height_fix_500">
+				 <div class="button_1 height_fix_500" id="global_header_img_list">
 				 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
 				    <tr>
 				       <td>

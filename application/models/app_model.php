@@ -2135,28 +2135,53 @@ Purpose : to get Sort Client Name (Updated Function : allClientList())
 	/** save size details **/
 	function save_size_details($size,$iItemId)
 	{
-		for($i=0;$i<3;$i++){
+		$count = count($size)/2;
+		$queryInsert = 'INSERT INTO `r_menu_item_size` (`iItemId`, `vSizeName`, `fPrice`) VALUES ';
+        for($i=0;$i<$count;$i++){
+            if($size['vSizeName'.$i] != '' && $size['fPrice'.$i] != '')
+            {
+            	$vSizeNameCurrent = mysql_real_escape_string($size['vSizeName'.$i]);
+            	
+            	$queryInsert .= "('$iItemId','".$vSizeNameCurrent."','".mysql_real_escape_string($size['fPrice'.$i])."'), ";
+            }
+        }
+        $queryInsert = rtrim($queryInsert,', ');
+        $query = $this->db->query($queryInsert);
+		/*for($i=0;$i<$count;$i++){
 			if($size['vSizeName'.$i] != '' && $size['fPrice'.$i] != ''){
 				$insert="insert into r_menu_item_size set iItemId = '".$iItemId."',
 					vSizeName = '".$size['vSizeName'.$i]."',
 					fPrice = '".$size['fPrice'.$i]."'";
 				$query = $this->db->query($insert);
 			}
-		}
+		}*/
 		return $query;
 	}
 
 	/** save option details **/
 	function save_option_details($option,$iItemId)
 	{
-		for($i=0;$i<9;$i++){
+		$count = count($option)/2;
+		/* save catalogue size */
+        $queryInsert = 'INSERT INTO `r_menu_item_option` (`iItemId`, `vOptName`, `fCharge`) VALUES ';
+        for($i=0;$i<$count;$i++){
+            if($option['vOptName'.$i] != '' && $option['fCharge'.$i] != '')
+            {
+            	$vOptNameCurrent = mysql_real_escape_string($option['vOptName'.$i]);
+            	
+            	$queryInsert .= "('$iItemId','".$vOptNameCurrent."','".mysql_real_escape_string($option['fCharge'.$i])."'), ";
+            }
+        }
+        $queryInsert = rtrim($queryInsert,', ');
+        $query = $this->db->query($queryInsert);
+		/*for($i=0;$i<$count;$i++){
 			if($option['vOptName'.$i] != '' && $option['fCharge'.$i]){
 				$insert="insert into r_menu_item_option set iItemId = '".$iItemId."',
 					vOptName = '".$option['vOptName'.$i]."',
 					fCharge = '".$option['fCharge'.$i]."'";
 				$query = $this->db->query($insert);
 			}
-		}
+		}*/
 		return $query;
 	}
 
@@ -2597,13 +2622,22 @@ function getservicetiminginfo($iServiceId)
     public function save_catalogue_size_details($size,$iCatalogueId)
     {
         /* save catalogue size */
-        for($i=0;$i<10;$i++){
-            if($size['vSizeName'.$i] != '' && $size['fSizePrice'.$i] != ''){
-                $query = $this->db->query("insert into r_app_size_catalogue set iCatelogueId = '".$iCatalogueId."',vSizeName = '".$size['vSizeName'.$i]."',
-                    vSizeColor = '".$size['vSizeColor'.$i]."',
-                    fSizePrice = '".$size['fSizePrice'.$i]."'");
+        $count = count($size)/2;
+        $queryInsert = 'INSERT INTO `r_app_size_catalogue` (`iCatelogueId`, `vSizeName`, `vSizeColor`, `fSizePrice`) VALUES ';
+        for($i=0;$i<$count;$i++){
+            if($size['vSizeName'.$i] != '' && $size['fSizePrice'.$i] != '')
+            {
+            	//$vSizeNameCurrent = REPLACE(REPLACE($size['vSizeName'.$i], '"', '\"'), "'", "\'");
+            	$vSizeNameCurrent = mysql_real_escape_string($size['vSizeName'.$i]);
+            	
+            	$queryInsert .= "('$iCatalogueId','".$vSizeNameCurrent."','".mysql_real_escape_string($size['vSizeColor'.$i])."','".$size['fSizePrice'.$i]."'), ";
+                //$query = $this->db->query("insert into r_app_size_catalogue set iCatelogueId = '".$iCatalogueId."',vSizeName = '".$size['vSizeName'.$i]."',
+                //    vSizeColor = '".$size['vSizeColor'.$i]."',
+                //    fSizePrice = '".$size['fSizePrice'.$i]."'");
             }
         }
+        $queryInsert = rtrim($queryInsert,', ');
+        $query = $this->db->query($queryInsert);
         return true;
     }
 
@@ -2630,20 +2664,37 @@ function getservicetiminginfo($iServiceId)
     /*
         catalogue product option
     */
+    //public function save_catalogue_option_details($option,$iCatalogueId)
+    //{
+    //    /* save catalogue size */
+    //    for($i=0;$i<10;$i++)
+    //    {
+    //        if($option['vOptionName'.$i] != '' && $option['fOptionPrice'.$i] != ''){
+    //        $query = $this->db->query("insert into r_app_option_catalogue set 
+    //            iCatelogueId = '".$iCatalogueId."',
+    //            vOptionName = '".$option['vOptionName'.$i]."',
+    //            fOptionPrice = '".$option['fOptionPrice'.$i]."'");     
+    //       }
+    //    }
+    //    return true;
+    //} 
+    
     public function save_catalogue_option_details($option,$iCatalogueId)
     {
-        /* save catalogue size */
-        for($i=0;$i<10;$i++)
-        {
-            if($option['vOptionName'.$i] != '' && $option['fOptionPrice'.$i] != ''){
-            $query = $this->db->query("insert into r_app_option_catalogue set 
-                iCatelogueId = '".$iCatalogueId."',
-                vOptionName = '".$option['vOptionName'.$i]."',
-                fOptionPrice = '".$option['fOptionPrice'.$i]."'");     
+        /* save catalogue option */
+        $count = count($option)/2;
+        $queryInsert = 'INSERT INTO `r_app_option_catalogue` (`iCatelogueId`, `vOptionName`, `fOptionPrice`) VALUES ';
+        for($i=0;$i<$count;$i++){
+            if($option['vOptionName'.$i] != '' && $option['fOptionPrice'.$i] != '')
+            {
+            	$vOptionNameCurrent = mysql_real_escape_string($option['vOptionName'.$i]);
+            	$queryInsert .= "('$iCatalogueId','".$vOptionNameCurrent."','".$option['fOptionPrice'.$i]."'), ";
             }
         }
+        $queryInsert = rtrim($queryInsert,', ');
+        $query = $this->db->query($queryInsert);
         return true;
-    }  
+    } 
 
     /*
         update catalogue 

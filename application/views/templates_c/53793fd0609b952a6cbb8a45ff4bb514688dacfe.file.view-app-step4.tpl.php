@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-07 17:12:46
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-12 16:41:41
          compiled from "application/views/templates/view-app-step4.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8335672395583cefe296ce4-95710053%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '53793fd0609b952a6cbb8a45ff4bb514688dacfe' => 
     array (
       0 => 'application/views/templates/view-app-step4.tpl',
-      1 => 1438864761,
+      1 => 1439372224,
       2 => 'file',
     ),
   ),
@@ -798,10 +798,12 @@ lunch_header/<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_l
 			      </div>
 			      <div id="appr-header-gh">
 				 <div class="button_1">
+				    <form name="header_imgupload" id="global_header_imgupload" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
+app/upload_global_header_img" enctype="multipart/form-data">
 				    <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
 				    <tr>
 				    <td class="btnbrowse btnhelp"><label><span class="qmark">&nbsp;</span></label></td>
-				    <td class="btnbrowse"><input type="file" name="file_uploads_btn" onchange="CheckValidFile(this.value,'image_upload');" style="width:200px;"/>(200px X 200px)
+				    <td class="btnbrowse"><input type="file" id="global_header_img" name="file_uploads_btn" onchange="CheckValidFile(this.value,'global_header_img');" style="width:200px;"/>(200px X 200px)
 				    </td>
 				    <td>
 				    	<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
@@ -811,13 +813,13 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
 					 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload'){?>
 					 	<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-"/>
+" onclick="return uploadGlobalHeaderImg();"/>
 					 <?php }?><?php } ?>
 				    </td>
 				    </tr>
 				    </table>
 				 </div>
-				 <div class="button_1 height_fix_500">
+				 <div class="button_1 height_fix_500" id="global_header_img_list">
 				 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
 				    <tr>
 				       <td>

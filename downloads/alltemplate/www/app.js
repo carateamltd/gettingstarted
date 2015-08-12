@@ -33,6 +33,32 @@ Ext.application({
     	this.chrome43Fix();
 		 Ext.Viewport.add(Ext.create('MyApp.view.MainView'));
 		 app.initPaymentUI();
+		//below fix added for android
+		//because in some android devices (mostly for Messagebox-and-Overlay-Problems-on-HTC-One-Browser) and for chrome browser on desktop
+		if(Ext.os.name === "Android" || Ext.os.deviceType === "Desktop"){
+		   Ext.Component.prototype.animateFn = // or Ext.override( Ext.Component, { animateFn:
+				function (animation, component, newState, oldState, options, controller) {
+					var me = this;
+					if (animation && (!newState || (newState && this.isPainted()))) {
+						this.activeAnimation = new Ext.fx.Animation(animation);
+						this.activeAnimation.setElement(component.element);
+						if (!Ext.isEmpty(newState)) {
+							var onEndInvoked = false;
+							var onEnd = function () {
+							if (!onEndInvoked) {
+								onEndInvoked = true;
+								me.activeAnimation = null;
+								controller.resume();
+							}
+						};
+						this.activeAnimation.setOnEnd(onEnd);
+						window.setTimeout(onEnd, 50 + (this.activeAnimation.getDuration() || 500));
+						controller.pause();
+					}
+					Ext.Animator.run(me.activeAnimation);
+				}
+			};
+		}
     },
 	//fix for chrome version 43 and Android version >= 5, UI and scrolling issues
     chrome43Fix: function () { // Look details on Sencha forum - https://www.sencha.com/forum/showthread.php?300288-Scrolling-Issues-in-latest-Google-Chrome
