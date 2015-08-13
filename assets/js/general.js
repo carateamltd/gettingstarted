@@ -5650,6 +5650,7 @@ function add_item(iMenuID,iAppTabId,iApplicationId){
 		var tDescription = $('#tDescription').val();
 		var vImage = $('#vImage').val();
 		var fPrice = $('#fPrice').val();
+		var vSize = $('#vSizeName0').val();
 		if(language == 'rEnglish'){
 			if(vItemName == ''){
 			$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Please enter name.</div>');
@@ -5675,14 +5676,14 @@ function add_item(iMenuID,iAppTabId,iApplicationId){
 			}else{
 				$('#addmenuitem_validation').hide();
 			}
-			if(vImage == ''){
+			/*if(vImage == ''){
 				$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Please enter image.</div>');
 				$('#addmenuitem_validation').show();
 				$('#vImage').focus();
 				return false;
 			}else{
 				$('#addmenuitem_validation').hide();
-			}
+			}*/
 			if(fPrice == ''){
 				$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Please enter price.</div>');
 				$('#addmenuitem_validation').show();
@@ -5691,6 +5692,16 @@ function add_item(iMenuID,iAppTabId,iApplicationId){
 			}else{
 				$('#addmenuitem_validation').hide();
 			}
+			
+			if(vSize == ''){
+				$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Please enter size.</div>');
+				$('#addmenuitem_validation').show();
+				$('#fPrice').focus();
+				return false;
+			}else{
+				$('#addmenuitem_validation').hide();
+			}
+			
 		}else if(language == 'rFrench'){
 			if(vItemName == ''){
 				$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Entrer Nom.</div>');
@@ -5716,14 +5727,14 @@ function add_item(iMenuID,iAppTabId,iApplicationId){
 			}else{
 				$('#addmenuitem_validation').hide();
 			}
-			if(vImage == ''){
+			/*if(vImage == ''){
 				$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Sélectionnez une Image.</div>');
 				$('#addmenuitem_validation').show();
 				$('#vImage').focus();
 				return false;
 			}else{
 				$('#addmenuitem_validation').hide();
-			}
+			}*/
 			if(fPrice == ''){
 				$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Entrer Prix.</div>');
 				$('#addmenuitem_validation').show();
@@ -5732,6 +5743,16 @@ function add_item(iMenuID,iAppTabId,iApplicationId){
 			}else{
 				$('#addmenuitem_validation').hide();
 			}
+			
+			if(vSize == ''){
+				$('#addmenuitem_validation').html('<div class="alert alert-error"><button type="button" style="color: black !important;" class="close" data-dismiss="alert">&times;</button>Entrer Taille.</div>');
+				$('#addmenuitem_validation').show();
+				$('#fPrice').focus();
+				return false;
+			}else{
+				$('#addmenuitem_validation').hide();
+			}
+			
 		}
 		
 		$("#frmitem_item").ajaxSubmit(function(data) {

@@ -2002,7 +2002,7 @@ header('Access-Control-Allow-Origin: *');
 						'iEventId' => $val['iEventId'],
 						'iApplicationId' => $val['iApplicationId'],
 						'iAppTabId' => $val['iAppTabId'],
-						'vImage' => $this->data['base_url'].'uploads/events/'.$val['iEventId'].'/'.$val['vImage'],
+						'vImage' => $val['vImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/events/'.$val['iEventId'].'/'.$val['vImage'],
 						'vTitle' => $val['vTitle'],	
 						'tDescription' => $val['tDescription'],	
 						'dStartDate' => $val['dStartDate'],	
@@ -2012,7 +2012,7 @@ header('Access-Control-Allow-Origin: *');
 						'eStatus' => $val['eStatus'],	
 						'vBackgroundColor' => $val['vBackgroundColor'],	
 						'vTextColor' => $val['vTextColor'],	
-						'vHeaderImage' => $this->data['base_url'].'uploads/events/headerimg/'.$val['iEventId'].'/'.$val['vHeaderImage'],	
+						'vHeaderImage' => $val['vHeaderImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/events/headerimg/'.$val['iEventId'].'/'.$val['vHeaderImage'],	
 					);
 				}
 				
@@ -2149,8 +2149,8 @@ header('Access-Control-Allow-Origin: *');
 						'dStartDate'=>$val['dStartDate'],
 						'dEndDate'=>$val['dEndDate'],
 						'tDescription'=>$val['tDescription'],
-						'vMobileHeaderImage'=>$this->data['base_url'].'uploads/QRCode/MobileHeaderImage/'.$val['iQrID'].'/'.$val['vMobileHeaderImage'],
-						'vTabletHeaderImage'=>$this->data['base_url'].'uploads/QRCode/vTabletHeaderImage/'.$val['iQrID'].'/'.$val['vTabletHeaderImage'],
+						'vMobileHeaderImage'=>$val['vMobileHeaderImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/QRCode/MobileHeaderImage/'.$val['iQrID'].'/'.$val['vMobileHeaderImage'],
+						'vTabletHeaderImage'=>$val['vTabletHeaderImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/QRCode/vTabletHeaderImage/'.$val['iQrID'].'/'.$val['vTabletHeaderImage'],
 						'vTargetAmount'=>$val['iQrID'],
 						'vBeforeHoursCheck-In' => $val['vBeforeHoursCheck-In'],
 						'eStatus'=>$val['eStatus'],
@@ -2228,7 +2228,7 @@ header('Access-Control-Allow-Origin: *');
 					'vLongitude' => $home['vLongitude'],
 					'vDistanceType' => $home['vDistanceType'],
 					'vDescription' => $home['tDescription'],
-					'vImage' => $this->data['base_url'].'uploads/homes/'.$home['iHometabId'].'/'.$home['vImage'],
+					'vImage' => $home['vImage']=="" ? $this->config->item('empty_image_app') :$this->data['base_url'].'uploads/homes/'.$home['iHometabId'].'/'.$home['vImage'],
 				);
 				
 				$Data['home'] = $home_detail;
@@ -4614,7 +4614,7 @@ header('Access-Control-Allow-Origin: *');
 						'vDuration'=>$val['vDuration'],
 						'vServiceFees' => number_format($val['fServiceFee'],2,'.',''),
 						'vCurrency' => $vCurr,
-						'vImage'=>$this->data['base_url'].'uploads/service/'.$val['iServiceId'].'/'.$val['vImage'],
+						'vImage'=> $val['vImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/service/'.$val['iServiceId'].'/'.$val['vImage'],
 						'service_timing'=>$get_service_timing
 					);
 				}
@@ -4950,7 +4950,7 @@ header('Access-Control-Allow-Origin: *');
 			$product[] = array(
 				'iCatelogueId' => $val['iCatelogueId'],
 				'text' => $val['vCatalogueTagname'],
-				'vImage' => $this->data['base_url'].'uploads/catalogueitem/'.$val['iCatelogueId'].'/'.$val['vCatalogueImage'],
+				'vImage' => $val['vCatalogueImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/catalogueitem/'.$val['iCatelogueId'].'/'.$val['vCatalogueImage'],
 				'tDescription' => $val['tDescription'],
 				'tTotalProduct' => $val['tTotalProduct'],
 				'vCurrency' =>  number_format($vCurrency,2,'.',''),
@@ -5011,7 +5011,7 @@ header('Access-Control-Allow-Origin: *');
 				$subcat[] = array(
 					'cat_id' => $subval['iCatalogueSubId'],
 					'text' => $subval['vCatalogueSubName'],
-					'vImage' => $this->data['base_url'].'uploads/cataloguesub/'.$subval['iCatalogueSubId'].'/'.$subval['vImage'],
+					'vImage' => $subval['vImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/cataloguesub/'.$subval['iCatalogueSubId'].'/'.$subval['vImage'],
 					'leaf' => true,
 				);
 			}
@@ -5019,7 +5019,7 @@ header('Access-Control-Allow-Origin: *');
 			/* category */
 			$category[] = array(
 				'iCatalogueMainId' => $val['iCatalogueMainId'],
-				'vImage' => $this->data['base_url'].'uploads/cataloguemain/'.$val['iCatalogueMainId'].'/'.$val['vImage'],
+				'vImage' => $val['vImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/cataloguemain/'.$val['iCatalogueMainId'].'/'.$val['vImage'],
 				'text' => $val['vCatalogueName'],
 				'items' => $subcat
 			);
@@ -5111,7 +5111,7 @@ header('Access-Control-Allow-Origin: *');
 						'iAppTabId'=>$val['iAppTabId'],
 						'iApplicationId'=>$val['iApplicationId'],
 						'iMenuId'=>$val['iMenuId'],
-						'vImage'=>$this->data['base_url'].'uploads/Item/'.$val['iItemId'].'/'.$val['vImage'],
+						'vImage'=> $val['vImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/Item/'.$val['iItemId'].'/'.$val['vImage'],
 						'vVarient'=>$val['vVarient'],
 						'text'=>$val['vItemName'],
 						'tDescription'=>$val['tDescription'],
@@ -5199,7 +5199,7 @@ header('Access-Control-Allow-Origin: *');
 						'iApplicationId'=>$val['iApplicationId'],
 						'iAppTabId'=>$val['iAppTabId'],
 						'text'=>$val['vName'],
-						'vImage'=>$this->data['base_url'].'uploads/Menu/'.$val['iMenuID'].'/'.$val['vImage'],
+						'vImage'=> $val['vImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/Menu/'.$val['iMenuID'].'/'.$val['vImage'],
 						'vStatus'=>$val['vStatus']
 					);
 				}

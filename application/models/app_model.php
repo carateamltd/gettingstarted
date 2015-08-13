@@ -1639,6 +1639,7 @@ Purpose : to get Sort Client Name (Updated Function : allClientList())
         $this->db->where('eStatus','Active');
         $this->db->order_by('iMenuID', 'DESC');
         $query = $this->db->get();
+        //print($this->db->last_query());die;
         return $query->result_array();     
     }
 
@@ -2136,7 +2137,14 @@ Purpose : to get Sort Client Name (Updated Function : allClientList())
 	function save_size_details($size,$iItemId)
 	{
 		$count = count($size)/2;
-		$queryInsert = 'INSERT INTO `r_menu_item_size` (`iItemId`, `vSizeName`, `fPrice`) VALUES ';
+		if($size['vSizeName0'] != '' && $size['fPrice0'] != '')
+        {
+			$queryInsert = 'INSERT INTO `r_menu_item_size` (`iItemId`, `vSizeName`, `fPrice`) VALUES ';
+		}
+		else
+		{
+			return false;
+		}
         for($i=0;$i<$count;$i++){
             if($size['vSizeName'.$i] != '' && $size['fPrice'.$i] != '')
             {
@@ -2163,7 +2171,14 @@ Purpose : to get Sort Client Name (Updated Function : allClientList())
 	{
 		$count = count($option)/2;
 		/* save catalogue size */
-        $queryInsert = 'INSERT INTO `r_menu_item_option` (`iItemId`, `vOptName`, `fCharge`) VALUES ';
+		if($option['vOptName0'] != '' && $option['fCharge0'] != '')
+        {
+        	$queryInsert = 'INSERT INTO `r_menu_item_option` (`iItemId`, `vOptName`, `fCharge`) VALUES ';
+        }
+        else
+        {
+        	return true;
+        }
         for($i=0;$i<$count;$i++){
             if($option['vOptName'.$i] != '' && $option['fCharge'.$i] != '')
             {

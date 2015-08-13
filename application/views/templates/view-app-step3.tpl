@@ -122,7 +122,53 @@
 										                Purpose : Purpose to set User on same page while he/she click on navigation help icon.
                                                      -->
 													<div id="form_{$data.selected_feature_details[i].iAppTabId}"> 
-                                                        {$data.html.{$data.selected_feature_details[i].iAppTabId}} 
+														{if $data.selected_feature_details[i].vTitle ne "Order"}
+                                                        	{$data.html.{$data.selected_feature_details[i].iAppTabId}}
+                                                        {else}
+                                                        	<!-- display paypal form instead of order form -->
+                                                        	<form class="form-horizontal" action="{$data.base_url}administrator/save_paypal_onfo" method="post" id="paypal_info_admin">
+																<input type="hidden" name="iPaypalinfoId" value="{$data.paypal_info['iPaypalinfoId']}">
+																<input type="hidden" name="Data[iClientId]" value="{$data.user_info['iAdminId']}">
+
+																<div class="control-group" style="display:none;">
+																	<label class="control-label">Username</label>
+
+																	<div class="controls">
+																		<!--<input type="text" placeholder="Paypal Username" class="input-large" id="vPusername"
+																			   name="Data[vUsername]" value="{$data.paypal_info['vUsername']}"/>-->
+																		<input type="text" placeholder="Paypal Username" class="input-large" id="vPusername"
+																			   name="Data[vUsername]" value="-"/>
+																	</div>
+																</div>
+																<div class="control-group" style="display:none;">
+																	<label class="control-label">Paypal Password</label>
+
+																	<div class="controls">
+																		<!--<input type="text" placeholder="Paypal Password" class="input-large" id="vPpassword"
+																			   name="Data[vPassword]" value="{$data.paypal_info['vPassword']}"/>-->
+																		<input type="text" placeholder="Paypal Password" class="input-large" id="vPpassword"
+																			   name="Data[vPassword]" value="-"/>
+																	</div>
+																</div>
+																<div class="control-group">
+																	<!--<label class="control-label">Paypal Signature</label>-->
+																	<label style="width: 110px;" class="control-label">Paypal App Client ID (LIVE)</label>
+
+																	<div class="controls" style="margin-left: 115px;margin-top: 10px;">
+																		<input type="text" placeholder="Paypal Signature" class="input-large" id="vPsignature"
+																			   name="Data[vSignature]" value="{$data.paypal_info['vSignature']}" style="width: 450px;" />
+																	</div>
+																</div>
+																<div class="form-actions">
+																	<button type="submit" class="btn btn-success" id="btn-paypal_save">
+																		Save
+																	</button>
+																	{if $data['user_info']['iRoleId'] eq '1'}
+																		<button type="button" class="btn" onclick="returnme()">Cancel</button>
+																	{/if}
+																</div>
+															</form>
+                                                        {/if} 
                                                     </div>
 												</div>
 												<div class="main_box">

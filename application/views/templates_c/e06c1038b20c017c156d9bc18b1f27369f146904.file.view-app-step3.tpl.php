@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-07 16:45:49
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-13 13:48:00
          compiled from "application/views/templates/view-app-step3.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28071995583b94bf016f6-36551925%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e06c1038b20c017c156d9bc18b1f27369f146904' => 
     array (
       0 => 'application/views/templates/view-app-step3.tpl',
-      1 => 1438864761,
+      1 => 1439448475,
       2 => 'file',
     ),
   ),
@@ -275,8 +275,60 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['last']       = ($_smart
                                                      -->
 													<div id="form_<?php echo $_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iAppTabId'];?>
 "> 
-                                                        <?php echo $_smarty_tpl->tpl_vars['data']->value['html'][$_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iAppTabId']];?>
- 
+														<?php if ($_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle']!="Order"){?>
+                                                        	<?php echo $_smarty_tpl->tpl_vars['data']->value['html'][$_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iAppTabId']];?>
+
+                                                        <?php }else{ ?>
+                                                        	<!-- display paypal form instead of order form -->
+                                                        	<form class="form-horizontal" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
+administrator/save_paypal_onfo" method="post" id="paypal_info_admin">
+																<input type="hidden" name="iPaypalinfoId" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['paypal_info']['iPaypalinfoId'];?>
+">
+																<input type="hidden" name="Data[iClientId]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['user_info']['iAdminId'];?>
+">
+
+																<div class="control-group" style="display:none;">
+																	<label class="control-label">Username</label>
+
+																	<div class="controls">
+																		<!--<input type="text" placeholder="Paypal Username" class="input-large" id="vPusername"
+																			   name="Data[vUsername]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['paypal_info']['vUsername'];?>
+"/>-->
+																		<input type="text" placeholder="Paypal Username" class="input-large" id="vPusername"
+																			   name="Data[vUsername]" value="-"/>
+																	</div>
+																</div>
+																<div class="control-group" style="display:none;">
+																	<label class="control-label">Paypal Password</label>
+
+																	<div class="controls">
+																		<!--<input type="text" placeholder="Paypal Password" class="input-large" id="vPpassword"
+																			   name="Data[vPassword]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['paypal_info']['vPassword'];?>
+"/>-->
+																		<input type="text" placeholder="Paypal Password" class="input-large" id="vPpassword"
+																			   name="Data[vPassword]" value="-"/>
+																	</div>
+																</div>
+																<div class="control-group">
+																	<!--<label class="control-label">Paypal Signature</label>-->
+																	<label style="width: 110px;" class="control-label">Paypal App Client ID (LIVE)</label>
+
+																	<div class="controls" style="margin-left: 115px;margin-top: 10px;">
+																		<input type="text" placeholder="Paypal Signature" class="input-large" id="vPsignature"
+																			   name="Data[vSignature]" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['paypal_info']['vSignature'];?>
+" style="width: 450px;" />
+																	</div>
+																</div>
+																<div class="form-actions">
+																	<button type="submit" class="btn btn-success" id="btn-paypal_save">
+																		Save
+																	</button>
+																	<?php if ($_smarty_tpl->tpl_vars['data']->value['user_info']['iRoleId']=='1'){?>
+																		<button type="button" class="btn" onclick="returnme()">Cancel</button>
+																	<?php }?>
+																</div>
+															</form>
+                                                        <?php }?> 
                                                     </div>
 												</div>
 												<div class="main_box">

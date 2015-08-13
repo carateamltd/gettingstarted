@@ -76,6 +76,8 @@ $config['base_bootstrap']	= $config['base_url']."assets/bootstrap/";
 $config['base_path']	= $_SERVER["DOCUMENT_ROOT"].$sitefolder;
 $config['base_upload']	= $config['base_url']."uploads/";
 $config['permitted_uri_chars']  = '';
+$config['empty_image']	= $config['base_image']."empty.png";
+$config['empty_image_app']	= $_SERVER["HTTP_HOST"].$sitefolder."assets/images/empty.png";
 
 //$config['base_upload']	= "var/www/html/uploads/";
 $config['googleplus']['api_key'] = 'AIzaSyBjpOX7w0lG1YJEzvxj5dCLIP_9vO_gi74';

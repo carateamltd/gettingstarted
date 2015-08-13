@@ -235,6 +235,10 @@ class App extends MY_Controller
 		$id = $this->uri->segment(3);
 		$this->data['iApplicationId'] = $id;
      		$iClientId = $this->data['user_info']['iAdminId'];
+     		
+     		//Get Paypal Info -- for Order tab
+        	$this->data['paypal_info'] = $this->admin_model->get_paypal_details($iClientId);
+     		
         	$iRoleId = $this->data['user_info']['iRoleId'];
         	$this->data['appinformation'] = $this->app_model->get_all_appinformation_id($id,$iClientId,$iRoleId);
 
@@ -1483,7 +1487,12 @@ class App extends MY_Controller
 									$html.='</label>
 			                        <div class="controls">';
 			        $html.='<input type="file" value="vImage" class="input-xlarge" value="'.$serviceinfo['vImage'].'"  id="vImage'.$iAppTabId.'" name="vImage" onchange="readURL(this);" />';
-					$html.='<img id="myimage" src="'.$this->data['base_url'].'uploads/service/'.$iServiceId.'/'.$serviceinfo['vImage'].'" width="200" height="200"/>	';
+			        if($serviceinfo['vImage'] != ''){
+					$html.='<img id="myimage" src="'.$this->data['base_url'].'uploads/service/'.$iServiceId.'/'.$serviceinfo['vImage'].'" width="200" height="200"/>';
+					}
+					else{
+						$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>';
+					}
 			                        $html.='</div>
                         </div>';                    	
 
@@ -2516,9 +2525,14 @@ class App extends MY_Controller
 
                             $html .='<div class="control-group">Image (600*600 pixel)</label>
                                     <div class="controls">
-                                        <input type="file" name="vImage" value="vImage" title="'.$getcatalogueinfo['vCatalogueImage'].'" onchange="readURL(this);">
-										<img id="Imageshow" src="'.$this->data['base_url'].'uploads/catalogueitem/'.$getcatalogueinfo['iCatelogueId'].'/'.$getcatalogueinfo['vCatalogueImage'].'" />
-                                    </div>
+                                        <input type="file" name="vImage" value="vImage" title="'.$getcatalogueinfo['vCatalogueImage'].'" onchange="readURL(this);">';
+                                        if($getcatalogueinfo['vCatalogueImage'] != ''){
+										$html .='<img id="Imageshow" src="'.$this->data['base_url'].'uploads/catalogueitem/'.$getcatalogueinfo['iCatelogueId'].'/'.$getcatalogueinfo['vCatalogueImage'].'" />';
+										}
+										else{
+											$html .='<img id="Imageshow" src="'.$this->config->item('empty_image').'" />';
+										}
+                                    $html .='</div>
                                 </div>';
                             $html .='<div class="control-group">';
                             foreach($this->data['mylang'] as $val)
@@ -2719,15 +2733,9 @@ class App extends MY_Controller
 					$html.='</label>
                     	<div class="controls">
                     	<input type="file" value="vImage" class="input-xlarge" id="vImage'.$iAppTabId.'" name="vImage" onchange="readURL(this);" />';
-	                    if($lang == 'rEnglish'){
-							$html.='<img id="vImage" src="'.$this->data['base_url'].'uploads/cataloguemain/noimg.png" width="200" height="200"/>	
+							$html.='<img id="vImage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>	
 		                            </div>
 		                     	</div>';
-	                    }else if($lang == 'rFrench'){
-		                    $html.='<img id="vImage" src="'.$this->data['base_url'].'uploads/cataloguemain/noimg_fr.png" width="200" height="200"/>	
-		                            </div>
-		                        </div>';	
-	                    }                    
 					
             	$html .='<br />';                        
                     	$html .='<div class="control-group">
@@ -2831,11 +2839,7 @@ class App extends MY_Controller
                    
                 	$html .='<div class="control-group">Image: </label>
                     	<div class="controls">';
-                        if($lang == 'rEnglish'){
-                        	$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/noimg.png" width="200" height="200" />';
-                        }else if($lang == 'rFrench'){
-                        	$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/noimg_fr.png" width="200" height="200" />';
-                        }
+                        	$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';
                 	$html .= '<br /><br />';
 
                     $html .= '<input type="file" name="vImage" id="vImage" onchange="readURL(this);">';
@@ -8242,11 +8246,7 @@ class App extends MY_Controller
 										    $html .= '<label class="control-label" style="cursor:default;">'.$val['vLabelName'].'&nbsp;&nbsp;(600 * 600 pixel)</label>
 												<div class="controls">
 													<input type="file" value="vImage" class="input-xlarge" id="'.$val['vDataBaseFieldName'].$iAppTabId.'" name="vImage" onchange="readURL(this);" />';
-											if($lang == 'rEnglish'){
-												$html.='<img id="myimage" src="'.$this->data['base_url'].'uploads/Item/noimg.png" width="200" height="200"/>';			
-											}else if($lang == 'rFrench'){
-												$html.='<img id="myimage" src="'.$this->data['base_url'].'uploads/Item/noimg_fr.png" width="200" height="200"/>';
-											}											
+												$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>';
 											
 										$html.='</div>
 												
@@ -8542,13 +8542,13 @@ class App extends MY_Controller
                                  	    $html .='<input type="file" name="vImage" id="vImage" value="'.$cataloguemaininfo['vImage'].'" onchange="readURL(this);" />';
 									    if($lang == 'rEnglish'){
 									    		if($cataloguemaininfo['vImage'] == ''){
-									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/noimg.png" />';
+									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->config->item('empty_image').'" />';
 									    		}else{
 									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'" />';
 									    		}
 									    }else if($lang == 'rFrench'){
 									    		if($cataloguemaininfo['vImage'] == ''){
-									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/noimg_fr.png" />';
+									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->config->item('empty_image').'" />';
 									    		}else{
 									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'" />';
 									    		}
@@ -8677,15 +8677,11 @@ class App extends MY_Controller
 										    $html.='&nbsp;&nbsp;(600 * 600 pixel)</label>
 												<div class="controls">
 													<input type="file" value="vImage" class="input-xlarge" id="'.$val['vDataBaseFieldName'].$iAppTabId.'" name="vImage" onchange="readURL(this);"/>';
-											if($val['vDataBaseFieldName'] != '')
+											if($menuinfo[$val['vDataBaseFieldName']] != '')
 											{
 												$html.='<img id="editimage" src="'.$this->data['base_url'].'uploads/Menu/'.$iMenuID.'/'.$menuinfo[$val['vDataBaseFieldName']].'" width="200" height="200"/>';
 											}else{
-												if($lang == 'rEnglish'){
-													$html.='<img id="myimage" src="'.$this->data['base_url'].'uploads/Menu/noimg.png" width="200" height="200"/>';										
-												}else if($lang == 'rFrench'){
-													$html.='<img id="myimage" src="'.$this->data['base_url'].'uploads/Menu/noimg_fr.png" width="200" height="200"/>';										
-												}		
+													$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>';	
 											}
 											$html.='</div>
 											</div>';
@@ -8990,11 +8986,7 @@ class App extends MY_Controller
 							}
                             $html.=' (600*600 Pixel)</label>
                                     <div class="controls">';
-		                            if($lang == 'rEnglish'){
-		                            		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/Item/noimg.png" width="200" height="200" />';
-		                            }else if($lang == 'rFrench'){
-		                            		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/Item/noimg_fr.png" width="200" height="200" />';
-		                            }
+		                            		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';
 
                             $html .= '<br /><br />';
 		                    $html .= '<input type="file" name="vImage" id="vImage" onchange="readURL(this);">';
@@ -9292,7 +9284,15 @@ class App extends MY_Controller
                        $k = $i+1; 
                        $html .='<tr class="">
                                 <td width="40%"><p class="sp_title">'.$allappproductlist[$i]["vCatalogueTagname"].'</p></td>';
-                       $html .='<td width="10%"><img src="'.$this->data['base_url'].'uploads/catalogueitem/'.$allappproductlist[$i]["iCatelogueId"].'/'.$allappproductlist[$i]["vCatalogueImage"].'" width="100" height="100" /></td>'; 
+
+                    	if($allappproductlist[$i]["vCatalogueImage"] != '') {
+							$html.='<td width="10%"><img src="'.$this->data['base_url'].'uploads/catalogueitem/'.$allappproductlist[$i]["iCatelogueId"].'/'.$allappproductlist[$i]["vCatalogueImage"].'" width="100" height="100" /></td>';
+						}
+						else {
+								$html.='<td width="10%"><img id="myimage" src="'.$this->config->item('empty_image').'" width="100" height="100"/></td>';
+						}
+
+                       //$html .='<td width="10%"><img src="'.$this->data['base_url'].'uploads/catalogueitem/'.$allappproductlist[$i]["iCatelogueId"].'/'.$allappproductlist[$i]["vCatalogueImage"].'" width="100" height="100" /></td>'; 
                        $html .='<td width="10%" style="text-align:center;"><a class=""  onclick="edit_product_list_item('.$allappproductlist[$i]["iCatelogueId"].','.$iAppTabId.');"><i class="icon-pencil helper-font-24"></i></a></td>
                                 <td width="10%" style="text-align:center;"><a class="button grey" onclick="delete_product_list_item('.$allappproductlist[$i]["iCatelogueId"].','.$iAppTabId.','.$iCatalogueSubId.');" style="cursor:pointer;"><i class="icon-trash helper-font-24"></i></a></td>
 						        </tr>';    
@@ -9364,7 +9364,15 @@ class App extends MY_Controller
 	                       $k = $i+1; 
 	                       $html .='<tr class="">
 	                                <td width="40%"><p class="sp_title">'.$allappmenulist[$i]["vItemName"].'</p></td>';
-	                       $html .='<td width="10%"><img src="'.$this->data['base_url'].'uploads/Item/'.$allappmenulist[$i]["iItemId"].'/'.$allappmenulist[$i]["vImage"].'" width="80" height="80" /></td>'; 
+	                                
+	                    if($allappmenulist[$i]["vImage"] != '') {
+							$html.='<td width="10%"><img src="'.$this->data['base_url'].'uploads/Item/'.$allappmenulist[$i]["iItemId"].'/'.$allappmenulist[$i]["vImage"].'" width="80" height="80" /></td>';
+						}
+						else {
+								$html.='<td width="10%"><img src="'.$this->config->item('empty_image').'" width="80" height="80" /></td>';
+						}
+	                                
+	                       //$html .='<td width="10%"><img src="'.$this->data['base_url'].'uploads/Item/'.$allappmenulist[$i]["iItemId"].'/'.$allappmenulist[$i]["vImage"].'" width="80" height="80" /></td>'; 
 	                                     $html .='<td width="10%" style="text-align:center;"><a class=""  onclick="edit_list_item('.$allappmenulist[$i]["iItemId"].','.$iAppTabId.');"><i class="icon-pencil helper-font-24"></i></a></td>
 	                                     <td width="10%" style="text-align:center;"><a class="button grey" onclick="delete_list_item('.$allappmenulist[$i]["iItemId"].','.$iAppTabId.','.$iMenuID.');" style="cursor:pointer;"><i class="icon-trash helper-font-24"></i></a></td>
 										 <td width="30%" style="text-align:center;"><input type="checkbox" name="vDayMenu'.$allappmenulist[$i]["iItemId"].'" id="vDayMenu'.$allappmenulist[$i]["iItemId"].'"';
@@ -9442,11 +9450,7 @@ class App extends MY_Controller
                                 </div>';
                             $html .='<div class="control-group">Image (600*600 Pixel)</label>
                                     <div class="controls">';
-                            if($lang == 'rEnglish'){
-                            		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/Item/noimg.png" width="200" height="200" />';
-                            }else if($lang == 'rFrench'){
-                            		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/Item/noimg_fr.png" width="200" height="200" />';
-                            }
+                            		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';
                             $html .= '<br /><br />';
                             $html .= '<input type="file" name="vImage" id="vImage" onchange="readURL(this);">';
 							$html.='</div>
@@ -9707,13 +9711,13 @@ class App extends MY_Controller
                     <div class="controls">';
                         if($lang == 'rEnglish'){ 
                         	if($subcataloguelist['vImage'] == ''){
-                        		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/noimg.png" width="200" height="200" />';	
+                        		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';	
                         	}else{
                         		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'" width="200" height="200" />';	
                         	}
                         }else if($lang == 'rFrench'){
                         	if($subcataloguelist['vImage'] == ''){
-                        		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/noimg_fr.png" width="200" height="200" />';	
+                        		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';	
                         	}else{
                         		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'" width="200" height="200" />';	
                         	}
@@ -9803,31 +9807,31 @@ class App extends MY_Controller
         {
         	exit;
         }
-		$html .='<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-			<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>';
-        	/* print_r($getiteminfo);exit;*/
-        	$html .='<div id="additemformid" class="main_popup" style="display:block;">
-                    <div class="popup_header">
-                        <h3>';
-                        foreach($this->data['mylang'] as $val)
-                        {
-							if($val['rLabelName'] == 'Edit Item')
-							{
-								$html.=''.$val['rField'].'';
-							}
+		$html .='<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />';
+$html .='<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>';
+$html .='<div id="additemformid" class="main_popup" style="display:block;">';
+$html .=	'<div class="popup_header">';
+$html .=		'<h3>';
+					foreach($this->data['mylang'] as $val)
+					{
+						if($val['rLabelName'] == 'Edit Item')
+						{
+							$html.=''.$val['rField'].'';
 						}
-                        $html.='</h3><a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="closeleanmodal();"><i class="icon-remove"></i></a>
-                    	</div>
-                    	<div class="popup-body">'; 
-                    	 $html .='<div id="editmenuitem_validation"></div>';
-                    	 $html .='<div class="widget-body form">';
-                            $html .= '<form class="form-horizontal" name="frmloc" id="updatefrmitem" method="post" action="'.$this->data['base_url'].'app/update_item" enctype="multipart/form-data">';
-                            $html .= '<input class="span6" type="hidden" name="iItemId" value="'.$getiteminfo['iItemId'].'" id="iItemId">';
-                            $html .= '<input class="span6" type="hidden" name="iApplicationId" value="'.$getiteminfo['iApplicationId'].'" id="iApplicationId">';
-                            $html .= '<input class="span6" type="hidden" name="data[iAppTabId]" value="'.$getiteminfo['iAppTabId'].'" id="iAppTabId">';
-                            $html .= '<input class="span6" type="hidden" name="data[iMenuID]" value="'.$getiteminfo['iMenuId'].'" id="iMenuID">';
-                           	 $html .='<div class="control-group" id="maindiv">';
-                             	$html .= '<label class="control-label" style="cursor:default;">';
+					}
+$html.=			'</h3>';
+$html.=			'<a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="closeleanmodal();"><i class="icon-remove"></i></a>';
+$html.=		'</div>';
+$html.=		'<div class="popup-body">'; 
+$html .=		'<div id="editmenuitem_validation"></div>';
+$html .=		'<div class="widget-body form">';
+$html .= 			'<form class="form-horizontal" name="frmloc" id="updatefrmitem" method="post" action="'.$this->data['base_url'].'app/update_item" enctype="multipart/form-data">';
+$html .= 				'<input class="span6" type="hidden" name="iItemId" value="'.$getiteminfo['iItemId'].'" id="iItemId">';
+$html .= 				'<input class="span6" type="hidden" name="iApplicationId" value="'.$getiteminfo['iApplicationId'].'" id="iApplicationId">';
+$html .= 				'<input class="span6" type="hidden" name="data[iAppTabId]" value="'.$getiteminfo['iAppTabId'].'" id="iAppTabId">';
+$html .= 				'<input class="span6" type="hidden" name="data[iMenuID]" value="'.$getiteminfo['iMenuId'].'" id="iMenuID">';
+$html .=				'<div class="control-group" id="maindiv">';
+$html .= 					'<label class="control-label" style="cursor:default;">';
                              	foreach($this->data['mylang'] as $val)
                              	{
 									if($val['rLabelName'] == 'Name')
@@ -9835,13 +9839,13 @@ class App extends MY_Controller
 										$html.=''.$val['rField'].'';
 									}
 								}
-                             	$html.='</label>
-                                    <div class="controls">
-                                             <input type="text" maxlength="55" value="'.$getiteminfo['vItemName'].'" class="input-xlarge" id="vItemName" name="data[vItemName]">
-                                              </div>
-                                     </div>';
-                           	$html .='<div class="control-group" id="maindiv">';
-                             	$html .= '<label class="control-label" style="cursor:default;">';
+$html.=						'</label>';
+$html.=						'<div class="controls">';
+$html.=							'<input type="text" maxlength="55" value="'.$getiteminfo['vItemName'].'" class="input-xlarge" id="vItemName" name="data[vItemName]">';
+$html.=						'</div>';
+$html.=					'</div>';
+$html.=					'<div class="control-group" id="maindiv">';
+$html.= 					'<label class="control-label" style="cursor:default;">';
                              	foreach($this->data['mylang'] as $val)
                              	{
 									if($val['rLabelName'] == 'Status')
@@ -9849,40 +9853,49 @@ class App extends MY_Controller
 										$html.=''.$val['rField'].'';
 									}
 								}
-                             	$html.='</label>
-                                    <div class="controls">
-                                             <input type="checkbox" checked="checked" class="input-xlarge" id="eStatus" name="data[eStatus]" value="Active" >
-                                              </div>
-                                     </div>';
-                            $html .='<div class="control-group">';
-                         	foreach($this->data['mylang'] as $val)
-                         	{
-								if($val['rLabelName'] == 'Description')
-								{
-									$html.=''.$val['rField'].'';
+$html.=						'</label>';
+$html.=						'<div class="controls">';
+$html.=							'<input type="checkbox" checked="checked" class="input-xlarge" id="eStatus" name="data[eStatus]" value="Active" >';
+$html.=						'</div>';
+$html.=					'</div>';
+$html.=					'<div class="control-group">';
+$html.= 					'<label class="control-label" style="cursor:default;">';
+                         		foreach($this->data['mylang'] as $val)
+                         		{
+									if($val['rLabelName'] == 'Description')
+									{
+										$html.=''.$val['rField'].'';
+									}
 								}
-							}
-                            $html.'</label>
-                                    <div class="controls cedit">
-                                        <textarea class="input-xlarge" rows="3" name="data[tDescription]" id="tDescription" >'.$getiteminfo['tDescription'].'</textarea>
-                                    </div>
-                                </div>';
-                            $html .='<div class="control-group">';
-                            foreach($this->data['mylang'] as $val)
-                            {
-								if($val['rLabelName'] == 'Image')
-								{
-									$html.=''.$val['rField'].'';
+$html.=						'</label>';
+$html.= 					'<div class="controls cedit">';
+$html.=							'<textarea class="input-xlarge" rows="3" name="data[tDescription]" id="tDescription" >'.$getiteminfo['tDescription'].'</textarea>';
+$html.=						'</div>';
+$html.=					'</div>';
+$html.=					'<div class="control-group">';
+$html.= 					'<label class="control-label" style="cursor:default;">';
+                            	foreach($this->data['mylang'] as $val)
+                            	{
+									if($val['rLabelName'] == 'Image')
+									{
+										$html.=''.$val['rField'].'';
+									}
 								}
-							}
-                            $html.=' (600*600 pixel)</label>
-                                    <div class="controls">
-                                        <input type="file" name="vImage" value="vImage" title="'.$getiteminfo['vImage'].'" onchange="readURL(this);">
-										<img id="Imageshow" src="'.$this->data['base_url'].'uploads/Item/'.$getiteminfo['iItemId'].'/'.$getiteminfo['vImage'].'" />
-                                    </div>
-                                </div>';
-                             $html .='<div class="control-group" id="maindiv">';
-                             	$html .= '<label class="control-label" style="cursor:default;">';
+$html.=						' (600*600 pixel)</label>';
+$html.= 					'<div class="controls">';
+$html.= 						'<input type="file" name="vImage" value="vImage" title="'.$getiteminfo['vImage'].'" onchange="readURL(this);" />';
+                              	if($getiteminfo['vImage']!='')
+                              	{
+									$html.='<img id="Imageshow" src="'.$this->data['base_url'].'uploads/Item/'.$getiteminfo['iItemId'].'/'.$getiteminfo['vImage'].'" />';
+							   	}
+							   	else
+							   	{
+							   		$html.='<img id="Imageshow" src="'.$this->config->item('empty_image').'"/>';
+							   	}
+$html.=						'</div>';
+$html.=					'</div>';
+$html.=					'<div class="control-group" id="maindiv">';
+$html.=						'<label class="control-label" style="cursor:default;">';
                              	foreach($this->data['mylang'] as $val)
                              	{
 									if($val['rLabelName'] == 'Price')
@@ -9890,85 +9903,94 @@ class App extends MY_Controller
 										$html.=''.$val['rField'].'';
 									}
 								}
-                             	$html.=' </label>
-                                    <div class="controls">
-                                             <input type="text" maxlength="55" value="'.$getiteminfo['fPrice'].'" class="input-xlarge" id="fPrice" name="data[fPrice]" >'.$this->data['user_info']['vCurrency'].'
-                                              </div>
-                                     </div><br><br><br>';
-							/** Size Defined **/
-							$html .='<table id="dyntable_size" class="table table-bordered responsive" >';
-							$html.='<th class="head0 nosort">';
-							foreach($this->data['mylang'] as $val)
-							{
-								if($val['rLabelName'] == 'Size Name')
+$html.=						'</label>';
+$html.=						'<div class="controls">';
+$html.=							'<input type="text" maxlength="55" value="'.$getiteminfo['fPrice'].'" class="input-xlarge" id="fPrice" name="data[fPrice]" >'.$this->data['user_info']['vCurrency'];
+$html.=						'</div>';
+$html.=					'</div><br><br><br>';
+$html.=					'<table id="dyntable_size" class="table table-bordered responsive" >';
+$html.=						'<th class="head0 nosort">';
+								foreach($this->data['mylang'] as $val)
 								{
-									$html.=''.$val['rField'].'';
+									if($val['rLabelName'] == 'Size Name')
+									{
+										$html.=''.$val['rField'].'';
+									}
 								}
-							}
-							$html.='</th>';
-							$html.='<th class="head0">';
-							foreach($this->data['mylang'] as $val)
-							{
-								if($val['rLabelName'] == 'Price')
+$html.=						'</th>';
+$html.=						'<th class="head0">';
+								foreach($this->data['mylang'] as $val)
 								{
-									$html.=''.$val['rField'].'';
+									if($val['rLabelName'] == 'Price')
+									{
+										$html.=''.$val['rField'].'';
+									}
 								}
+$html.=						'</th>';
+$html.=						'<th class="head0">';
+$html.=							'<a class="button grey" onclick="add_size_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\', \'edit\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a>';
+$html.=						'</th>';
+							for($i=0;$i<count($getsizeiteminfo);$i++)
+							{
+								$html.=	'<tr>';
+								$html.=		'<td>';
+								$html.=			'<input type="text" name="size[vSizeName'.$i.']" value="'.htmlspecialchars($getsizeiteminfo[$i]['vSizeName']).'" id="vSizeName'.$i.'" />';
+								$html.=		'</td>';
+								$html.=		'<td>';
+								$html.=			'<input type="text" name="size[fPrice'.$i.']" id="fPrice'.$i.'" value="'.$getsizeiteminfo[$i]['fPrice'].'" onkeypress="return isPriceKey(event);" /> '.$this->data['user_info']['vCurrency'];
+								$html.=		'</td>';
+								$html.=		'<td>';
+								$html.=			'<a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a>';
+								$html.=		'</td>';
+							  	$html.=	'</tr>';
 							}
-							$html.='</th>';
-						//$html.='<th class="head0">Delete</th>';
-						$html.='<th class="head0"><a class="button grey" onclick="add_size_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\', \'edit\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
-						for($i=0;$i<count($getsizeiteminfo);$i++){
-							$html.='<tr>
-								<td><input type="text" name="size[vSizeName'.$i.']" value="'.htmlspecialchars($getsizeiteminfo[$i]['vSizeName']).'" id="vSizeName'.$i.'" /></td>
-								<td><input type="text" name="size[fPrice'.$i.']" id="fPrice'.$i.'" value="'.$getsizeiteminfo[$i]['fPrice'].'" onkeypress="return isPriceKey(event);" /> '.$this->data['user_info']['vCurrency'].'</td>
-								<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
-							  </tr>';
-						}				
-				//$html.='<tr>';
-				$html .='</table>';  
-							
-				$html .= '<br />';							
-				$html .='<table id="dyntable_option" class="table table-bordered responsive item_size_details" >';
-				/** Options Defined **/
-				//$html.='<th width="20%">Option Group</th>';
-				$html.='<th class="head0">';
-					foreach($this->data['mylang'] as $val)
-					{
-						if($val['rLabelName'] == 'Option Name')
-						{
-							$html.=''.$val['rField'].'';
-						}
-					}
-				$html.='</th>';
-				$html.='<th class="head0">';
-					foreach($this->data['mylang'] as $val)
-					{
-						if($val['rLabelName'] == 'Price')
-						{
-							$html.=''.$val['rField'].'';
-						}
-					}
-				$html.='</th>';
-				$html.='<th class="head0"><a class="button grey" onclick="add_option_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a></th>';
-				//<td><input type="text" name="option[vOptionGroup'.$i.']" value="'.$getoptioniteminfo[$k]['vOptionGroup'].'" id="vOptionGroup" /></td>
-				for($k=0;$k<count($getoptioniteminfo);$k++){
-				$html.='<tr>
-					<td><input type="text" name="option[vOptName'.$k.']" value="'.htmlspecialchars($getoptioniteminfo[$k]['vOptName']).'" id="vOptName'.$k.'" /></td>
-					<td><input type="text" name="option[fCharge'.$k.']" value="'.$getoptioniteminfo[$k]['fCharge'].'" id="fCharge'.$k.'" /> '.$this->data['user_info']['vCurrency'].'</td>
-					<td><a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a></td>
-					</tr>';
-				}				
-			$html .='</table>';   
-                    $html .='</form>';
-                    $html .='</div>';
-                    $html .='<div class="row_form">
-        		</div>';
-            $html .='</div>';
-                        
-           	$html .='</div>
-            <div class="popup-footer">
-            	<div style="margin-right:300px;">
-            	<button type="button" class="btn btn-primary"  id="eventbtn" name="eventbtn" onclick="return updateitem('.$getiteminfo['iMenuId'].','.$getiteminfo['iAppTabId'].','.$getiteminfo['iApplicationId'].');"><i class="icon-ok"></i> ';
+$html.=					'</table>';  
+$html.= 				'<br />';							
+$html.=					'<table id="dyntable_option" class="table table-bordered responsive item_size_details" >';
+$html.=						'<th class="head0">';
+								foreach($this->data['mylang'] as $val)
+								{
+									if($val['rLabelName'] == 'Option Name')
+									{
+										$html.=''.$val['rField'].'';
+									}
+								}
+$html.=						'</th>';
+$html.=						'<th class="head0">';
+								foreach($this->data['mylang'] as $val)
+								{
+									if($val['rLabelName'] == 'Price')
+									{
+										$html.=''.$val['rField'].'';
+									}
+								}
+$html.=						'</th>';
+$html.=						'<th class="head0">';
+$html.=							'<a class="button grey" onclick="add_option_menu_item_new(\''.$this->data['user_info']['vCurrency'].'\');" style="cursor:pointer;"><i class="icon-plus white helper-font-24" title="" aria-describedby=""></i></a>';
+$html.=						'</th>';
+							for($k=0;$k<count($getoptioniteminfo);$k++)
+							{
+								$html.=	'<tr>';
+								$html.=		'<td>';
+								$html.=			'<input type="text" name="option[vOptName'.$k.']" value="'.htmlspecialchars($getoptioniteminfo[$k]['vOptName']).'" id="vOptName'.$k.'" />';
+								$html.=		'</td>';
+								$html.=		'<td>';
+								$html.=			'<input type="text" name="option[fCharge'.$k.']" value="'.$getoptioniteminfo[$k]['fCharge'].'" id="fCharge'.$k.'" /> '.$this->data['user_info']['vCurrency'];
+								$html.=		'</td>';
+								$html.=		'<td>';
+								$html.=			'<a class="button grey" onclick="delete_item_size_menu();" style="cursor:pointer;"><i class="icon-trash itemdel helper-font-24" title="" aria-describedby=""></i></a>';
+								$html.=		'</td>';
+								$html.=	'</tr>';
+							}				
+$html.=					'</table>';   
+$html.=				'</form>';
+$html.=			'</div>';
+$html.=			'<div class="row_form"></div>';
+$html.=		'</div>';
+$html.=	'</div>';
+$html.=	'<div class="popup-footer">';
+$html.=		'<div style="margin-right:300px;">';
+$html.=			'<button type="button" class="btn btn-primary"  id="eventbtn" name="eventbtn" onclick="return updateitem('.$getiteminfo['iMenuId'].','.$getiteminfo['iAppTabId'].','.$getiteminfo['iApplicationId'].');"><i class="icon-ok"></i> ';
         			foreach($this->data['mylang'] as $val)
         			{
 						if($val['rLabelName'] == 'SaveItem')
@@ -9976,34 +9998,32 @@ class App extends MY_Controller
 							$html.=''.$val['rField'].'';
 						}
 					}
-        			$html.='</button>&nbsp;&nbsp;
-                <button aria-hidden="true" onclick="closeleanmodal();" class="btn">';
-                foreach($this->data['mylang'] as $val)
-                {
-					if($val['rLabelName'] == 'Close')
-					{
-						$html.=''.$val['rField'].'';
+$html.=			'</button>&nbsp;&nbsp';
+$html.=			'<button aria-hidden="true" onclick="closeleanmodal();" class="btn">';
+                	foreach($this->data['mylang'] as $val)
+                	{
+						if($val['rLabelName'] == 'Close')
+						{
+							$html.=''.$val['rField'].'';
+						}
 					}
-				}
-                $html.='</button></div>
-            </div>
-        </div>';
-		
-		$html.='<script>';
-		$html.='function readURL(input) {
-				if (input.files && input.files[0]) {
-					var reader = new FileReader();
-					reader.onload = function (e) {
-						$("#Imageshow")
-							.attr("src", e.target.result)
-							.width(100)
-							.height(100);
-					};
-		
-						reader.readAsDataURL(input.files[0]);
-					}
-				}';	
-		$html.='</script>';
+$html.=			'</button>';
+$html.=		'</div>';
+$html.=	'</div>';
+$html.=	'<script>';
+$html.=		'function readURL(input) {';
+$html.=			'if (input.files && input.files[0]) {';
+$html.=				'var reader = new FileReader();';
+$html.=				'reader.onload = function (e) {';
+$html.=					'$("#Imageshow")';
+$html.=						'.attr("src", e.target.result)';
+$html.=						'.width(100)';
+$html.=						'.height(100);';
+$html.=				'};';
+$html.=				'reader.readAsDataURL(input.files[0]);';
+$html.=			'}';
+$html.=		'}';	
+$html.='</script>';
                     
         echo $html;exit; 
     }
