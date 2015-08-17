@@ -9,7 +9,7 @@ Ext.define('MyApp.view.catelog.NewArrivalDetails', {
         var storeData = this.config.data;
         var headerImage = storeData.vArrivalImage;
         var Title = storeData.vArrivalName;
-        var descr = storeData.vArrivalDescription;
+        var descr = storeData.tDescription;
 
 
         var ImagePanel = new Ext.Panel({

@@ -15,7 +15,11 @@ extend: 'Ext.Container',
                      var items = [];
                                 data.each(function(rec){
                                     items.push({
-                                        html: '<div style="text-align:center;"><img  src="' + rec.get('vGalleryImage') + '" width="100%"/></div>'
+                                    	scrollable: {
+                                    		direction: 'vertical',
+                                    		directionLock: true
+                                    	},
+                                        html: '<div style="text-align:center;"><img  src="' + rec.get('vGalleryImage') + '" width="100%"/><span class="fullDescGal">'+rec.get("tDescription")+'</span></div>'
                                     });
                                 });
                         var panel = Ext.create('Ext.Carousel', {

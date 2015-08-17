@@ -196,7 +196,9 @@ Ext.define('locales.en', {
     	CLIENTDETAILS: 'Customer Details'
     },
     NEWARRIVAL:{
-        TITLE: ''
+        TITLE: '',
+        NONEWARRIVAL: 'No new arrival is available',
+        DETAILS: 'Details'
     },
     DONATION:{
         TITLE: ''

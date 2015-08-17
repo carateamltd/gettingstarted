@@ -273,7 +273,8 @@ Ext.define('locales.de', {
     },
     NEWARRIVAL:{
         TITLE: 'Nouvel Arrivage',
-        NONEWARRIVAL: 'Aucune arrivée de nouveaux est disponible'
+        NONEWARRIVAL: 'Aucune arrivée de nouveaux est disponible',
+        DETAILS: 'Description'
     },
     DONATION:{
         TITLE: 'Le Don',

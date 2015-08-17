@@ -5,7 +5,7 @@ Ext.define('MyApp.view.menuoftheday.OrderdayDetailView', {
     config: {
     	title: Loc.t('MENU.TITLE'),
     	style: "background-image: url('img/splash.png');",
-        store: 'orderdetialstoreid',
+        store: 'MenuOfDayStore',
         scrollable:{
         	indicators:false
         },

@@ -21,13 +21,15 @@ Ext.application({
         'ArroundStore','ArroundSubStore','LocationStore','HomeStore','OpencloseStore',
         'CustomStore','DownloadStore',"PartnerStore","AlbumStore","ReviewStore",
         "OrderHistoryStore","OptionItemStore","SizeItemStore","NewArrivalStore","CatelogStore","TestimonialStore","TicketStore",
-        "CatelogSizeStore","AddCartStore","ServiceTabStore","ServiceTimingTabStore","BlogStore",'CatalogProductStore','OrderCartStore','MenuStore','MenuDetailStore', 'OrderSummaryStore'],
+        "CatelogSizeStore","AddCartStore","ServiceTabStore","ServiceTimingTabStore","BlogStore",'CatalogProductStore','OrderCartStore','MenuStore','MenuDetailStore', 'OrderSummaryStore',
+        'MenuOfDayStore'],
     models:['Video','MessageModel','LoyalitiModel','OrderModel','OrderDetailModel',
         'OrderDetailModel','ImageModel','WebSiteModel','SocialModel','PdfModel','QRModel','RssModel','EventModel',
     'NoteModel','NewsModel','ScheduleReservationModel','ServiceModel','TimeModel','ReservationModel','ArroundusModel',
     'ArroundSubModel','LocationModel','HomeModel','OpencloseModel','CustomModel','DownloadModel',"PartnerModel",
     "AlbumModel","AppointmentModel","QuotationModel","OrderHistoryModel","SizeItemModel","OptionItemModel","NewArrivalModel",
-    "CatelogModel","TestimonialModel","TicketModel","CatelogSizeModel","AddCartModel","ServiveTabModel","ServiceTimingTabModel","BlogModel",'CatalogProduct','OrderCartModel','MenuModel','MenuDetailModel'],
+    "CatelogModel","TestimonialModel","TicketModel","CatelogSizeModel","AddCartModel","ServiveTabModel","ServiceTimingTabModel","BlogModel",'CatalogProduct','OrderCartModel','MenuModel','MenuDetailModel',
+    'MenuOfDayModel'],
     views : ['Ext.ux.panel.PDF','catelog.CatalogProducts','catelog.CatalogCart','catelog.CustomerDetails','OrderView.OrderCart','OrderView.CustomerDetails'],
     launch: function() {
     	this.chrome43Fix();

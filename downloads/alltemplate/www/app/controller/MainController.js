@@ -59,7 +59,8 @@ Ext.define('MyApp.controller.MainController', {
             appointmentView: 'appointmentview',
             quoteView: 'quoteview',
             orderHistory: 'orderhistory',
-            newarrivalView: 'newarrivalnavi',
+            newarrivalView: 'newarrivalview',
+            newarrivalNavi: 'newarrivalnavi',
             donationView: 'donationview',
             catelogNavi: 'catelognavi',
             catelogView: 'catelogview',
@@ -145,7 +146,8 @@ Ext.define('MyApp.controller.MainController', {
             },
             gallaryNaviView: {
                 push: 'onGallaryNaviPush',
-                pop: 'onGallaryNaviPop'
+                pop: 'onGallaryNaviPop',
+                activate: 'onGallaryActivates'
             },
             gallaryView: {
                 itemtap: 'onGallaryTap',
@@ -2366,17 +2368,17 @@ console.log('===================End=====================');
         }
     },
     onMenu_MenuDayBtnTap: function () {
-        var menuNavi = this.getMenuNavi();
+        var menuNavi = this.getMenuDayNavi();
         appMask();
         var url = URLConstants.URL + 'action=easyapps_menuofthe_day&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    var objlength = Response.Menu_day.length
-                    TextConstants.OrderDettail_ItemID = Response.Menu_day[objlength - 1].iItemId;
-                    var objOrderDetailStore = Ext.getStore('orderdetialstoreid')
+                    var objlength = Response.items.length
+                    TextConstants.OrderDettail_ItemID = Response.items[objlength - 1].iItemId;
+                    var objOrderDetailStore = Ext.getStore('MenuOfDayStore')
                     objOrderDetailStore.removeAll();
-                    objOrderDetailStore.add(Response.Menu_day);
+                    objOrderDetailStore.add(Response.items);
                     objOrderDetailStore.sync();
                     Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true)
                     Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
@@ -2600,7 +2602,7 @@ console.log('===================End=====================');
         var objNewArrivalStore = Ext.getStore('newarrivalstoreid');
         objNewArrivalStore.removeAll();
         appMask();
-        var url = 'http://admin.easy-apps.co.uk/webservice?action=easyapps_arrival_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_arrival_details&iApplicationId=' + TextConstants.ApplicationId;
         console.log("====================================================================");
         console.log(url);
         console.log("====================================================================");

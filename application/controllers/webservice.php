@@ -358,10 +358,31 @@ class webservice extends MY_Controller
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
       
 		$iContactUsId = $this->webservice_model->save_contactus($Data);
+		
+		//-- Email Data
+			$appDetails = $this->webservice_model->get_currency_for_order_details($Data['iApplicationId']);
+			$appOwnerEmail = $appDetails['vEmail'];
+				
+			$applicationName 			= $appDetails['tAppName'];
+				
+			$html = '';
+			$html .= '<p><strong>Application Name: </strong>'.$applicationName.'</p>';
+			$html .= '<p><strong>User Details: </strong><br />';
+			$html .= '<table>';
+			$html .= '<tr><td>Name: </td><td>'.$Data['vName'].'</td></tr>';
+			$html .= '<tr><td>Email: </td><td>'.$Data['vEmail'].'</td></tr>';
+			$html .= '<tr><td>Phone Number: </td><td>'.$Data['vContactNumber'].'</td></tr>';
+			$html .= '</table>';
+			$html .= '<p><strong>Message: </strong>'.$Data['tMessage'].'</p>';
+    		$html .= '<p><strong>Thank You</strong></p>';
 		   
 		if($iContactUsId){
-		  $sendcontactus = $this->send_contactus_details($Data['vEmail'],$Data['tMessage']);	
+		  //$sendcontactus = $this->send_contactus_details($Data['vName'],$Data['vEmail'],$Data['vContactNumber'],$Data['tMessage'],$Data['iApplicationId']);	
+		  $sendToCustomer = $this->send_contactus_details("Customer",$appOwnerEmail,$Data['vEmail'],$html,$applicationName);
+		  $sendToAppOwner = $this->send_contactus_details("AppOwner",$Data['vEmail'],$appOwnerEmail,$html,$applicationName);
 		  $msg['status'] = "Success";
+		  $msg['mailToCustomer'] = $sendToCustomer;
+		  $msg['mailToAppOwner'] = $sendToAppOwner;
 		}else{
 		  $msg['status'] = "Fail";
 		}
@@ -382,34 +403,40 @@ class webservice extends MY_Controller
 		exit;	
         }
 
-        function send_contactus_details($vEmail,$message){
-        	$this->load->library('email');
-			$this->email->initialize(array(
-			  'protocol' => 'smtp',
-			  'smtp_host' => 'ssl://smtp.gmail.com',
-			  'smtp_user' => 'carateamltd@gmail.com',
-			  'smtp_pass' => 'nopass',
-			  'smtp_port' => 465,
-			  'mailtype'  => 'html', 
-			  'charset'   => 'iso-8859-1',
-			  'crlf' => "\r\n",
-			  'newline' => "\r\n"
-			));
+        function send_contactus_details($type,$fromEmail,$toEmail,$message,$applicationName)
+        {
+	        $this->load->model('admin_model', '', TRUE);
+			$ci = get_instance();
+			$ci->load->library('email');
+			//$config['protocol'] = "smtp";
+			//$config['smtp_host'] = "ssl://smtp.gmail.com";
+			//$config['smtp_port'] = "465";//"25";
+			//$config['smtp_user'] = "rohit.sharma@aplitetech.com";
+			//$config['smtp_pass'] = "easyapps1@French";
+			$config['charset'] = "utf-8";
+			$config['mailtype'] = "html";
+			$config['newline'] = "\r\n";
+
 			
-	        $this->email->from('carateamltd@gmail.com', 'Easyapps');
-	        $this->email->to($vEmail); 
-	        $this->email->subject('Contact');
-	        $this->email->message($message); 
-	        $this->email->send();
-	        $email = $this->email->print_debugger();    
-	        
-			/** email **/
-	        if(isset($email))
-			{
-	            return true;
-	        }else{
-	            return false;
-	        }
+
+			//-- Send Email to Customer/AppOwner
+				$ci->email->initialize($config);
+				$ci->email->from($fromEmail, "Contact Us Form - ".$applicationName." - EasyApps");
+				$ci->email->to($toEmail);
+				$this->email->reply_to($fromEmail, $applicationName);
+				$ci->email->subject('Contact Us Form');
+				if($type=="Customer")
+				{
+					$html = "<p>Thank you for contacting us, we will get back to you soon. Your details are:</p>".$message;
+				}
+				else
+				{
+					$html = "<p>A customer tried to contact you via your application. Customer details are:</p>".$message;
+				}
+				$ci->email->message($html);
+				$result = $ci->email->send();
+			
+			return $result;
         }
     
     function save_mail()
@@ -5520,8 +5547,6 @@ header('Access-Control-Allow-Origin: *');
 		// $config['protocol'] = "smtp";
 // 		$config['smtp_host'] = "ssl://smtp.gmail.com";
 // 		$config['smtp_port'] = "465";//"25";
-// 		$config['smtp_user'] = "raghavendra.soni@aplitetech.com";//"mail@easyapps.fr"; 
-// 		$config['smtp_pass'] = "t9t29gjhjmcq28";//"easyapps1@French";
 		$config['charset'] = "utf-8";
 		$config['mailtype'] = "html";
 		$config['newline'] = "\r\n";

@@ -8,7 +8,7 @@ Ext.define('MyApp.view.gallary.GallaryView', {
          baseCls: 'photoCls',
          selectedCls: 'color:transperent',
          itemTpl: new Ext.XTemplate('<div id="wrapper" style="margin:0 auto !important;"><div id="columns"><div class="pin" id="test_{iGalleryImageId}" >\n\
-    <img class="pic" src="{vGalleryImage}" id="profile_{iGalleryImageId}"   width="60" height="60" />\n\</div></div></div>')
+    <img class="pic" src="{vGalleryImage}" id="profile_{iGalleryImageId}"   width="60" height="60" />\n\</div></div><span class="descGal">{tDescription}</span></div>')
     }
 });
 //<img class="pic" src="data:image/gif;base64,{vGalleryImage}" id="profile_{iGalleryImageId}"   width="60" height="60" />\n\
