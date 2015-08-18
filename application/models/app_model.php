@@ -2638,7 +2638,14 @@ function getservicetiminginfo($iServiceId)
     {
         /* save catalogue size */
         $count = count($size)/2;
-        $queryInsert = 'INSERT INTO `r_app_size_catalogue` (`iCatelogueId`, `vSizeName`, `vSizeColor`, `fSizePrice`) VALUES ';
+        if($size['vSizeName0'] != '' && $size['fSizePrice0'] != '')
+        {
+        	$queryInsert = 'INSERT INTO `r_app_size_catalogue` (`iCatelogueId`, `vSizeName`, `vSizeColor`, `fSizePrice`) VALUES ';
+        }
+        else
+        {
+        	return false;
+        }
         for($i=0;$i<$count;$i++){
             if($size['vSizeName'.$i] != '' && $size['fSizePrice'.$i] != '')
             {
@@ -2698,7 +2705,14 @@ function getservicetiminginfo($iServiceId)
     {
         /* save catalogue option */
         $count = count($option)/2;
-        $queryInsert = 'INSERT INTO `r_app_option_catalogue` (`iCatelogueId`, `vOptionName`, `fOptionPrice`) VALUES ';
+        if($option['vOptionName0'] != '' && $option['fOptionPrice0'] != '')
+        {
+        	$queryInsert = 'INSERT INTO `r_app_option_catalogue` (`iCatelogueId`, `vOptionName`, `fOptionPrice`) VALUES ';
+        }
+        else
+        {
+        	return true;
+        }
         for($i=0;$i<$count;$i++){
             if($option['vOptionName'.$i] != '' && $option['fOptionPrice'.$i] != '')
             {
