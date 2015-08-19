@@ -3,7 +3,7 @@ Ext.define('MyApp.view.scanner.ScannerView', {
     alias: 'widget.scannerview',
     config: {
         layout: 'card',
-        title: 'Scnner'
+        title: Loc.t('SCANNER.TITLE')
     },
     initialize: function () {
 
@@ -19,7 +19,7 @@ Ext.define('MyApp.view.scanner.ScannerView', {
                     width: '60%',
                     style:'padding:10px;',
                     ui: 'confirm',
-                    text: 'Scan',
+                    text: Loc.t('SCANNER.TEXT'),
                     scope:this,
                     handler:this.onConfirm
                 }, {

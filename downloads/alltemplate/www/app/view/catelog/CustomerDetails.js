@@ -8,7 +8,7 @@ Ext.define('MyApp.view.catelog.CustomerDetails', {
         items:[
             {
                 xtype:'button',
-                text:'Ok',
+                text:Loc.t('ORDER.DONE'),
                 docked: 'bottom',
                 itemId: 'btnSaveCustomerDetails',
                 id: 'btnSaveCustomerDetails',

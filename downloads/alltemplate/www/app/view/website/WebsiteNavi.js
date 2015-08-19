@@ -17,7 +17,7 @@ Ext.define("MyApp.view.website.WebsiteNavi", {
         },
         items: [{
                 xtype: 'websitelistview',
-                title: 'WebSites',
+                title: Loc.t('WEBSITES.TITLE'),
 //                baseCls: 'younaviCls',
 //                height: 50,
                 scrollable: {

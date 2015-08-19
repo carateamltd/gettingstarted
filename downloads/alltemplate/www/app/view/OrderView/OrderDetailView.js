@@ -31,7 +31,7 @@ Ext.define('MyApp.view.OrderView.OrderDetailView', {
             '<div style="margin-top:15px;height:25px;font-size: 12px;">',
             '<span style="font-weight:bold;position:relative;top:5px">{[this.getSize()]} : </span>',
             '<div class="styled-select">',
-            '<select style="" id="ordersize_{iItemId}" onchange="MyApp.app.getController(\'OrderController\').changeProductSizePrice(this, \'detailView\')"><option value="NA">-Select-</option>',
+            '<select style="" id="ordersize_{iItemId}" onchange="MyApp.app.getController(\'OrderController\').changeProductSizePrice(this, \'detailView\')"><option value="NA">-{[this.getSelectText()]}-</option>',
             '<tpl for="sizes">',
             '<option value="{iSizeId}">{vSizeName} ({parent.vCurrency}{fPrice})</option>',
             '</tpl>',
@@ -43,7 +43,7 @@ Ext.define('MyApp.view.OrderView.OrderDetailView', {
             '<div style="margin-top:15px;height:25px;font-size: 12px;">',
             '<span style="font-weight:bold;position:relative;top:5px">{[this.getOption()]} : </span>',
             '<div class="styled-select">',
-            '<select style="" id="orderoption_{iItemId}" onchange="MyApp.app.getController(\'OrderController\').changeProductOptionPrice(this, \'detailView\')"><option value="NA">-Select-</option>',
+            '<select style="" id="orderoption_{iItemId}" onchange="MyApp.app.getController(\'OrderController\').changeProductOptionPrice(this, \'detailView\')"><option value="NA">-{[this.getSelectText()]}-</option>',
             '<tpl for="options">',
             '<option value="{iOptionId}">{vOptName} ({parent.vCurrency}{fCharge})</option>',
             '</tpl>',
@@ -55,7 +55,7 @@ Ext.define('MyApp.view.OrderView.OrderDetailView', {
             '<tpl if="sizes.length == 0" >',
             '{[this.getPrice(values.vCurrencyCode, values.price)]}',
             '<tpl else>',
-            '{[this.getPriceText()]} : -',
+            '{[this.getPriceText()]} : {vCurrency}{fPrice}',
             '</tpl>',
             '</div>',
             '<div style="width:50%;float:left;margin-top:5px;font-weight:bold;font-size:12px">{[this.getQty()]} : <input value="1" id="orderqty_{iItemId}" type="text" style="width:40px;height:40px;text-align:center;"></div>',
@@ -75,6 +75,9 @@ Ext.define('MyApp.view.OrderView.OrderDetailView', {
 				},
 				getQty: function(){
 					return Loc.t('CATELOG.QTY');
+				},
+				getSelectText: function(){
+					return Loc.t('CATELOG.SELECT');
 				}
 			})
     }

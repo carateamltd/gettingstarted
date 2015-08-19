@@ -7,7 +7,7 @@ Ext.define('MyApp.view.partner.PartnerView', {
     	scrollable:{
         	indicators:false
         },
-         emptyText:'No Partners is available',
+         emptyText:Loc.t('PARTNERS.NOPARTNERAVL'),
         itemTpl: new Ext.XTemplate('<li style="padding:5px; font-family:Times New Roman, Georgia, Serif;">\n\
 <div style="padding:10px 0px 0px 0px;  color:black;background-color:rgba(255, 253, 253, 0.84);border-radius: 10px;">\n\
 <div style="float:left;margin-right:5px;border-radius: 10px 0px 0px 24px;overflow:hidden;margin-top: -11px;margin-left: -1px;">\n\
@@ -20,7 +20,7 @@ Ext.define('MyApp.view.partner.PartnerView', {
         style:' background-image: url("img/splash.png");',
         items:[{
                 xtype:'toolbar',
-                title:'Partners',
+                title:Loc.t('PARTNERS.TITLE'),
                 docked:'top'
         }]
     }

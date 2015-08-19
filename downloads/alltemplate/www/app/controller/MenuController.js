@@ -63,7 +63,7 @@ Ext.define('MyApp.controller.MenuController', {
             }
         }
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('menuprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+        document.getElementById('menuprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE')+' : '+selectedProduct.get('vCurrency')+newPrice;
     },
 
     changeProductOptionPrice: function(selectElement){
@@ -96,7 +96,7 @@ Ext.define('MyApp.controller.MenuController', {
         }
 
         var newPrice = Number(sizePrice) + Number(optionPrice);
-        document.getElementById('menuprice_'+productId).innerHTML = 'Price : '+selectedProduct.get('vCurrency')+newPrice;
+        document.getElementById('menuprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE')+' : '+selectedProduct.get('vCurrency')+newPrice;
     }
 
 });

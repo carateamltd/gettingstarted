@@ -4,10 +4,10 @@ Ext.define('MyApp.view.ecommarce.EcommerceCartDetails',{
     xtype: 'ecommercecartdetails',
 //    requires: ['MyApp.view.ecommarce.EcommarceDetails'],
     config: {
-        title:'cart details',
+        title:Loc.t('CATELOG.CARTDETAILS'),
         style: "background-image: url('img/splash.png');",
         store: 'addcartstoreid',
-        emptyText: 'No Cart product is available',
+        emptyText: Loc.t('CATELOG.NOCARTPRODUCTAVAILABLE'),
         scrollable: {
             indicators: false
         },

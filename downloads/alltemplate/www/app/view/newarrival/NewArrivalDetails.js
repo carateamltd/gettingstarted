@@ -3,7 +3,7 @@ Ext.define('MyApp.view.catelog.NewArrivalDetails', {
     alias: 'widget.newarrivaldetails',
     config: {
         layout: 'card',
-        title:'New Arrival Details'
+        title:Loc.t('NEWARRIVAL.NEWARRIVALDETAILS')
     },
     initialize: function () {
         var storeData = this.config.data;
@@ -27,7 +27,7 @@ Ext.define('MyApp.view.catelog.NewArrivalDetails', {
                 html: '<div style="text-align:center"><img src="http://' + headerImage + '" width="100%"/></div>',
                 margin: '0 10 10 10'
             }, {
-                html: '<div style="text-align:center;font-weight: bold;font-size: 18px;padding-left: 10px;">Details</div>',
+                html: '<div style="text-align:center;font-weight: bold;font-size: 18px;padding-left: 10px;">'+Loc.t('NEWARRIVAL.DETAILS')+'</div>',
                 margin: '0 10 0 10'
             }, {
                 html: '<div style="text-align:left;font-size: 16px;word-wrap:break-word;width:100%">' + descr + '</div>',

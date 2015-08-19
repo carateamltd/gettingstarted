@@ -4,7 +4,7 @@ Ext.define('MyApp.view.OrderView.CustomerOrderDetailView', {
     requires:['MyApp.view.OrderView.PayPalView'],
     config: {
        layout:'card',
-       title:'Customer Details'
+       title:Loc.t('CATELOG.CLIENTDETAILS')
     },
     initialize: function() {
     	   
@@ -18,37 +18,43 @@ Ext.define('MyApp.view.OrderView.CustomerOrderDetailView', {
                 items: [
                     {
                         xtype: 'textfield',
-                        label: 'Full Name*:',
+                        label: Loc.t('CATELOG.NAME'),
                         name: 'fullname',
-                        itemId:'fullnameid'
+                        itemId:'fullnameid',
+                        required: true
                     },
                     {
                         xtype: 'numberfield',
-                        label: 'Mobile No*:',
+                        label: Loc.t('RESERVATION.MOBILENO'),
                         name: 'mobileno',
-                        itemId:'mobilenum'
+                        itemId:'mobilenum',
+                        required: true
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Area Name*:',
+                        label: Loc.t('CATELOG.AREANAME'),
                         name: 'areaname',
-                        itemId:'areanameid'
+                        itemId:'areanameid',
+                        required: true
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Address*:',
+                        label: Loc.t('CATELOG.ADDRESS'),
                         name: 'address',
-                        itemId:'addressid'
+                        itemId:'addressid',
+                        required: true
                     },{
                         xtype: 'textfield',
-                        label: 'Email*:',
+                        label: Loc.t('CATELOG.EMAIL'),
                         name: 'email',
-                        itemId:'emailid'
+                        itemId:'emailid',
+                        required: true
                     },{
                         xtype: 'numberfield',
-                        label: 'Pin Code*:',
+                        label: Loc.t('CATELOG.ZIPCODE'),
                         name: 'pincode',
-                        itemId:'pincodeid'
+                        itemId:'pincodeid',
+                        required: true
                     }
                    
                 ]

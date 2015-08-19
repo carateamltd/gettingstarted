@@ -4,7 +4,7 @@ Ext.define('MyApp.view.donation.DonationView', {
 //    requires:['MyApp.view.OrderView.PayPalView'],
     config: {
         layout: 'card',
-        title: 'Donation'
+        title: Loc.t('DONATION.TITLE')
     },
     initialize: function () {
 
@@ -18,24 +18,24 @@ Ext.define('MyApp.view.donation.DonationView', {
                     items: [
                         {
                             xtype: 'textfield',
-                            label: 'Name:',
+                            label: Loc.t('CATELOG.NAME'),
                             name: 'fullname',
                             itemId: 'fullnameid'
                         }, {
                             xtype: 'textfield',
-                            label: 'Organization:',
+                            label: Loc.t('DONATION.ORG'),
                             name: 'organization',
                             itemId: 'organizationid'
                         },
                         {
                             xtype: 'textfield',
-                            label: 'Currency Code:',
+                            label: Loc.t('DONATION.CURRENCYCODE'),
                             name: 'currencycode',
                             itemId: 'currencycodeid'
                         },
                         {
                             xtype: 'textfield',
-                            label: 'Ammmount:',
+                            label: Loc.t('DONATION.AMOUNT'),
                             name: 'ammount',
                             itemId: 'ammountid'
                         }
@@ -43,7 +43,7 @@ Ext.define('MyApp.view.donation.DonationView', {
                     ]
                 }, {
                     xtype: 'button',
-                    text: 'Submit',
+                    text: Loc.t('CONTACTUS.SUBMIT'),
                     baseCls: 'submitbuttonCls',
                     margin: 5,
                     scope: this,
@@ -52,7 +52,7 @@ Ext.define('MyApp.view.donation.DonationView', {
         });
         var topToolbar = new Ext.Toolbar({
             docked: 'top',
-            title: 'Contact us'
+            title: Loc.t('CONTACTUS.TITLE')
         });
         var finalPanel = new Ext.Panel({
             layout: 'fit',

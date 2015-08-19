@@ -17,7 +17,7 @@ Ext.define("MyApp.view.arround.ArroundNavi", {
         },
         items: [{
                 xtype:'arrounduslist',
-                title:'Around',
+                title:Loc.t('AROUND.TITLE'),
                 style: "background-image: url('img/splash.png');",
                 scrollable:{
                 	indicators:false

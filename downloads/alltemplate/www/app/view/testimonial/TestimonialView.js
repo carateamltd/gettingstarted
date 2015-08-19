@@ -5,7 +5,7 @@ Ext.define('MyApp.view.testimonial.TestimonialView', {
         scrollable: {
             indicators: false
         },
-        emptyText: 'No Testimonial is available',
+        emptyText: Loc.t('TESTIMONIAL.NOTESTIMONIALAVL'),
         itemTpl:new Ext.XTemplate('<table style="width:100%;background-color:white;border-radius:10px;"><tr>\n\
 <td style="width:1%;height:80px;vertical-align:top;"><img src="img/quote.png" width="25px" />\n\
 </td><td style="bottom;width:94%">{tDescription}</td><td style="vertical-align:bottom;">\n\
@@ -19,7 +19,7 @@ Ext.define('MyApp.view.testimonial.TestimonialView', {
         style: ' background-image: url("img/splash.png");',
          items:[{
                 xtype: 'toolbar',
-                title: 'Testimonial',
+                title: Loc.t('TESTIMONIAL.TITLE'),
                 docked: 'top'
             },{
                 xtype:'panel',
@@ -31,12 +31,12 @@ Ext.define('MyApp.view.testimonial.TestimonialView', {
                                 xtype:'textfield',
                                 name:"nametext",
                                 itemId:'nameid',
-                                label:'Name'
+                                label:Loc.t('CATELOG.NAME')
                         },{
                             xtype:'textfield',
                             name:'feedbacktext',
                             itemId:'feedbacktextid',
-                            label:'Review'
+                            label:Loc.t('REVIEW.TITLE')
                         }]
                 },{
                     xtype:'panel',
@@ -45,7 +45,7 @@ Ext.define('MyApp.view.testimonial.TestimonialView', {
                             xtype:'spacer'
                     },{
                         xtype:'button',
-                        text:'Submit',
+                        text:Loc.t('CONTACTUS.SUBMIT'),
                         ui:'confirm',
                         itemId:'testimonialsubmitbtnid'
                     },{

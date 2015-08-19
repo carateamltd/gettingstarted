@@ -15,7 +15,7 @@ Ext.define('MyApp.view.review.Review', {
         style: ' background-image: url("img/splash.png");',
         items:[{
                 xtype: 'toolbar',
-                title: 'Review',
+                title: Loc.t('REVIEW.TITLE'),
                 docked: 'top'
             },{
                 xtype:'panel',
@@ -27,12 +27,12 @@ Ext.define('MyApp.view.review.Review', {
                                 xtype:'textfield',
                                 name:"nametext",
                                 itemId:'nameid',
-                                label:'Name'
+                                label:Loc.t('CATELOG.NAME')
                         },{
                             xtype:'textfield',
                             name:'feedbacktext',
                             itemId:'feedbacktextid',
-                            label:'Review'
+                            label:Loc.t('REVIEW.TITLE')
                         }]
                 },{
                     xtype:'panel',
@@ -41,7 +41,7 @@ Ext.define('MyApp.view.review.Review', {
                             xtype:'spacer'
                     },{
                         xtype:'button',
-                        text:'Submit',
+                        text:Loc.t('CONTACTUS.SUBMIT'),
                         ui:'confirm',
                         itemId:'reviewconfirmbtnid'
                     },{

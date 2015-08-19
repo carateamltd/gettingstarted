@@ -15,7 +15,7 @@ Ext.define('MyApp.view.survay.SurvayView', {
         ],
         items:[{
                 xtype:'toolbar',
-                title:'Survay',
+                title:Loc.t('SURVEY.TITLE'),
                 docked:'top'
         }]
     }, onMyPanelActivate: function (newActiveItem, container, oldActiveItem, eOpts) {
@@ -30,7 +30,7 @@ Ext.define('MyApp.view.survay.SurvayView', {
             failure: function (response) {
                 appUnmask();
                 var text = response.responseText;
-                Ext.Msg.alert('Error', text, Ext.emptyFn);
+                Ext.Msg.alert(Loc.t('CATELOG.ERROR'), text, Ext.emptyFn);
             }
         });
     }

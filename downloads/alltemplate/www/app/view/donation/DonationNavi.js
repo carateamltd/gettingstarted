@@ -12,7 +12,7 @@ Ext.define("MyApp.view.donation.DonationNavi", {
 //            height: 50,
             items:[{
                       xtype:'button',
-                      text:'Share',
+                      text:Loc.t('LOYALTY.SHARE'),
                       align:'right',
                       itemId:'sharingId',
                       hidden:true
@@ -20,7 +20,7 @@ Ext.define("MyApp.view.donation.DonationNavi", {
         },
         items: [{
                 xtype:'donationview',
-                title:'Donation',
+                title:Loc.t('DONATION.TITLE'),
 //                style: "background-image: url('img/splash.png');",
             }]
     }

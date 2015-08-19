@@ -27,19 +27,19 @@ Ext.define('MyApp.view.voicerecording.VoiceRecording', {
                     items: [{xtype: 'spacer'}, {
                             xtype: 'button',
                             padding: 10,
-                            text: 'Record',
+                            text: Loc.t('VOICERECORD.RECORD'),
                             scope: this,
                             handler: this.onRecord
                         }, {xtype: 'spacer'}, {
                             xtype: 'button',
                             padding: 10,
-                            text: 'Play',
+                            text: Loc.t('VOICERECORD.PLAY'),
                             scope: this,
                             handler: this.onPlay
                         }, {xtype: 'spacer'}, {
                             xtype: 'button',
                             padding: 10,
-                            text: 'Send',
+                            text: Loc.t('VOICERECORD.SEND'),
                             scope: this,
                             handler: this.onEmail
                         }, {xtype: 'spacer'}]
@@ -50,7 +50,7 @@ Ext.define('MyApp.view.voicerecording.VoiceRecording', {
                 }]
         })
         var topToolbar = new Ext.Toolbar({
-            title: 'Voice Recording',
+            title: Loc.t('VOICERECORD.TITLE'),
 //            baseCls: 'younaviCls',
 //            height: 50,
             docked: 'top'

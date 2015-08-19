@@ -6,7 +6,7 @@ Ext.define('MyApp.view.blog.BlogView', {
         scrollable: {
             indicators: false
         },
-        emptyText:'No blog is available',
+        emptyText:Loc.t('BLOG.EMPTYTEXT'),
         store: 'blosgstoreid',
         itemTpl: new Ext.XTemplate('<li style="padding:5px; font-family: "Times New Roman", Georgia, Serif;">\n\
 <div style="padding:10px 0px 0px 0px;  color:black;background-color:rgba(255, 255, 255, 1);border: 1px solid #efefef; border-radius: 10px;">\n\

@@ -3,6 +3,7 @@
  Ext.ux.Localization determines language and than uses corresponding file from folder locales
  @example text: Loc.t('BUTTON.CANCEL')
  */
+ 
 Ext.define('locales.de', {
     extend: 'Ext.Base',
     singleton: true,
@@ -11,7 +12,8 @@ Ext.define('locales.de', {
         OK: 'OK',
         CANCEL: 'Abbrechen',
         YES: 'Ja',
-        NO: 'Nein'
+        NO: 'Nein',
+        SUBSCRIBE: "S'abonner"
     },
     MAIN: {
         WELCOME: 'Willkommen',
@@ -34,7 +36,18 @@ Ext.define('locales.de', {
         CITY: 'Ville',
         STATE: 'Région',
         ZIP: 'ZIP',
-        SORRY: 'Désolé'
+        SORRY: 'Désolé',
+        ONOFFTIME: 'On / Off Time',
+        DAY: 'Jour',
+        OPRNFROM: 'Ouvert Du',
+        OPRNTO: 'Ouvert à',
+        SUNDAY: 'Dimanche',
+        MONDAY: 'Lundi',
+        TUESDAY: 'Mardi',
+        WEDNESDAY: 'Mercredi',
+        THURSDAY: 'Jeudi',
+        FRIDAY: 'Vendredi',
+        SATURDAY: 'Samedi'
     },
     EVENT:{
         TITLE: 'Événement',
@@ -47,14 +60,18 @@ Ext.define('locales.de', {
         TITLE: 'LISTE DE DIFFUSION'
     },
     PDF:{
-        TITLE: 'PDF'
+        TITLE: 'PDF',
+        NOPDFAVL: 'Pas de pdf est disponible',
+        PDFVIEWER:'PDF Viewer'
     },
     RSSFEEDS:{
-        TITLE: 'Rss Feeds',
-        RSSFEEDNOTVALID: 'Rss feed ne est pas valable !!'
+        TITLE: 'RSS Feeds',
+        RSSFEEDNOTVALID: 'RSS feed ne est pas valable !!',
+        RSSFEEDNOTAVL: 'Aucun flux RSS est disponible'
     },
     WEBSITES:{
-        TITLE: 'Site Web'
+        TITLE: 'Site Web',
+        NOWEBLISTAVL: 'Aucune liste de site Web est disponible'
     },
     YOUTUBE:{
         TITLE: 'Youtube',
@@ -76,19 +93,30 @@ Ext.define('locales.de', {
         NOIMAGESAVAILABLE: 'La galerie est vide.'
     },
     AROUND:{
-        TITLE: 'Around Us'
+        TITLE: 'Around Us',
+        DISTANCE: 'Distance',
+        LIST: 'Liste',
+        MAP: 'Carte',
+        BTN1: '',
+        BTN2: '',
+        BTN3: ''
     },
     VOICERECORD:{
+    	RECORD:'Record',
+    	PLAY:'Jouer',
+    	SEND:'Envoyer',
         TITLE: 'Mémos vocaux'
     },
     SOCIALMEDIA:{
-        TITLE: 'MÉDIAS SOCIAUX'
+        TITLE: 'MÉDIAS SOCIAUX',
+        SOCIALPAGES: 'Pages sociaux'
     },
     QRCODE:{
         TITLE: 'Qr Code',
         NODATAAVAILABLE: 'Pas De Données Disponibles',
         STARTDATE: 'Date De Début',
-        ENDDATE: 'Date De Fin'
+        ENDDATE: 'Date De Fin',
+        QRVIEW: 'Qr Voir'
     },
     CONTACTUS:{
         TITLE: 'Contactez Nous',
@@ -136,7 +164,9 @@ Ext.define('locales.de', {
         TOTALAMT: 'Prix',
         CHOOSEOPTION: 'Choisissez une option',
         DONE:'Ok',
-        CANCEL: 'Annuler'
+        CANCEL: 'Annuler',
+        VARIENT: 'Varient',
+        PAYMENTMETHOD: 'Mode de paiement'
     },
     RESERVATION:{
         TITLE: 'Réservation',
@@ -186,27 +216,40 @@ Ext.define('locales.de', {
         NOMESSAGEAVAILABLE: 'Pas de messages disponibles'
     },
     DOWNLOAD:{
-        TITLE: 'TÉLÉCHARGER'
+        TITLE: 'TÉLÉCHARGER',
+        NODOWNLOADAVAILABLE: 'Aucun téléchargement est disponible'
     },
     PARTNERS:{
-        TITLE: 'LES PARTENAIRES'
+        TITLE: 'LES PARTENAIRES',
+        NOPARTNERAVL: 'Aucun Partners est disponible'
     },
     MORTGAGECALCULATOR:{
-        TITLE: 'Calculatrice hypothécaire'
+        TITLE: 'Calculatrice hypothécaire',
+        HOMEPRICE: 'Accueil Prix',
+        DOWNPAYMENT: 'Acompte',
+        LOANAMOUNT: 'Montant du prêt',
+        INTERESTRATE: "Taux d'intérêt",
+        LOANTERM: 'Prêt à terme',
+        EMI: 'Montant mensuel (EMI)',
+        CALCULATE: 'Calculer'
     },
     SCIENTIFICCALCULATOR:{
-        TITLE: 'CalculatriceScientifique'
+        TITLE: 'Calculatrice Scientifique'
     },
     NOTEPAD:{
-        TITLE: 'BLOC-NOTES'
+        TITLE: 'BLOC-NOTES',
+        SAVE: 'Sauvegarder',
+        LIST: 'Remarque Liste'
     },
     SCANNER:{
-        TITLE: 'Scanner'
+        TITLE: 'Scanner',
+        TEXT: 'Scan'
     },
     APPOINTMENT:{
         TITLE: 'Rendez Vou',
         SUCCESSFULLYADDED:'Nomination ajouté avec succès',
-        CHECKINTERNETCONNECTION: 'Veuillez verifier votre Connexion internet svp.'
+        CHECKINTERNETCONNECTION: 'Veuillez verifier votre Connexion internet svp.',
+        NOTCONFIRMMSG: 'Votre rendez-vous est toujours pas confirmer'
     },
     QUOTATION:{
         TITLE: 'Citation',
@@ -216,16 +259,27 @@ Ext.define('locales.de', {
         TITLE: 'Examen'
     },
     TESTIMONIAL:{
-        TITLE: 'TÉMOIGNAGE'
+        TITLE: 'TÉMOIGNAGE',
+        NOTESTIMONIALAVL: "Pas d'appréciation est disponible"
     },
     COUPOUN:{
-        TITLE: 'Coupoun'
+        TITLE: 'Coupoun',
+        CODE: 'Promo Code',
+        IMGTITLE: "Titre de l'image vient ici",
+        ISSUEDATE: "DATE D'ÉMISSION",
+        VALIDTILL: "VALABLE JUSQU'AU"
+    },
+    SURVEY:{
+        TITLE: 'Enquête'
     },
     CATELOG:{
         TITLE: 'Catalogue',
         NODATAAVAILABLE: 'Aucun article disponible.',
         DETAILS: 'Description',
         CART: 'Panier',
+        ADDTOCART: 'Ajouter au panier',
+        CARTDETAILS: 'Panier Détails',
+        NOCARTPRODUCTAVAILABLE: 'Aucune panier produit est disponible',
         CUSTOMER: 'Contact Client',
         NAME:'Nom et Prénom',
         EMAIL: 'email',
@@ -269,17 +323,26 @@ Ext.define('locales.de', {
     	QTY: 'Qté',
     	SELECTOPTION: 'Veuillez sélectionner mode de livraison svp.',
     	EMPTYTEL: 'Veuillez entrer votre numéro de téléphone.',
-    	CLIENTDETAILS: 'Détail Client'
+    	CLIENTDETAILS: 'Détail Client',
+    	SELECT: 'Sélectionner',
+    	AREANAME: "Nom de la zone",
+    	COMMENT: 'Commentaire',
+    	ERROR: 'erreur',
+    	TYPE: 'Type'
     },
     NEWARRIVAL:{
         TITLE: 'Nouvel Arrivage',
         NONEWARRIVAL: 'Aucune arrivée de nouveaux est disponible',
-        DETAILS: 'Description'
+        DETAILS: 'Description',
+        NEWARRIVALDETAILS: "Nouveaux détails de l'arrivée"
     },
     DONATION:{
         TITLE: 'Le Don',
         THANKYOUDONATION: 'Merci pour le don',
-        CHECKINTERNETCONNECTION: 'Veuillez verifier votre Connexion internet svp.'
+        CHECKINTERNETCONNECTION: 'Veuillez verifier votre Connexion internet svp.',
+        ORG: 'Organisation',
+        CURRENCYCODE: 'Code de devise',
+        AMOUNT: 'Amount'
     },
     SERVICE:{
         TITLE: 'Service',
@@ -292,7 +355,8 @@ Ext.define('locales.de', {
         NOSERVICEAVAILABLE: 'Aucun service disponible.'
     },
     TICKETINFO:{
-        TITLE: 'Informations sur les billets'
+        TITLE: 'Informations sur les billets',
+        NOTICKETLISTAVL: 'Aucune liste de tickets est disponible'
     },
     ECOMMERCE:{
         TITLE: 'E Commerce',
@@ -303,7 +367,9 @@ Ext.define('locales.de', {
         DETAILS: 'Description'
     },
     BLOG:{
-        TITLE: 'BLOG'
+        TITLE: 'BLOG',
+        SHARE: 'Partager',
+        EMPTYTEXT: 'Pas de blog est disponible'
     },
     MENUOFTHEDAY:{
         TITLE: 'Menu du jour',
@@ -315,5 +381,17 @@ Ext.define('locales.de', {
     LOCALIZATION: {
         CHANGELANGUAGE: 'Sprache Wechseln',
         CHANGELANGUAGEQUESTION: 'Sie müssen die Applikation neu starten, damit die neue Sprache angezeigt werden kann.'
+    },
+    FANWALL: {
+    	TITLE: 'Fanwall',
+    	NOOBJAVAILABLE: 'Aucun objet est disponible'
+    },
+    MAILING: {
+    	MAILINGVIEW: 'Voir postale',
+    	TITLE: 'Liste de diffusion'
+    },
+    PAYPAL: {
+    	TITLE:'Paypal Voir',
+    	BUTTON: 'Pay Pal'
     }
 });

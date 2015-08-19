@@ -64,8 +64,8 @@ Ext.define('MyApp.view.reservation.TimeView', {
                             usePicker: true,
                             itemId:'timeid',
                             defaultPhonePickerConfig : {
-                                doneButton : 'Ok',
-                                cancelButton : 'Annuler'
+                                doneButton : Loc.t('ORDER.DONE'),
+                                cancelButton : Loc.t('ORDER.CANCEL')
                             },
                             store: 'timestore',
                             displayField: 'time',

@@ -68,41 +68,41 @@ Ext.define('MyApp.view.appointment.AppointmentView', {
                     items: [
                         {
                             xtype: 'datepickerfield',
-                            label: 'Date',
+                            label: Loc.t('CATELOG.DATE'),
                             itemId: 'dateID',
                             name: 'appointmentdate',
                             value: new Date()
                         }, {
                             xtype: 'selectfield',
-                            label: 'Time:',
+                            label: Loc.t('CATELOG.TIME'),
                             itemId:'appointmenttimeid',
                             name: 'appointmentTime',
                             options: otherOptions
                         },
                         {
                             xtype: 'textfield',
-                            label: 'Name:',
+                            label: Loc.t('CATELOG.NAME'),
                             name: 'appointmentname',
                             itemId: 'appointmentnameid'
                         }, {
                             xtype: 'emailfield',
-                            label: 'Email:',
+                            label: Loc.t('CATELOG.EMAIL'),
                             name: 'email',
                             itemId: 'emailid'
                         }, {
                             xtype: 'numberfield',
-                            label: 'Phone:',
+                            label: Loc.t('CATELOG.TEL'),
                             name: 'phonename',
                             itemId: 'phonenameid'
                         },
                         {
                             xtype: 'textfield',
-                            label: 'Remark:',
+                            label: Loc.t('CATELOG.REMARKS'),
                             name: 'remark',
                             itemId: 'remarkid'
                         }, {
                             xtype: 'button',
-                            text: 'Confirm',
+                            text: Loc.t('CATELOG.CONFIRM'),
                             baseCls: 'submitbuttonCls',
                             margin: 5,
                             scope: this,
@@ -110,7 +110,7 @@ Ext.define('MyApp.view.appointment.AppointmentView', {
                         },{
                             xtype:'panel',
                             itemId:'appointmentcnfrmTextid',
-                            html:'<div style="text-align: center;  margin-top: 10px;  color: red;font-weight: bold;">Your Appointment is still not confirm</div>'
+                            html:'<div style="text-align: center;  margin-top: 10px;  color: red;font-weight: bold;">'+Loc.t('APPOINTMENT.NOTCONFIRMMSG')+'</div>'
                             
                         }
                     ]
@@ -119,7 +119,7 @@ Ext.define('MyApp.view.appointment.AppointmentView', {
         var finalPanel = new Ext.Panel({
             layout: 'fit',
             style: "background-image: url('img/splash.png');background-repeat: no-repeat fixed;background-size:100% 100%;",
-            items: [{xtype: 'toolbar', title: 'Appointment', docked: 'top', height: 50}, panel]
+            items: [{xtype: 'toolbar', title: Loc.t('APPOINTMENT.TITLE'), docked: 'top', height: 50}, panel]
         })
         this.add([finalPanel])
 

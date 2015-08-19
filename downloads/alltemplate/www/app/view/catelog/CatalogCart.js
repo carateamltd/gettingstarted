@@ -57,7 +57,7 @@ Ext.define('MyApp.view.catelog.CatalogCart', {
                      	'<div style="margin-top:15px;height:25px;font-size: 12px;">',
                             '<span style="font-weight:bold;position:relative;top:5px">{[this.getSize()]} : </span>',
                             '<div class="styled-select">',
-								'<select style="width:140px;" id="cartsize_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductSizePrice(this)"><option value="NA">-Select-</option>',
+								'<select style="width:140px;" id="cartsize_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductSizePrice(this)"><option value="NA">-{[this.getSelectText()]}-</option>',
 									'<tpl for="sizes">',
 									'<tpl if="iSizeId == parent.selectedSize" >',
                 						'<option value="{iSizeId}" selected>{text} ({parent.vCurrencyCode}{fSizePrice})</option>',
@@ -73,7 +73,7 @@ Ext.define('MyApp.view.catelog.CatalogCart', {
                      	'<div style="margin-top:15px;height:25px;font-size: 12px;">',
                             '<span style="font-weight:bold;position:relative;top:5px">{[this.getOption()]} : </span>',
                             '<div class="styled-select">',
-								'<select style="width:140px;" id="cartoption_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductOptionPrice(this)"><option value="NA">-Select-</option>',
+								'<select style="width:140px;" id="cartoption_{iCatelogueId}" onchange="MyApp.app.getController(\'CatalogController\').changeProductOptionPrice(this)"><option value="NA">-{[this.getSelectText()]}-</option>',
 									'<tpl for="option">',
 									'<tpl if="iOptionId == parent.selectedOption" >',
                 						'<option value="{iOptionId}" selected>{text} ({parent.vCurrencyCode}{fOptionPrice})</option>',
@@ -106,6 +106,9 @@ Ext.define('MyApp.view.catelog.CatalogCart', {
                         },
                         getQty: function(){
                         	return Loc.t('CATELOG.QTY');
+                        },
+                        getSelectText: function(){
+                        	return Loc.t('CATELOG.SELECT');
                         }
                     })
         }, {

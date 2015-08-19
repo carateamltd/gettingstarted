@@ -18,12 +18,12 @@ Ext.define('MyApp.view.mailinglist.MailingList', {
                 items: [
                     {
                         xtype: 'textfield',
-                        label: 'Name:',
+                        label: Loc.t('CATELOG.NAME'),
                         name: 'fullname',
                         itemId:'fullnameid'
                     },{
                         xtype: 'textfield',
-                        label: 'Email:',
+                        label: Loc.t('CATELOG.EMAIL'),
                         name: 'email',
                         itemId:'emailid'
                     }
@@ -32,7 +32,7 @@ Ext.define('MyApp.view.mailinglist.MailingList', {
                 ]
             },{
             	xtype:'button',
-            	text:'Subscribe',
+            	text:Loc.t('BUTTON.SUBSCRIBE'),
             	baseCls:'submitbuttonCls',
             	margin:5,
             	scope:this,
@@ -42,7 +42,7 @@ Ext.define('MyApp.view.mailinglist.MailingList', {
     	var topToolbar=new Ext.Toolbar({
     		docked:'top',
 			height: 50,
-                title:'Mailing view'
+                title:Loc.t('MAILING.MAILINGVIEW')
     	})
     	var finalPanel=new Ext.Panel({
     		layout:'fit',

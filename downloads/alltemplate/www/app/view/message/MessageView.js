@@ -15,7 +15,7 @@ Ext.define('MyApp.view.message.MessageView', {
         store: 'messagestoreid',
         items: [{
                 xtype: 'toolbar',
-                title: 'Messages',
+                title: Loc.t('MESSAGE.TITLE'),
 //                baseCls: 'younaviCls',
 //                height: 50,
                 docked: 'top',

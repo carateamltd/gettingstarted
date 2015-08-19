@@ -4,7 +4,7 @@ Ext.define('MyApp.view.OrderView.PayPalView', {
     config: {
        layout:'card',
        style:'background-color:white;',
-       title:'Paypal View'
+       title:Loc.t('PAYPAL.TITLE')
     },
     initialize: function() {
     	   
@@ -13,7 +13,7 @@ Ext.define('MyApp.view.OrderView.PayPalView', {
     		pack:'center',
     		items:[{
             	xtype:'button',
-            	text:'Pay Pal',
+            	text:Loc.t('PAYPAL.BUTTON'),
             	baseCls:'submitbuttonCls',
             	margin:5,
             	scope:this,

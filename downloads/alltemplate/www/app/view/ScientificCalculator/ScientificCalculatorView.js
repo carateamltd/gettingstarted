@@ -26,7 +26,7 @@ Ext.define('MyApp.view.ScientificCalculator.ScientificCalculatorView', {
             },
             failure: function (response) {
                 var text = response.responseText;
-                Ext.Msg.alert('Error', text, Ext.emptyFn);
+                Ext.Msg.alert(Loc.t('CATELOG.ERROR'), text, Ext.emptyFn);
             }
         });
     }

@@ -83,11 +83,11 @@ Ext.define('MyApp.view.reservation.ConfirmView', {
                     xtype: 'fieldset',
                     items: [{
                             xtype: 'selectfield',
-                            label: 'Payment methode',
+                            label: Loc.t('ORDER.PAYMENTMETHOD'),
                             itemId:'paymethodeid',
                             defaultPhonePickerConfig : {
-                                doneButton : 'Ok',
-                                cancelButton : 'Annuler'
+                                doneButton : Loc.t('ORDER.DONE'),
+                                cancelButton : Loc.t('ORDER.CANCEL')
                             },
                             labelWidth:'40%',
                             usePicker:true,

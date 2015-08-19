@@ -20,7 +20,7 @@ Ext.define("MyApp.view.service.ServiceNavi", {
         },
         items: [{
                 xtype:'serviceview',
-                title:'Service',
+                title:Loc.t('SERVICE.TITLE'),
 //                style: "background-image: url('img/splash.png');",
             }]
     }

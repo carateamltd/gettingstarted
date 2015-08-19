@@ -7,7 +7,7 @@ Ext.define("MyApp.view.coupen.CoupenView", {
     initialize: function () {
         var topToolbar = new Ext.Toolbar({
             docked: 'top',
-            title: 'Coupen'
+            title: Loc.t('COUPOUN.TITLE')
         });
 
         var topToolbar1 = new Ext.Panel({
@@ -17,7 +17,7 @@ Ext.define("MyApp.view.coupen.CoupenView", {
             },
             height: 50,
             items: [{
-                    html: 'Coupen Code:',
+                    html: Loc.t('COUPOUN.CODE'),
                     style: 'margin-top: 15px;'
                 }]
         });
@@ -30,7 +30,7 @@ Ext.define("MyApp.view.coupen.CoupenView", {
             },
             flex: 1,
             items:[{
-                     html: '<div style="text-align:center;">Image Title is coming here</div>',
+                     html: '<div style="text-align:center;">'+Loc.t('COUPOUN.IMGTITLE')+'</div>',
             }]
         });
 
@@ -39,7 +39,7 @@ Ext.define("MyApp.view.coupen.CoupenView", {
             style: 'font-size:22px;color:white;margin: 10px;',
             layout: 'vbox',
             items: [{
-                    html: 'DATE OF ISSUE',
+                    html: Loc.t('COUPOUN.ISSUEDATE'),
                     style: 'color:gray;font-size:14px;font-weight: bold;'
                 }, {
                     html: '15-JAN-2015'
@@ -51,7 +51,7 @@ Ext.define("MyApp.view.coupen.CoupenView", {
             style: 'text-align: right;font-size:22px;color:white;margin: 10px;',
             layout: 'vbox',
             items: [{
-                    html: 'VALID TILL',
+                    html: Loc.t('COUPOUN.VALIDTILL'),
                     style: 'color:gray;font-size:14px;font-weight: bold;'
                 }, {
                     html: '16-JAN-2015'

@@ -10,7 +10,7 @@ Ext.define("MyApp.view.newarrival.NewArrivalNavi", {
             hidden:false,
             items:[{
                       xtype:'button',
-                      text:'Share',
+                      text:Loc.t('BLOG.SHARE'),
                       align:'right',
                       itemId:'sharingId',
                       hidden:true

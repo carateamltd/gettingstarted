@@ -12,7 +12,7 @@ Ext.define("MyApp.view.ecommarce.EcommarceNavi", {
 //            height: 50,
             items:[{
                       xtype:'button',
-                      text:'Share',
+                      text:Loc.t('BLOG.SHARE'),
                       align:'right',
                       itemId:'sharingId',
                       hidden:true

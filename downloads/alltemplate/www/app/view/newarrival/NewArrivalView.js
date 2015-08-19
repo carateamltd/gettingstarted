@@ -3,7 +3,7 @@ Ext.define('MyApp.view.newarrival.NewArrivalView', {
     xtype: 'newarrivalview',
     requires: ['MyApp.view.newarrival.NewArrivalDetails'],
     config: {
-        title: 'Order Details',
+        title: Loc.t('ORDER.ORDERDETAIL'),
         style: "background-image: url('img/splash.png');",
         store: 'newarrivalstoreid',
         emptyText: Loc.t('NEWARRIVAL.NONEWARRIVAL'),

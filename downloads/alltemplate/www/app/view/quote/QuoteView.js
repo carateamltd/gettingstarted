@@ -13,28 +13,28 @@ Ext.define('MyApp.view.quote.QuoteView', {
                     items: [
                         {
                             xtype: 'textfield',
-                            label: 'Name:',
+                            label: Loc.t('CATELOG.NAME'),
                             name: 'quotetname',
                             itemId: 'quotenameid'
                         }, {
                             xtype: 'emailfield',
-                            label: 'Email:',
+                            label: Loc.t('CATELOG.EMAIL'),
                             name: 'quoteemail',
                             itemId: 'quoteemailid'
                         }, {
                             xtype: 'numberfield',
-                            label: 'Phone no:',
+                            label: Loc.t('CATELOG.TEL'),
                             name: 'quotephonenumber',
                             itemId: 'quotephonenumberid'
                         },
                         {
                             xtype: 'textfield',
-                            label: 'Comment:',
+                            label: Loc.t('CATELOG.COMMENT'),
                             name: 'quotecomment',
                             itemId: 'quotecommentid'
                         }, {
                             xtype: 'button',
-                            text: 'Submit',
+                            text: Loc.t('CONTACTUS.SUBMIT'),
                             baseCls: 'submitbuttonCls',
                             margin: 5,
                             scope: this,
@@ -45,7 +45,7 @@ Ext.define('MyApp.view.quote.QuoteView', {
         var finalPanel = new Ext.Panel({
             layout: 'fit',
             style: "background-image: url('img/splash.png');background-repeat: no-repeat fixed;background-size:100% 100%;",
-            items: [{xtype: 'toolbar', title: 'Quotation', docked: 'top', height: 50}, panel]
+            items: [{xtype: 'toolbar', title: Loc.t('QUOTATION.TITLE'), docked: 'top', height: 50}, panel]
         })
         this.add([finalPanel])
 

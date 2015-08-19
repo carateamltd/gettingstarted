@@ -18,7 +18,7 @@ Ext.define("MyApp.view.menu.MenuNavi", {
         },
         items: [{
                 xtype: 'menuviewlist',
-                title: 'Menu',
+                title: Loc.t('MENU.TITLE'),
 				style: "background-image: url('img/splash.png');",
                 scrollable: {
                     indicators: false

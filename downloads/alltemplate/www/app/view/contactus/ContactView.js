@@ -4,7 +4,7 @@ Ext.define('MyApp.view.contactus.ContactView', {
 //    requires:['MyApp.view.OrderView.PayPalView'],
     config: {
        layout:'card',
-       title:'Customer Details'
+       title:Loc.t('CATELOG.CLIENTDETAILS')
     },
     initialize: function() {
     	   

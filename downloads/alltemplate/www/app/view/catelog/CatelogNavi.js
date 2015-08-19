@@ -12,7 +12,7 @@ Ext.define("MyApp.view.catelog.CatelogNavi", {
 //            height: 50,
             items:[{
                       xtype:'button',
-                      text:'Share',
+                      text:Loc.t('LOYALTY.SHARE'),
                       align:'right',
                       itemId:'sharingId',
                       hidden:true

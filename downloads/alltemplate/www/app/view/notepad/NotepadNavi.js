@@ -17,14 +17,14 @@ Ext.define("MyApp.view.notepad.NotepadNavi", {
                 }, {
                     xtype: 'button',
                     align: 'right',
-                    text: 'Save',
+                    text: Loc.t('NOTEPAD.SAVE'),
                     hidden: true,
                     itemId: 'saveNoteBtnID'
                 }]
         },
         items: [{
                 xtype: 'notepadlistciew',
-                title: 'Note List',
+                title: Loc.t('NOTEPAD.LIST'),
                 scrollable: {
                     indicators: false
                 }

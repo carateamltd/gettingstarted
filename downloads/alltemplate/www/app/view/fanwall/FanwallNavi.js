@@ -24,7 +24,7 @@ Ext.define("MyApp.view.fanwall.FanwallNavi", {
         },
         items: [{
                 xtype: 'fanwallview',
-                title: 'Fanwall',
+                title: Loc.t('FANWALL.TITLE'),
                 scrollable: {
                     indicators: false
                 }

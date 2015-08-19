@@ -17,7 +17,7 @@ Ext.define("MyApp.view.pdf.PdfNavi", {
         },
         items: [{
                 xtype: 'pdflistview',
-                title: 'PDF',
+                title: Loc.t('PDF.TITLE'),
                 scrollable: {
                     indicators: false
                 }

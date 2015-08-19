@@ -61,13 +61,13 @@ Ext.define('MyApp.view.catelog.CatelogDetails', {
                 sizeListid,{
                     xtype: 'fieldset',
                     margin: 10,
-                    title: 'Quantity:',
+                    title: Loc.t('CATELOG.QTY'),
                     items: [{
                         xtype: 'selectfield',
                         itemId: 'qtyCatalogueID',
                         defaultPhonePickerConfig : {
-                            doneButton : 'Ok',
-                            cancelButton : 'Annuler'
+                            doneButton : Loc.t('ORDER.DONE'),
+                            cancelButton : Loc.t('ORDER.CANCEL')
                         },
                         usePicker: true,
                         options: qunt_select

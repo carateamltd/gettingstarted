@@ -4,7 +4,7 @@ Ext.define('MyApp.view.location.LocationList', {
     requires: ['MyApp.view.location.MyMap'],
     config: {
         layout: 'card',
-        title: 'Confirm'
+        title: Loc.t('RESERVATION.Confirm')
     },
     initialize: function () {
         var arround_ListView = new Ext.create('Ext.List', {

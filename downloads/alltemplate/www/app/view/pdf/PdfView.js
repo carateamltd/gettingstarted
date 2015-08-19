@@ -3,7 +3,7 @@ Ext.define('MyApp.view.pdf.PdfView', {
     alias: 'widget.pdfview',
     config: {
         layout: 'card',
-        title: 'PDF Viewer'
+        title: Loc.t('PDF.PDFVIEWER')
     },
     initialize: function () {
         var pdf = this.config.data.vPdfFile

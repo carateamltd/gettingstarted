@@ -3,7 +3,7 @@ Ext.define('MyApp.view.qrcode.QRView', {
     alias: 'widget.qrview',
     config: {
        layout:'card',
-       title:'QR Code'
+       title:Loc.t('QRCODE.TITLE')
     },
    initialize: function() {
         var qrPanel = new Ext.Panel({

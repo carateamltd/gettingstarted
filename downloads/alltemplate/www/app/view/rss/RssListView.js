@@ -6,7 +6,7 @@ Ext.define('MyApp.view.rss.RssListView', {
         scrollable: {
             indicators: false
         },
-        emptyText:'No rss feed is available',
+        emptyText:Loc.t('RSSFEEDS.RSSFEEDNOTAVL'),
         //    	style: "background-image: url('img/splash.png');font-family:RalewayRegular;font-style:italic;",
         store: 'rssstoreid',
         itemTpl: new Ext.XTemplate('<li style="padding:5px; font-family: "Times New Roman", Georgia, Serif;">\n\

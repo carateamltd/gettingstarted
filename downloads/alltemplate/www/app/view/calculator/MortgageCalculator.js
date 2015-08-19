@@ -77,38 +77,38 @@ Ext.define('MyApp.view.calculator.MortgageCalculator', {
                     items: [
                         {
                             xtype: 'numberfield',
-                            label: 'Home Price:',
+                            label: Loc.t('MORTGAGECALCULATOR.HOMEPRICE'),
                             name: 'homeprice',
                             itemId: 'homepriceID'
                         },
                         {
                             xtype: 'numberfield',
-                            label: 'Down Payment:',
+                            label: Loc.t('MORTGAGECALCULATOR.DOWNPAYMENT'),
                             name: 'downpayment',
                             itemId: 'downPaymentID'
                         },
                         {
                             xtype: 'numberfield',
-                            label: 'Loan Amount:',
+                            label: Loc.t('MORTGAGECALCULATOR.LOANAMOUNT'),
                             disabled: true,
                             itemId:'loanAmtId',
                             name: 'loanAmt'
                         },
                         {
                             xtype: 'selectfield',
-                            label: 'Interest Rate',
+                            label: Loc.t('MORTGAGECALCULATOR.INTERESTRATE'),
                             itemId:'interestRateID',
                             usePicker: true,
                             options: opts
                         },{
                             xtype: 'selectfield',
-                            label: 'Loan Term',
+                            label: Loc.t('MORTGAGECALCULATOR.LOANTERM'),
                             itemId:'loantermsID',
                             usePicker: true,
                             options: loanTermsOpt
                         },{
                             xtype: 'numberfield',
-                            label: 'Monthly Amount(EMI):',
+                            label: Loc.t('MORTGAGECALCULATOR.EMI'),
                             name: 'monthlyamt',
                             disabled: true,
                             itemId: 'monthlyAmtId'
@@ -116,7 +116,7 @@ Ext.define('MyApp.view.calculator.MortgageCalculator', {
                     ]
                 }, {
                     xtype: 'button',
-                    text: 'Calculate',
+                    text: Loc.t('MORTGAGECALCULATOR.CALCULATE'),
                     baseCls: 'submitbuttonCls',
                     margin: 5,
                     scope: this,
@@ -126,7 +126,7 @@ Ext.define('MyApp.view.calculator.MortgageCalculator', {
         var finalPanel = new Ext.Panel({
             layout: 'fit',
             style: "background-image: url('img/splash.png');background-repeat: no-repeat fixed;background-size:100% 100%;",
-            items: [{xtype:'toolbar',docked:'top',title:'Mortgage Calculator',height:50},panel]
+            items: [{xtype:'toolbar',docked:'top',title:Loc.t('MORTGAGECALCULATOR.TITLE'),height:50},panel]
         })
         this.add([finalPanel])
     },

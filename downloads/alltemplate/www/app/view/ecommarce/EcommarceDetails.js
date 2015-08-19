@@ -73,13 +73,13 @@ Ext.define('MyApp.view.ecommarce.EcommarceDetails', {
                 {
                     xtype: 'fieldset',
                     margin: 10,
-                    title: 'Quantity:',
+                    title: Loc.t('CATELOG.QTY'),
                     items: [{
                         xtype: 'selectfield',
                         itemId: 'qtyCatalogueID',
                         defaultPhonePickerConfig : {
-                            doneButton : 'Ok',
-                            cancelButton : 'Annuler'
+                            doneButton : Loc.t('ORDER.DONE'),
+                            cancelButton : Loc.t('ORDER.CANCEL')
                         },
                         usePicker: true,
                         options: qunt_select
@@ -90,7 +90,7 @@ Ext.define('MyApp.view.ecommarce.EcommarceDetails', {
                     margin: '10 10 10 10',
                     padding: 10,
                     itemId:'ecommerce_AddtocartBtnid',
-                    text: 'Add to Cart',
+                    text: Loc.t('CATELOG.ADDTOCART'),
                     ui: 'action',
                     scope: this,
                     handler: this.onBuy

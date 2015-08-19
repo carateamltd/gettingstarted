@@ -17,7 +17,7 @@ Ext.define("MyApp.view.rss.rssNavi", {
         },
         items: [{
                 xtype: 'rsslistview',
-                title: 'RSS Feeds',
+                title: Loc.t('RSSFEEDS.TITLE'),
                 scrollable: {
                     indicators: false
                 }

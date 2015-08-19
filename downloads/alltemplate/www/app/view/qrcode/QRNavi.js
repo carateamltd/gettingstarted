@@ -17,7 +17,7 @@ Ext.define("MyApp.view.qrcode.QRCodeView", {
         },
         items: [{
                 xtype: 'qrlistview',
-                title: 'Qr View',
+                title: Loc.t('QRCODE.QRVIEW'),
                 scrollable: {
                     indicators: false
                 }

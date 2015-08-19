@@ -12,7 +12,7 @@ Ext.define("MyApp.view.blog.BlogNavi", {
 //            height: 50,
             items:[{
                       xtype:'button',
-                      text:'Share',
+                      text:Loc.t('BLOG.SHARE'),
                       align:'right',
                       itemId:'sharingId',
                       hidden:true
@@ -20,7 +20,7 @@ Ext.define("MyApp.view.blog.BlogNavi", {
         },
         items: [{
                 xtype:'blogview',
-                title:'Blogs',
+                title:Loc.t('BLOG.TITLE'),
 //                style: "background-image: url('img/splash.png');",
             }]
     }

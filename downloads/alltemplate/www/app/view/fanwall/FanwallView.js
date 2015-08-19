@@ -6,7 +6,7 @@ Ext.define('MyApp.view.fanwall.FanwallView', {
         scrollable: {
             indicators: false
         },
-        emptyText: 'No Object is available',
+        emptyText: Loc.t('FANWALL.NOOBJAVAILABLE'),
         style: "background-image: url('img/splash.png');",
         store: 'websitestoreid',
         itemTpl: '<div style="background: rgba(255, 255, 255, 0.73);border-radius:10px;margin:10px;padding:10px;">{vWebTitle}</div>',

@@ -13973,7 +13973,8 @@ function save_hometabdata()
 		);
 		$this->upload->initialize($config);
 		$this->upload->do_upload($image); //do upload
-
+		
+		
 	   list($imgwidth, $imgheight) = getimagesize($_FILES[$image]['tmp_name']);
 	   if($imgwidth > $size['width'] && $imgheight > $size['height']){
 		   $config1 = array(	  
