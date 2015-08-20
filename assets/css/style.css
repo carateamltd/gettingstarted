@@ -6856,3 +6856,16 @@ color:#fff;font-style:italic;
 .packages .pkg.android:before {
     background-position: -32px 0;
 }
+
+.img-remove {
+	position: absolute;
+    margin-top: -10px;
+    margin-left: -2px;
+    background-color: #E6E6E6 !important;
+    background-image: linear-gradient(#FFFFFF, #FFFFFF 25%, #E6E6E6) !important;
+    background-repeat: no-repeat;
+    border: 1px solid #d3d3d3;
+    border-radius: 25px !important;
+    text-align: center;
+    width: 14px;
+}

@@ -1488,10 +1488,10 @@ class App extends MY_Controller
 			                        <div class="controls">';
 			        $html.='<input type="file" value="vImage" class="input-xlarge" value="'.$serviceinfo['vImage'].'"  id="vImage'.$iAppTabId.'" name="vImage" onchange="readURL(this);" />';
 			        if($serviceinfo['vImage'] != ''){
-					$html.='<img id="myimage" src="'.$this->data['base_url'].'uploads/service/'.$iServiceId.'/'.$serviceinfo['vImage'].'" width="200" height="200"/>';
+					$html.='<img id="serviceimg" src="'.$this->data['base_url'].'uploads/service/'.$iServiceId.'/'.$serviceinfo['vImage'].'" width="200" height="200"/><a href="javascript:deleteImage(\''.$iServiceId.'\',\'r_app_service_details\', \'uploads/service/'.$iServiceId.'/'.$serviceinfo['vImage'].'\', \''.$iApplicationId.'\', \'vImage\', \'iServiceId\', \'serviceimg\')" class="img-remove icon-remove"></a>';
 					}
 					else{
-						$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>';
+						$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="1" height="1"/>';
 					}
 			                        $html.='</div>
                         </div>';                    	
@@ -1902,7 +1902,7 @@ class App extends MY_Controller
 					$html.=$val1['rField'];
 				}
 			}
-			$html.='</h3><a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="closeleanmodal();"><i class="icon-remove"></i></a>
+			$html.='</h3><a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="closeResetPopup(\'frmarrival_'.$iAppTabId.'\', \'vArrivalImage\');"><i class="icon-remove"></i></a>
                      </div>
                      <div class="popup-body">';        
                         $html .='<div id="addarrival_validation'.$iAppTabId.'" style="display:none;"></div>';
@@ -1961,15 +1961,9 @@ class App extends MY_Controller
 					$html.='</label>
                             <div class="controls">
                                 <input type="file" value="vImage" class="input-xlarge" id="vArrivalImage'.$iAppTabId.'" name="vArrivalImage" onchange="readURL(this);" />';
-                    if($lang == 'rEnglish'){
-                    	$html.='<img id="vArrivalImage" src="'.$this->data['base_url'].'uploads/Item/noimg.png" width="200" height="200"/>
+                    	$html.='<img id="vArrivalImage" src="'.$this->config->item('empty_image').'" width="1" height="1"/>
                                         </div>
                                     </div>';
-                    }else if($lang == 'rFrench'){
-                    	$html.='<img id="vArrivalImage" src="'.$this->data['base_url'].'uploads/Item/noimg_fr.png" width="200" height="200"/>
-                                        </div>
-                                    </div>';	
-                }                       
 				$html .='<br />';                        
 				$html .='<div class="control-group">
 			        <div class="controls">
@@ -1988,7 +1982,7 @@ class App extends MY_Controller
 					}
 				}
 				$html.=' </button>&nbsp;&nbsp;
-				<button aria-hidden="true" onclick="closeleanmodal('."'frmwebsite_$iAppTabId'".');" class="btn">';
+				<button aria-hidden="true" onclick="closeResetPopup(\'frmarrival_'.$iAppTabId.'\', \'vArrivalImage\');" class="btn">';
 				foreach($arrival_language as $val1){
 					if($val1['rLabelName'] == 'Close'){
 						$html.=$val1['rField'];
@@ -2124,9 +2118,14 @@ class App extends MY_Controller
 						$html.='</label>
 		                                <div class="controls">
 		                                <input type="file" value="vImage" class="input-xlarge" id="vArrivalImage_edit'.$iAppTabId.'" name="vArrivalImage" onchange="readURL(this);" />';
-					$html.='<img id="vArrivalImage" src="'.$this->data['base_url'].'uploads/arrival/'.$iArrivalId.'/'.$arrivalinfo['vArrivalImage'].'" width="200" height="200"/>
-		                                </div>
-                                    	</div>';
+		            if($arrivalinfo['vArrivalImage']!=''){
+					$html.='<img id="vArrivalImage1" src="'.$this->data['base_url'].'uploads/arrival/'.$iArrivalId.'/'.$arrivalinfo['vArrivalImage'].'" width="200" height="200"/><a href="javascript:deleteImage(\''.$iArrivalId.'\',\'r_app_arrival_details\', \'uploads/arrival/'.$iArrivalId.'/'.$arrivalinfo['vArrivalImage'].'\', \''.$iApplicationId.'\', \'vArrivalImage\', \'iArrivalId\', \'vArrivalImage1\')" class="img-remove icon-remove"></a>';
+					}
+					else{
+						$html .='<img id="Imageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';
+					}
+		            $html.='</div>
+                    		</div>';
 					$html .='<br />';
 					$html .='<div class="control-group">
 			                <div class="controls">
@@ -2445,6 +2444,7 @@ class App extends MY_Controller
 			$iCatalogueId = $this->input->get('iCatelogueId');
 
 			$getcatalogueinfo = $this->app_model->getproductcataloguedetails($iCatalogueId);
+			$iApplicationId = $getcatalogueinfo['iApplicationId'];
 			$lang= $this->session->userdata('language');
 			$language_details = $this->admin_model->get_language_details($lang);
 
@@ -2527,10 +2527,10 @@ class App extends MY_Controller
                                     <div class="controls">
                                         <input type="file" name="vImage" value="vImage" title="'.$getcatalogueinfo['vCatalogueImage'].'" onchange="readURL(this);">';
                                         if($getcatalogueinfo['vCatalogueImage'] != ''){
-										$html .='<img id="Imageshow" src="'.$this->data['base_url'].'uploads/catalogueitem/'.$getcatalogueinfo['iCatelogueId'].'/'.$getcatalogueinfo['vCatalogueImage'].'" />';
+										$html .='<img id="Imageshow" src="'.$this->data['base_url'].'uploads/catalogueitem/'.$getcatalogueinfo['iCatelogueId'].'/'.$getcatalogueinfo['vCatalogueImage'].'" /><a href="javascript:deleteImage(\''.$iCatalogueId.'\',\'r_app_catalogue_details\', \'uploads/catalogueitem/'.$getcatalogueinfo['iCatelogueId'].'/'.$getcatalogueinfo['vCatalogueImage'].'\', \''.$iApplicationId.'\', \'vCatalogueImage\', \'iCatelogueId\', \'Imageshow\')" class="img-remove icon-remove"></a>';
 										}
 										else{
-											$html .='<img id="Imageshow" src="'.$this->config->item('empty_image').'" />';
+											$html .='<img id="Imageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';
 										}
                                     $html .='</div>
                                 </div>';
@@ -2697,7 +2697,7 @@ class App extends MY_Controller
 					$html.=$val1['rField'];
 				}
 			}
-			$html.='</h3><a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="closeleanmodal();"><i class="icon-remove"></i></a>
+			$html.='</h3><a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="closeResetPopup(\'frmcatalogue_'.$iAppTabId.'\', \'vImage\');"><i class="icon-remove"></i></a>
                     </div>
                     <div class="popup-body">';        
                         $html .='<div id="addcatalogue_validation'.$iAppTabId.'" style="display:none;"></div>';
@@ -2733,7 +2733,7 @@ class App extends MY_Controller
 					$html.='</label>
                     	<div class="controls">
                     	<input type="file" value="vImage" class="input-xlarge" id="vImage'.$iAppTabId.'" name="vImage" onchange="readURL(this);" />';
-							$html.='<img id="vImage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>	
+							$html.='<img id="vImage" src="'.$this->config->item('empty_image').'" width="1" height="1"/>	
 		                            </div>
 		                     	</div>';
 					
@@ -2756,7 +2756,7 @@ class App extends MY_Controller
 							}
 						}
 					$html.='</button>&nbsp;&nbsp;
-					<button aria-hidden="true" onclick="closeleanmodal('."'frmwebsite_$iAppTabId'".');" class="btn">';
+					<button aria-hidden="true" onclick="closeResetPopup(\'frmcatalogue_'.$iAppTabId.'\', \'vImage\');" class="btn">';
 					foreach($catalogue_language as $val1){
 						if($val1['rLabelName'] == 'Close'){
 							$html.=$val1['rField'];
@@ -2839,7 +2839,7 @@ class App extends MY_Controller
                    
                 	$html .='<div class="control-group">Image: </label>
                     	<div class="controls">';
-                        	$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';
+                        	$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';
                 	$html .= '<br /><br />';
 
                     $html .= '<input type="file" name="vImage" id="vImage" onchange="readURL(this);">';
@@ -3242,7 +3242,7 @@ class App extends MY_Controller
 		    /*
 				Update Catalogue main
 		    */
-		    $iCatalogueMainId = $this->app_model->update_catalogue_main($data,$iCatalogueMainId);
+		    $iCatalogueMainId_1 = $this->app_model->update_catalogue_main($data,$iCatalogueMainId);
 
 		    /** image uploads **/	
 		    $size=array();
@@ -8246,7 +8246,7 @@ class App extends MY_Controller
 										    $html .= '<label class="control-label" style="cursor:default;">'.$val['vLabelName'].'&nbsp;&nbsp;(600 * 600 pixel)</label>
 												<div class="controls">
 													<input type="file" value="vImage" class="input-xlarge" id="'.$val['vDataBaseFieldName'].$iAppTabId.'" name="vImage" onchange="readURL(this);" />';
-												$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>';
+												$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="1" height="1"/>';
 											
 										$html.='</div>
 												
@@ -8542,15 +8542,15 @@ class App extends MY_Controller
                                  	    $html .='<input type="file" name="vImage" id="vImage" value="'.$cataloguemaininfo['vImage'].'" onchange="readURL(this);" />';
 									    if($lang == 'rEnglish'){
 									    		if($cataloguemaininfo['vImage'] == ''){
-									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->config->item('empty_image').'" />';
+									    				$html.='<img id="catalogueImage" height="1" width="1" src="'.$this->config->item('empty_image').'" />';
 									    		}else{
-									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'" />';
+									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'" /><a href="javascript:deleteImage(\''.$iCatalogueMainId.'\',\'r_app_catalogue_main\',\'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'\',\''.$iApplicationId.'\',\'vImage\',\'iCatalogueMainId\', \'catalogueImage\')" class="img-remove icon-remove"></a>';
 									    		}
 									    }else if($lang == 'rFrench'){
 									    		if($cataloguemaininfo['vImage'] == ''){
-									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->config->item('empty_image').'" />';
+									    				$html.='<img id="catalogueImage" height="1" width="1" src="'.$this->config->item('empty_image').'" />';
 									    		}else{
-									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'" />';
+									    				$html.='<img id="catalogueImage" height="200" width="200" src="'.$this->data['base_url'].'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'" /><a href="javascript:deleteImage(\''.$iCatalogueMainId.'\',\'r_app_catalogue_main\',\'uploads/cataloguemain/'.$cataloguemaininfo['iCatalogueMainId'].'/'.$cataloguemaininfo['vImage'].'\',\''.$iApplicationId.'\',\'vImage\',\'iCatalogueMainId\', \'catalogueImage\')" class="img-remove icon-remove"></a>';
 									    		}
 									    }
 										$html .='</div>
@@ -8597,6 +8597,36 @@ class App extends MY_Controller
         	</div>';
         
         echo $html;exit;
+    }
+    
+    //-- common function for deleting image
+    function deleteImage()
+    {
+    	$imgId = $this->uri->segment(3);
+    	$postedData = $this->input->get();
+    	$tableName = $postedData['tblname'];
+    	$folderPath = $postedData['folderPath'];
+    	$iApplicationId = $postedData['appId'];
+		$imgField = $postedData['imgField'];
+		$imgIdField = $postedData['imgIdField'];
+		
+		$delete_img = $this->app_model->delete_image($tableName,$imgId,$imgField,$imgIdField);
+		if($delete_img){
+			//unlink(realpath(dirname($folderPath)));
+			//echo realpath(dirname($folderPath));
+			$stack = debug_backtrace();
+			$firstFrame = $stack[count($stack) - 1];
+			$initialFile = $firstFrame['file'];
+			$initialFile = str_replace("index.php", "", $initialFile);
+			$file_path = $initialFile.$folderPath;
+			if(file_exists($file_path)){
+				unlink($file_path);
+			}
+			echo json_encode(array('success'=>true));
+		}
+		else{
+			echo json_encode(array('success'=>false));
+		}
     }
 
 	// Description :- Menu edit
@@ -8679,9 +8709,9 @@ class App extends MY_Controller
 													<input type="file" value="vImage" class="input-xlarge" id="'.$val['vDataBaseFieldName'].$iAppTabId.'" name="vImage" onchange="readURL(this);"/>';
 											if($menuinfo[$val['vDataBaseFieldName']] != '')
 											{
-												$html.='<img id="editimage" src="'.$this->data['base_url'].'uploads/Menu/'.$iMenuID.'/'.$menuinfo[$val['vDataBaseFieldName']].'" width="200" height="200"/>';
+												$html.='<img id="editimage" src="'.$this->data['base_url'].'uploads/Menu/'.$iMenuID.'/'.$menuinfo[$val['vDataBaseFieldName']].'" width="200" height="200"/><a href="javascript:deleteImage(\''.$iMenuID.'\',\'r_menu_catagory\', \'uploads/Menu/'.$iMenuID.'/'.$menuinfo[$val['vDataBaseFieldName']].'\', \''.$iApplicationId.'\', \'vImage\', \'iMenuID\', \'editimage\')" class="img-remove icon-remove"></a>';
 											}else{
-													$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="200" height="200"/>';	
+													$html.='<img id="myimage" src="'.$this->config->item('empty_image').'" width="1" height="1"/>';	
 											}
 											$html.='</div>
 											</div>';
@@ -8986,7 +9016,7 @@ class App extends MY_Controller
 							}
                             $html.=' (600*600 Pixel)</label>
                                     <div class="controls">';
-		                            		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';
+		                            		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';
 
                             $html .= '<br /><br />';
 		                    $html .= '<input type="file" name="vImage" id="vImage" onchange="readURL(this);">';
@@ -9289,7 +9319,7 @@ class App extends MY_Controller
 							$html.='<td width="10%"><img src="'.$this->data['base_url'].'uploads/catalogueitem/'.$allappproductlist[$i]["iCatelogueId"].'/'.$allappproductlist[$i]["vCatalogueImage"].'" width="100" height="100" /></td>';
 						}
 						else {
-								$html.='<td width="10%"><img id="myimage" src="'.$this->config->item('empty_image').'" width="100" height="100"/></td>';
+								$html.='<td width="10%"><img id="myimage" src="'.$this->config->item('empty_image').'" width="1" height="1"/></td>';
 						}
 
                        //$html .='<td width="10%"><img src="'.$this->data['base_url'].'uploads/catalogueitem/'.$allappproductlist[$i]["iCatelogueId"].'/'.$allappproductlist[$i]["vCatalogueImage"].'" width="100" height="100" /></td>'; 
@@ -9369,7 +9399,7 @@ class App extends MY_Controller
 							$html.='<td width="10%"><img src="'.$this->data['base_url'].'uploads/Item/'.$allappmenulist[$i]["iItemId"].'/'.$allappmenulist[$i]["vImage"].'" width="80" height="80" /></td>';
 						}
 						else {
-								$html.='<td width="10%"><img src="'.$this->config->item('empty_image').'" width="80" height="80" /></td>';
+								$html.='<td width="10%"><img src="'.$this->config->item('empty_image').'" width="1" height="1" /></td>';
 						}
 	                                
 	                       //$html .='<td width="10%"><img src="'.$this->data['base_url'].'uploads/Item/'.$allappmenulist[$i]["iItemId"].'/'.$allappmenulist[$i]["vImage"].'" width="80" height="80" /></td>'; 
@@ -9450,7 +9480,7 @@ class App extends MY_Controller
                                 </div>';
                             $html .='<div class="control-group">Image (600*600 Pixel)</label>
                                     <div class="controls">';
-                            		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';
+                            		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';
                             $html .= '<br /><br />';
                             $html .= '<input type="file" name="vImage" id="vImage" onchange="readURL(this);">';
 							$html.='</div>
@@ -9711,15 +9741,15 @@ class App extends MY_Controller
                     <div class="controls">';
                         if($lang == 'rEnglish'){ 
                         	if($subcataloguelist['vImage'] == ''){
-                        		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';	
+                        		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';	
                         	}else{
-                        		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'" width="200" height="200" />';	
+                        		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'" width="200" height="200" /><a href="javascript:deleteImage(\''.$iCatalogueSubId.'\',\'r_app_catalogue_sub_catagory\',\'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'\',\''.$iApplicationId.'\',\'vImage\',\'iCatalogueSubId\', \'vImageshow\')" class="img-remove icon-remove"></a>';	
                         	}
                         }else if($lang == 'rFrench'){
                         	if($subcataloguelist['vImage'] == ''){
-                        		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="200" height="200" />';	
+                        		$html .= '<img id="vImageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';	
                         	}else{
-                        		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'" width="200" height="200" />';	
+                        		$html .= '<img id="vImageshow" src="'.$this->data['base_url'].'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'" width="200" height="200" /><a href="javascript:deleteImage(\''.$iCatalogueSubId.'\',\'r_app_catalogue_sub_catagory\',\'uploads/cataloguesub/'.$subcataloguelist['iCatalogueSubId'].'/'.$subcataloguelist['vImage'].'\',\''.$iApplicationId.'\',\'vImage\',\'iCatalogueSubId\', \'vImageshow\')" class="img-remove icon-remove"></a>';	
                         	}
                         }
                 	$html .= '<br /><br />';
@@ -9890,7 +9920,7 @@ $html.= 						'<input type="file" name="vImage" value="vImage" title="'.$getitem
 							   	}
 							   	else
 							   	{
-							   		$html.='<img id="Imageshow" src="'.$this->config->item('empty_image').'"/>';
+							   		$html.='<img id="Imageshow" src="'.$this->config->item('empty_image').'" width="1" height="1" />';
 							   	}
 $html.=						'</div>';
 $html.=					'</div>';
@@ -11268,8 +11298,8 @@ $html.='</script>';
                                                             if($qrcouponinfo[$val['vDataBaseFieldName']] != '' && $val['vDataBaseFieldName'] == 'vTabletHeaderImage'){
                                                                 $fileurl = $this->data['base_upload']."QRCode/TabletHeaderImage/".$qrcouponinfo['iQrID']."/".$qrcouponinfo[$val['vDataBaseFieldName']];
                                                             
-                                                                $html .='<div id="hdeletebtndivid"><div style="float: left;"><img src="'.$fileurl.'"></div><div style="float: left; margin: 8px 0px 0px 20px;">
-                                                                <button onclick="deleteeventhimage('.$qrcouponinfo['iQrID'].');" class="btn btn-primary" type="button">';
+                                                                $html .='<div id="hdeletebtndivid"><div style="float: left;"><img id="qrtabheadimg" src="'.$fileurl.'"></div><div style="float: left; margin: 8px 0px 0px 20px;">
+                                                                <button id="qrtabheadimgbtn" onclick="deleteImage(\''.$qrcouponinfo['iQrID'].'\', \'r_app_qrcode_values\', \'/uploads/QRCode/TabletHeaderImage/'.$qrcouponinfo['iQrID'].'/'.$qrcouponinfo[$val['vDataBaseFieldName']].'\',\''.$iApplicationId.'\',\'vTabletHeaderImage\',\'iQrID\',\'qrtabheadimg\')" class="btn btn-primary" type="button">';
                                                                 foreach($coupon_language as $val1){
 																	if($val1['rLabelName'] == 'Delete'){
 																		$html.=$val1['rField'];

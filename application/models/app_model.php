@@ -2756,6 +2756,15 @@ function getservicetiminginfo($iServiceId)
         $query = $this->db->get();
         return $query->row_array();
     }
+    
+    // delete image
+    function delete_image($tableName,$imgId,$imgField,$imgIdField)
+    {
+    	$this->db->where($imgIdField,$imgId);
+    	$data = ("$imgField");
+        $this->db->update($tableName,$data);
+        return true;
+    }
 
     /*
         catalogue sizes of product list

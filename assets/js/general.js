@@ -6366,12 +6366,7 @@ function updatesocial(iAppTabId,iFeatureId){
 		   $('#iCatalogueType'+iAppTabId).val('');
 		   $('#vCatalogueName'+iAppTabId).val('');
 		   $('#vImage'+iAppTabId).val('');
-		   if(language == 'rEnglish')
-		   {
-		   	document.getElementById('vImage').src = base_url+"uploads/cataloguemain/noimg.png";
-		   }else if(language == 'rFrench'){
-		   	document.getElementById('vImage').src = base_url+"uploads/cataloguemain/noimg_fr.png";
-		   }
+		   	document.getElementById('vImage').src = "";
 
 		   var extra = '';
 		   show_loading();
@@ -6393,7 +6388,8 @@ function updatesocial(iAppTabId,iFeatureId){
 		    function(data) {
 		     if($('#catalogue_listing'+iAppTabId)){
 				$('#loading').delay(100).trigger('reveal:close');   
-				$('#catalogue_listing'+iAppTabId).html(data); 
+				$('#catalogue_listing'+iAppTabId).html(data);
+				closeResetPopup('frmcatalogue_'+iAppTabId, 'vImage');
 		     }
 		    });   
 		});   
@@ -6509,6 +6505,7 @@ function updatesocial(iAppTabId,iFeatureId){
 						$('#loading').delay(100).trigger('reveal:close');   
 						$('#arrival_listing'+iAppTabId).html(data);             
 			     	}
+			     	closeResetPopup('frmarrival_'+iAppTabId, 'vArrivalImage');
 			    });   
 		});   
 } 
@@ -11401,4 +11398,36 @@ function add_size_menu_item_new(currency, type)
 {
 	var rowCount = ($('#dyntable_option tr').length-1);
 	$("#dyntable_option").last().append("<tr><td><input type='text' name='option[vOptName"+rowCount+"]' id='vOptName"+rowCount+"' /></td><td><input type='text' name='option[fCharge"+rowCount+"]' value='0.00' id='fCharge"+rowCount+"' onkeypress='return isPriceKey(event);' /> "+currency+"</td><td><a class='button grey' onclick='delete_item_option_menu();' style='cursor:pointer;'><i class='icon-trash itemdel helper-font-24' title='' aria-describedby='ui-tooltip-0'></i></a></td></tr>");
+}
+
+//function for delete image
+function deleteImage(imgId, tblName, folderPath, appId, imageFld, imgIdField, tagId){
+	var url = base_url+"app/deleteImage/"+imgId+"?tblname="+tblName+"&folderPath="+folderPath+"&appId="+appId+"&imgField="+imageFld+"&imgIdField="+imgIdField;
+    $.post(url,
+	  function(data) {
+	  	try{
+	  		var res = JSON.parse(data);
+	  		if(res.success === true){
+	  			$("#"+tagId)[0].src = '';
+	  			if(tagId != "qrtabheadimg"){
+	  				$("#"+tagId).parent().find('a').hide();
+	  			}
+	  			else{
+	  				$('#qrtabheadimgbtn').hide();
+	  			}
+	  		}
+	  	}
+	  	catch(e){
+	  		console.log(e);
+	  	}
+	  }
+	);
+	}
+	
+//function for close and reset form
+function closeResetPopup(formId, imgId){
+	$('#'+formId).resetForm();
+	$('#'+imgId)[0].src = "";
+	$('#'+imgId)[0].setAttribute('style', "");
+	$.fancybox.close();
 }
