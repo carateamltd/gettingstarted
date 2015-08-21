@@ -307,6 +307,9 @@ class webservice extends MY_Controller
 	        case 'easyapps_get_clients_currency';
 	        	$this->easyapps_get_clients_currency();
 	        	break;
+	        case 'get_app_tab_id';
+	        	$this->get_app_tab_id();
+	        	break;
 		    default:
 				break;
 		}
@@ -351,6 +354,8 @@ class webservice extends MY_Controller
     
 	function save_contactus_Detail()
 	{
+		$lang= 'rFrench';	// Language temporary to french
+		
 		$Data['vName'] = $this->input->get('vName');
 		$Data['vEmail'] = $this->input->get('vEmail');
 		$Data['vContactNumber'] = $this->input->get('vContactNumber');
@@ -366,20 +371,35 @@ class webservice extends MY_Controller
 			$applicationName 			= $appDetails['tAppName'];
 				
 			$html = '';
-			$html .= '<p><strong>Application Name: </strong>'.$applicationName.'</p>';
-			$html .= '<p><strong>User Details: </strong><br />';
-			$html .= '<table>';
-			$html .= '<tr><td>Name: </td><td>'.$Data['vName'].'</td></tr>';
-			$html .= '<tr><td>Email: </td><td>'.$Data['vEmail'].'</td></tr>';
-			$html .= '<tr><td>Phone Number: </td><td>'.$Data['vContactNumber'].'</td></tr>';
-			$html .= '</table>';
-			$html .= '<p><strong>Message: </strong>'.$Data['tMessage'].'</p>';
-    		$html .= '<p><strong>Thank You</strong></p>';
+			if($lang=='rFrench')
+			{
+				$html .= '<p><strong>Nom de l\'application: </strong>'.$applicationName.'</p>';
+				$html .= '<p><strong>Détail de l\'utilisateur: </strong><br />';
+				$html .= '<table>';
+				$html .= '<tr><td>Nom: </td><td>'.$Data['vName'].'</td></tr>';
+				$html .= '<tr><td>Email: </td><td>'.$Data['vEmail'].'</td></tr>';
+				$html .= '<tr><td>Numéro de tel: </td><td>'.$Data['vContactNumber'].'</td></tr>';
+				$html .= '</table>';
+				$html .= '<p><strong>Message: </strong>'.$Data['tMessage'].'</p>';
+    			$html .= '<p><strong>Merci</strong></p>';
+			}
+			else
+			{
+				$html .= '<p><strong>Application Name: </strong>'.$applicationName.'</p>';
+				$html .= '<p><strong>User Details: </strong><br />';
+				$html .= '<table>';
+				$html .= '<tr><td>Name: </td><td>'.$Data['vName'].'</td></tr>';
+				$html .= '<tr><td>Email: </td><td>'.$Data['vEmail'].'</td></tr>';
+				$html .= '<tr><td>Phone Number: </td><td>'.$Data['vContactNumber'].'</td></tr>';
+				$html .= '</table>';
+				$html .= '<p><strong>Message: </strong>'.$Data['tMessage'].'</p>';
+    			$html .= '<p><strong>Thank You</strong></p>';
+    		}
 		   
 		if($iContactUsId){
 		  //$sendcontactus = $this->send_contactus_details($Data['vName'],$Data['vEmail'],$Data['vContactNumber'],$Data['tMessage'],$Data['iApplicationId']);	
-		  $sendToCustomer = $this->send_contactus_details("Customer",$appOwnerEmail,$Data['vEmail'],$html,$applicationName);
-		  $sendToAppOwner = $this->send_contactus_details("AppOwner",$Data['vEmail'],$appOwnerEmail,$html,$applicationName);
+		  $sendToCustomer = $this->send_contactus_details("Customer",$appOwnerEmail,$Data['vEmail'],$html,$applicationName,$lang);
+		  $sendToAppOwner = $this->send_contactus_details("AppOwner",$Data['vEmail'],$appOwnerEmail,$html,$applicationName,$lang);
 		  $msg['status'] = "Success";
 		  $msg['mailToCustomer'] = $sendToCustomer;
 		  $msg['mailToAppOwner'] = $sendToAppOwner;
@@ -403,7 +423,7 @@ class webservice extends MY_Controller
 		exit;	
         }
 
-        function send_contactus_details($type,$fromEmail,$toEmail,$message,$applicationName)
+        function send_contactus_details($type,$fromEmail,$toEmail,$message,$applicationName,$lang)
         {
 	        $this->load->model('admin_model', '', TRUE);
 			$ci = get_instance();
@@ -427,11 +447,25 @@ class webservice extends MY_Controller
 				$ci->email->subject('Contact Us Form');
 				if($type=="Customer")
 				{
-					$html = "<p>Thank you for contacting us, we will get back to you soon. Your details are:</p>".$message;
+					if($lang=='rFrench')
+					{
+						$html = "<p>Bonjour</p><p>Merci pour votre message. Nos services reprendrons contact avec vous dans le plus bref délai.</p>".$message;
+					}
+					else
+					{
+						$html = "<p>Hello</p><p>Thank you for contacting us, we will get back to you soon. Your details are:</p>".$message;
+					}
 				}
 				else
 				{
-					$html = "<p>A customer tried to contact you via your application. Customer details are:</p>".$message;
+					if($lang=='rFrench')
+					{
+						$html = "<p>Bonjour</p><p>Un client a essayé de vous contacter via votre application. Les détails du client sont:</p>".$message;
+					}
+					else
+					{
+						$html = "<p>Hello</p><p>A customer tried to contact you via your application. Customer details are:</p>".$message;
+					}
 				}
 				$ci->email->message($html);
 				$result = $ci->email->send();
@@ -6007,5 +6041,37 @@ header('Access-Control-Allow-Origin: *');
 		echo json_encode($result);
         exit;
  	}
+ 	
+ 	//--- get Application Tab Order
+    function get_app_tab_id()
+    {
+    	$appId = $this->input->get('appId'); //-- Application ID
+    	if($appId)
+    	{
+    		$tabOrder = $this->webservice_model->get_app_tab_id($appId);
+    		if($tabOrder)
+    		{
+    			$result['Status'] = 'success';
+ 				$result['tabOrder'] = $tabOrder;
+    		}
+    		else
+    		{
+    			$result['Status'] = 'fail';
+ 				$result['tabOrder'] = '';
+    		}
+    	}
+    	else
+    	{
+    		$result['Status'] = 'fail';
+ 			$result['tabOrder'] = '';
+    	}
+    	
+    	header('Content-type: application/json');
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+		echo json_encode($result);
+        exit;
+    }
 }
 ?>

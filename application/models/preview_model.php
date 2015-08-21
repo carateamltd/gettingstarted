@@ -529,11 +529,13 @@ class Preview_model extends CI_Model
 	function get_features_order_application($iApplicationId)
 	{
 		/** home details **/
-		$this->db->select('ra.vTitle Tabname,rl.*,ri.iIndustryId');
+		$this->db->select('ra.vTitle Tabname,rl.*,ri.iIndustryId,rs.iOrderId');
 		$this->db->from('r_appfeature as rl');
         $this->db->join('r_appindustryfeature as ra','rl.iFeatureId=ra.iFeatureId','inner');
         $this->db->join('r_appinformation as ri','ri.iApplicationId=rl.iApplicationId','inner');
+        $this->db->join('r_sorttab as rs','rs.iAppTabId=rl.iAppTabId','inner');
         $this->db->where('rl.iApplicationId',$iApplicationId);
+        $this->db->order_by('rs.iOrderId', 'asc');
 		$query=$this->db->get();
 		return $query->result_array();
 	}

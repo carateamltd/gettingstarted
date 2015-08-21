@@ -1600,5 +1600,28 @@ class webservice_model extends CI_Model {
         	return false;
         }
     }
+    
+    //--- get Application Tab Order
+    function get_app_tab_id($appId)
+    {
+    	//$query = $this->db->select('t_appf.*, t_sort.*')
+    	$query = $this->db->select('t_appf.*, t_sort.*, t_lan.rEnglish, t_lan.rFrench')
+     	->from('r_sorttab as t_sort')
+     	->where('t_sort.iApplicationId', $appId)
+     	->join('r_appfeature as t_appf', 't_sort.iAppTabId = t_appf.iAppTabId', 'LEFT')
+     	->join('r_web_language_details as t_lan', 't_lan.rLabelName = t_appf.vTitle', 'LEFT')
+     	->get();
+     	
+     	$count = $query->num_rows();
+     	
+     	if($count>0)
+        {
+			return $query->result_array();
+        }
+        else
+        {
+        	return false;
+        }
+    }
 }
 ?>
