@@ -13,11 +13,18 @@
 				<td>
 
 				{if $data.exist_record.vTitle == ""}
-				<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="{$data.exist_record.vTitle}" size="30" id="edit_icon_vTitle" name="data[vTitle]" disabled="disabled" maxlength="20" minlength="2" onblur="return checkTitleLength();">
+					<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="{$data.exist_record.vTitle}" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" minlength="2" onblur="return checkTitleLength();">
 				{else}
-				{foreach from=$lang item=val}{if $val.rLabelName == {$data.exist_record.vTitle}}
-				<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="{$val.rField}" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" disabled="disabled" minlength="2" onblur="return checkTitleLength();">
-				{/if}{/foreach}
+					{$checkName=0}
+					{foreach from=$lang item=val}
+						{if $val.rLabelName == {$data.exist_record.vTitle}}
+							<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="{$val.rField}" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" minlength="2" onblur="return checkTitleLength();">
+							{$checkName=1}
+						{/if}
+					{/foreach}
+					{if $checkName==0}
+						<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="{$data.exist_record.vTitle}" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" minlength="2" onblur="return checkTitleLength();">
+					{/if}
 				{/if}
 					
 				

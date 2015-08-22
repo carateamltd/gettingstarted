@@ -1219,224 +1219,478 @@ class Preview_model extends CI_Model
 		foreach($features as $val)
 		{
 			/** Tabname **/
-			if($val['Tabname'] == 'Home')
-			{
-				foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "homeview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "icnhomeTab","iconCls": "homeCls","iconMask": true},'; 
-                    }
-                }
-			}else if($val['Tabname'] == 'Event'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "eventnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Mailinglist'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "mailinglistview","title": "'.$ver['rField'].'","tabCls":"mailinglistTab","iconCls": "mailinglistCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'PDF'){
-			    foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "pdfnavi","title": "'.$ver['rField'].'","tabCls": "pdfTab","iconCls": "pdfCls","iconMask": true},';
-                    }
-                }
-          	}else if($val['Tabname'] == 'RSS Feeds'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "rssnavi","title":"'.$ver['rField'].'","tabCls":"rssTab","iconCls":"rssCls","iconMask":true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Website'){
-				foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "websitenavi","title": "'.$ver['rField'].'","tabCls": "websiteTab","iconCls": "websiteCls","iconMask": true},';
-                    }
-                }
-          	}else if($val['Tabname'] == 'YouTube'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "youtubenavi","title": "'.$ver['rField'].'","tabCls": "youtubeTab","iconCls": "youtubeCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Location'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "locationnavi","title": "'.$ver['rField'].'","tabCls": "locationTab","iconCls": "locationCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Gallery'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "gallarynaviview","title": "'.$ver['rField'].'","tabCls": "gallaryTab","iconCls": "gallaryCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Around Us'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "arroundnavi","title": "'.$ver['rField'].'","tabCls": "arroundusTab","iconCls": "arroundusCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'SocialMedia'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "socialmediaview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "socialsiteTab","iconCls": "socialsiteCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Coupon'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                           $all_tabs .= '{"xtype": "qrnavi","title": "'.$ver['rField'].'","tabCls": "qrTab","iconCls": "qrCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Informations'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "customview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "customTab","iconCls": "customCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Menu'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "menunavi","title": "'.$ver['rField'].'","tabCls": "menuTab","iconCls": "menuCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Reservation'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "reservationnavi","title": "'.$ver['rField'].'","tabCls": "reservationTab","iconCls": "reservationCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Notepad'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "notepadnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Voice Recording'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "voicerecording","title": "'.$ver['rField'].'","tabCls": "voicerecordingTab","iconCls": "voicerecordingCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'ContactUs'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "contactview","title": "'.$ver['rField'].'","tabCls": "contactTab","iconCls": "contactCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Message'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "messageview","title": "'.$ver['rField'].'","tabCls": "messageTab","iconCls": "messageCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'News'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "newsnavi","title": "'.$ver['rField'].'","tabCls": "newsTab","iconCls": "newsCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Loan Calculator'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "mortgagecalculator","title": "'.$ver['rField'].'","tabCls": "MortgageCalcTab","iconCls": "MortgageCalcCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Calculator'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "scientificcalculatorview","title": "'.$ver['rField'].'","tabCls": "ScientificCalTab","iconCls": "ScientificCalCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Scanner'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "scannerview","title": "'.$ver['rField'].'","tabCls": "scannerTab","iconCls": "scannerCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Appointment'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "appointmentview","title": "'.$ver['rField'].'","tabCls": "appointmentTab","iconCls": "appointmentCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Quotation'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "quoteview","title": "'.$ver['rField'].'","tabCls": "quoteTab","iconCls": "quoteCls","iconMask": true},';
-                    }
-                }    
-			}else if($val['Tabname'] == 'Review'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "review","title": "'.$ver['rField'].'","tabCls": "reviewTab","iconCls": "reviewCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Testimonial'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "testimonialview","title": "'.$ver['rField'].'","tabCls": "testimonialTab","iconCls": "testimonialCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Catalogue'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "catelognavi","title": "'.$ver['rField'].'","tabCls": "catelogTab","iconCls": "catelogCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'New Arrival'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "newarrivalnavi","title": "'.$ver['rField'].'","tabCls": "newarrivalTab","iconCls": "newarrivalCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Donation'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "donationnavi","title": "'.$ver['rField'].'","tabCls": "donationTab","iconCls": "donationCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Service'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "servicenavi","title": "'.$ver['rField'].'","tabCls": "serviceTab","iconCls": "serviceCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Ticket Info'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                            $all_tabs .= '{"xtype": "ticketinfoview","title": "'.$ver['rField'].'","tabCls": "ticketTab","iconCls": "ticketCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Blog'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                        $all_tabs .= '{"xtype": "blognavi","title": "'.$ver['rField'].'","tabCls": "blogTab","iconCls": "blogCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Menu of the day'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                        $all_tabs .= '{"xtype": "menudaynavi","title": "'.$ver['rField'].'","tabCls": "menudayTab","iconCls":  "menudayCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Order'){
-                foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                        $all_tabs .= '{"xtype": "ordernavi","title": "'.$ver['rField'].'","tabCls": "orderTab","iconCls":  "orderCls","iconMask": true},';
-                    }
-                }
-			}else if($val['Tabname'] == 'Fidelity'){
-                 foreach($lang as $ver){
-                    if($ver['rLabelName'] == $val['vTitle']){
-                        $all_tabs .= '{"xtype": "loyalitinavi","title": "'.$ver['rField'].'","tabCls": "loyalityTab","iconCls":  "LoyalityCls","iconMask": true},';
-                    }
-                }
-            }
+			switch($val['Tabname']){
+				case "Home":
+					$checkName = 0;	
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "homeview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "icnhomeTab","iconCls": "homeCls","iconMask": true},'; 
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "homeview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "icnhomeTab","iconCls": "homeCls","iconMask": true},';
+					}
+					break;
+                case "Event":
+                	$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "eventnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true},';
+						}						
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "eventnavi","title": "'.$val['vTitle'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true},';
+					}
+					break;
+				case "Mailinglist":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "mailinglistview","title": "'.$ver['rField'].'","tabCls":"mailinglistTab","iconCls": "mailinglistCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "mailinglistview","title": "'.$val['vTitle'].'","tabCls":"mailinglistTab","iconCls": "mailinglistCls","iconMask": true},';
+					}
+					break;
+				case "PDF":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "pdfnavi","title": "'.$ver['rField'].'","tabCls": "pdfTab","iconCls": "pdfCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "pdfnavi","title": "'.$val['vTitle'].'","tabCls": "pdfTab","iconCls": "pdfCls","iconMask": true},';
+					}
+					break;
+				case "RSS Feeds":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "rssnavi","title":"'.$ver['rField'].'","tabCls":"rssTab","iconCls":"rssCls","iconMask":true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "rssnavi","title":"'.$val['vTitle'].'","tabCls":"rssTab","iconCls":"rssCls","iconMask":true},';
+					}
+					break;
+				case "Website":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "websitenavi","title": "'.$ver['rField'].'","tabCls": "websiteTab","iconCls": "websiteCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "websitenavi","title": "'.$val['vTitle'].'","tabCls": "websiteTab","iconCls": "websiteCls","iconMask": true},';
+					}
+					break;
+				case "YouTube":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "youtubenavi","title": "'.$ver['rField'].'","tabCls": "youtubeTab","iconCls": "youtubeCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "youtubenavi","title": "'.$val['vTitle'].'","tabCls": "youtubeTab","iconCls": "youtubeCls","iconMask": true},';
+					}
+					break;
+				case "Location":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+						   $all_tabs .= '{"xtype": "locationnavi","title": "'.$ver['rField'].'","tabCls": "locationTab","iconCls": "locationCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "locationnavi","title": "'.$val['vTitle'].'","tabCls": "locationTab","iconCls": "locationCls","iconMask": true},';
+					}
+					break;
+				case "Gallery":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+						   $all_tabs .= '{"xtype": "gallarynaviview","title": "'.$ver['rField'].'","tabCls": "gallaryTab","iconCls": "gallaryCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "gallarynaviview","title": "'.$val['vTitle'].'","tabCls": "gallaryTab","iconCls": "gallaryCls","iconMask": true},';
+					}
+					break;
+				case "Around Us":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+						   $all_tabs .= '{"xtype": "arroundnavi","title": "'.$ver['rField'].'","tabCls": "arroundusTab","iconCls": "arroundusCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "arroundnavi","title": "'.$val['vTitle'].'","tabCls": "arroundusTab","iconCls": "arroundusCls","iconMask": true},';
+					}
+					break;
+				case "SocialMedia":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+						   $all_tabs .= '{"xtype": "socialmediaview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "socialsiteTab","iconCls": "socialsiteCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "socialmediaview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "socialsiteTab","iconCls": "socialsiteCls","iconMask": true},';
+					}
+					break;
+				case "Coupon":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+						   $all_tabs .= '{"xtype": "qrnavi","title": "'.$ver['rField'].'","tabCls": "qrTab","iconCls": "qrCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "qrnavi","title": "'.$val['vTitle'].'","tabCls": "qrTab","iconCls": "qrCls","iconMask": true},';
+					}
+					break;
+				case "Informations":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "customview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "customTab","iconCls": "customCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "customview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "customTab","iconCls": "customCls","iconMask": true},';
+					}
+					break;
+				case "Menu":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "menunavi","title": "'.$ver['rField'].'","tabCls": "menuTab","iconCls": "menuCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "menunavi","title": "'.$val['vTitle'].'","tabCls": "menuTab","iconCls": "menuCls","iconMask": true},';
+					}
+					break;
+				case "Reservation":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "reservationnavi","title": "'.$ver['rField'].'","tabCls": "reservationTab","iconCls": "reservationCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "reservationnavi","title": "'.$val['vTitle'].'","tabCls": "reservationTab","iconCls": "reservationCls","iconMask": true},';
+					}
+					break;
+				case "Notepad":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "notepadnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "notepadnavi","title": "'.$val['vTitle'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true},';
+					}
+					break;
+				case "Voice Recording":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "voicerecording","title": "'.$ver['rField'].'","tabCls": "voicerecordingTab","iconCls": "voicerecordingCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "voicerecording","title": "'.$val['vTitle'].'","tabCls": "voicerecordingTab","iconCls": "voicerecordingCls","iconMask": true},';
+					}
+					break;
+				case "ContactUs":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "contactview","title": "'.$ver['rField'].'","tabCls": "contactTab","iconCls": "contactCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "contactview","title": "'.$val['vTitle'].'","tabCls": "contactTab","iconCls": "contactCls","iconMask": true},';
+					}
+					break;
+				case "Message":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "messageview","title": "'.$ver['rField'].'","tabCls": "messageTab","iconCls": "messageCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "messageview","title": "'.$val['vTitle'].'","tabCls": "messageTab","iconCls": "messageCls","iconMask": true},';
+					}
+					break;
+				case "News":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "newsnavi","title": "'.$ver['rField'].'","tabCls": "newsTab","iconCls": "newsCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "newsnavi","title": "'.$val['vTitle'].'","tabCls": "newsTab","iconCls": "newsCls","iconMask": true},';
+					}
+					break;
+				case "Loan Calculator":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "mortgagecalculator","title": "'.$ver['rField'].'","tabCls": "MortgageCalcTab","iconCls": "MortgageCalcCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "mortgagecalculator","title": "'.$val['vTitle'].'","tabCls": "MortgageCalcTab","iconCls": "MortgageCalcCls","iconMask": true},';
+					}
+					break;
+				case "Calculator":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "scientificcalculatorview","title": "'.$ver['rField'].'","tabCls": "ScientificCalTab","iconCls": "ScientificCalCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "scientificcalculatorview","title": "'.$val['vTitle'].'","tabCls": "ScientificCalTab","iconCls": "ScientificCalCls","iconMask": true},';
+					}
+					break;
+				case "Scanner":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "scannerview","title": "'.$ver['rField'].'","tabCls": "scannerTab","iconCls": "scannerCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "scannerview","title": "'.$val['vTitle'].'","tabCls": "scannerTab","iconCls": "scannerCls","iconMask": true},';
+					}
+					break;
+				case "Appointment":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "appointmentview","title": "'.$ver['rField'].'","tabCls": "appointmentTab","iconCls": "appointmentCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "appointmentview","title": "'.$val['vTitle'].'","tabCls": "appointmentTab","iconCls": "appointmentCls","iconMask": true},';
+					}
+					break;
+				case "Quotation":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "quoteview","title": "'.$ver['rField'].'","tabCls": "quoteTab","iconCls": "quoteCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "quoteview","title": "'.$val['vTitle'].'","tabCls": "quoteTab","iconCls": "quoteCls","iconMask": true},';
+					}
+					break;
+				case "Review":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "review","title": "'.$ver['rField'].'","tabCls": "reviewTab","iconCls": "reviewCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "review","title": "'.$val['vTitle'].'","tabCls": "reviewTab","iconCls": "reviewCls","iconMask": true},';
+					}
+					break;
+				case "Testimonial":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "testimonialview","title": "'.$ver['rField'].'","tabCls": "testimonialTab","iconCls": "testimonialCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "testimonialview","title": "'.$val['vTitle'].'","tabCls": "testimonialTab","iconCls": "testimonialCls","iconMask": true},';
+					}
+					break;
+				case "Catalogue":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "catelognavi","title": "'.$ver['rField'].'","tabCls": "catelogTab","iconCls": "catelogCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "catelognavi","title": "'.$val['vTitle'].'","tabCls": "catelogTab","iconCls": "catelogCls","iconMask": true},';
+					}
+					break;
+				case "New Arrival":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "newarrivalnavi","title": "'.$ver['rField'].'","tabCls": "newarrivalTab","iconCls": "newarrivalCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "newarrivalnavi","title": "'.$val['vTitle'].'","tabCls": "newarrivalTab","iconCls": "newarrivalCls","iconMask": true},';
+					}
+					break;
+				case "Donation":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "donationnavi","title": "'.$ver['rField'].'","tabCls": "donationTab","iconCls": "donationCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "donationnavi","title": "'.$val['vTitle'].'","tabCls": "donationTab","iconCls": "donationCls","iconMask": true},';
+					}
+					break;
+				case "Service":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "servicenavi","title": "'.$ver['rField'].'","tabCls": "serviceTab","iconCls": "serviceCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "servicenavi","title": "'.$val['vTitle'].'","tabCls": "serviceTab","iconCls": "serviceCls","iconMask": true},';
+					}
+					break;
+				case "Ticket Info":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "ticketinfoview","title": "'.$ver['rField'].'","tabCls": "ticketTab","iconCls": "ticketCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "ticketinfoview","title": "'.$val['vTitle'].'","tabCls": "ticketTab","iconCls": "ticketCls","iconMask": true},';
+					}
+					break;
+				case "Blog":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "blognavi","title": "'.$ver['rField'].'","tabCls": "blogTab","iconCls": "blogCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "blognavi","title": "'.$val['vTitle'].'","tabCls": "blogTab","iconCls": "blogCls","iconMask": true},';
+					}
+					break;
+				case "Menu of the day":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "menudaynavi","title": "'.$ver['rField'].'","tabCls": "menudayTab","iconCls":  "menudayCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "menudaynavi","title": "'.$val['vTitle'].'","tabCls": "menudayTab","iconCls":  "menudayCls","iconMask": true},';
+					}
+					break;
+				case "Order":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "ordernavi","title": "'.$ver['rField'].'","tabCls": "orderTab","iconCls":  "orderCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "ordernavi","title": "'.$val['vTitle'].'","tabCls": "orderTab","iconCls":  "orderCls","iconMask": true},';
+					}
+					break;
+				case "Fidelity":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "loyalitinavi","title": "'.$ver['rField'].'","tabCls": "loyalityTab","iconCls":  "LoyalityCls","iconMask": true},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "loyalitinavi","title": "'.$val['vTitle'].'","tabCls": "loyalityTab","iconCls":  "LoyalityCls","iconMask": true},';
+					}
+					break;
+				default:
+					break;
+			}
 		}
 		
 		/** remove comma from string **/
@@ -1455,204 +1709,204 @@ class Preview_model extends CI_Model
         $style = '';
         $style.= '';
         foreach($iFeatureId as $val){
-            if($val['vTitle'] == 'Home'){
+            if($val['Tabname'] == 'Home'){
                  $style .= '.homeCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }';        
-            }else if($val['vTitle'] == 'YouTube'){
+            }else if($val['Tabname'] == 'YouTube'){
                 $style .= '.youtubeCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Informations'){
+            }else if($val['Tabname'] == 'Informations'){
                 $style .= '.customCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'ContactUs'){
+            }else if($val['Tabname'] == 'ContactUs'){
                 $style .= '.contactCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Order'){
+            }else if($val['Tabname'] == 'Order'){
                 $style .= '.orderCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Fidelity'){
+            }else if($val['Tabname'] == 'Fidelity'){
                 $style .= '.LoyalityCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Gallery'){
+            }else if($val['Tabname'] == 'Gallery'){
                 $style .= '.gallaryCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Website'){
+            }else if($val['Tabname'] == 'Website'){
                 $style .= '.websiteCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'SocialMedia'){
+            }else if($val['Tabname'] == 'SocialMedia'){
                 $style .= '.socialsiteCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'PDF'){
+            }else if($val['Tabname'] == 'PDF'){
                 $style .= '.pdfCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Coupon'){
+            }else if($val['Tabname'] == 'Coupon'){
                 $style .= '.qrCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'RSS Feeds'){
+            }else if($val['Tabname'] == 'RSS Feeds'){
                 $style .= '.rssCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Menu'){
+            }else if($val['Tabname'] == 'Menu'){
                 $style .= '.menuCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Event'){
+            }else if($val['Tabname'] == 'Event'){
                 $style .= '.eventCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Reservation'){
+            }else if($val['Tabname'] == 'Reservation'){
                 $style .= '.reservationCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'AroundUs'){
+            }else if($val['Tabname'] == 'AroundUs'){
                 $style .= '.arroundusCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Voice Recording'){
+            }else if($val['Tabname'] == 'Voice Recording'){
                 $style .= '.voicerecordingCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Location'){
+            }else if($val['Tabname'] == 'Location'){
                 $style .= '.locationCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Mailinglist'){
+            }else if($val['Tabname'] == 'Mailinglist'){
                 $style .= '.mailinglistCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Message'){
+            }else if($val['Tabname'] == 'Message'){
                 $style .= '.messageCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Loan Calculator'){
+            }else if($val['Tabname'] == 'Loan Calculator'){
                 $style .= '.MortgageCalcCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Calculator'){
+            }else if($val['Tabname'] == 'Calculator'){
                $style .= '.ScientificCalCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Menu of the day'){
+            }else if($val['Tabname'] == 'Menu of the day'){
                $style .= '.menudayCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Blog'){
+            }else if($val['Tabname'] == 'Blog'){
                $style .= '.blogCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Ecommerce'){
+            }else if($val['Tabname'] == 'Ecommerce'){
                $style .= '.ecommerceCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Ticket Info'){
+            }else if($val['Tabname'] == 'Ticket Info'){
                $style .= '.ticketCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Service'){
+            }else if($val['Tabname'] == 'Service'){
                $style .= '.serviceCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Donation'){
+            }else if($val['Tabname'] == 'Donation'){
                $style .= '.donationCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'New Arrival'){
+            }else if($val['Tabname'] == 'New Arrival'){
                $style .= '.newarrivalCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Catalogue'){
+            }else if($val['Tabname'] == 'Catalogue'){
                $style .= '.catelogCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Coupon'){
+            }else if($val['Tabname'] == 'Coupon'){
                $style .= '.coupenCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
-            }else if($val['vTitle'] == 'Event'){
+            }else if($val['Tabname'] == 'Event'){
                $style .= '.eventCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
             }
-            else if($val['vTitle'] == 'News'){
+            else if($val['Tabname'] == 'News'){
                $style .= '.newsCls{
-                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'");
-                        background-repeat: no-repeat;
-                        background-size:100% 100%;
+                        background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+                        background-repeat: no-repeat !important;
+                        background-size:100% 100% !important;
                  }'; 
             }
         }
@@ -1888,8 +2142,8 @@ class Preview_model extends CI_Model
     public function get_style_sheet_sencha($iApplicationId,$base_upload)
     {
         /** Application **/
-        $iFeatureId = $this->get_style_tab_icon_details($iApplicationId);
-
+        //$iFeatureId = $this->get_style_tab_icon_details($iApplicationId);
+		$iFeatureId = $this->get_features_order_application($iApplicationId);
         /** get style sheet for sencha **/
         if(count($iFeatureId) > 0){
             $stylesheet = $this->get_stylesheet_sencha_touch($iFeatureId,$base_upload);

@@ -76,32 +76,34 @@
 								            -->
 									           <ul id="sortable2" class="sortable2">
 									            {section name = i loop = $data.selected_feature_details}
-									            {if $data.selected_feature_details[i].eActive eq "Yes"}
-									            	{if $data.selected_feature_details[i].vTitle eq "ContactUs"}
-									            		<li style="display:none" class="{if $smarty.section.i.index == 0}activebuttontab{else}buttontab{/if}" id="recordsArray_{$data.selected_feature_details[i].iAppTabId}" value="{$data.selected_feature_details[i].iAppTabId}">
-									            		 <!--<a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$data.selected_feature_details[i].vTitle}</a>-->
-									            		 {foreach from=$lang item=val}
-											             {if $val.rLabelName == $data.selected_feature_details[i].vTitle}
-											                <a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$val.rField}</a>
-											             {/if}
-											             {/foreach}
-
+									            	{if $data.selected_feature_details[i].eActive eq "Yes"}
+									            		{if $data.selected_feature_details[i].vTitle eq "ContactUs"}
+									            			<li style="display:none" class="{if $smarty.section.i.index == 0}activebuttontab{else}buttontab{/if}" id="recordsArray_{$data.selected_feature_details[i].iAppTabId}" value="{$data.selected_feature_details[i].iAppTabId}">
+									            		 	<!--<a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$data.selected_feature_details[i].vTitle}</a>-->
+									            		 	{foreach from=$lang item=val}
+											             		{if $val.rLabelName == $data.selected_feature_details[i].vTitle}
+											                		<a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$val.rField}</a>
+											             		{/if}
+											             	{/foreach}
+														{else}
+									            			<li class="{if $smarty.section.i.index == 0}activebuttontab{else}buttontab{/if}" id="recordsArray_{$data.selected_feature_details[i].iAppTabId}" value="{$data.selected_feature_details[i].iAppTabId}"> 
+									            			{$checkName=0}
+									            			{foreach from=$lang item=val}
+											             		{if $val.rLabelName == $data.selected_feature_details[i].vTitle}
+											                		<a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$val.rField}</a>
+											                		{$checkName=1}
+											             		{/if}
+											             	{/foreach}
+											             	{if $checkName==0}
+											             		<a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$data.selected_feature_details[i].vTitle}</a>
+											             	{/if}
+									            		{/if}
+									            		</li>
 									            	{else}
-									            		<li class="{if $smarty.section.i.index == 0}activebuttontab{else}buttontab{/if}" id="recordsArray_{$data.selected_feature_details[i].iAppTabId}" value="{$data.selected_feature_details[i].iAppTabId}"> 
-									            		<!--<a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$data.selected_feature_details[i].vTitle}</a>-->
-									            		{foreach from=$lang item=val}
-											             {if $val.rLabelName == $data.selected_feature_details[i].vTitle}
-											                <a href="#tabs-{$data.selected_feature_details[i].iAppTabId}">{$val.rField}</a>
-											             {/if}
-											             {/foreach}
-									            	{/if}
-									            </li>{else}
-									            <li style="display:none" class="{if $smarty.section.i.index == 0}activebuttontab{else}buttontab{/if}" id="recordsArray_{$data.selected_feature_details[i].iAppTabId}" value="{$data.selected_feature_details[i].iAppTabId}"> <a href="#tabs-{$data.selected_feature_details[i].iAppTabId}"> {$data.selected_feature_details[i].vTitle} </a> </li>
-									           
-									            {/if}
+									            		<li style="display:none" class="{if $smarty.section.i.index == 0}activebuttontab{else}buttontab{/if}" id="recordsArray_{$data.selected_feature_details[i].iAppTabId}" value="{$data.selected_feature_details[i].iAppTabId}"> <a href="#tabs-{$data.selected_feature_details[i].iAppTabId}"> {$data.selected_feature_details[i].vTitle} </a> </li>
+									           		{/if}
 									            {/section}
-									           
-									           </ul>
+									          </ul>
 
 											<!--<div class="subtabbtn"> <a class="btn btn_upload_icon" style="text-decoration:none;color:white;float: right;" data-controls-modal="subTabs" data-backdrop="static" data-keyboard="false" href="#appr-buttons-subtbs" id="appearance_sub_tabs" role="presentation" tabindex="-1">Sub Tabs</a> </div>-->
                                             

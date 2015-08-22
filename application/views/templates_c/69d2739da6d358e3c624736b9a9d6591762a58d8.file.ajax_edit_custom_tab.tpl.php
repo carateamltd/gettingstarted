@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-12 14:40:55
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-22 16:01:21
          compiled from "application/views/templates/ajax_edit_custom_tab.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12959320215583be948a0dc4-88396687%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '69d2739da6d358e3c624736b9a9d6591762a58d8' => 
     array (
       0 => 'application/views/templates/ajax_edit_custom_tab.tpl',
-      1 => 1438864761,
+      1 => 1440234061,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
     'lang' => 0,
     'val' => 0,
+    'checkName' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -58,18 +59,26 @@ callout.gif" />Select function</span></a>--></th>
 				<td>
 
 				<?php if ($_smarty_tpl->tpl_vars['data']->value['exist_record']['vTitle']==''){?>
-				<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['exist_record']['vTitle'];?>
-" size="30" id="edit_icon_vTitle" name="data[vTitle]" disabled="disabled" maxlength="20" minlength="2" onblur="return checkTitleLength();">
+					<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['exist_record']['vTitle'];?>
+" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" minlength="2" onblur="return checkTitleLength();">
 				<?php }else{ ?>
-				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+					<?php $_smarty_tpl->tpl_vars['checkName'] = new Smarty_variable(0, null, 0);?>
+					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['data']->value['exist_record']['vTitle'];?>
+?>
+						<?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['data']->value['exist_record']['vTitle'];?>
 <?php $_tmp1=ob_get_clean();?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']==$_tmp1){?>
-				<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" disabled="disabled" minlength="2" onblur="return checkTitleLength();">
-				<?php }?><?php } ?>
+							<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" minlength="2" onblur="return checkTitleLength();">
+							<?php $_smarty_tpl->tpl_vars['checkName'] = new Smarty_variable(1, null, 0);?>
+						<?php }?>
+					<?php } ?>
+					<?php if ($_smarty_tpl->tpl_vars['checkName']->value==0){?>
+						<input class="indst" type="text" data-toggle="tooltip" data-placement="right" title="" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['exist_record']['vTitle'];?>
+" size="30" id="edit_icon_vTitle" name="data[vTitle]" maxlength="20" minlength="2" onblur="return checkTitleLength();">
+					<?php }?>
 				<?php }?>
 					
 				
