@@ -9,7 +9,7 @@ Ext.define('MyApp.view.catelog.CatelogView', {
                 xtype: 'nestedlist',
                 itemId: 'catelogNestedList',
                 id: 'catelogNestedList',
-                style: "background-image: url('img/splash.png');",
+                //style: "background-image: url('img/splash.png');",
                 store: 'catelogestoreid',
                 emptyText: Loc.t('CATELOG.NODATAAVAILABLE'),
                 onItemDisclosure: true,

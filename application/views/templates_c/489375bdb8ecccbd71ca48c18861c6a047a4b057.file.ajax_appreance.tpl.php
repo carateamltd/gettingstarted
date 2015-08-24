@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-06-19 17:01:00
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-24 13:36:49
          compiled from "application/views/templates/ajax_appreance.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1800252815583e85cc45643-61719005%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '489375bdb8ecccbd71ca48c18861c6a047a4b057' => 
     array (
       0 => 'application/views/templates/ajax_appreance.tpl',
-      1 => 1415026097,
+      1 => 1438864761,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5583e85cd610c3_22921626',
   'variables' => 
   array (
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5583e85cd610c3_22921626',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5583e85cd610c3_22921626')) {function content_5583e85cd610c3_22921626($_smarty_tpl) {?><form name="saveBackgroundSetting" id="saveBackgroundSetting" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
 app/saveBackgroundSetting?iApplicationId=<?php echo $_smarty_tpl->tpl_vars['data']->value['iApplicationId'];?>

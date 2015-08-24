@@ -4,7 +4,8 @@ Ext.define('MyApp.view.location.LocationList', {
     requires: ['MyApp.view.location.MyMap'],
     config: {
         layout: 'card',
-        title: Loc.t('RESERVATION.Confirm')
+        title: Loc.t('RESERVATION.Confirm'),
+        cls: 'location_list'
     },
     initialize: function () {
         var arround_ListView = new Ext.create('Ext.List', {
@@ -31,7 +32,7 @@ Ext.define('MyApp.view.location.LocationList', {
         var finalPanel = new Ext.Panel({
             layout: 'vbox',
             scrollable: false,
-            style: "background-image: url('img/splash.png');background-repeat: no-repeat fixed;background-size:100% 100%;",
+            //style: "background-image: url('img/splash.png');background-repeat: no-repeat fixed;background-size:100% 100%;",
             items: [arround_ListView]
         })
         this.add([finalPanel])

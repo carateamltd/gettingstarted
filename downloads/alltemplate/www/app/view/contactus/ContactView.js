@@ -4,7 +4,8 @@ Ext.define('MyApp.view.contactus.ContactView', {
 //    requires:['MyApp.view.OrderView.PayPalView'],
     config: {
        layout:'card',
-       title:Loc.t('CATELOG.CLIENTDETAILS')
+       title:Loc.t('CATELOG.CLIENTDETAILS'),
+       cls: 'contact_us'
     },
     initialize: function() {
     	   
@@ -59,7 +60,7 @@ Ext.define('MyApp.view.contactus.ContactView', {
     	})
     	var finalPanel=new Ext.Panel({
     		layout:'fit',
-    		style: "background-image: url('img/splash.png');background-repeat: no-repeat fixed;background-size:100% 100%;",
+    		//style: "background-image: url('img/splash.png');background-repeat: no-repeat fixed;background-size:100% 100%;",
     		items:[topToolbar,panel]
     	})
     	this.add([finalPanel])

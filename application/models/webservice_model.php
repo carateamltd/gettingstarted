@@ -590,10 +590,13 @@ class webservice_model extends CI_Model {
 	/*** get background image ***/
 	function get_background_home_image($data)
 	{
+		//-- changes for showing background, by APLITE
 		$this->db->select('*');
 		$this->db->from('r_app_home_value as rv');
 		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -602,10 +605,13 @@ class webservice_model extends CI_Model {
 	/** **/
 	function get_background_image_event($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_event_values as rv');
 		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();		
@@ -614,10 +620,13 @@ class webservice_model extends CI_Model {
 	/** website background image **/
 	function get_website_background_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_website_values as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();		
@@ -626,10 +635,13 @@ class webservice_model extends CI_Model {
 	/** custom background image **/
 	function get_custom_background_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_infotab_values as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -638,10 +650,13 @@ class webservice_model extends CI_Model {
 	/** pdf background image **/
 	function get_pdf_background_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_pdf_values as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -650,10 +665,13 @@ class webservice_model extends CI_Model {
 	/** social media background image **/
 	function get_socialmedia_background_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_socialmedia_value as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -662,10 +680,13 @@ class webservice_model extends CI_Model {
 	/** background image for rss **/
 	function get_rss_background_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_rss_value as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -674,10 +695,13 @@ class webservice_model extends CI_Model {
 	/** Qrcode image **/
 	function get_qrcode_background_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_qrcode_values as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -697,10 +721,13 @@ class webservice_model extends CI_Model {
 	/** background image of youtube **/
 	function get_background_youtube_image($data)
 	{
-		$this->db->select('rv.*,rb.*,rt.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_youtube_value as rv');
 		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -709,10 +736,13 @@ class webservice_model extends CI_Model {
 	/** background image **/
 	function get_loyalty_bg_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
-		$this->db->from('r_app_youtube_value as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
+		$this->db->from('r_app_loyalty_values as rv');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -784,10 +814,13 @@ class webservice_model extends CI_Model {
 	/** news image **/
 	function get_background_news_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_app_news_value as rv');
 		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -796,10 +829,13 @@ class webservice_model extends CI_Model {
 	/** bg image **/
 	function get_category_bg_image($data)
 	{
-		$this->db->select('rv.*,rb.*');
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
 		$this->db->from('r_menu_catagory as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','left');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','left');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','left');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -825,10 +861,13 @@ class webservice_model extends CI_Model {
 	/** background voicerecording **/
 	function get_background_voicerecording_image($data)
 	{
+		//-- changes for showing background, by APLITE
 		$this->db->select('*');
 		$this->db->from('r_menu_catagory as rv');
 		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();	
@@ -1312,10 +1351,13 @@ class webservice_model extends CI_Model {
 
 	function get_arrival_background_image($Data)
 	{
+		//-- changes for showing background, by APLITE
 		$this->db->select('*');
 		$this->db->from('r_app_arrival_details as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','inner');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();		
@@ -1323,10 +1365,13 @@ class webservice_model extends CI_Model {
 
 	function get_catalogue_background_image($Data)
     {
+    	//-- changes for showing background, by APLITE
 		$this->db->select('*');
-		$this->db->from('r_app_catalogue_details as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','inner');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->from('r_app_catalogue_main as rv');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();
@@ -1334,10 +1379,13 @@ class webservice_model extends CI_Model {
 
 	function get_service_background_image($Data)
 	{
+		//-- changes for showing background, by APLITE
 		$this->db->select('*');
 		$this->db->from('r_app_service_details as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','inner');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();
@@ -1345,20 +1393,79 @@ class webservice_model extends CI_Model {
 
 	function get_ticket_background_image($Data)
 	{
+		//-- changes for showing background, by APLITE
 		$this->db->select('*');
 		$this->db->from('r_app_ticket_info as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','inner');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();
 	}
 
 	function get_blog_background_image($Data){
+		//-- changes for showing background, by APLITE
 		$this->db->select('*');
 		$this->db->from('r_app_blog_values as rv');
-		$this->db->join('r_app_background_img as rb', 'rv.iAppTabId = rb.iAppTabId','inner');
-		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
+		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
+		$query=$this->db->get();
+		return $query->row_array();
+	}
+	
+	function get_reservation_background_image($Data){
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
+		$this->db->from('r_app_reservation_general_info as rv');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
+		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
+		$query=$this->db->get();
+		return $query->row_array();
+	}
+	
+	function get_contact_background_image($Data){
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
+		$this->db->from('r_appfeature as rv');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
+		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
+		$this->db->where('rv.vTitle',"ContactUs");
+		$query=$this->db->get();
+		return $query->row_array();
+	}
+	
+	function get_gallery_background_image($Data){
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
+		$this->db->from('r_app_gallery_value as rv');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
+		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
+		$query=$this->db->get();
+		return $query->row_array();
+	}
+	
+	function get_location_background_image($Data){
+		//-- changes for showing background, by APLITE
+		$this->db->select('*');
+		$this->db->from('r_app_location_value as rv');
+		$this->db->join('r_app_background_img as rb', 'rv.iApplicationId = rb.iApplicationId','inner');
+		//$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rb.iBackgroundId','inner');
+		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
 		$query=$this->db->get();
 		return $query->row_array();

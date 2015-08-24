@@ -12,6 +12,20 @@ Ext.define('MyApp.store.CatelogStore', {
             reader: {
                 type: 'json'
             }
+        },
+        listeners: {
+        	load: function(store, records, successful, operation, eOpts){
+        		try{
+        			var Response = Ext.decode(operation.getResponse().responseText);
+					var bgimage = Response.backgroundimage.backgroundimage;
+					if (bgimage) {
+						Ext.ComponentQuery.query('catelogview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+					}
+				}
+				catch(e){
+					console.log(e);
+				}
+        	}
         }
     }
 });

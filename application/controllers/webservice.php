@@ -304,11 +304,14 @@ class webservice extends MY_Controller
 	        case 'easyapps_get_clients_paypal_info':
 	        	$this->easyapps_get_clients_paypal_info();
 	        	break;
-	        case 'easyapps_get_clients_currency';
+	        case 'easyapps_get_clients_currency':
 	        	$this->easyapps_get_clients_currency();
 	        	break;
-	        case 'get_app_tab_id';
+	        case 'get_app_tab_id':
 	        	$this->get_app_tab_id();
+	        	break;
+	        case 'easyapps_get_contact_bg':
+	        	$this->easyapps_get_contact_bg();
 	        	break;
 		    default:
 				break;
@@ -2456,6 +2459,18 @@ header('Access-Control-Allow-Origin: *');
 						$Data['custom_image'] = $custom_images;	
 					}
 					
+					$background_image = $this->webservice_model->get_gallery_background_image($Data);
+					if(count($background_image) >0){
+						$back_gallery_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
+						/** event **/
+						$Data['backgroundimage'] = $back_gallery_image;
+					}else{
+						/** back rss image **/
+						$back_gallery_image = array('vImage'=>'');
+						/** event **/
+						$Data['backgroundimage'] = $back_gallery_image;
+					}
+					
 					/** status **/
 					$Data['status'] = 'Success'; 	
 				}else{
@@ -3006,6 +3021,18 @@ header('Access-Control-Allow-Origin: *');
            			);
 				}
 				
+				$background_image = $this->webservice_model->get_reservation_background_image($Data);
+				if(count($background_image) >0){
+					$back_reservation_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
+					/** event **/
+					$Data['backgroundimage'] = $back_reservation_image;
+				}else{
+					/** back rss image **/
+					$back_reservation_image = array('vImage'=>'');
+					/** event **/
+					$Data['backgroundimage'] = $back_reservation_image;
+				}
+				
 				/** reservation list **/
 				$Data['reservation_list'] = $reservation;
 				$Data['status'] = 'Success';
@@ -3017,6 +3044,39 @@ header('Access-Control-Allow-Origin: *');
 			$Data['status'] = 'Fail';
 		}
 		
+		/** easyapp gallery details **/
+		header('Content-type: application/json');
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        $callback = '';
+        if (isset($_REQUEST['callback']))
+        {
+            $callback = filter_var($_REQUEST['callback'], FILTER_SANITIZE_STRING);
+        }
+        
+        $main = json_encode($Data);
+        echo $callback . $main;
+        exit;	
+	}
+	
+	function easyapps_get_contact_bg()
+	{
+		/** Application Details **/
+		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$background_image = $this->webservice_model->get_contact_background_image($Data);
+		//print_r($background_image);die;
+		if(count($background_image) >0){
+			$back_contact_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
+			/** event **/
+			$Data['backgroundimage'] = $back_contact_image;
+			$Data['status'] = 'Success';
+		}else{
+			/** back rss image **/
+			$back_contact_image = array('vImage'=>'');
+			/** event **/
+			$Data['backgroundimage'] = $back_contact_image;
+			$Data['status'] = 'Fail';
+		}
 		/** easyapp gallery details **/
 		header('Content-type: application/json');
 		header('Access-Control-Allow-Origin: *');
@@ -3396,6 +3456,18 @@ header('Access-Control-Allow-Origin: *');
 						'vLatitude'=>$val['vLatitude'],
 						'vLongitude'=>$val['vLongitude'],
 					);
+				}
+				
+				$background_image = $this->webservice_model->get_location_background_image($Data);
+				if(count($background_image) >0){
+					$back_location_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
+					/** event **/
+					$Data['backgroundimage'] = $back_location_image;
+				}else{
+					/** back rss image **/
+					$back_location_image = array('vImage'=>'');
+					/** event **/
+					$Data['backgroundimage'] = $back_location_image;
 				}
 				
 				/** reservation list **/
@@ -3830,6 +3902,19 @@ header('Access-Control-Allow-Origin: *');
 					'vArrivalImage' => $this->data['base_url'].'uploads/arrival/'.$val['iArrivalId'].'/'.$val['vArrivalImage'],
 					'tDescription' => $val['tDescription']
 				);
+			}
+			
+			/** background image **/
+			$background_image = $this->webservice_model->get_arrival_background_image($Data);
+			if(count($background_image) >0){
+				$back_arrival_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
+				/** event **/
+				$Data['backgroundimage'] = $back_arrival_image;
+			}else{
+				/** back rss image **/
+				$back_arrival_image = array('vImage'=>'');
+				/** event **/
+				$Data['backgroundimage'] = $back_arrival_image;
 			}
 
 			if(count($arrival_history) >0){
@@ -5084,6 +5169,18 @@ header('Access-Control-Allow-Origin: *');
 				'text' => $val['vCatalogueName'],
 				'items' => $subcat
 			);
+		}
+		
+		$background_image = $this->webservice_model->get_catalogue_background_image($Data);
+		if(count($background_image) >0){
+			$back_catalogue_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
+			/** event **/
+			$result['backgroundimage'] = $back_catalogue_image;
+		}else{
+			/** back rss image **/
+			$back_catalogue_image = array('vImage'=>'');
+			/** event **/
+			$result['backgroundimage'] = $back_catalogue_image;
 		}
 
 		/*	Get all categories	*/

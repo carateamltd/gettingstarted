@@ -36,6 +36,7 @@ Ext.define('MyApp.controller.MainController', {
            // menuNavi: 'menunavi',
            // menuView: 'menuview',
             newsNavi: 'newsnavi',
+            contactNavi: 'contactview',
             newsList: 'newslist',
             voiceRecording: 'voicerecording',
             reservationNavi: 'reservationnavi',
@@ -215,6 +216,9 @@ Ext.define('MyApp.controller.MainController', {
             },*/
             newsNavi: {
                 activate: 'onNewsActivated'
+            },
+            contactNavi: {
+                activate: 'onContactActivated'
             },
             newsList: {
                 itemtap: 'onNewsListTap'
@@ -1458,6 +1462,10 @@ console.log('===================End=====================');
                         var userid = Response.gallery.vFlickerEmail;
                         Flickr(key, userid);
                     }
+                    var bgimage = Response.backgroundimage.backgroundimage;
+                    if (bgimage) {
+                        Ext.ComponentQuery.query('gallaryview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                    }
                     appUnmask();
                 },
                 function failure(Response) {
@@ -1809,6 +1817,24 @@ console.log('===================End=====================');
                     }
                     var keyword = Response.News.vGoogleNewsKeyWords
                     me.GetNews(keyword)
+                    appUnmask();
+                },
+                function failure(Response) {
+                    appUnmask();
+                }
+        );
+    },
+    onContactActivated: function () {
+        var me = this;
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_get_contact_bg&iApplicationId=' + TextConstants.ApplicationId;
+        console.log(url);
+        MyApp.services.RemoteService.remoteCall(url,
+                function success(Response) {
+                    console.log(Response);
+                    if (Response.backgroundimage.backgroundimage) {
+                        Ext.ComponentQuery.query('contactview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'})
+                    }
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2189,6 +2215,10 @@ console.log('===================End=====================');
                     console.log(Response);
                     LocationStore.add(Response.Aroundus_category);
                     LocationStore.sync();
+                    var bgimage = Response.backgroundimage.backgroundimage;
+                    if (bgimage) {
+                        Ext.ComponentQuery.query('locationnavi')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                    }
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2611,6 +2641,12 @@ console.log('===================End=====================');
                     console.log(Response);
                     objNewArrivalStore.add(Response.arrival);
                     objNewArrivalStore.sync();
+                    
+                    var bgimage = Response.backgroundimage.backgroundimage;
+                    if (bgimage) {
+                        Ext.ComponentQuery.query('newarrivalview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                    }
+                    
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2915,12 +2951,14 @@ console.log('===================End=====================');
                      
                     if (length1 > 0) {
                         for (var i = 0; i < length1; i++) {
-                            sizelength = Response.service[i].service_timing.length;
-                            if (sizelength > 0) {
-                                for (var j = 0; j < sizelength; j++) {
-                                    objServiceTimingTabStore.add(Response.service[i].service_timing[j])
-                                    objServiceTimingTabStore.sync();
-                                }
+                        	if(Response.service[i].service_timing){
+								sizelength = Response.service[i].service_timing.length;
+								if (sizelength > 0) {
+									for (var j = 0; j < sizelength; j++) {
+										objServiceTimingTabStore.add(Response.service[i].service_timing[j])
+										objServiceTimingTabStore.sync();
+									}
+								}
                             }
                         }
                     }
