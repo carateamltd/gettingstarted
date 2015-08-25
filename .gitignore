@@ -1,0 +1,10 @@
+.DS_Store
+application/.DS_Store
+application/controllers/.DS_Store
+application/models/.DS_Store
+downloads/.DS_Store
+downloads/alltemplate/.DS_Store
+downloads/alltemplate/www/.DS_Store
+downloads/alltemplate/www/app/.DS_Store
+downloads/alltemplate/www/app/view/.DS_Store
+uploads/*
