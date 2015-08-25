@@ -707,6 +707,30 @@ function edit_custom_tab(apptabid,step){
 	
 }
 
+function add_custom_tab()
+{
+	debugger;
+	var url = base_url+'app/ajax_add_custom_tab';
+	$.ajax(
+	{
+		type: 'POST',
+		url: url,
+		success: function(data) 
+		{
+			if(data)
+			{
+				if(data.length > 0)
+				{
+					$("#edit_tab_btn").html(data);
+					$('#myModal_edit_btn').modal({backdrop:'static',keyboard:false});
+					$('#myModal_edit_btn').modal('show');
+					return false;
+				}
+			}
+		}
+	});	
+}
+
 
 
 function select_tab_icon(iconid){	
@@ -865,7 +889,7 @@ function uploadGlobalHeaderImg(){
     $("#" + id).css("color", val);
 }
 
-function uploadAppBgImage(){
+function uploadAppBgImage(){debugger;
 	var imagename=$("#file_upload_app_image").val();
 	if(imagename == "" ){
 		$("#errmsg").html('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Sélectionnez une image.</div>');

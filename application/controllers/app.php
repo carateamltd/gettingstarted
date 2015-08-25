@@ -3780,12 +3780,54 @@ class App extends MY_Controller
 	    {
 	    	$this->data['flag']='7';
 	    }
-
+		
 	   if(!$this->data['exist_record'])
 	   {
 	   		exit;
 	   		//$this->session->set_flashdata('message', 'This tab is already deleted.'); //Made Changes by : Sagar 19-5-2014    
 		    //redirect($this->data['base_url'] . 'app/'.$step.'/');  		
+	   }
+	   else
+	   {
+	   		$this->smarty->assign('data', $this->data);
+	   		$this->smarty->view('ajax_edit_custom_tab.tpl'); 
+		}
+	}
+	
+	function ajax_add_custom_tab()
+	{
+	   $iAppTabId = '0000';
+	   $step= 'step2';		
+	   $this->data['step']=$step;		
+	   
+	   $id = $this->input->post('app');
+	   $this->data['all_appindustryfeature'] = $this->app_model->get_all_appindustryfeature_data();
+	   #$this->data['all_tabcustomicon'] = $this->app_model->get_all_tabcustomicon();
+		
+	   $exist_record = $this->app_model->get_exist_appfeature_data($iAppTabId);
+	   $this->data['exist_record'] = Array(
+            'iAppTabId' => "",
+            'iApplicationId' => "",
+            'iFeatureId' => "",
+            'iIconId' => "",
+            'eCustom' => "",
+            'vTitle' => "",
+            'ovTitle' => "",
+            'eActive' => "",
+        );
+	   foreach ($exist_record as $value) {
+	   	$id = $value[iApplicationId];
+	   }
+	   $this->data['featureids'] = $this->app_model->get_specific_app_featureid('r_appfeature',$id,'7');
+	   
+	    if(in_array('7', $this->data['featureids'][0]))
+	    {
+	    	$this->data['flag']='7';
+	    }
+
+	   if(!$this->data['exist_record'])
+	   {
+	   		exit;		
 	   }
 	   else
 	   {

@@ -103,7 +103,7 @@
             						</div>
               						<div class="div_inner">
                           				<div class="box_grey dark dark_shadow clearall no-margin">
-                          					<h2>
+                          					<h2 style="display: inline-block;width: auto;">
                           						{foreach from=$lang item=val}
                     								{if $val.rLabelName == 'App Tabs'}
                        									{$val.rField}
@@ -115,7 +115,9 @@
                               							{$val.rField}
                             						{/if}
                             					{/foreach} </a> -->
-                            				</h2> 
+                            				</h2>
+                            				
+                            				<a class="btn btn-primary" href="#" style="float: right;display: inline-block;" onclick="add_custom_tab();">Add New Tab</a> 
                           				</div> 
                           				{if $data.message neq ''}
                             				<div class="alert alert-info">
