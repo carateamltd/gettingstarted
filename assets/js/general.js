@@ -329,6 +329,8 @@ $(document).ready(function(){
 	
    $( ".top_head_box" ).tabs();
    $(".midmainwrap,.leftpartappearance,.appr-layout,.appr-buttons,.appr-header,.appr-colors,.background_tab").tabs();
+   
+   
 	$(function() {
 		$("#sortable1,#sortable2").sortable({ opacity: 0.6, cursor: 'move', update: function() {
 			var iApplicationId = $("#iApplicationId").val();
@@ -343,10 +345,25 @@ $(document).ready(function(){
 		});
 	});
 
-
+	$(function() {
+		//-- code added for saving sorting details when app created
+		var urlBreak=document.URL.split("/");
+		var currentStep = urlBreak[urlBreak.length-2];
+		if(currentStep == "step2")
+		{
+			var iApplicationId = $("#iApplicationId").val();
+			var url = base_url+'app/sort_tab';
+			var order = $('#sortable1').sortable("serialize") + '&iApplicationId='+iApplicationId;
+			$.post(url, order, function(theResponse)
+			{
+				//-- success here
+			});
+		}
+	});
 
 
 });
+
 
 $(document).ready(function(){
 	
@@ -707,7 +724,7 @@ function edit_custom_tab(apptabid,step){
 	
 }
 
-function add_custom_tab()
+function add_custom_tab(appId)
 {
 	debugger;
 	var url = base_url+'app/ajax_add_custom_tab';
@@ -715,6 +732,9 @@ function add_custom_tab()
 	{
 		type: 'POST',
 		url: url,
+		data: {
+			appId: appId
+		},
 		success: function(data) 
 		{
 			if(data)

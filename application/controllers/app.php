@@ -201,11 +201,16 @@ class App extends MY_Controller
 	    	//$this->data['selected_feature_details'] = $this->selected_feature_details($id);		
 	    	//echo '<pre>';print_r($this->data['selected_feature_details']);exit;
 		$iIndustryId = $this->data['appinformation']['iIndustryId'];
-		$this->data['all_appindustryfeature'] = $this->app_model->get_all_appindustryfeature_data($iIndustryId);
+		//$this->data['all_appindustryfeature'] = $this->app_model->get_all_appindustryfeature_data($iIndustryId);
 
 		// echo "<pre>";
         	// print_r($this->data);exit;
 		// $this->data['all_tabcustomicon'] = $this->app_model->get_all_tabcustomicon();
+		$iAdminId = $this->data['user_info']['iAdminId'];
+		$vPackage = $this->app_model->get_application_industry_features($iIndustryId,$iAdminId);
+
+		/** appindustry features **/		
+		$this->data['all_appindustryfeature'] = $this->app_model->get_all_appindustryfeature($iIndustryId,$vPackage['vPackage']);
 		$this->smarty->assign('data', $this->data);		
 		$this->smarty->view('template.tpl'); 
 	}
@@ -3755,7 +3760,12 @@ class App extends MY_Controller
 				}
 			
 		$this->session->set_flashdata('message','New Tab Added Successfully.');		
-		$iApplicationId = $this->app_model->save('r_appfeature',$Data);
+		$tab_id = $this->app_model->save('r_appfeature',$Data);
+		$tab_data = array();
+		$tab_data['iApplicationId'] = $Data['iApplicationId'];
+		$tab_data['iAppTabId'] = $tab_id;
+		$tab_data['iOrderId'] = $this->app_model->getNewTabOrderId($tab_data['iApplicationId']);
+		$iSorttabId = $this->app_model->save('r_sorttab',$tab_data);
 		redirect($this->data['base_url'] . 'app/step2/'.$Data['iApplicationId']);
 	}	
 
@@ -3804,10 +3814,10 @@ class App extends MY_Controller
 	   $this->data['all_appindustryfeature'] = $this->app_model->get_all_appindustryfeature_data();
 	   #$this->data['all_tabcustomicon'] = $this->app_model->get_all_tabcustomicon();
 		
-	   $exist_record = $this->app_model->get_exist_appfeature_data($iAppTabId);
+	   //$exist_record = $this->app_model->get_exist_appfeature_data($iAppTabId);
 	   $this->data['exist_record'] = Array(
             'iAppTabId' => "",
-            'iApplicationId' => "",
+            'iApplicationId' => $this->input->post('appId'),
             'iFeatureId' => "",
             'iIconId' => "",
             'eCustom' => "",
@@ -3815,7 +3825,7 @@ class App extends MY_Controller
             'ovTitle' => "",
             'eActive' => "",
         );
-	   foreach ($exist_record as $value) {
+	   /*foreach ($exist_record as $value) {
 	   	$id = $value[iApplicationId];
 	   }
 	   $this->data['featureids'] = $this->app_model->get_specific_app_featureid('r_appfeature',$id,'7');
@@ -3823,7 +3833,7 @@ class App extends MY_Controller
 	    if(in_array('7', $this->data['featureids'][0]))
 	    {
 	    	$this->data['flag']='7';
-	    }
+	    }*/
 
 	   if(!$this->data['exist_record'])
 	   {

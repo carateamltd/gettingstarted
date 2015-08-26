@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-25 17:13:56
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-26 18:55:40
          compiled from "application/views/templates/view-app-step4.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8335672395583cefe296ce4-95710053%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '53793fd0609b952a6cbb8a45ff4bb514688dacfe' => 
     array (
       0 => 'application/views/templates/view-app-step4.tpl',
-      1 => 1440497629,
+      1 => 1440505609,
       2 => 'file',
     ),
   ),
@@ -385,188 +385,229 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 																				</center>
 																			</td>
 																			<td>
-<!--<label>
-<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
+																				<!--<label>
+																				<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
 app_layout_top.png" alt="SLB" /> 
-<label class="margin_5ptop">
-<input type="radio" value="top" class="onbtn_radi" <?php echo $_smarty_tpl->tpl_vars['topcheck']->value;?>
+																				<label class="margin_5ptop">
+																				<input type="radio" value="top" class="onbtn_radi" <?php echo $_smarty_tpl->tpl_vars['topcheck']->value;?>
   name="radio_layout" id="layouttop" onClick="change_layout('footer_tab_top');"/><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Top'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 <?php }?><?php } ?>
-</label></label>-->
-</td>
-<td>
-<!--<label>
-<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
+																				</label></label>-->
+																			</td>
+																			<td>
+																				<!--<label>
+																				<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
 app_layout_left.png" alt="SLB" /> 
-<label class="margin_5ptop">
-<input type="radio" value="left" class="onbtn_radi" <?php echo $_smarty_tpl->tpl_vars['leftcheck']->value;?>
+																				<label class="margin_5ptop">
+																				<input type="radio" value="left" class="onbtn_radi" <?php echo $_smarty_tpl->tpl_vars['leftcheck']->value;?>
  name="radio_layout" id="layoutleft" onClick="change_layout('footer_tab_left');"/><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Left'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 <?php }?><?php } ?>
-</label></label>-->
-</td>
-<td>
-<!--<label>
-<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
+																				</label></label>-->
+																			</td>
+																			<td>
+																				<!--<label>
+																				<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
 app_layout_right.png" alt="SLB" /> 
-<label class="margin_5ptop">
-<input type="radio" value="right" class="onbtn_radi" <?php echo $_smarty_tpl->tpl_vars['rightcheck']->value;?>
+																				<label class="margin_5ptop">
+																				<input type="radio" value="right" class="onbtn_radi" <?php echo $_smarty_tpl->tpl_vars['rightcheck']->value;?>
  name="radio_layout" id="layoutright" onClick="change_layout('footer_tab_right');"/><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Right'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 <?php }?><?php } ?>
-</label></label>-->
-</td>
-</tr>
-</table>
-</div>
-
-<div class="button_1">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
-<tr>
-<td width="29%"><label class="spec_label" style="cursor:default;"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																				</label></label>-->
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+																<div class="button_1">
+																	<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
+																		<tr>
+																			<td width="29%">
+																				<label class="spec_label" style="cursor:default;">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='More Button Navigation?'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></label></td>
-<td><label>
-<input type="checkbox" value="1" class="onbtn"  name="checkbox7" />&nbsp;</label>
-</td>
-</tr>
-</table>
-</div>
-				    
-				    <!--<div class="button_1">
-				       <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
-					  <tr>
-					  <td width="29%"><label class="spec_label" style="cursor:default;"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='More Button Navigation?'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+																						<?php }?>
+																					<?php } ?>
+																				</label>
+																			</td>
+																			<td>
+																				<label>
+																					<input type="checkbox" value="1" class="onbtn"  name="checkbox7" />&nbsp;
+																				</label>
+																			</td>
+																		</tr>
+																	</table>
+																</div>	    
+																<!--<div class="button_1">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
+																<tr>
+																<td width="29%"><label class="spec_label" style="cursor:default;"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Rows'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 <?php }?><?php } ?></label></td>
-					  <td><select  name="mapping_row" id="mapping_row" onchange="return manageButtons(this.value);">
-						<option value="Single Row" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="Single Row"){?> selected="selected" <?php }?>>Single Row</option>
-						<option value="2 Rows" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="2 Rows"){?> selected="selected" <?php }?>>2 Rows</option>
-						<option value="3 Rows" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="3 Rows"){?> selected="selected" <?php }?>>3 Rows</option>
-						<option value="4 Rows" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="4 Rows"){?> selected="selected" <?php }?>>4 Rows</option>
-					   </select>
-					  </td>
-					  </tr>
-				       </table>
-				    </div>  -->
+																<td><select  name="mapping_row" id="mapping_row" onchange="return manageButtons(this.value);">
+																<option value="Single Row" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="Single Row"){?> selected="selected" <?php }?>>Single Row</option>
+																<option value="2 Rows" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="2 Rows"){?> selected="selected" <?php }?>>2 Rows</option>
+																<option value="3 Rows" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="3 Rows"){?> selected="selected" <?php }?>>3 Rows</option>
+																<option value="4 Rows" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingRow']=="4 Rows"){?> selected="selected" <?php }?>>4 Rows</option>
+																</select>
+																</td>
+																</tr>
+																</table>
+																</div>  -->
 
-				    <!-- <div class="button_1">
-				       <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
-					  <tr>
-					  <td width="29%"><label class="spec_label" style="cursor:default;"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																<!-- <div class="button_1">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
+																<tr>
+																<td width="29%"><label class="spec_label" style="cursor:default;"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Columns'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 <?php }?><?php } ?> </label></td>
-					  <td><select  name="mapping_coll" id="mapping_coll">
-						<option value="3 Columns" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingCol']=="3 Columns"){?> selected="selected" <?php }?>>3 Columns</option>
-						<option value="4 Columns" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingCol']=="4 Columns"){?> selected="selected" <?php }?>>4 Columns</option>
-						<option value="5 Columns" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingCol']=="5 Columns"){?> selected="selected" <?php }?>>5 Columns</option>
-					   </select>
-					  </td>
-					  </tr>
-				       </table>
-				    </div> -->
-				 </div>
-			      </div>
-			      <div id="appr-buttons-subtbs">				 
-				  <?php echo $_smarty_tpl->getSubTemplate ("appearance_sub_tabs.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+																<td><select  name="mapping_coll" id="mapping_coll">
+																<option value="3 Columns" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingCol']=="3 Columns"){?> selected="selected" <?php }?>>3 Columns</option>
+																<option value="4 Columns" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingCol']=="4 Columns"){?> selected="selected" <?php }?>>4 Columns</option>
+																<option value="5 Columns" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vMappingCol']=="5 Columns"){?> selected="selected" <?php }?>>5 Columns</option>
+																</select>
+																</td>
+																</tr>
+																</table>
+																</div> -->
+				 											</div>
+			      										</div>
+			      										<div id="appr-buttons-subtbs">				 
+				  											<?php echo $_smarty_tpl->getSubTemplate ("appearance_sub_tabs.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 			 			 
-   			      </div>
-			   </div>
-			   <div id="appr-buttons" class="appr-buttons levelborder">
-			      <ul class="innertabbtn">
-				 <li class="innertabbtncklik"><a class="btn" href="#appr-buttons-tabbackg"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
-$_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Background'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></a></li>
-				 <li class="inactivebtntab"><a class="btn" href="#appr-buttons-icolor"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
-$_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Background Icon Color'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></a></li>
-				 <li class="inactivebtntab"><a class="btn" href="#appr-buttons-tabcol"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
-$_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Color'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></a></li>
-				 <li class="inactivebtntab"><a class="btn" href="#appr-buttons-tabtext">
-				 <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
-$_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Text'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></a></li>
-			      </ul>
-			      <div id="appr-buttons-tabbackg">
-				  <div class="button_1" id="addpdf_validation">
-				    <form name="buuton_upload" id="buuton_upload" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
-app/upload_button_img" enctype="multipart/form-data">
-					   <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
-					   <tr>
-						<td class="btnbrowse btnhelp"><label></label></td>
-						<td class="btnbrowse"><input type="file" id="image_upload"  name="file_uploads_btn" onchange="CheckValidFile(this.value,'this.name');" style="width:200px;"/>&nbsp (75 px * 75 px)</td>				    
-						<td>
-							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
-$_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload'){?>
-								<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-" onclick="return uploadButton();"/>
-								<?php }?>
-							<?php } ?>
-						</td>
-					   </tr>
-					   </table>
-				    </form>
-				 </div>
-				 <div class="buttons_group">
-				    <div class="button_1">
-				       <ul class="listing_select_icons" id="appearance_button_img">
-				       	<li>
-				       		<div class="hover_active_back active_btn_mobile">
-				       		<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+   			      										</div>
+			   										</div>
+			   										<div id="appr-buttons" class="appr-buttons levelborder">
+			      										<ul class="innertabbtn">
+															 <li class="innertabbtncklik">
+															 	<a class="btn" href="#appr-buttons-tabbackg">
+															 		<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-							 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='noimg'){?>
-								<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_image'];?>
+															 			<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Background'){?>
+															 				<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+															 			<?php }?>
+															 		<?php } ?>
+															 	</a>
+															 </li>
+															 <li class="inactivebtntab">
+															 	<a class="btn" href="#appr-buttons-icolor">
+															 		<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+															 			<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Background Icon Color'){?>
+															 				<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+															 			<?php }?>
+															 		<?php } ?>
+															 	</a>
+															 </li>
+															 <li class="inactivebtntab">
+															 	<a class="btn" href="#appr-buttons-tabcol">
+															 		<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+															 			<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Color'){?>
+															 				<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+															 			<?php }?>
+															 		<?php } ?>
+															 	</a>
+															 </li>
+															 <li class="inactivebtntab">
+															 	<a class="btn" href="#appr-buttons-tabtext">
+															 		<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+															 			<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Text'){?>
+															 				<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+															 			<?php }?>
+															 		<?php } ?>
+															 	</a>
+															 </li>
+			      										</ul>
+			      										<div id="appr-buttons-tabbackg">
+				  											<div class="button_1" id="addpdf_validation">
+				    											<form name="buuton_upload" id="buuton_upload" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
+app/upload_button_img" enctype="multipart/form-data">
+					   												<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
+					   													<tr>
+																			<td class="btnbrowse btnhelp"><label></label></td>
+																			<td class="btnbrowse">
+																				<input type="file" id="image_upload"  name="file_uploads_btn" onchange="CheckValidFile(this.value,'this.name');" style="width:200px;"/>&nbsp (75 px * 75 px)
+																			</td>				    
+																			<td>
+																				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+																					<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload'){?>
+																						<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+" onclick="return uploadButton();"/>
+																					<?php }?>
+																				<?php } ?>
+																			</td>
+																		</tr>
+																	</table>
+																</form>
+															</div>
+															<div class="buttons_group">
+																<div class="button_1">
+																	<ul class="listing_select_icons" id="appearance_button_img">
+																		<li>
+																			<div class="hover_active_back active_btn_mobile">
+																				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+																					<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='noimg'){?>
+																						<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_image'];?>
 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 .png" height="75px" width="75px" alt="SLB" /> 
-							 <?php }?>
-							<?php } ?>
-				       			<!--<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_image'];?>
+																					<?php }?>
+																				<?php } ?>
+																				<!--<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_image'];?>
 noimg.png" height="75px" width="75px" alt="SLB" /> -->
-				       			<label class="margin_5ptop">
-				       				<input type="radio" value="0" <?php if ($_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iBtntabbackgroundId']==0){?> checked="checked" <?php }?>  class="onbtn_radi"  name="tabbackimage"  onClick="chng_back_icon(0);"/>
-				       			</label>
-				       		</div>
-				       	</li>
-				       	 
-					  <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
+																				<label class="margin_5ptop">
+																					<input type="radio" value="0" <?php if ($_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iBtntabbackgroundId']==0){?> checked="checked" <?php }?>  class="onbtn_radi"  name="tabbackimage"  onClick="chng_back_icon(0);"/>
+																				</label>
+																			</div>
+																		</li>
+																		<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['name'] = 'i';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['data']->value['buttons_tab_background']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['show'] = true;
@@ -590,57 +631,52 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['total']);
 ?>
-                         <li>
-
-    						<label>
-
-                            <div class="hover_active_back active_btn_mobile">
-    						
-    						<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
+                         													<li>
+																				<label>
+																					<div class="hover_active_back active_btn_mobile">
+																						<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
 tab_btn_background/<?php echo $_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iBtntabbackgroundId'];?>
 /<?php echo $_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vImage'];?>
 " height="75px" width="75px" alt="SLB" /> 
-
-    						<label class="margin_5ptop">
-    						<input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iBtntabbackgroundId'];?>
+																						<label class="margin_5ptop">
+																							<input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iBtntabbackgroundId'];?>
 " <?php if ($_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iBtntabbackgroundId']==$_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iBackgroundId']){?> checked="checked" <?php }?>  class="onbtn_radi"  name="tabbackimage"  onClick="chng_back_icon(<?php echo $_smarty_tpl->tpl_vars['data']->value['buttons_tab_background'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iBtntabbackgroundId'];?>
-);"/></label>
-    						</label>
-    						</div>
-					     </li>
-					  <?php endfor; endif; ?>
-				       </ul>
-					   
-					   
-				    </div>
-				 </div>
-			      </div>
-			      <div id="appr-buttons-icolor">
-         			 <div class="button_1 height_fix_500">
-				    <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
-				       <tr>
-					  <td>
-					  <!-- <div class="hover_active_color active_btn_mobile">
-					  <label class="flt_lft_radio">
-						  <input type="radio" value="" class="onbtn_radi"  name="iconcolor" onClick="change_icon_color(0)"/>
-					  </label> 
-					  <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+);"/>
+																						</label>
+																					</div>
+																				</label>
+																			</li>
+																		<?php endfor; endif; ?>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div id="appr-buttons-icolor">
+															<div class="button_1 height_fix_500">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
+																	<tr>
+																		<td>
+																			<!-- <div class="hover_active_color active_btn_mobile">
+																			<label class="flt_lft_radio">
+																			<input type="radio" value="" class="onbtn_radi"  name="iconcolor" onClick="change_icon_color(0)"/>
+																			</label> 
+																			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-                         <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='no icon sign'){?>
-                            <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
+																			<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='no icon sign'){?>
+																			<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 .png" alt="SLB" /> 
-                         <?php }?>
-                      <?php } ?>
-					  <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
+																			<?php }?>
+																			<?php } ?>
+																			<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
 no_icon_sign.png" alt="SLB" /> 
-					  </div> -->
-					  </td>
-				       </tr>
-				      <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
+																			</div> -->
+																		</td>
+																	</tr>
+																	<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['name'] = 'i';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['data']->value['all_iconcolors']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['show'] = true;
@@ -664,16 +700,15 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['total']);
 ?>
-				       <tr>
-					  <td>
-					  <div class="hover_active_color">
-					  <label class="flt_lft_radio">
-						  <input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['all_iconcolors'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iIconcolorId'];?>
+																		<tr>
+																			<td>
+																				<div class="hover_active_color">
+																					<label class="flt_lft_radio">
+																						<input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['all_iconcolors'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iIconcolorId'];?>
 " <?php if ($_smarty_tpl->tpl_vars['data']->value['all_iconcolors'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iIconcolorId']==$_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iIconcolorId']){?> checked="ckecked" <?php }?> class="onbtn_radi"  name="iconcolor" onClick="change_icon_color(<?php echo $_smarty_tpl->tpl_vars['data']->value['all_iconcolors'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iIconcolorId'];?>
 )"/>
-					  </label>
-					 
-					  <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['j'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['j']);
+																					</label>
+																					<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['j'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['j']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['name'] = 'j';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['data']->value['all_icons']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['max'] = (int)5;
@@ -699,109 +734,146 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['j']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['j']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['total']);
 ?>
-					    <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
+																						<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
 tab_icon/<?php echo $_smarty_tpl->tpl_vars['data']->value['all_iconcolors'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iIconcolorId'];?>
 /<?php echo $_smarty_tpl->tpl_vars['data']->value['all_icons'][$_smarty_tpl->getVariable('smarty')->value['section']['j']['index']]['vImage'];?>
 " alt="SLB" /> 
-					  <?php endfor; endif; ?>
-					  </div>
-					  </td>
-				       </tr>
-				      <?php endfor; endif; ?>
-				    </table>
-	 			 </div>
-			      </div>
-			      <div id="appr-buttons-tabcol">
-				 
-				 <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																					<?php endfor; endif; ?>
+																				</div>
+																			</td>
+																		</tr>
+																	<?php endfor; endif; ?>
+																</table>
+															</div>
+														</div>
+														<div id="appr-buttons-tabcol">
+															<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-				 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Color'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Tab Color'){?>
+																	<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-				 <?php }?>
-				<?php } ?>
-				 <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vTabColor'];?>
-" name="vTabColor" id="vTabColor"  class="cp2" onblur="colordatepicker(this.id,this.value)">
-			      </div>
-			      <div id="appr-buttons-tabtext">
-				 <div class="button_1">
-				    <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
-				    <tr>
-				    <td><label>
-				    <input type="checkbox" value="1" class="onbtn_radi"  name="checkbox7" /><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																<?php }?>
+															<?php } ?>
+															<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vTabColor'];?>
+" name="vTabColor" id="vTabColor"  class="cp2" onblur="colordatepicker(this.id,this.value)" />
+														</div>
+														<div id="appr-buttons-tabtext">
+															<div class="button_1">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
+																	<tr>
+																		<td>
+																			<label>
+																				<input type="checkbox" value="1" class="onbtn_radi"  name="checkbox7" />
+																				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-				 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Show the Menu Text'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																					<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Show the Menu Text'){?>
+																						<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-				 <?php }?>
-				<?php } ?></label>
-				    <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vTabTexColor'];?>
+																					<?php }?>
+																				<?php } ?>
+																			</label>
+																			<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vTabTexColor'];?>
 " class="cp2" name="vTabTexColor" id="vTabTexColor" onblur="colordatepicker(this.id,this.value)"/>
-				    </td>
-				    </tr>
-				    </table>
-				 </div>
-			      </div>
-			   </div>
-			   <div id="appr-header" class="appr-header levelborder">
-			      <ul class="innertabbtn">
-				 <li class="innertabbtncklik"><a class="btn" href="#appr-header-lh" id="launch_header"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																		</td>
+																	</tr>
+																</table>
+															</div>
+														</div>
+													</div>
+													<div id="appr-header" class="appr-header levelborder">
+														<ul class="innertabbtn">
+															<li class="innertabbtncklik">
+																<a class="btn" href="#appr-header-lh" id="launch_header">
+																	<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Launch Header'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></a></li>
-				 <li class="inactivebtntab"><a class="btn" href="#appr-header-lt" id="launcher_tint" ><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+?>
+																		<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Launch Header'){?>
+																			<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+																		<?php }?>
+																	<?php } ?>
+																</a>
+															</li>
+															<li class="inactivebtntab">
+																<a class="btn" href="#appr-header-lt" id="launcher_tint" >
+																	<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Launcher Tint'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></a></li>
-				 <li class="inactivebtntab"><a class="btn" href="#appr-header-gh" id="global_header">Global Header</a></li>
-				 <li class="inactivebtntab"><a class="btn" href="#appr-header-gt" id="global_tint"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+?>
+																		<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Launcher Tint'){?>
+																			<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+																		<?php }?>
+																	<?php } ?>
+																</a>
+															</li>
+				 											<li class="inactivebtntab">
+				 												<a class="btn" href="#appr-header-gh" id="global_header">Global Header</a>
+				 											</li>
+				 											<li class="inactivebtntab">
+				 												<a class="btn" href="#appr-header-gt" id="global_tint">
+				 													<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Global Tint'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?>Global Tint</a></li>
-			      </ul>
-			      <div id="appr-header-lh">
-				 <div class="button_1">
-				  <form name="header_imgupload" id="header_imgupload" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
+?>
+				 														<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Global Tint'){?>
+				 															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+				 														<?php }?>
+				 													<?php } ?>Global Tint
+				 												</a>
+				 											</li>
+				 										</ul>
+				 										<div id="appr-header-lh">
+				 											<div class="button_1">
+				 												<form name="header_imgupload" id="header_imgupload" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
 app/upload_header_img" enctype="multipart/form-data">
-					 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
-					   <tr>
-						<td class="btnbrowse btnhelp"><label><!--<a class="tooltip_text" href="javascript:void(0);"><img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_image'];?>
+																	<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
+																		<tr>
+																			<td class="btnbrowse btnhelp">
+																				<label>
+																					<!--<a class="tooltip_text" href="javascript:void(0);"><img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_image'];?>
 quaton_icon.png" align="absmiddle"/> <span><img class="callout_text" src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_image'];?>
 callout.gif" /> <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload image action will also save your current settings'){?><?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-<?php }?><?php } ?></span></a>--></label></td>
-						<td class="btnbrowse">
-							<input type="file" id="header_img" name="header_img" onchange="CheckValidFile(this.value,'header_img');" style="width:200px;" />(200px X 200px)</td>
-						<td>
-							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+<?php }?><?php } ?></span></a>-->
+																				</label>
+																			</td>
+																			<td class="btnbrowse">
+																				<input type="file" id="header_img" name="header_img" onchange="CheckValidFile(this.value,'header_img');" style="width:200px;" />(200px X 200px)
+																			</td>
+																			<td>
+																				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
-?><?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload'){?>
-								<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+?>
+																					<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload'){?>
+																						<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 " onclick="return uploadHeaderImg();"/>
-							<?php }?><?php } ?>	
-							</td>
-					   </tr>
-					 </table>
-				  </form>
-				 </div>
-				 <div class="button_1 height_fix_500" id="header_img_list">
-				    <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
-				    <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
+																					<?php }?>
+																				<?php } ?>	
+																			</td>
+																		</tr>
+																	</table>
+																</form>
+															</div>
+															<div class="button_1 height_fix_500" id="header_img_list">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
+																	<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['name'] = 'i';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['show'] = true;
@@ -825,80 +897,85 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['total']);
 ?>				    
-					 <tr>
-					 <td>
-					 <!-- <div class="hover_active_color active_btn_mobile">
-						 <label class="flt_lft_radio">
-							 <input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
+																		<tr>
+																			<td>
+																				<!-- <div class="hover_active_color active_btn_mobile">
+																				<label class="flt_lft_radio">
+																				<input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 " <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iLunchheaderId']==$_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId']){?> checked="ckecked" <?php }?> class="onbtn_radi"  name="iLunchheaderId" id="iLunchheaderId" onClick="change_lun_header(<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 );"/>
-						 </label>
-						 <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
+																				</label>
+																				<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
 lunch_header/<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 /<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vImage'];?>
 " style="width:320px;height:44px;" /> 
-					 </div> -->
-					  </td>
-					 </tr>					 
-				    <?php endfor; endif; ?>				    
-				    </table>
-				 </div>
-			      </div>
-
-			      <div id="appr-header-lt">
-				 Launcher Tint
-				 <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vLuncherTintColor'];?>
-" name="vLuncherTintColor" id="vLuncherTintColor" data-color-format="rgb" class="cp2" onblur="colordatepicker(this.id,this.value)">
-			      </div>
-			      <div id="appr-header-gh">
-				 <div class="button_1">
-				    <form name="header_imgupload" id="global_header_imgupload" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
+																				</div> -->
+																			</td>
+																		</tr>					 
+																	<?php endfor; endif; ?>				    
+																</table>
+															</div>
+														</div>
+														<div id="appr-header-lt">
+															Launcher Tint
+															<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vLuncherTintColor'];?>
+" name="vLuncherTintColor" id="vLuncherTintColor" data-color-format="rgb" class="cp2" onblur="colordatepicker(this.id,this.value)" />
+														</div>
+														<div id="appr-header-gh">
+															<div class="button_1">
+																<form name="header_imgupload" id="global_header_imgupload" method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
 app/upload_global_header_img" enctype="multipart/form-data">
-				    	<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
-				    		<tr>
-				    			<td class="btnbrowse btnhelp"><label><span class="qmark">&nbsp;</span></label></td>
-				    			<td class="btnbrowse"><input type="file" id="global_header_img" name="file_uploads_btn" onchange="CheckValidFile(this.value,'global_header_img');" style="width:200px;"/>(200px X 200px)</td>
-				    			<td>
-				    				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																	<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl_right">
+																		<tr>
+																			<td class="btnbrowse btnhelp">
+																				<label>
+																					<span class="qmark">&nbsp;</span>
+																				</label>
+																			</td>
+																			<td class="btnbrowse">
+																				<input type="file" id="global_header_img" name="file_uploads_btn" onchange="CheckValidFile(this.value,'global_header_img');" style="width:200px;"/>(200px X 200px)
+																			</td>
+																			<td>
+																				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-					 					<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload'){?>
-					 						<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																					<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Upload'){?>
+																						<input type="button" class="btn btn-primary" name="upload_btn_icon"  value="<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 " onclick="return uploadGlobalHeaderImg();"/>
-					 					<?php }?>
-					 				<?php } ?>
-				    			</td>
-				    		</tr>
-				    	</table>
-				    </form>
-				 </div>
-				 <div class="button_1 height_fix_500" id="global_header_img_list">
-				 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
-				    <tr>
-				       <td>
-				       <div class="hover_active_color active_btn_mobile">
-				       <label class="flt_lft_radio">
-					       <input type="radio" value="0" class="onbtn_radi" onclick="chnage_global_header(this.value);" name="iGlobalHeaderId" id="iGlobalHeaderId" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iGlobalHeaderId']=='0'){?> checked="ckecked" <?php }?>/>
-				       </label>
-				       <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																					<?php }?>
+																				<?php } ?>
+																			</td>
+																		</tr>
+																	</table>
+																</form>
+															</div>
+															<div class="button_1 height_fix_500" id="global_header_img_list">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table images_buttons">
+																	<tr>
+																		<td>
+																			<div class="hover_active_color active_btn_mobile">
+																				<label class="flt_lft_radio">
+																					<input type="radio" value="0" class="onbtn_radi" onclick="chnage_global_header(this.value);" name="iGlobalHeaderId" id="iGlobalHeaderId" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iGlobalHeaderId']=='0'){?> checked="ckecked" <?php }?>/>
+																				</label>
+																				<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='no header sign'){?>
-						    <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
+																					<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='no header sign'){?>
+																						<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 .png" /> 
-						 <?php }?>
-					       <?php } ?>
-				       <!--<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
+																					<?php }?>
+																				<?php } ?>
+																				<!--<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
 no_header_sign.png" /> -->
-				       </div>
-				       </td>
-				    </tr>
-				    <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
+																			</div>
+																		</td>
+																	</tr>
+																	<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['name'] = 'i';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['show'] = true;
@@ -922,490 +999,565 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['total']);
 ?>
-				    <tr>
-				       <td>
-				       <div class="hover_active_color active_btn_mobile">
-				       <label class="flt_lft_radio">
-					       <input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
+																		<tr>
+																			<td>
+																				<div class="hover_active_color active_btn_mobile">
+																					<label class="flt_lft_radio">
+																						<input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 "  <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iGlobalHeaderId']==$_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId']){?> checked="ckecked" <?php }?> class="onbtn_radi"  name="iGlobalHeaderId" id="iGlobalHeaderId" onclick="chnage_global_header(<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 );"/>
-				       </label>
-				       <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
+																					</label>
+																					<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
 lunch_header/<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 /<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vImage'];?>
 " alt="SLB" /> 
-				       </div>
-				       </td>
-				    </tr>
-				 
-				 <?php endfor; endif; ?>                                              
-				 </table>
-			      </div>
-			   </div>
-			   <div id="appr-header-gt">
-			      Global Tint
-			      <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vGlobalTintColor'];?>
-" name="vGlobalTintColor" id="vGlobalTintColor" data-color-format="rgb" class="cp2" onblur="colordatepicker(this.id,this.value)">
-			   </div>
-			</div>
-			<div id="appr-colors" class="appr-colors levelborder">
-			   <ul class="innertabbtn">
-			      <li class="innertabbtncklik"><a class="btn" href="#appr-colors-gac"> <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																				</div>
+																			</td>
+																		</tr>
+																	<?php endfor; endif; ?>
+																</table>
+															</div>
+														</div>
+														<div id="appr-header-gt">
+															Global Tint
+															<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vGlobalTintColor'];?>
+" name="vGlobalTintColor" id="vGlobalTintColor" data-color-format="rgb" class="cp2" onblur="colordatepicker(this.id,this.value)" />
+														</div>
+													</div>
+													<div id="appr-colors" class="appr-colors levelborder">
+														<ul class="innertabbtn">
+															<li class="innertabbtncklik">
+																<a class="btn" href="#appr-colors-gac">
+																	<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Global App Colors'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																		<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Global App Colors'){?>
+																			<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></a></li>
-			      <!--li class="inactivebtntab"><a class="btn" href="#appr-colors-subtbs">Global Fonts</a></li-->
-			   </ul>
-			   <div id="appr-colors-gac">
-			      <div class="button_1">
-				 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
-				 <tr>
-				 <td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																		<?php }?>
+																	<?php } ?>
+																</a>
+															</li>
+															<!--li class="inactivebtntab"><a class="btn" href="#appr-colors-subtbs">Global Fonts</a></li-->
+														</ul>
+														<div id="appr-colors-gac">
+															<div class="button_1">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">
+																	<tr>
+																		<td width="32%" class="spec_color_label">
+																			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Start with a Color Theme'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Start with a Color Theme'){?>
+																					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?> :</td>
-				 <td><select  name="select" onChange="chng_color_theme(this.value);">
-				   <option value=""><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																				<?php }?>
+																			<?php } ?> :
+																		</td>
+																		<td>
+																			<select  name="select" onChange="chng_color_theme(this.value);">
+																				<option value="">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Select a color scheme'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Select a color scheme'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="0"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="0">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Aquatic Blue'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Aquatic Blue'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="1"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="1">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Beach Blue'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Beach Blue'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="2"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="2">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bear Brown'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bear Brown'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="3"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="3">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Carrot Orange'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Carrot Orange'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="4"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="4">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Dark Rose'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Dark Rose'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="5"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="5">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Dazzling Red'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Dazzling Red'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="6"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="6">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Forest Green'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Forest Green'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				   <option value="7"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																				<option value="7">
+																					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Generic Grey'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Generic Grey'){?>
+																							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?></option>
-				 </select>
-				 </td>
-				 </tr>
-				 </table>
-			      </div>
-			      <!--
-				 	Modified By : Nizam Kadri
-				    Modified Date : 22-05-2014 
-				    Purpose : get proper alignment of colors tab.
-				 -->
-			      <div class="button_1">
-				 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl_select_color">
-				 <tr>
-					<td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																						<?php }?>
+																					<?php } ?>
+																				</option>
+																			</select>
+																		</td>
+																	</tr>
+																</table>
+															</div>
+															<!--
+															Modified By : Nizam Kadri
+															Modified Date : 22-05-2014 
+															Purpose : get proper alignment of colors tab.
+															-->
+															<div class="button_1">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl_select_color">
+																	<tr>
+																		<td width="32%" class="spec_color_label">
+																			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Navigation bar'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Navigation bar'){?>
+																					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?> :</td>
-					<td class="withsepaline">
-					<table width="80%" >
-					<tr><td width="60%" style="text-align:right;"><span class="lbl_color"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																				<?php }?>
+																			<?php } ?> :
+																		</td>
+																		<td class="withsepaline">
+																			<table width="80%">
+																				<tr>
+																					<td width="60%" style="text-align:right;">
+																						<span class="lbl_color">
+																							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
+																									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationBar'];?>
+																								<?php }?>
+																							<?php } ?>:
+																						</span>
+																					</td>
+																					<td>
+																						<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationBar'];?>
 " id="navigation_bar" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important;background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationBar'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationBar'];?>
-;" /></td>
-					<td><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+;" />
+																					</td>
+																					<td>
+																						<span>
+																							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
+																									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationText'];?>
+																								<?php }?>
+																							<?php } ?>:
+																						</span>
+																					</td>
+																					<td>
+																						<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationText'];?>
 " id="navigation_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important;background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationText'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vNavigationText'];?>
-;"></td>
-</tr>
-					</table>
-					</td>
-				 </tr>
-				 <tr>
-					<td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+;" />
+																					</td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="32%" class="spec_color_label">
+																			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Section Bar'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Section Bar'){?>
+																					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?> :</td>
-					 <td class="withsepaline">
-					  <table width="80%">
-						<tr><td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																				<?php }?>
+																			<?php } ?> :
+																		</td>
+																		<td class="withsepaline">
+																			<table width="80%">
+																				<tr>
+																					<td width="60%" style="text-align:right;">
+																						<span>
+																							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
+																									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
-" id="section_bars" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
-;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
-;" /></td>
-						<td><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
-$_smarty_tpl->tpl_vars['val']->_loop = true;
-?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-
-						 <?php }?>
-					       <?php } ?>: </span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
-" id="section_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
-;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
-;" /> </td>
-					  </table>
-					 <!--<span>Bar:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
+																								<?php }?>
+																							<?php } ?>:
+																						</span>
+																					</td>
+																					<td>
+																						<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
 " id="section_bars" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
 ;" />
-					 <span>Text: </span><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
+																					</td>
+																					<td>
+																						<span>
+																							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+																								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
+																									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+																								<?php }?>
+																							<?php } ?>:
+																						</span>
+																					</td>
+																					<td>
+																						<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
+" id="section_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
+;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
+;" />
+																					</td>
+																				</tr>
+																			</table>
+																			<!--<span>Bar:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
+" id="section_bars" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
+;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionBar'];?>
+;" />
+																			<span>Text: </span><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
 " id="section_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vSectionText'];?>
 ;" /> -->
-					</td>
-				 </tr>
-				 <tr>
-				 <td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="32%" class="spec_color_label">
+																			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Odd Row'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Odd Row'){?>
+																					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?> :</td>
-				 <td class="withsepaline">
-				<table width="80%" >
-					<tr><td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+																				<?php }?>
+																			<?php } ?> :
+																		</td>
+																		<td class="withsepaline">
+																			<table width="80%" >
+																				<tr>
+																					<td width="60%" style="text-align:right;">
+																						<span>
+																							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+																								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
+																									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>: </span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
-" id="oddRow_bar" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
-;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
-;" /></td>
-					<td><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
-$_smarty_tpl->tpl_vars['val']->_loop = true;
-?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
-
-						 <?php }?>
-					       <?php } ?>: </span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
-" id="oddRow_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
-;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
-;" /></td>
-					</tr>
-				</table>
-				 <!--<span>Bar: </span><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
+																								<?php }?>
+																							<?php } ?>:
+																						</span>
+																					</td>
+																					<td>
+																						<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
 " id="oddRow_bar" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
 ;" />
-				 <span>Text: </span><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
+																					</td>
+																					<td>
+																						<span>
+																							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+																								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
+																									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+																								<?php }?>
+																							<?php } ?>:
+																						</span>
+																					</td>
+																					<td>
+																						<input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
+" id="oddRow_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
+;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
+;" /></td>
+															</tr>
+															</table>
+															<!--<span>Bar: </span><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
+" id="oddRow_bar" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
+;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowBar'];?>
+;" />
+															<span>Text: </span><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
 " id="oddRow_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOddRowText'];?>
 ;" />-->
-				</td>
-				 </tr>
+															</td>
+															</tr>
 
-				 <tr>
-				 <td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<tr>
+															<td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Even Row'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Even Row'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?> :</td>
-				 <td class="withsepaline">
-				<table width="80%" >
-				<tr>
-					<td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<?php }?>
+															<?php } ?> :</td>
+															<td class="withsepaline">
+															<table width="80%" >
+															<tr>
+															<td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Bar'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
+															<?php }?>
+															<?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
 " id="evenrow_bar" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
 ;" /></td>
-					<td><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<td><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Text'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
+															<?php }?>
+															<?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
 " id="evenrow_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
 ;" /></td>
-				</tr>
-				</table>
-				 <!--<span>Bar:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
+															</tr>
+															</table>
+															<!--<span>Bar:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
 " id="evenrow_bar" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowBar'];?>
 ;" />
-				 <span>Text:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
+															<span>Text:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
 " id="evenrow_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vEvenRowText'];?>
 ;" />-->
-				 </td>
-				 </tr>
+															</td>
+															</tr>
 
-				 <tr>
-				 <td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<tr>
+															<td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Feature Colors'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Feature Colors'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?> :</td>
-				 <td class="withsepaline">
-				<table width="80%" >
-					<tr>
-						<td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<?php }?>
+															<?php } ?> :</td>
+															<td class="withsepaline">
+															<table width="80%" >
+															<tr>
+															<td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Button Text'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Button Text'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
+															<?php }?>
+															<?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
 " id="featurecolors_buttontext" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
 ;" /></td>
-						<td>&nbsp;</td><td>&nbsp;</td>
-					</tr>
-				</table>
-				 <tr>
-				 <td width="32%" class="spec_color_label"></td>
-				 <td class="withsepaline">
-				<table width="80%" >
-					<tr><td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<td>&nbsp;</td><td>&nbsp;</td>
+															</tr>
+															</table>
+															<tr>
+															<td width="32%" class="spec_color_label"></td>
+															<td class="withsepaline">
+															<table width="80%" >
+															<tr><td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='ButtonImageColors'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='ButtonImageColors'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
+															<?php }?>
+															<?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
 " id="featurecolors_buttonimage" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
 ;" /></td>
-					<td>&nbsp;</td><td>&nbsp;</td>
-					</tr>
-				</table>
-				</td>
-				</tr>
-				 <!--<span>Button Text:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
+															<td>&nbsp;</td><td>&nbsp;</td>
+															</tr>
+															</table>
+															</td>
+															</tr>
+															<!--<span>Button Text:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
 " id="featurecolors_buttontext" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonTextColor'];?>
 ;" />
-				 </td>
-				 </tr>
-				 <tr>
-				 <td width="32%" class="spec_color_label"></td>
-				 <td class="withsepaline">
-				 <span>Button &amp; Image Colors:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
+															</td>
+															</tr>
+															<tr>
+															<td width="32%" class="spec_color_label"></td>
+															<td class="withsepaline">
+															<span>Button &amp; Image Colors:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
 " id="featurecolors_buttonimage" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vButtonImageColors'];?>
 ;" />-->
-				 </td>
-				 </tr>
-				 <tr>
-				 <td>&nbsp;</td>
-				 <td class="withsepaline">
-				<table width="80%" >
-					<tr>	
-						<td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															</td>
+															</tr>
+															<tr>
+															<td>&nbsp;</td>
+															<td class="withsepaline">
+															<table width="80%" >
+															<tr>	
+															<td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Feature Text'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Feature Text'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
+															<?php }?>
+															<?php } ?>:</span></td><td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
 " id="feature_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
 ;" /></td>
-						<td>&nbsp;</td><td>&nbsp;</td>
-					</tr>
-				</table>
-				 <!--<span>Feature Text:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
+															<td>&nbsp;</td><td>&nbsp;</td>
+															</tr>
+															</table>
+															<!--<span>Feature Text:</span> <input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
 " id="feature_text" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vFeatureText'];?>
 ;" />-->
-				 </td>
-				 </tr>
+															</td>
+															</tr>
 
-				<tr>
-				 <td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<tr>
+															<td width="32%" class="spec_color_label"><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Others'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Others'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?> :</td>
-				 <td class="withsepaline">
-				<table width="80%" >
-					<tr><td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+															<?php }?>
+															<?php } ?> :</td>
+															<td class="withsepaline">
+															<table width="80%" >
+															<tr><td width="60%" style="text-align:right;"><span><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
 ?>
-						 <?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Background Color'){?>
-						 <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+															<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Background Color'){?>
+															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
-						 <?php }?>
-					       <?php } ?>:</span></td>
-					<td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOtherBackgroundColor'];?>
+															<?php }?>
+															<?php } ?>:</span></td>
+															<td><input type="text"  value="<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOtherBackgroundColor'];?>
 " id="other_background" data-color-format="rgb" class="cp2 color_text_hide" style="width:25px !important; background:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOtherBackgroundColor'];?>
 ;color:<?php echo $_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['vOtherBackgroundColor'];?>
 ;" /></td>	
-					<td>&nbsp;</td><td>&nbsp;</td>				
-			</tr>
-				</table>
-				</td></tr>
-			 </table>
-			      </div>
-			   </div>
+															<td>&nbsp;</td><td>&nbsp;</td>				
+															</tr>
+															</table>
+															</td></tr>
+															</table>
+															</div>
+															</div>
 <!-- 			   <div id="appr-colors-subtbs">
 			      <div class="button_1">
 				 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table buttons_tbl">

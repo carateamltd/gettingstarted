@@ -2789,5 +2789,18 @@ function getservicetiminginfo($iServiceId)
         $query = $this->db->get();
         return $query->result_array();
     }
+    
+    /*
+    	function to get new tab order id
+    */
+    public function getNewTabOrderId($appId)
+    {
+    	$this->db->select_max('iOrderId');
+        $this->db->from('r_sorttab');
+        $this->db->where('iApplicationId',$appId);
+        $query = $this->db->get();
+        $arr = $query->result_array();
+        return ($arr[0]['iOrderId'] + 1);
+    }
 }
 ?>

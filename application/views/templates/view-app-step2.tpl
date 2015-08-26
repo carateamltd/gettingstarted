@@ -103,21 +103,21 @@
             						</div>
               						<div class="div_inner">
                           				<div class="box_grey dark dark_shadow clearall no-margin">
-                          					<h2 style="display: inline-block;width: auto;">
+                          					<h2 style="display: inline-block;width: 100%;">
                           						{foreach from=$lang item=val}
                     								{if $val.rLabelName == 'App Tabs'}
                        									{$val.rField}
                      								{/if}
                      							{/foreach} 
-												<!-- <a class="btn btn-primary fright" href="#myModal_add_btn" id="addtab" data-toggle="modal"> <img src="http://192.168.1.41/php/slb_new/assets/images/icon_plus.png" />&nbsp;&nbsp;&nbsp;<i class="icon-plus"></i>  
+												<a class="btn btn-primary fright" href="#myModal_add_btn" id="addtab" data-toggle="modal"><i class="icon-plus"></i>  
                             					{foreach from=$lang item=val}
                             						{if $val.rLabelName == 'Add New Tab'}
                               							{$val.rField}
                             						{/if}
-                            					{/foreach} </a> -->
+                            					{/foreach} </a>
                             				</h2>
                             				
-                            				<a class="btn btn-primary" href="#" style="float: right;display: inline-block;" onclick="add_custom_tab();">Add New Tab</a> 
+                            				<!-- <a class="btn btn-primary" href="#" style="float: right;display: inline-block;" onclick="add_custom_tab({$data.iApplicationId});">Add New Tab</a>  -->
                           				</div> 
                           				{if $data.message neq ''}
                             				<div class="alert alert-info">

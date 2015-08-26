@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-25 21:01:21
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-26 21:55:19
          compiled from "application/views/templates/view-app-step2.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19016884805582a0b55708b1-56806866%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61251a00f315681e296593c6c7625e49684d6443' => 
     array (
       0 => 'application/views/templates/view-app-step2.tpl',
-      1 => 1440511269,
+      1 => 1440600914,
       2 => 'file',
     ),
   ),
@@ -173,7 +173,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
             						</div>
               						<div class="div_inner">
                           				<div class="box_grey dark dark_shadow clearall no-margin">
-                          					<h2 style="display: inline-block;width: auto;">
+                          					<h2 style="display: inline-block;width: 100%;">
                           						<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -184,7 +184,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 
                      								<?php }?>
                      							<?php } ?> 
-												<!-- <a class="btn btn-primary fright" href="#myModal_add_btn" id="addtab" data-toggle="modal"> <img src="http://192.168.1.41/php/slb_new/assets/images/icon_plus.png" />&nbsp;&nbsp;&nbsp;<i class="icon-plus"></i>  
+												<a class="btn btn-primary fright" href="#myModal_add_btn" id="addtab" data-toggle="modal"><i class="icon-plus"></i>  
                             					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -194,10 +194,11 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                               							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
                             						<?php }?>
-                            					<?php } ?> </a> -->
+                            					<?php } ?> </a>
                             				</h2>
                             				
-                            				<a class="btn btn-primary" href="#" style="float: right;display: inline-block;" onclick="add_custom_tab();">Add New Tab</a> 
+                            				<!-- <a class="btn btn-primary" href="#" style="float: right;display: inline-block;" onclick="add_custom_tab(<?php echo $_smarty_tpl->tpl_vars['data']->value['iApplicationId'];?>
+);">Add New Tab</a>  -->
                           				</div> 
                           				<?php if ($_smarty_tpl->tpl_vars['data']->value['message']!=''){?>
                             				<div class="alert alert-info">
