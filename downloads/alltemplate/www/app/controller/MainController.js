@@ -33,7 +33,7 @@ Ext.define('MyApp.controller.MainController', {
             eventNavi: 'eventnavi',
             eventListView: 'eventlistview',
             notepadNavi: 'notepadnavi',
-           // menuNavi: 'menunavi',
+           	menuNavi: 'menunavi',
            // menuView: 'menuview',
             newsNavi: 'newsnavi',
             contactNavi: 'contactview',
@@ -96,7 +96,10 @@ Ext.define('MyApp.controller.MainController', {
             testimonial_SubmitBtnid: 'testimonialview  button[itemId=testimonialsubmitbtnid]',
             review_BtnId: 'review  button[itemId=reviewconfirmbtnid]',
             ecommarch_SearchBtnId: 'ecommarceview  button[itemId=ecommarcesearchbtnid]',
-            ecommarceDetails_SizeList: 'ecommarcedetails  list[itemId=commerceSizeListid]'
+            ecommarceDetails_SizeList: 'ecommarcedetails  list[itemId=commerceSizeListid]',
+            scientificCalculatorView: 'scientificcalculatorview',
+            donationNavi: 'donationnavi',
+            orderNavi: 'ordernavi'
         },
         control: {
             mainView: {
@@ -105,13 +108,13 @@ Ext.define('MyApp.controller.MainController', {
             },
             ecommarceNavi: {
                 push: 'onEcommerceNaviViewPush',
-                pop: 'onEcommerceNaviViewpop',
+                pop: 'onEcommerceNaviViewpop'
             },
             homeView: {
                 activate: 'onHomeActivate'
             },
             youTubeView: {
-                itemtap: 'onYouTubeListTap',
+                itemtap: 'onYouTubeListTap'
             },
             youtubeNavi: {
                 activate: 'onVideosListInitialize'
@@ -123,6 +126,7 @@ Ext.define('MyApp.controller.MainController', {
                 push: 'onLoyalityNaviViewPush',
                 pop: 'onLoyalityNaviViewPop',
                 popToRoot: 'onLoyalityNaviViewPopToRoot',
+                activate: 'onLoyalitiNaviActivate'
             },
             loyalitiView: {
                 activate: 'onLoyalityActivate',
@@ -132,7 +136,7 @@ Ext.define('MyApp.controller.MainController', {
                 onSecretSubmitTap: 'onSecretSubmitTap'
             },
             orderHistory: {
-                deactivate: 'onShowOrderDeactivate',
+                deactivate: 'onShowOrderDeactivate'
             },
             itemDetailsView: {
                 onAddOrderTap: 'onAddOrderBtnTap'
@@ -158,10 +162,10 @@ Ext.define('MyApp.controller.MainController', {
                 activate: 'onArrivalViewActivate'
             },
             gallaryListView: {
-                itemtap: 'onGallaryListViewTap',
+                itemtap: 'onGallaryListViewTap'
             },
             websiteNavi: {
-                activate: 'onWebsitListActivates',
+                activate: 'onWebsitListActivates'
             },
             websitelistView: {
                 itemtap: 'WebsiteListTap'
@@ -171,16 +175,16 @@ Ext.define('MyApp.controller.MainController', {
                 itemtap: 'onSocialSiteListTap'
             },
             pdfNavi: {
-                activate: 'onPdfNaviActivate',
+                activate: 'onPdfNaviActivate'
             },
             pdfListView: {
                 itemtap: 'onPdfListTap'
             },
             customView: {
-                activate: 'onCustomActivate',
+                activate: 'onCustomActivate'
             },
             qrNavi: {
-                activate: 'onQRViewActivate',
+                activate: 'onQRViewActivate'
             },
             qrListView: {
                 itemtap: 'onQrListTap'
@@ -194,7 +198,7 @@ Ext.define('MyApp.controller.MainController', {
             },
             eventNavi: {
                 activate: 'onEventActivated',
-                popToRoot: 'onEventNaviViewPopToRoot',
+                popToRoot: 'onEventNaviViewPopToRoot'
             },
             eventListView: {
                 itemtap: 'onEventListTap'
@@ -208,6 +212,7 @@ Ext.define('MyApp.controller.MainController', {
             notepadNavi: {
                 push: 'onNoteNaviViewPush',
                 pop: 'onNoteNaviViewPop',
+                activate: 'onNotepadNaviActivate'
             },
           /*  menuView: {
                 activate: 'onOrderListActivate',
@@ -228,7 +233,7 @@ Ext.define('MyApp.controller.MainController', {
             },
             reservationNavi: {
                 activate: 'onReservationNaviActivated',
-                popToRoot: 'onReservationNaviViewPopToRoot',
+                popToRoot: 'onReservationNaviViewPopToRoot'
             },
             scheduleReservationView: {
                 itemtap: 'onScheduleReservationListTap'
@@ -259,7 +264,8 @@ Ext.define('MyApp.controller.MainController', {
                 itemtap: 'onLocationListTap'
             },
             mortgageCalculator: {
-                onCalucalate: 'onCalucalateTap'
+                onCalucalate: 'onCalucalateTap',
+                activate: 'onMortgageCalculatorActivate'
             },
             scheduleBtnID: {
                 tap: 'onScheduleBtnID'
@@ -280,13 +286,15 @@ Ext.define('MyApp.controller.MainController', {
                 onSubmitTap: 'onSubmitTap'
             },
             mailingListView: {
-                onSubmitTap: 'onSubscribtionBtnTap'
+                onSubmitTap: 'onSubscribtionBtnTap',
+                activate: 'onMailingListViewActivate'
             },
             loyality_Sharing_Btn: {
                 tap: 'onLoyalityShareTap'
             },
             messageView: {
-                itemtap: 'onMessagesListTap'
+                itemtap: 'onMessagesListTap',
+                activate: 'onMessageViewActivate'
             },
             orderview_MenuDayBtn: {
                 tap: 'onOrder_MenuDayBtnTap'
@@ -307,13 +315,16 @@ Ext.define('MyApp.controller.MainController', {
                 itemtap: 'onDownlistTap'
             },
             scannerView: {
-                onScan: 'onScanTap'
+                onScan: 'onScanTap',
+                activate: 'onScannerViewActivate'
             },
             appointmentView: {
-                onConfirmTap: 'onAppointmentConfirmBtnTap'
+                onConfirmTap: 'onAppointmentConfirmBtnTap',
+                activate: 'onAppointmentViewActivate'
             },
             quoteView: {
-                onQuoteSubmitTap: 'onQuoteSubmitTap'
+                onQuoteSubmitTap: 'onQuoteSubmitTap',
+                activate: 'onQuoteViewActivate'
             },
             size_ItemList: {
                 itemtap: 'onSizeItemListTap'
@@ -348,7 +359,6 @@ Ext.define('MyApp.controller.MainController', {
             },
             ecommarch_SearchBtnId: {
                 tap: 'onEcommarceSearchBtnTap'
-
             },
             ecommarceView: {
                 itemtap: 'onEcommarceSerchListTap'
@@ -376,20 +386,32 @@ Ext.define('MyApp.controller.MainController', {
             },
             menuDayNavi: {
                 activate: 'onMenu_MenuDayBtnTap'
-            }
-
-
-
+            },
 //            showOrderBtnId:{
 //            	tap:'onShowOrderBtnTap'
 //            },
 //            placeOrderBtnId:{
 //            	tap:'onPlaceOrderBtnTap'
 //            }
-
-
-
-        },
+			menuNavi: {
+				activate: 'onMenuNaviActivate'
+			},
+			scientificCalculatorView: {
+				activate: 'onScientificCalculatorViewActivate'
+			},
+			reView: {
+				activate: 'onReViewActivate'
+			},
+			catelogNavi: {
+				activate: 'onCatelogNaviActivate'
+			},
+			donationNavi: {
+				activate: 'onDonationNaviActivate'
+			},
+			orderNavi: {
+				activate: 'onOrderNaviActivate'
+			}
+        }
     },
     slideLeftTransition: {
         type: 'slide',
@@ -625,16 +647,12 @@ Ext.define('MyApp.controller.MainController', {
 ////                    appCustomAlert(TextConstants.Error, Response.Message);
 //                }
 //        );
-////        
-
     },
     appreance: function () {
         var url = URLConstants.URL + 'action=easyapps_appereance_details&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-
-
                     var Toolbar_Image = Response.appereance_details.lunch_header;
                     var Toolbar_Title = Response.appereance_details.vNavigationText;
                     var Tab_Title = Response.appereance_details.vTabTexColor;
@@ -673,18 +691,16 @@ Ext.define('MyApp.controller.MainController', {
                 function failure(Response) {
                     appUnmask();
             //  appCustomAlert(TextConstants.Error, Response.Message);
-
                 }
         );
     },
-    onHomeActivate: function () {
-        var me = this;
+    onHomeActivate: function (tab) {
+        var me = this, tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_home_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_home_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
 //        console.log("====================");
 //        console.log("home= "+url);
 //        console.log("====================");
-
         Ext.Ajax.request({
             url: url,
             success: function (response, opts) {
@@ -714,7 +730,7 @@ Ext.define('MyApp.controller.MainController', {
                 var count = Response.openingtime.length;
 
                 if (Response.background.vImage) {
-                    Ext.ComponentQuery.query('homeview #homepanelId')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'})
+                    Ext.ComponentQuery.query('homeview #homepanelId')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
                 }
                 for (var i = 0; i < count; i++) {
                     Ext.ComponentQuery.query('homeview #' + Response.openingtime[i].vDay + '')[0].setHtml("<div style='float:left;font-size:16px;width: 100%;'>\n\
@@ -722,8 +738,6 @@ Ext.define('MyApp.controller.MainController', {
                        <div style='float:left;padding: 10px;width: 35%;font-size: 14px;border: 1px solid sliver;text-align: center;'> " + Response.openingtime[i].vOpenfrom + "</div>\n\
                        <div style='float:left;padding: 10px;width: 30%;font-size: 14px;border: 1px solid sliver;text-align: center;'> " + Response.openingtime[i].vOpento + "</div></div>");
                     Ext.ComponentQuery.query('homeview #' + Response.openingtime[i].vDay + '')[0].setHidden(false)
-
-
                 }
                 me.onSetHome(desc, image, website, email, Telephone, address, city, state, zip);
             },
@@ -734,8 +748,7 @@ Ext.define('MyApp.controller.MainController', {
 
                 var homeStore = Ext.getStore('homestorid');
                 var count2 = homeStore.getCount();
-                if (count2 > 0)
-                {
+                if (count2 > 0){
                     var desc = homeStore.data.items[0].data.vDescription;
                     var image = homeStore.data.items[0].data.vImage;
                     var website = homeStore.data.items[0].data.vWebsite;
@@ -746,8 +759,6 @@ Ext.define('MyApp.controller.MainController', {
                     var state = homeStore.data.items[0].data.vState;
                     var zip = homeStore.data.items[0].data.vZip;
                 }
-
-
                 if (count > 0) {
                     for (var i = 0; i < count; i++) {
                         Ext.ComponentQuery.query('homeview #' + openCloseStore.data.items[i].data.vDay + '')[0].setHtml("<div style='float:left;font-size:16px;width: 100%;'>\n\
@@ -843,24 +854,26 @@ Ext.define('MyApp.controller.MainController', {
 //        );
     },
     onSetHome: function (desc, image, website, email, Telephone, address, city, state, zip) {
-
-
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+    	var view = mainView.getActiveItem();
         if (desc) {
-            Ext.ComponentQuery.query('homeview #homeDescribtionID')[0].setHtml("<div class='descCls'>" + desc + "</div>");
+            //Ext.ComponentQuery.query('homeview #homeDescribtionID')[0].setHtml("<div class='descCls'>" + desc + "</div>");
+            view.down('#homeDescribtionID').setHtml("<div class='descCls'>" + desc + "</div>");
+        }
+        if(image.indexOf('assets/images/empty.png') === -1){
+        	view.down('#homeImageID').setHtml("<div style='text-align:center'><img src='http://" + image + "' width='98%' /></div>");
+        }
+        else{
+        	view.down('#homeImageID').setHtml("<div style='text-align:center'><img src='http://" + image + "' /></div>");
         }
 
-
-        Ext.ComponentQuery.query('homeview #homeImageID')[0].setHtml("<div style='text-align:center'><img src='http://" + image + "' width='98%' /></div>");
-
-        Ext.ComponentQuery.query('homeview #home_WebsiteTagID')[0].setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.WEBSITE')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + website + "</span></div>");
-        Ext.ComponentQuery.query('homeview #home_EmailTagID')[0].setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.EMAIL')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + email + "</span></div>");
-        Ext.ComponentQuery.query('homeview #home_TelephoneTagID')[0].setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.TELEPHONE')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + Telephone + "</span></div>");
-        Ext.ComponentQuery.query('homeview #home_AddressTagID')[0].setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ADDRESS')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + address + "</span></div>");
-        Ext.ComponentQuery.query('homeview #home_CityTagID')[0].setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.CITY')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + city + "</span></div>");
-        Ext.ComponentQuery.query('homeview #home_StateTagID')[0].setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.STATE')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + state + "</span></div>");
-        Ext.ComponentQuery.query('homeview #home_ZipTagID')[0].setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ZIP')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + zip + "</span></div>");
-
-
+        view.down('#home_WebsiteTagID').setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.WEBSITE')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + website + "</span></div>");
+        view.down('#home_EmailTagID').setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.EMAIL')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + email + "</span></div>");
+        view.down('#home_TelephoneTagID').setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.TELEPHONE')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + Telephone + "</span></div>");
+        view.down('#home_AddressTagID').setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ADDRESS')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + address + "</span></div>");
+        view.down('#home_CityTagID').setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.CITY')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + city + "</span></div>");
+        view.down('#home_StateTagID').setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.STATE')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + state + "</span></div>");
+        view.down('#home_ZipTagID').setHtml("<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ZIP')+":</span><span style='margin-left:10px;font-size:14px;font-style:italic;'>" + zip + "</span></div>");
     },
     onLoyalityNaviViewPush: function (view, item) {
         var loyalityNavigationView = this.getLoyalitiNavi();
@@ -872,14 +885,14 @@ Ext.define('MyApp.controller.MainController', {
         var ecommarceNavi = this.getEcommarceNavi();
         if (item.xtype == "ecommarcedetails" || item.xtype == "ecommercecartdetails") {
             console.log(ecommarceNavi);
-            ecommarceNavi.getNavigationBar().setHidden(false)
+            ecommarceNavi.getNavigationBar().setHidden(false);
         }
     },
     onEcommerceNaviViewpop: function (view, item) {
         var ecommarceNavi = this.getEcommarceNavi();
         if (item.xtype == "ecommarcedetails" || item.xtype == "ecommercecartdetails") {
             console.log(ecommarceNavi);
-            ecommarceNavi.getNavigationBar().setHidden(true)
+            ecommarceNavi.getNavigationBar().setHidden(true);
         }
     },
     onGallaryNaviPush: function (view, item) {
@@ -887,7 +900,7 @@ Ext.define('MyApp.controller.MainController', {
         console.log(item.xtype);
         if (item.xtype == "coverview") {
             console.log("hidden false");
-            Ext.ComponentQuery.query('gallarynaviview #galleryShareBtnid')[0].setHidden(false)
+            Ext.ComponentQuery.query('gallarynaviview #galleryShareBtnid')[0].setHidden(false);
         }
     },
     onGallaryNaviPop: function (view, item) {
@@ -895,7 +908,7 @@ Ext.define('MyApp.controller.MainController', {
         console.log(item.xtype);
         if (item.xtype == "coverview") {
             console.log("hidden true");
-            Ext.ComponentQuery.query('gallarynaviview #galleryShareBtnid')[0].setHidden(true)
+            Ext.ComponentQuery.query('gallarynaviview #galleryShareBtnid')[0].setHidden(true);
         }
     },
     onLoyalityNaviViewPop: function (view, item) {
@@ -929,11 +942,11 @@ Ext.define('MyApp.controller.MainController', {
             Ext.ComponentQuery.query('.notepadnavi #addNoteBtnId')[0].setHidden(false);
         }
     },
-    onVideosListInitialize: function () {
-        appMask()
-        var me = this;
+    onVideosListInitialize: function (tab) {
+        appMask();
+        var me = this, tabId = tab.config.iAppTabId;
         var url = URLConstants.URL + 'action=easyapps_youtube_get&iApplicationId=' + TextConstants.ApplicationId;
-        var chennal = ""
+        var chennal = "";
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log('============================================================');
@@ -942,7 +955,7 @@ Ext.define('MyApp.controller.MainController', {
                     var bgimage = Response.background.vImage;
                     Ext.ComponentQuery.query('youtube')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     chennal = Response.youtube.vChannelName;
-                    me.youtubeVideo(chennal)
+                    me.youtubeVideo(chennal);
                     appUnmask();
                 },
                 function failure(Response) {
@@ -951,9 +964,8 @@ Ext.define('MyApp.controller.MainController', {
         );
     },
     youtubeVideo: function (chennal) {
-        var url = "http://gdata.youtube.com/feeds/api/users/" + chennal + "/uploads/"
-
-        console.log(url)
+        var url = "http://gdata.youtube.com/feeds/api/users/" + chennal + "/uploads/";
+        console.log(url);
         Ext.data.JsonP.request({
             scope: this,
 //            url: "http://gdata.youtube.com/feeds/api/users/barclaysfootballtv/uploads/",
@@ -965,9 +977,9 @@ Ext.define('MyApp.controller.MainController', {
             success: function (result, request) {
                 var entries = result.feed.entry;
                 var store = Ext.getStore("youtubestoreid");
-		store.removeAll();
+				store.removeAll();
                 console.log(entries);
-                var count = entries.length
+                var count = entries.length;
                 for (var i = 0; i < count; i++) {
                     var u = {
                         title: entries[i].title.$t,
@@ -1039,8 +1051,8 @@ Ext.define('MyApp.controller.MainController', {
         }
     },
     onLoyalityActivate: function () {
-        var me = this
-        appMask()
+        var me = this;
+        appMask();
         var url = URLConstants.URL + 'action=easyapps_loyalty_bgimg&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
@@ -1051,17 +1063,17 @@ Ext.define('MyApp.controller.MainController', {
                     if (Response.background.vImage) {
                         Ext.ComponentQuery.query('loyalitiview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
                     }
-                    me.GetLoyalityList()
+                    me.GetLoyalityList();
                     appUnmask();
                 },
                 function failure(Response) {
-                    me.GetLoyalityList()
+                    me.GetLoyalityList();
                     appUnmask();
                 }
         );
     },
     GetLoyalityList: function () {
-        appMask()
+        appMask();
         var url = URLConstants.URL + 'action=easyapps_loyalty_get_details&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId;
         console.log('============================================================');
         console.log(url);
@@ -1090,13 +1102,13 @@ Ext.define('MyApp.controller.MainController', {
         if (scretText) {
             if (TextConstants.NO_OF_USE_CONST != 0) {
                 TextConstants.NO_OF_USE_CONST = TextConstants.NO_OF_USE_CONST - 1;
-                appMask()
+                appMask();
                 var url = URLConstants.URL + 'action=save_coupons&iLoyaltyId=' + TextConstants.loyalityid + '&tabid=1796&applicationid="' + TextConstants.ApplicationId + '"&iSecretCode=' + scretText;
                 MyApp.services.RemoteService.remoteCall(url,
                         function success(Response) {
                             console.log(Response);
                             appUnmask();
-                            var objLoyalityStore = Ext.getStore('loyalitistoreid')
+                            var objLoyalityStore = Ext.getStore('loyalitistoreid');
                             objLoyalityStore.removeAll();
                             objLoyalityStore.add(Response.data);
                             objLoyalityStore.sync();
@@ -1134,12 +1146,12 @@ Ext.define('MyApp.controller.MainController', {
         }
     },
     onOrderListActivate: function () {
-        appMask()
+        appMask();
         var url = URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
             function success(Response) {
                 console.log(Response);
-                var objOrderStore = Ext.getStore('orderliststoreid')
+                var objOrderStore = Ext.getStore('orderliststoreid');
                 objOrderStore.removeAll();
                 objOrderStore.add(Response.category);
                 objOrderStore.sync();
@@ -1150,7 +1162,7 @@ Ext.define('MyApp.controller.MainController', {
                 appUnmask();
             },
             function failure(Response) {
-                var objOrderStore = Ext.getStore('orderliststoreid')
+                var objOrderStore = Ext.getStore('orderliststoreid');
                 objOrderStore.removeAll();
                 objOrderStore.sync();
                 appUnmask();
@@ -1158,25 +1170,25 @@ Ext.define('MyApp.controller.MainController', {
         );
     },
     onOrderListTap: function (dataView, index, target, record, e, eOpts) {
-        var menuid = record.data.iMenuID
+        var menuid = record.data.iMenuID;
         var OrderNavi = this.getOrderNavi();
-        appMask()
+        appMask();
         var url = URLConstants.URL + 'action=easyapps_item_get&iMenuId=' + menuid + '&iApplicationId=' + TextConstants.ApplicationId;
         console.log(url)
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) 
                 {
                     console.log(Response);
-                    var objlength = Response.category.length
+                    var objlength = Response.category.length;
                     TextConstants.OrderDettail_ItemID = Response.category[objlength - 1].iItemId;
                     var objOrderDetailStore = Ext.getStore('orderdetialstoreid')
                     objOrderDetailStore.removeAll();
                     objOrderDetailStore.add(Response.category);
                     objOrderDetailStore.sync();
-                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true)
-                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true);
+                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
                     if (OrderNavi.getInnerItems().length == 1) {
-                        console.log('come hear')
+                        console.log('come hear');
                         app_PushView(OrderNavi, 'orderdetailview', "");
                     }
                     appUnmask();
@@ -1204,9 +1216,9 @@ Ext.define('MyApp.controller.MainController', {
         if (cls == "addorderBtnCls") 
         {
             var textValue = document.getElementById(textId).value;
-            appMask()
-            var url = URLConstants.URL + 'action=save_quantity_session&iMenuID=' + menuid + '&iItemId=' + itemid + '&iApplicationId=' + applicationid + '&iAppTabId=' + tabid + '&vQuantity=' + textValue + '&fPrice=' + price
-            console.log(url)
+            appMask();
+            var url = URLConstants.URL + 'action=save_quantity_session&iMenuID=' + menuid + '&iItemId=' + itemid + '&iApplicationId=' + applicationid + '&iAppTabId=' + tabid + '&vQuantity=' + textValue + '&fPrice=' + price;
+            console.log(url);
             MyApp.services.RemoteService.remoteCall(url,
                     function success(Response) {
                         console.log(Response);
@@ -1220,9 +1232,9 @@ Ext.define('MyApp.controller.MainController', {
             );
         } else if (cls == "BottomBtnCls") {
             var OrderNavi = this.getOrderNavi();
-            appMask()
-            var url = URLConstants.URL + 'action=get_order_detail&iUserId=' + TextConstants.UserID + '&iApplicationId=' + applicationid + '&iAppTabId=' + tabid
-            console.log(url)
+            appMask();
+            var url = URLConstants.URL + 'action=get_order_detail&iUserId=' + TextConstants.UserID + '&iApplicationId=' + applicationid + '&iAppTabId=' + tabid;
+            console.log(url);
             MyApp.services.RemoteService.remoteCall(url,
                     function success(Response) {
                         console.log(Response);
@@ -1235,7 +1247,7 @@ Ext.define('MyApp.controller.MainController', {
                         var count = objshowstore.getCount();
                         TextConstants.TotalAmount = 0;
                         for (var i = 0; i < count; i++) {
-                            TextConstants.TotalAmount = TextConstants.TotalAmount + objshowstore.data.items[i].data.Total
+                            TextConstants.TotalAmount = TextConstants.TotalAmount + objshowstore.data.items[i].data.Total;
                         }
                         if (OrderNavi.getInnerItems().length == 2) {
                             app_PushView(OrderNavi, 'showorderview', "");
@@ -1255,17 +1267,15 @@ Ext.define('MyApp.controller.MainController', {
 console.log('===================Data====================');
 console.log(data);
 console.log('===================End=====================');
-            var url = URLConstants.URL + 'action=easyapps_item_sizeopt_details&iItemId=' + itemid + '&iApplicationId=' + applicationid
-            console.log(url)
+            var url = URLConstants.URL + 'action=easyapps_item_sizeopt_details&iItemId=' + itemid + '&iApplicationId=' + applicationid;
+            console.log(url);
             MyApp.services.RemoteService.remoteCall(url,
                     function success(Response) {
                         console.log(Response);
-
 //                        Ext.ComponentQuery.query('itemdetailsview #sizeLabelid')[0].setHidden(false)
 //                        Ext.ComponentQuery.query('itemdetailsview #optionLableid')[0].setHidden(false)
 //                        Ext.ComponentQuery.query('itemdetailsview #optionListid')[0].setHidden(false);
 //                        Ext.ComponentQuery.query('itemdetailsview #sizeitemListID')[0].setHidden(false);
-
                         var objsizeitemStore = Ext.getStore('sizeitemstoreid');
                         objsizeitemStore.removeAll();
                         objsizeitemStore.add(Response.item_size);
@@ -1274,30 +1284,27 @@ console.log('===================End=====================');
                         objOptionStore.removeAll();
                         objOptionStore.add(Response.item_option);
                         objOptionStore.sync();
-
                         console.log(objsizeitemStore);
                         console.log(objOptionStore);
-
                         appUnmask();
                     },
                     function failure(Response) {
                         appUnmask();
                     }
             );
-
             if (OrderNavi.getInnerItems().length == 2) {
                 app_PushView(OrderNavi, 'itemdetailsview', data);
             }
-            Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true)
-            Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+            Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true);
+            Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
         }
     },
     onAddOrderBtnTap: function (storeData) 
     {
-        var menuid = storeData.iMenuId
-        var itemid = storeData.iItemId
-        var tabid = storeData.iAppTabId
-        var price = storeData.fPrice
+        var menuid = storeData.iMenuId;
+        var itemid = storeData.iItemId;
+        var tabid = storeData.iAppTabId;
+        var price = storeData.fPrice;
         price = parseFloat(price);
         var Totalprice;
         var sizePrice = parseFloat(TextConstants.SizePrice);
@@ -1311,8 +1318,8 @@ console.log('===================End=====================');
         var text = Ext.ComponentQuery.query('itemdetailsview #specificTextfieldid')[0].getValue();
         var OrderNavi = this.getOrderNavi();
         appMask();
-        var url = URLConstants.URL + 'action=save_quantity_session&iMenuID=' + menuid + '&iUserId=' + TextConstants.UserID + '&iItemId=' + itemid + '&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabid + '&vQuantity=' + qty + '&fPrice=' + Totalprice + '&vInstruction=' + text
-        console.log(url)
+        var url = URLConstants.URL + 'action=save_quantity_session&iMenuID=' + menuid + '&iUserId=' + TextConstants.UserID + '&iItemId=' + itemid + '&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabid + '&vQuantity=' + qty + '&fPrice=' + Totalprice + '&vInstruction=' + text;
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -1336,7 +1343,7 @@ console.log('===================End=====================');
         var orderid = record.data.iOrderId;
         if (cls == "deleteorderBtnCls") {
             appMask();
-            var url = URLConstants.URL + 'action=delete_order&iOrderId=' + orderid + '&iUserId=' + TextConstants.UserID + '&iApplicationId=' + applictationid + '&iAppTabId=' + tabid
+            var url = URLConstants.URL + 'action=delete_order&iOrderId=' + orderid + '&iUserId=' + TextConstants.UserID + '&iApplicationId=' + applictationid + '&iAppTabId=' + tabid;
             console.log(url);
             MyApp.services.RemoteService.remoteCall(url,
                     function success(Response) {
@@ -1362,7 +1369,6 @@ console.log('===================End=====================');
             if (OrderNavi.getInnerItems().length == 3 || OrderNavi.getInnerItems().length == 2) {
                 app_PushView(OrderNavi, 'customerorderdetailview', "");
             }
-
         }
     },
 
@@ -1400,8 +1406,8 @@ console.log('===================End=====================');
     if (name && phonenumber && address && email && areaname && pincode) 
     {
         appMask();
-        var url = URLConstants.URL + 'action=save_order&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + TextConstants.AppTabId + '&vName=' + name + '&tAddress=' + address + '&vPhone=' + phonenumber + '&tEmail=' + email + '&vArea=' + areaname + '&vPincode=' + pincode + ''
-        console.log(url)
+        var url = URLConstants.URL + 'action=save_order&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + TextConstants.AppTabId + '&vName=' + name + '&tAddress=' + address + '&vPhone=' + phonenumber + '&tEmail=' + email + '&vArea=' + areaname + '&vPincode=' + pincode + '';
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -1411,7 +1417,7 @@ console.log('===================End=====================');
 //                    }
                     OrderNavi.push({
                         xtype: 'paypalview'
-                    })
+                    });
                     appUnmask();
                 },
                 function failure(Response) {
@@ -1425,9 +1431,9 @@ console.log('===================End=====================');
     }
 },
     onAfterPayPal: function () {
-        appMask()
+        appMask();
         var me = this;
-        var url = URLConstants.URL + 'action=easyapps_paypal_details&iApplicationId=' + TextConstants.ApplicationId + '&iTransactionId=' + TextConstants.TransactionId + '&tTransactinTime=' + TextConstants.TransactinTime + '&fAmount=' + TextConstants.TotalAmount + '&vPaymentstatus=' + TextConstants.Payments + '&iOrderId=' + TextConstants.OrderDetailsId
+        var url = URLConstants.URL + 'action=easyapps_paypal_details&iApplicationId=' + TextConstants.ApplicationId + '&iTransactionId=' + TextConstants.TransactionId + '&tTransactinTime=' + TextConstants.TransactinTime + '&fAmount=' + TextConstants.TotalAmount + '&vPaymentstatus=' + TextConstants.Payments + '&iOrderId=' + TextConstants.OrderDetailsId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -1442,9 +1448,10 @@ console.log('===================End=====================');
                 }
         );
     },
-    onGallaryActivates: function () {
+    onGallaryActivates: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_gallery_get&iApplicationId=' + TextConstants.ApplicationId
+        var url = URLConstants.URL + 'action=easyapps_gallery_get&iApplicationId=' + TextConstants.ApplicationId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -1462,9 +1469,14 @@ console.log('===================End=====================');
                         var userid = Response.gallery.vFlickerEmail;
                         Flickr(key, userid);
                     }
-                    var bgimage = Response.backgroundimage.backgroundimage;
-                    if (bgimage) {
-                        Ext.ComponentQuery.query('gallaryview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                    try{
+						var bgimage = Response.backgroundimage.backgroundimage;
+						if (bgimage) {
+							Ext.ComponentQuery.query('gallaryview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+						}
+                    }
+                    catch(e){
+                    	console.log(e);
                     }
                     appUnmask();
                 },
@@ -1490,17 +1502,18 @@ console.log('===================End=====================');
             app_PushView(gallaryNavi, 'coverview', data);
         }
     },
-    onWebsitListActivates: function () {
-        appMask()
-        var url = URLConstants.URL + 'action=easyapps_website_get&iApplicationId=' + TextConstants.ApplicationId
-        console.log(url)
+    onWebsitListActivates: function (tab) {
+    	var tabId = tab.config.iAppTabId;
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_website_get&iApplicationId=' + TextConstants.ApplicationId;
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
                     var objwebStore = Ext.getStore('websitestoreid');
                     objwebStore.removeAll();
-                    objwebStore.add(Response.website_details)
-                    objwebStore.sync()
+                    objwebStore.add(Response.website_details);
+                    objwebStore.sync();
                     appUnmask();
                     Ext.ComponentQuery.query('websitelistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
                 },
@@ -1511,7 +1524,7 @@ console.log('===================End=====================');
         );
     },
     WebsiteListTap: function (dataView, index, target, record, e, eOpts) {
-        appMask()
+        appMask();
         var url = record.data.vWebUrl;
         var websiteNavi = this.getWebsiteNavi();
         if (websiteNavi.getInnerItems().length == 1) {
@@ -1521,10 +1534,11 @@ console.log('===================End=====================');
         var webview = Ext.ComponentQuery.query('websiteview #websiteid')[0]
         webview.setHtml(loadURL(url));
     },
-    onSocialActivates: function () {
-        appMask()
-        var url = URLConstants.URL + 'action=easyapps_socialmedia_get&iApplicationId=' + TextConstants.ApplicationId
-        console.log(url)
+    onSocialActivates: function (tab) {
+    	var tabId = tab.config.iAppTabId;
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_socialmedia_get&iApplicationId=' + TextConstants.ApplicationId;
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
             function success(Response) {
                 console.log(Response);
@@ -1533,7 +1547,7 @@ console.log('===================End=====================');
                 objsocialStore.add(Response.socialmedia_details);
                 objsocialStore.sync();
                 if (Response.background.vImage) {
-                    Ext.ComponentQuery.query('socialmediaview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '})
+                    Ext.ComponentQuery.query('socialmediaview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
                 }
                 appUnmask();
             },
@@ -1551,17 +1565,18 @@ console.log('===================End=====================');
         window.open(url, '_system'); 
     },
     onPdfListTap: function (dataView, index, target, record, e, eOpts) {
-        var data = record.data
+        var data = record.data;
         var pdfnavi = this.getPdfNavi();
         pdfnavi.push({
             xtype: 'pdfview',
             data: data
         });
     },
-    onPdfNaviActivate: function () {
-        appMask()
-        var url = URLConstants.URL + 'action=easyapps_pdf_get&iApplicationId=' + TextConstants.ApplicationId
-        console.log(url)
+    onPdfNaviActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_pdf_get&iApplicationId=' + TextConstants.ApplicationId;
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -1570,7 +1585,7 @@ console.log('===================End=====================');
                     objpdfStore.add(Response.pdfs);
                     objpdfStore.sync();
                     if (Response.background.vImage) {
-                        Ext.ComponentQuery.query('pdflistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '})
+                        Ext.ComponentQuery.query('pdflistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
                     }
                     appUnmask();
                 },
@@ -1583,30 +1598,43 @@ console.log('===================End=====================');
                 }
         );
     },
-    onCustomActivate: function () {
-        appMask()
-        var url = URLConstants.URL + 'action=easyapps_custom_get&iApplicationId=' + TextConstants.ApplicationId
+    onCustomActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_custom_get&iApplicationId=' + TextConstants.ApplicationId;
 
         Ext.Ajax.request({
             url: url,
             success: function (response, opts) {
                 var Response = Ext.decode(response.responseText);
-                var desc = {
-                    describtion: Response.custom.tDescription
+                try{
+					var desc = {
+						describtion: Response.custom.tDescription
+					}
+                }
+                catch(e){
+                	console.log(e);
                 }
                 //07966170309
                 //parth_patel9@yahoo.com
                 //parthhu@gmail.com
-                var Response = Ext.decode(response.responseText);
+                //var Response = Ext.decode(response.responseText);
                 console.log(Response);
                 var customStore = Ext.getStore('customstoreid');
-                customStore.removeAll()
-                customStore.add(desc);
-                customStore.sync();
-                Ext.ComponentQuery.query('customview #customTextId')[0].setHtml(Response.custom.tDescription)
-//                    Ext.ComponentQuery.query('customview #customToolbarID')[0].setTitle(Response.custom.vTitle)
-                if (Response.background.vImage) {
-                    Ext.ComponentQuery.query('customview #CustomPanelid')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '})
+                customStore.removeAll();
+                if(desc){
+					customStore.add(desc);
+					customStore.sync();
+                }
+                try{
+                	Ext.ComponentQuery.query('customview #customTextId')[0].setHtml(Response.custom.tDescription);
+					//Ext.ComponentQuery.query('customview #customToolbarID')[0].setTitle(Response.custom.vTitle)
+					if (Response.background.vImage) {
+						Ext.ComponentQuery.query('customview #CustomPanelid')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
+					}
+				}
+                catch(e){
+                	console.log(e);
                 }
                 appUnmask();
             },
@@ -1615,15 +1643,14 @@ console.log('===================End=====================');
                 var customStore = Ext.getStore('customstoreid');
                 var count = customStore.getCount();
                 if (count > 0) {
-                    Ext.ComponentQuery.query('customview #customTextId')[0].setHtml(customStore.data.items[0].data.describtion)
+                    Ext.ComponentQuery.query('customview #customTextId')[0].setHtml(customStore.data.items[0].data.describtion);
                 }
-
                 appUnmask();
             }
         });
     },
-    onQRViewActivate: function () {
-        var objQrStore = Ext.getStore('qrstoreid');
+    onQRViewActivate: function (tab) {
+        var objQrStore = Ext.getStore('qrstoreid'), tabId = tab.config.iAppTabId;
         objQrStore.removeAll();
         appMask();
         var url = URLConstants.URL + 'action=easyapps_Qrcode_get&iApplicationId=' + TextConstants.ApplicationId;
@@ -1635,9 +1662,8 @@ console.log('===================End=====================');
                 objQrStore.add(Response.Qrcode)
                 objQrStore.sync();
                 if (Response.backgroundimage.backgroundimage) {
-                    Ext.ComponentQuery.query('qrlistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'})
+                    Ext.ComponentQuery.query('qrlistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                 }
-
             },
             function failure(Response) {
                 console.log(Response);
@@ -1652,11 +1678,11 @@ console.log('===================End=====================');
         qrnavi.push({
             xtype: 'qrview',
         });
-        Ext.ComponentQuery.query('qrview #qrdscid')[0].setHtml('<div style="text-align:center;margin:10px;word-wrap: break-word;">' + dscription + '<div>')
+        Ext.ComponentQuery.query('qrview #qrdscid')[0].setHtml('<div style="text-align:center;margin:10px;word-wrap: break-word;">' + dscription + '<div>');
         updateQRCode(qrText);
     },
-    onRssNaviViewActivate: function () {
-        var me = this;
+    onRssNaviViewActivate: function (tab) {
+        var me = this, tabId = tab.config.iAppTabId;
         appMask();
         var url = URLConstants.URL + 'action=easyapps_RSS_get&iApplicationId=' + TextConstants.ApplicationId;
         console.log(url);
@@ -1665,7 +1691,7 @@ console.log('===================End=====================');
                     console.log(Response);
                     TextConstants.ListImage = Response.RSS[0].vIcon;
                     if (Response.backgroundimage.backgroundimage) {
-                        Ext.ComponentQuery.query('rsslistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'})
+                        Ext.ComponentQuery.query('rsslistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     var rssurl = Response.RSS[0].vRSSURL;
                     if (rssurl) {
@@ -1677,13 +1703,13 @@ console.log('===================End=====================');
                     console.log(Response);
                     var store = Ext.getStore("rssstoreid");
                     store.removeAll();
-                    store.sync()
+                    store.sync();
                     appUnmask();
                 }
         );
     },
     GetRss: function (rssurl) {
-        appMask()
+        appMask();
         Ext.data.JsonP.request({
             scope: this,
             url: URLConstants.GoogleApi + rssurl,
@@ -1694,7 +1720,6 @@ console.log('===================End=====================');
             success: function (result, request) {
                 console.log(result);
                 if (result.responseData) {
-
                     var entries = result.responseData.feed.entries;
                     var store = Ext.getStore("rssstoreid");
                     store.add(entries);
@@ -1708,12 +1733,11 @@ console.log('===================End=====================');
                 appUnmask();
               //  appCustomAlert(TextConstants.MESSAGE, TextConstants.NetWork_Problem);
             }
-        })
+        });
     },
     onRssListTap: function (dataView, index, target, record, e, eOpts) {
-        appMask()
-        var link = record.data.link
-
+        appMask();
+        var link = record.data.link;
         var RssNavi = this.getRssNavi();
         RssNavi.push({
             xtype: 'webview'
@@ -1722,14 +1746,14 @@ console.log('===================End=====================');
         webview.setHtml(loadURL(link));
         appUnmask();
     },
-    onEventActivated: function () {
-        var me = this;
+    onEventActivated: function (tab) {
+        var me = this, tabId = tab.config.iAppTabId;
         me.onEventNaviViewPopToRoot();
         appMask();
         var objEventStore = Ext.getStore('eventstoreid');
         console.log(objEventStore);
-        var url = URLConstants.URL + 'action=easyapps_event_get&iApplicationId=' + TextConstants.ApplicationId
-        console.log(url)
+        var url = URLConstants.URL + 'action=easyapps_event_get&iApplicationId=' + TextConstants.ApplicationId;
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -1737,7 +1761,7 @@ console.log('===================End=====================');
                     objEventStore.add(Response.event);
                     objEventStore.sync();
                     if (Response.backgroundimage.backgroundimage) {
-                        Ext.ComponentQuery.query('eventlistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'})
+                        Ext.ComponentQuery.query('eventlistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     appUnmask();
                 },
@@ -1751,7 +1775,7 @@ console.log('===================End=====================');
         );
     },
     onEventListTap: function (dataView, index, target, record, e, eOpts) {
-        var data = record.data
+        var data = record.data;
         var eventNavi = this.getEventNavi();
         eventNavi.push({
             xtype: 'eventdetail',
@@ -1759,10 +1783,9 @@ console.log('===================End=====================');
         });
     },
     onNotePad_AddBtnTap: function () {
-
         var noteNavi = this.getNotepadNavi();
         noteNavi.push({
-            xtype: 'editnoteview',
+            xtype: 'editnoteview'
         });
     },
     onNotePad_SaveBtnTap: function () {
@@ -1779,14 +1802,13 @@ console.log('===================End=====================');
     },
     onMenuListTap: function (dataView, index, target, record, e, eOpts) {
         var menuNavi = this.getMenuNavi();
-        var menuid = record.data.iMenuID
-
-        appMask()
+        var menuid = record.data.iMenuID;
+        appMask();
         var url = URLConstants.URL + 'action=easyapps_item_get&iMenuId=' + menuid + '&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    var objlength = Response.category.length
+                    var objlength = Response.category.length;
                     TextConstants.OrderDettail_ItemID = Response.category[objlength - 1].iItemId;
                     var objOrderDetailStore = Ext.getStore('orderdetialstoreid');
                     objOrderDetailStore.removeAll();
@@ -1798,25 +1820,24 @@ console.log('===================End=====================');
                     appUnmask();
                 },
                 function failure(Response) {
-
                     appCustomAlert(TextConstants.Sorry, Loc.t('MENU.NOMENUAVAILABLE'));
                     appUnmask();
                 }
         );
     },
-    onNewsActivated: function () {
-        var me = this;
-        appMask()
+    onNewsActivated: function (tab) {
+        var me = this, tabId = tab.config.iAppTabId;
+        appMask();
         var url = URLConstants.URL + 'action=easyapp_news_details&iApplicationId=' + TextConstants.ApplicationId;
-        console.log(url)
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
                     if (Response.background.vImage) {
-                        Ext.ComponentQuery.query('newslist')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'})
+                        Ext.ComponentQuery.query('newslist')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
                     }
-                    var keyword = Response.News.vGoogleNewsKeyWords
-                    me.GetNews(keyword)
+                    var keyword = Response.News.vGoogleNewsKeyWords;
+                    me.GetNews(keyword);
                     appUnmask();
                 },
                 function failure(Response) {
@@ -1824,8 +1845,8 @@ console.log('===================End=====================');
                 }
         );
     },
-    onContactActivated: function () {
-        var me = this;
+    onContactActivated: function (tab) {
+        var me = this, tabId = tab.config.iAppTabId;
         appMask();
         var url = URLConstants.URL + 'action=easyapps_get_contact_bg&iApplicationId=' + TextConstants.ApplicationId;
         console.log(url);
@@ -1833,7 +1854,7 @@ console.log('===================End=====================');
                 function success(Response) {
                     console.log(Response);
                     if (Response.backgroundimage.backgroundimage) {
-                        Ext.ComponentQuery.query('contactview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'})
+                        Ext.ComponentQuery.query('contactview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     appUnmask();
                 },
@@ -1844,8 +1865,8 @@ console.log('===================End=====================');
     },
     GetNews: function (keyword) {
         var objNewsStore = Ext.getStore('newsstoreid');
-        objNewsStore.removeAll()
-        appMask()
+        objNewsStore.removeAll();
+        appMask();
         Ext.data.JsonP.request({
             scope: this,
             url: 'http://ajax.googleapis.com/ajax/services/search/news?v=1.0&q=' + keyword + '&rsz=8',
@@ -1858,14 +1879,14 @@ console.log('===================End=====================');
             success: function (result, request) {
                 console.log(result);
                 var length = result.responseData.results.length;
-                console.log(length)
+                console.log(length);
 
                 for (var i = 0; i < length; i++) {
                     var imageURL;
                     if (result.responseData.results[i].image) {
-                        imageURL = result.responseData.results[i].image.url
+                        imageURL = result.responseData.results[i].image.url;
                     } else {
-                        imageURL = "img/splash.png"
+                        imageURL = "img/splash.png";
                     }
                     var addobj = {
                         content: result.responseData.results[i].content,
@@ -1887,7 +1908,7 @@ console.log('===================End=====================');
         })
     },
     onNewsListTap: function (dataView, index, target, record, e, eOpts) {
-        appMask()
+        appMask();
         var link = record.data.signedRedirectUrl;
 
         var newsNavi = this.getNewsNavi();
@@ -1898,16 +1919,16 @@ console.log('===================End=====================');
         webview.setHtml(loadURL(link));
         appUnmask();
     },
-    onVoiceRecordingActivated: function () {
-        var me = this;
-        appMask()
+    onVoiceRecordingActivated: function (tab) {
+        var me = this, tabId = tab.config.iAppTabId;
+        appMask();
         var url = URLConstants.URL + 'action=easyapps_voicerecording_details&iApplicationId=' + TextConstants.ApplicationId;
-        console.log(url)
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
                     if (Response.background.vImage) {
-                        Ext.ComponentQuery.query('voicerecording #mypanelid')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'})
+                        Ext.ComponentQuery.query('voicerecording #mypanelid')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
                     }
                     appUnmask();
                 },
@@ -1916,8 +1937,9 @@ console.log('===================End=====================');
                 }
         );
     },
-    onReservationNaviActivated: function () {
-        appMask()
+    onReservationNaviActivated: function (tab) {
+    	var tabId = tab.config.iAppTabId;
+        appMask();
         var reservationStore = Ext.getStore('resesrvationstoreid');
         reservationStore.removeAll();
         var url = URLConstants.URL + 'action=easyapps_reservation_future_lists&iApplicationId=' + TextConstants.ApplicationId;
@@ -1925,8 +1947,7 @@ console.log('===================End=====================');
                 function success(Response) {
                     console.log(Response);
                     reservationStore.add(Response.reservation_list);
-                    reservationStore.sync()
-
+                    reservationStore.sync();
                     appUnmask();
                 },
                 function failure(Response) {
@@ -1949,19 +1970,17 @@ console.log('===================End=====================');
                     reservationNavi.push({
                         xtype: 'schedulereservation'
                     });
-
                     appUnmask();
                 },
                 function failure(Response) {
-
                     appCustomAlert(TextConstants.Sorry, Loc.t('RESERVATION.NORESERVATIONAVAILABLE'));
                     appUnmask();
                 }
         );
     },
     onScheduleReservationListTap: function (dataView, index, target, record, e, eOpts) {
-        appMask()
-        var reservationNavi = this.getReservationNavi()
+        appMask();
+        var reservationNavi = this.getReservationNavi();
         var url = URLConstants.URL + 'action=easyapps_reservation_service_location&iApplicationId=' + TextConstants.ApplicationId;
         var objServiceStore = Ext.getStore('servicestore');
         objServiceStore.removeAll();
@@ -1998,15 +2017,14 @@ console.log('===================End=====================');
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    TextConstants.Price = Response.vPrice
-                    TextConstants.ReservationFee = Response.vReservationFee
-                    TextConstants.ServiceName = Response.vServiceName
+                    TextConstants.Price = Response.vPrice;
+                    TextConstants.ReservationFee = Response.vReservationFee;
+                    TextConstants.ServiceName = Response.vServiceName;
                     mystore.add(Response.Daytime);
                     mystore.sync();
                     reservationNavi.push({
                         xtype: 'timeview'
-                    })
-
+                    });
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2025,10 +2043,10 @@ console.log('===================End=====================');
 
         var yyyy = today.getFullYear();
         if (dd < 10) {
-            dd = '0' + dd
+            dd = '0' + dd;
         }
         if (mm < 10) {
-            mm = '0' + mm
+            mm = '0' + mm;
         }
         var today = dd + '/' + mm + '/' + yyyy;
 
@@ -2053,20 +2071,19 @@ console.log('===================End=====================');
         Ext.ComponentQuery.query('confirmview #reservationFeeId')[0].setHtml(TextConstants.ReservationFee);
     },
     onConfirmBtnTap: function () {
-        var reservationNavi = this.getReservationNavi()
+        var reservationNavi = this.getReservationNavi();
         reservationNavi.push({
             xtype: 'detailform'
-        })
-
-        appMask()
-        var date = Ext.ComponentQuery.query('timeview #dateID')[0].getFormattedValue()
-        var time = Ext.ComponentQuery.query('timeview #timeid')[0].getValue()
+        });
+        appMask();
+        var date = Ext.ComponentQuery.query('timeview #dateID')[0].getFormattedValue();
+        var time = Ext.ComponentQuery.query('timeview #timeid')[0].getValue();
 
         var url = URLConstants.URL + 'action=easyapps_final_reservation&iApplicationId=' + TextConstants.ApplicationId + '&iUserId=' + TextConstants.UserID + '&iLocationId=' + TextConstants.LocationId + '&iServiceId=' + TextConstants.ServiceId + '&vServicePrice=' + TextConstants.ServicePrice + '&vServiceFees=' + TextConstants.ServiceTFees + '&vDate=' + date + '&vTime=' + time;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    TextConstants.ReservationID = Response.Message.reservation_id
+                    TextConstants.ReservationID = Response.Message.reservation_id;
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2078,11 +2095,11 @@ console.log('===================End=====================');
     onConfirmBookingBtnTap: function () {
         appMask()
         var me = this;
-        var email = Ext.ComponentQuery.query('detailform #emailid')[0].getValue()
-        var phone = Ext.ComponentQuery.query('detailform #mobilenum')[0].getValue()
-        var fname = Ext.ComponentQuery.query('detailform #firstnameid')[0].getValue()
-        var lname = Ext.ComponentQuery.query('detailform #lastnameid')[0].getValue()
-        var type = Ext.ComponentQuery.query('confirmview #paymethodeid')[0].getValue()
+        var email = Ext.ComponentQuery.query('detailform #emailid')[0].getValue();
+        var phone = Ext.ComponentQuery.query('detailform #mobilenum')[0].getValue();
+        var fname = Ext.ComponentQuery.query('detailform #firstnameid')[0].getValue();
+        var lname = Ext.ComponentQuery.query('detailform #lastnameid')[0].getValue();
+        var type = Ext.ComponentQuery.query('confirmview #paymethodeid')[0].getValue();
 
         appUnmask();
         if (type == 'cash') {
@@ -2107,13 +2124,13 @@ console.log('===================End=====================');
     },
     
     afterBooking_PayPal: function () {
-        appMask()
+        appMask();
         var me = this;
-        var email = Ext.ComponentQuery.query('detailform #emailid')[0].getValue()
-        var phone = Ext.ComponentQuery.query('detailform #mobilenum')[0].getValue()
-        var fname = Ext.ComponentQuery.query('detailform #firstnameid')[0].getValue()
-        var lname = Ext.ComponentQuery.query('detailform #lastnameid')[0].getValue()
-        var type = Ext.ComponentQuery.query('confirmview #paymethodeid')[0].getValue()
+        var email = Ext.ComponentQuery.query('detailform #emailid')[0].getValue();
+        var phone = Ext.ComponentQuery.query('detailform #mobilenum')[0].getValue();
+        var fname = Ext.ComponentQuery.query('detailform #firstnameid')[0].getValue();
+        var lname = Ext.ComponentQuery.query('detailform #lastnameid')[0].getValue();
+        var type = Ext.ComponentQuery.query('confirmview #paymethodeid')[0].getValue();
 
         var url = URLConstants.URL + 'action=easyapps_reservation_paypal&iApplicationId=' + TextConstants.ApplicationId + '&iUserId=' + TextConstants.UserID + '&iReservationId=' + TextConstants.ReservationID + '&iTransactionId=' + TextConstants.TransactionId + '&tTransactinTime=' + TextConstants.TransactinTime + '&fAmount=' + TextConstants.ServicePrice + '&vPaymentstatus=Completed&vEmail=' + email + '&vFirstname=' + fname + '&vLastname=' + lname + '&iPhone=' + phone + '&vPaymenttype=' + type;
 
@@ -2134,7 +2151,7 @@ console.log('===================End=====================');
         var selectTextValue = userDeskSegment.getPressedButtons()[0].getText();
         console.log(selectTextValue);
         if (selectTextValue === 'Past') {
-            appMask()
+            appMask();
             var reservationStore = Ext.getStore('resesrvationstoreid');
             reservationStore.removeAll();
             var url = URLConstants.URL + 'action=easyapps_reservation_past_lists&iApplicationId=' + TextConstants.ApplicationId;
@@ -2150,7 +2167,7 @@ console.log('===================End=====================');
                 }
             );
         } else {
-            appMask()
+            appMask();
             var reservationStore = Ext.getStore('resesrvationstoreid');
             reservationStore.removeAll();
             var url = URLConstants.URL + 'action=easyapps_reservation_future_lists&iApplicationId=' + TextConstants.ApplicationId;
@@ -2168,7 +2185,8 @@ console.log('===================End=====================');
         }
     },
 
-    onArroundusActivated: function () {
+    onArroundusActivated: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         appMask();
         var url = URLConstants.URL + 'action=easyapps_aroundus_get&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
@@ -2205,7 +2223,8 @@ console.log('===================End=====================');
                 }
         );
     },
-    onLocationActivated: function () {
+    onLocationActivated: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         appMask();
         var LocationStore = Ext.getStore('locationstoreid');
         LocationStore.removeAll();
@@ -2232,7 +2251,7 @@ console.log('===================End=====================');
         locationNavi.push({
             xtype: 'mymap',
             data: data
-        })
+        });
     },
     onArroundListTap: function () {
         var arroundnavi = this.getArroundNavi();
@@ -2244,18 +2263,18 @@ console.log('===================End=====================');
         var selectTextValue = userDeskSegment.getPressedButtons()[0].getText();
         console.log(selectTextValue);
         if (selectTextValue == 'List') {
-            Ext.ComponentQuery.query('arrounduslist #arroundListId')[0].setHidden(false)
-            Ext.ComponentQuery.query('arrounduslist #mapitemid')[0].setHidden(true)
+            Ext.ComponentQuery.query('arrounduslist #arroundListId')[0].setHidden(false);
+            Ext.ComponentQuery.query('arrounduslist #mapitemid')[0].setHidden(true);
         } else {
-            Ext.ComponentQuery.query('arrounduslist #arroundListId')[0].setHidden(true)
-            Ext.ComponentQuery.query('arrounduslist #mapitemid')[0].setHidden(false)
+            Ext.ComponentQuery.query('arrounduslist #arroundListId')[0].setHidden(true);
+            Ext.ComponentQuery.query('arrounduslist #mapitemid')[0].setHidden(false);
         }
     },
     onCartBtnTap: function () {
         var OrderNavi = this.getOrderNavi();
-        appMask()
-        var url = URLConstants.URL + 'action=get_order_detail&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId
-        console.log(url)
+        appMask();
+        var url = URLConstants.URL + 'action=get_order_detail&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId;
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -2267,17 +2286,16 @@ console.log('===================End=====================');
                     objshowstore.sync();
                     var count = objshowstore.getCount();
                     for (var i = 0; i < count; i++) {
-                        TextConstants.TotalAmount = TextConstants.TotalAmount + objshowstore.data.items[i].data.Total
+                        TextConstants.TotalAmount = TextConstants.TotalAmount + objshowstore.data.items[i].data.Total;
                     }
-                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true)
-                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true);
+                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
                     if (OrderNavi.getInnerItems().length == 1) {
                         app_PushView(OrderNavi, 'showorderview', "");
                     }
                     appUnmask();
                 },
                 function failure(Response) {
-
                     appUnmask();
                     appCustomAlert(TextConstants.Sorry, Response.Message);
                 }
@@ -2287,53 +2305,52 @@ console.log('===================End=====================');
         var OrderNavi = this.getOrderNavi();
         var objOrderstore = Ext.getStore('orderhistoryid');
         objOrderstore.removeAll();
-        appMask()
-        var url = URLConstants.URL + 'action=easyapps_order_history_get&iApplicationId=' + TextConstants.ApplicationId + '&iUserId=' + TextConstants.UserID
-        console.log(url)
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_order_history_get&iApplicationId=' + TextConstants.ApplicationId + '&iUserId=' + TextConstants.UserID;
+        console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
                     objOrderstore.add(Response.order_history_details);
                     objOrderstore.sync();
-                    console.log(objOrderstore.getCount())
+                    console.log(objOrderstore.getCount());
                     if (OrderNavi.getInnerItems().length == 1) {
                         app_PushView(OrderNavi, 'orderhistory', "");
                     }
-                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
                     appUnmask();
                 },
                 function failure(Response) {
-
                     appUnmask();
                     appCustomAlert(TextConstants.Sorry, Loc.t('ORDER.ORDERHISTORYFOUND'));
                 }
         );
     },
     onShowOrderDeactivate: function () {
-        Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(false)
-        Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(false)
+        Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(false);
+        Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(false);
     },
     onShowOrderactivate: function () {
-        Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true)
-        Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+        Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true);
+        Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
     },
     onSubmitTap: function () {
-        var email = Ext.ComponentQuery.query('contactview #emailid')[0].getValue()
-        var number = Ext.ComponentQuery.query('contactview #mobilenumid')[0].getValue()
-        var msg = Ext.ComponentQuery.query('contactview #messagefieldid')[0].getValue()
-        var name = Ext.ComponentQuery.query('contactview #fullnameid')[0].getValue()
+        var email = Ext.ComponentQuery.query('contactview #emailid')[0].getValue();
+        var number = Ext.ComponentQuery.query('contactview #mobilenumid')[0].getValue();
+        var msg = Ext.ComponentQuery.query('contactview #messagefieldid')[0].getValue();
+        var name = Ext.ComponentQuery.query('contactview #fullnameid')[0].getValue();
 
         if (email && number && msg && name) {
-            appMask()
-            var url = URLConstants.URL + 'action=save_contactus&vName=' + name + '&vEmail=' + email + '&vContactNumber=' + number + '&tMessage=' + msg + '&iApplicationId=' + TextConstants.ApplicationId
+            appMask();
+            var url = URLConstants.URL + 'action=save_contactus&vName=' + name + '&vEmail=' + email + '&vContactNumber=' + number + '&tMessage=' + msg + '&iApplicationId=' + TextConstants.ApplicationId;
             MyApp.services.RemoteService.remoteCall(url,
                     function success(Response) {
                         console.log(Response);
                         appCustomAlert(TextConstants.MESSAGE, Loc.t('CONTACTUS.MESSAGETHANKYOU'));
-                        Ext.ComponentQuery.query('contactview #emailid')[0].setValue('')
-                        Ext.ComponentQuery.query('contactview #mobilenumid')[0].setValue('')
-                        Ext.ComponentQuery.query('contactview #messagefieldid')[0].setValue('')
-                        Ext.ComponentQuery.query('contactview #fullnameid')[0].setValue('')
+                        Ext.ComponentQuery.query('contactview #emailid')[0].setValue('');
+                        Ext.ComponentQuery.query('contactview #mobilenumid')[0].setValue('');
+                        Ext.ComponentQuery.query('contactview #messagefieldid')[0].setValue('');
+                        Ext.ComponentQuery.query('contactview #fullnameid')[0].setValue('');
                         appUnmask();
                     },
                     function failure(Response) {
@@ -2343,22 +2360,20 @@ console.log('===================End=====================');
         } else {
             appCustomAlert(TextConstants.MESSAGE, Loc.t('ORDER.ALLFIELDMANDATORY'));
         }
-
     },
     onSubscribtionBtnTap: function () {
-        var email = Ext.ComponentQuery.query('mailinglistview #emailid')[0].getValue()
-        var name = Ext.ComponentQuery.query('mailinglistview #fullnameid')[0].getValue()
+        var email = Ext.ComponentQuery.query('mailinglistview #emailid')[0].getValue();
+        var name = Ext.ComponentQuery.query('mailinglistview #fullnameid')[0].getValue();
         if (email) {
             if (name) {
-                appMask()
-                var url = URLConstants.URL + 'action=easyapps_mailchimp_subscription&iApplicationId=' + TextConstants.ApplicationId + '&name=' + name + '&email=' + email
+                appMask();
+                var url = URLConstants.URL + 'action=easyapps_mailchimp_subscription&iApplicationId=' + TextConstants.ApplicationId + '&name=' + name + '&email=' + email;
                 MyApp.services.RemoteService.remoteCall(url,
                         function success(Response) {
                             console.log(Response);
-                            Ext.ComponentQuery.query('mailinglistview #emailid')[0].setValue('')
-                            Ext.ComponentQuery.query('mailinglistview #fullnameid')[0].setValue('')
+                            Ext.ComponentQuery.query('mailinglistview #emailid')[0].setValue('');
+                            Ext.ComponentQuery.query('mailinglistview #fullnameid')[0].setValue('');
                             appCustomAlert(TextConstants.MESSAGE, "Thank you for subscribe");
-
                             appUnmask();
                         },
                         function failure(Response) {
@@ -2397,8 +2412,8 @@ console.log('===================End=====================');
             }
         }
     },
-    onMenu_MenuDayBtnTap: function () {
-        var menuNavi = this.getMenuDayNavi();
+    onMenu_MenuDayBtnTap: function (tab) {
+        var menuNavi = this.getMenuDayNavi(), tabId = tab.config.iAppTabId;
         appMask();
         var url = URLConstants.URL + 'action=easyapps_menuofthe_day&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
@@ -2410,12 +2425,11 @@ console.log('===================End=====================');
                     objOrderDetailStore.removeAll();
                     objOrderDetailStore.add(Response.items);
                     objOrderDetailStore.sync();
-                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true)
-                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true);
+                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
                     if (menuNavi.getInnerItems().length == 1) {
                         app_PushView(menuNavi, 'orderdetailview1', "");
                     }
-
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2428,28 +2442,27 @@ console.log('===================End=====================');
     },
     onOrder_MenuDayBtnTap: function () {
         var OrderNavi = this.getOrderNavi();
-        appMask()
+        appMask();
         var url = URLConstants.URL + 'action=easyapps_menuofthe_day&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    var objlength = Response.Menu_day.length
+                    var objlength = Response.Menu_day.length;
                     TextConstants.OrderDettail_ItemID = Response.Menu_day[objlength - 1].iItemId;
-                    var objOrderDetailStore = Ext.getStore('orderdetialstoreid')
+                    var objOrderDetailStore = Ext.getStore('orderdetialstoreid');
                     objOrderDetailStore.removeAll();
                     objOrderDetailStore.add(Response.Menu_day);
                     objOrderDetailStore.sync();
-                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true)
-                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+                    Ext.ComponentQuery.query('ordernavi #cartBtnID')[0].setHidden(true);
+                    Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
                     if (OrderNavi.getInnerItems().length == 1) {
-                        console.log('come hear')
+                        console.log('come hear');
                         app_PushView(OrderNavi, 'orderdetailview', "");
                     }
-
                     appUnmask();
                 },
                 function failure(Response) {
-                    var objOrderDetailStore = Ext.getStore('orderdetialstoreid')
+                    var objOrderDetailStore = Ext.getStore('orderdetialstoreid');
                     objOrderDetailStore.removeAll();
                     appUnmask();
                     appCustomAlert(TextConstants.Sorry, Loc.t('MENUOFTHEDAY.NOMENUAVAILABLE'));
@@ -2457,14 +2470,13 @@ console.log('===================End=====================');
         );
     },
     activateTab: function (tab) {
-        var a = parseInt(tab)
+        var a = parseInt(tab);
         a = a - 1;
         var tabPanel = this.getMainView();
         tabPanel.setActiveItem(a);
     },
     onGallary_ShareBtnTap: function () {
-
-        SocialSharingLink()
+        SocialSharingLink();
     },
     onMessageDeleteBtnTap: function () {
         var length = TextConstants.MSGITEMARRAYCONSTANT.length;
@@ -2489,12 +2501,12 @@ console.log('===================End=====================');
                 if (btn == 'yes') {
                     if (length > 0) {
                         for (var i = 0; i < length; i++) {
-                            console.log(TextConstants.MSGITEMARRAYCONSTANT[i])
+                            console.log(TextConstants.MSGITEMARRAYCONSTANT[i]);
                             var aRecord = msgStore.getById(TextConstants.MSGITEMARRAYCONSTANT[i]);
                             msgStore.remove(aRecord);
                             msgStore.sync();
                         }
-                        TextConstants.MSGITEMARRAYCONSTANT = []
+                        TextConstants.MSGITEMARRAYCONSTANT = [];
                     }
                 } else {
 //                     ownedProducts();
@@ -2507,7 +2519,6 @@ console.log('===================End=====================');
         window.open(url, '_system');
     },
     onCalucalateTap: function () {
-
         var homePrice = Ext.ComponentQuery.query('mortgagecalculator #homepriceID')[0].getValue();
         homePrice = parseInt(homePrice);
         var DP = Ext.ComponentQuery.query('mortgagecalculator #downPaymentID')[0].getValue();
@@ -2551,7 +2562,7 @@ console.log('===================End=====================');
         var phone = Ext.ComponentQuery.query('appointmentview #phonenameid')[0].getValue();
         var remark = Ext.ComponentQuery.query('appointmentview #remarkid')[0].getValue();
 
-        console.log(formRecord)
+        console.log(formRecord);
         var AppointmentModel = Ext.create('MyApp.model.AppointmentModel'),
                 errors, errorMessage = '';
 
@@ -2565,12 +2576,11 @@ console.log('===================End=====================');
             Ext.Msg.alert('Form is invalid!', errorMessage);
         } else {
             appMask();
-            var url = URLConstants.URL + 'action=easyapps_appoitment_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppoitmentDate=' + date + '&vAppoitmentTime=' + time + '&vAppoitmentName=' + name + '&vEmail=' + email + '&vPhone=' + phone + '&vRemark=' + remark
+            var url = URLConstants.URL + 'action=easyapps_appoitment_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppoitmentDate=' + date + '&vAppoitmentTime=' + time + '&vAppoitmentName=' + name + '&vEmail=' + email + '&vPhone=' + phone + '&vRemark=' + remark;
             MyApp.services.RemoteService.remoteCall(url,
                     function success(Response) {
                         console.log(JSON.stringify(Response));
                         appCustomAlert(TextConstants.MESSAGE, Loc.t('APPOINTMENT.SUCCESSFULLYADDED'));
-
                         appUnmask();
                     },
                     function failure(Response) {
@@ -2579,8 +2589,6 @@ console.log('===================End=====================');
                         appCustomAlert(TextConstants.Sorry, Loc.t('APPOINTMENT.CHECKINTERNETCONNECTION'));
                     }
             );
-
-
         }
     },
     onQuoteSubmitTap: function () {
@@ -2590,8 +2598,7 @@ console.log('===================End=====================');
         var phone = Ext.ComponentQuery.query('quoteview #quotephonenumberid')[0];
         var comment = Ext.ComponentQuery.query('quoteview #quotecommentid')[0];
 
-
-        var name = formRecord.quotetname
+        var name = formRecord.quotetname;
         var QuotationModel = Ext.create('MyApp.model.QuotationModel'),
                 errors, errorMessage = '';
 
@@ -2605,7 +2612,7 @@ console.log('===================End=====================');
             Ext.Msg.alert('Form is invalid!', errorMessage);
         } else {
             appMask();
-            var url = URLConstants.URL + 'action=easyapps_quotation_details&iApplicationId=' + TextConstants.ApplicationId + '&vQuotationName=' + name + '&vQuotationemail=' + email + '&vQuotationNumber=' + phone + '&vQuotationComment=' + comment
+            var url = URLConstants.URL + 'action=easyapps_quotation_details&iApplicationId=' + TextConstants.ApplicationId + '&vQuotationName=' + name + '&vQuotationemail=' + email + '&vQuotationNumber=' + phone + '&vQuotationComment=' + comment;
             MyApp.services.RemoteService.remoteCall(url,
                     function success(Response) {
                         console.log(JSON.stringify(Response));
@@ -2618,17 +2625,17 @@ console.log('===================End=====================');
                         appCustomAlert(TextConstants.Sorry, Loc.t('APPOINTMENT.CHECKINTERNETCONNECTION'));
                     }
             );
-
         }
     },
     onSizeItemListTap: function (dataView, index, target, record, e, eOpts) {
-        TextConstants.SizePrice = record.data.fPrice
+        TextConstants.SizePrice = record.data.fPrice;
     },
     onOptionItemListTap: function (dataView, index, target, record, e, eOpts) {
-        TextConstants.OptionPrice = record.data.fCharge
+        TextConstants.OptionPrice = record.data.fCharge;
     },
 
-    onArrivalViewActivate: function () {
+    onArrivalViewActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         var objNewArrivalStore = Ext.getStore('newarrivalstoreid');
         objNewArrivalStore.removeAll();
         appMask();
@@ -2639,14 +2646,18 @@ console.log('===================End=====================');
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    objNewArrivalStore.add(Response.arrival);
-                    objNewArrivalStore.sync();
-                    
-                    var bgimage = Response.backgroundimage.backgroundimage;
-                    if (bgimage) {
-                        Ext.ComponentQuery.query('newarrivalview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                    try{
+						objNewArrivalStore.add(Response.arrival);
+						objNewArrivalStore.sync();
+					
+						var bgimage = Response.backgroundimage.backgroundimage;
+						if (bgimage) {
+							Ext.ComponentQuery.query('newarrivalview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+						}
                     }
-                    
+                    catch(e){
+                    	console.log(e);
+                    }
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2662,7 +2673,7 @@ console.log('===================End=====================');
         }
     },
     onOrgnizationSubmitBtnTap: function () {
-        TextConstants.PayOption = 'donation'
+        TextConstants.PayOption = 'donation';
         TextConstants.TotalAmount = Ext.ComponentQuery.query('donationview #ammountid')[0].getValue();
         OnBuy();
     },
@@ -2670,10 +2681,9 @@ console.log('===================End=====================');
         var OrganizationTextValue = Ext.ComponentQuery.query('donationview #organizationid')[0].getValue();
         var name = Ext.ComponentQuery.query('donationview #fullnameid')[0].getValue();
         var currencycode = Ext.ComponentQuery.query('donationview #currencycodeid')[0].getValue();
-
         appMask();
         var me = this;
-        var url = URLConstants.URL + 'action=easyapps_donation_details&iApplicationId=' + TextConstants.ApplicationId + '&vOrganization=' + OrganizationTextValue + '&vTransactionId=' + TextConstants.TransactionId + '&vName=' + name + '&vCurrencyCode=' + currencycode + '&fAmount=' + TextConstants.TotalAmount + '&tDateTime=' + TextConstants.TransactinTime + '&vPaymentstatus=' + TextConstants.Payments
+        var url = URLConstants.URL + 'action=easyapps_donation_details&iApplicationId=' + TextConstants.ApplicationId + '&vOrganization=' + OrganizationTextValue + '&vTransactionId=' + TextConstants.TransactionId + '&vName=' + name + '&vCurrencyCode=' + currencycode + '&fAmount=' + TextConstants.TotalAmount + '&tDateTime=' + TextConstants.TransactinTime + '&vPaymentstatus=' + TextConstants.Payments;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -2688,19 +2698,19 @@ console.log('===================End=====================');
         );
     },
 
-    onTestimonialViewActivate: function () {
+    onTestimonialViewActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         var objtestmonialstore = Ext.getStore("testimonialstoreid");
         objtestmonialstore.removeAll();
-
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_testonomial_details&iApplicationId=' + TextConstants.ApplicationId
+        var url = URLConstants.URL + 'action=easyapps_testonomial_details&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
                     objtestmonialstore.add(Response.testomonial_details);
                     objtestmonialstore.sync();
                    
-                    Ext.ComponentQuery.query('testimonialview #feedbacktextid')[0]
+                    Ext.ComponentQuery.query('testimonialview #feedbacktextid')[0];
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2714,8 +2724,8 @@ console.log('===================End=====================');
         var name = Ext.ComponentQuery.query('testimonialview #nameid')[0].getValue();
         var description = Ext.ComponentQuery.query('testimonialview #feedbacktextid')[0].getValue();
         var me = this;
-        appMask()
-        var url = URLConstants.URL + 'action=easyapps_testomonial_add&iApplicationId=' + TextConstants.ApplicationId + '&iTestonomialName=' + name + '&tDescription=' + description
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_testomonial_add&iApplicationId=' + TextConstants.ApplicationId + '&iTestonomialName=' + name + '&tDescription=' + description;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -2736,7 +2746,7 @@ console.log('===================End=====================');
         var name = Ext.ComponentQuery.query('review #nameid')[0].getValue();
         var description = Ext.ComponentQuery.query('review #feedbacktextid')[0].getValue();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_review_add&iApplicationId=' + TextConstants.ApplicationId + '&iTestonomialName=' + name + '&tDescription=' + description
+        var url = URLConstants.URL + 'action=easyapps_review_add&iApplicationId=' + TextConstants.ApplicationId + '&iTestonomialName=' + name + '&tDescription=' + description;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -2753,27 +2763,24 @@ console.log('===================End=====================');
         );
     },
     onCatelogListTap: function (dataView, index, target, record, e, eOpts) {
-
         var catelogNavi = this.getCatelogNavi();
         var data = record.data;
 
         if (catelogNavi.getInnerItems().length == 1) {
             app_PushView(catelogNavi, 'catelogdetails', data);
         }
-
     },
     onAppointmentViewActivate: function () {
-
         Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHidden(true);
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_appointment_details&iApplicationId=' + TextConstants.ApplicationId
+        var url = URLConstants.URL + 'action=easyapps_appointment_details&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
 
                     Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHidden(false);
                     if (Response.appointment.eStatus != "Active") {
-                        Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHtml('<div style="text-align: center;  margin-top: 10px;  color: red;font-weight: bold;">Your Appointment is still not confirm</div>')
+                        Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHtml('<div style="text-align: center;  margin-top: 10px;  color: red;font-weight: bold;">Your Appointment is still not confirm</div>');
                     } else {
                         Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHtml('<div style="text-align: center;  margin-top: 10px;  color: green;font-weight: bold;">Your Appointment is confirm now</div>');
                     }
@@ -2787,19 +2794,20 @@ console.log('===================End=====================');
                 }
         );
     },
-    onTicketInfoViewActivate: function () {
+    onTicketInfoViewActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         var objTicketStore = Ext.getStore("ticketstoreid");
         objTicketStore.removeAll();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_ticket_details&iApplicationId=' + TextConstants.ApplicationId
+        var url = URLConstants.URL + 'action=easyapps_ticket_details&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
                     objTicketStore.add(Response.ticket);
                     objTicketStore.sync();
-                    var bgimage = Response.backgroundimage.backgroundimage
+                    var bgimage = Response.backgroundimage.backgroundimage;
 //                      alert(bgimage)
-                      console.log(Ext.ComponentQuery.query('servicesview'))
+                      console.log(Ext.ComponentQuery.query('servicesview'));
                     if (bgimage) {
                         Ext.ComponentQuery.query('ticketinfoview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     }
@@ -2820,10 +2828,8 @@ console.log('===================End=====================');
         objCatelogStore.removeAll();
         objCatelogsizeStore.removeAll();
         var sizelength;
-
-
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_ecommerce_search&iApplicationId=' + TextConstants.ApplicationId + '&key=' + SearchTextValue
+        var url = URLConstants.URL + 'action=easyapps_ecommerce_search&iApplicationId=' + TextConstants.ApplicationId + '&key=' + SearchTextValue;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -2836,7 +2842,7 @@ console.log('===================End=====================');
                     //        alert('size array length : '+sizelength);
                             if (sizelength > 0) {
                                 for (var j = 0; j < sizelength; j++) {
-                                    objCatelogsizeStore.add(Response.search_result[i].size_details[j])
+                                    objCatelogsizeStore.add(Response.search_result[i].size_details[j]);
                                     objCatelogsizeStore.sync();
                                 }
                             }
@@ -2853,7 +2859,7 @@ console.log('===================End=====================');
         );
     },
     onEcommarceSerchListTap: function (dataView, index, target, record, e, eOpts) {
-        var data = record.data
+        var data = record.data;
         var EcommarceNavi = this.getEcommarceNavi();
         var cartstoreid = Ext.getStore("addcartstoreid");
         var itemText = record.data.iCatelogueId;
@@ -2862,19 +2868,17 @@ console.log('===================End=====================');
             app_PushView(EcommarceNavi, 'ecommarcedetails', data);
         }
         if (index >= 0) {
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Remove From Cart')
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('decline')
-
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Remove From Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('decline');
         } else {
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Add to Cart')
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('action')
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Add to Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('action');
         }
-
     },
     onEcommarceSizeListTap: function (dataView, index, target, record, e, eOpts) {
         TextConstants.CatelogueId = record.data.iCatelogueId;
         if (record.data.fSizePrice) {
-            TextConstants.TotalAmount = record.data.fSizePrice
+            TextConstants.TotalAmount = record.data.fSizePrice;
         }
     },
     onBuyBtnTap: function (storeData) {
@@ -2887,15 +2891,14 @@ console.log('===================End=====================');
             console.log(index);
             cartstoreid.removeAt(index);
             cartstoreid.sync();
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Add to Cart')
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('action')
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Add to Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('action');
         } else {
             cartstoreid.add(storeData);
             cartstoreid.sync();
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Remove From Cart')
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('decline')
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Remove From Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('decline');
         }
-
         //        TextConstants.PayOption = 'ecommarcebuy'
         //        console.log("price= " + TextConstants.TotalAmount)
         //        console.log("optaion= " + TextConstants.PayOption)
@@ -2904,17 +2907,15 @@ console.log('===================End=====================');
 
     onAfterEcommerceBuy: function () {
         appMask();
-
         var store = Ext.getStore("catelogestoreid");
         var user = store.findRecord('iCatelogueId', TextConstants.CatelogueId);
-        console.log(user.data.tTotalProduct)
-        var TotalProduct = user.data.tTotalProduct
+        console.log(user.data.tTotalProduct);
+        var TotalProduct = user.data.tTotalProduct;
         var me = this;
-        var url = URLConstants.URL + 'action=easyapps_ecommerse_paypal_payment&iApplicationId=' + TextConstants.ApplicationId + '&vTransactionId=' + TextConstants.TransactionId + '&iUserId=' + TextConstants.UserID + '&iCatalogueId=' + TextConstants.CatelogueId + '&fTotalPrice=' + TextConstants.TotalAmount + '&vDateTime=' + TextConstants.TransactinTime + '&vPaymentStatus=' + TextConstants.Payments + '&iTotalProduct=' + TotalProduct
+        var url = URLConstants.URL + 'action=easyapps_ecommerse_paypal_payment&iApplicationId=' + TextConstants.ApplicationId + '&vTransactionId=' + TextConstants.TransactionId + '&iUserId=' + TextConstants.UserID + '&iCatalogueId=' + TextConstants.CatelogueId + '&fTotalPrice=' + TextConstants.TotalAmount + '&vDateTime=' + TextConstants.TransactinTime + '&vPaymentStatus=' + TextConstants.Payments + '&iTotalProduct=' + TotalProduct;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
-
                     appCustomAlert(TextConstants.MESSAGE, "Purchased Successfully");
                     appUnmask();
                 },
@@ -2933,41 +2934,46 @@ console.log('===================End=====================');
         }
     },
 
-    onServiceNaviActivate: function () {
-
+    onServiceNaviActivate: function (tab) {
+		var tabId = tab.config.iAppTabId;
         var objServiceTabStore = Ext.getStore("servicetabstoreid");
         objServiceTabStore.removeAll();
         var objServiceTimingTabStore = Ext.getStore("servicetimingtabstoreid");
         objServiceTimingTabStore.removeAll();
         var sizelength;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_service_details&iApplicationId=' + TextConstants.ApplicationId
+        var url = URLConstants.URL + 'action=easyapps_service_details&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
-                    console.log(JSON.stringify(Response));
-                    objServiceTabStore.add(Response.service);
-                    objServiceTabStore.sync();
-                    var length1 = Response.service.length;
-                     
-                    if (length1 > 0) {
-                        for (var i = 0; i < length1; i++) {
-                        	if(Response.service[i].service_timing){
-								sizelength = Response.service[i].service_timing.length;
-								if (sizelength > 0) {
-									for (var j = 0; j < sizelength; j++) {
-										objServiceTimingTabStore.add(Response.service[i].service_timing[j])
-										objServiceTimingTabStore.sync();
+                	try{
+						console.log(JSON.stringify(Response));
+						objServiceTabStore.add(Response.service);
+						objServiceTabStore.sync();
+						var length1 = Response.service.length;
+					 
+						if (length1 > 0) {
+							for (var i = 0; i < length1; i++) {
+								if(Response.service[i].service_timing){
+									sizelength = Response.service[i].service_timing.length;
+									if (sizelength > 0) {
+										for (var j = 0; j < sizelength; j++) {
+											objServiceTimingTabStore.add(Response.service[i].service_timing[j]);
+											objServiceTimingTabStore.sync();
+										}
 									}
 								}
-                            }
-                        }
+							}
+						}
+				  
+						var bgimage = Response.backgroundimage.backgroundimage;
+	//                      alert(bgimage);
+						  console.log(Ext.ComponentQuery.query('servicesview'));
+						if (bgimage) {
+							Ext.ComponentQuery.query('serviceview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+						}
                     }
-                  
-                    var bgimage = Response.backgroundimage.backgroundimage
-//                      alert(bgimage)
-                      console.log(Ext.ComponentQuery.query('servicesview'))
-                    if (bgimage) {
-                        Ext.ComponentQuery.query('serviceview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                    catch(e){
+                    	console.log(e);
                     }
                     appUnmask();
                 },
@@ -2979,7 +2985,7 @@ console.log('===================End=====================');
         );
     },
     onServiceTabListTap: function (dataView, index, target, record, e, eOpts) {
-        var data = record.data
+        var data = record.data;
         var ServiceNavi = this.getServiceNavi();
         if (ServiceNavi.getInnerItems().length == 1) {
             app_PushView(ServiceNavi, 'servicetabdetailview', data);
@@ -2987,26 +2993,26 @@ console.log('===================End=====================');
         var TimeStore = Ext.getStore("servicetimingtabstoreid");
         var count = TimeStore.getCount();
         if (count > 0) {
-
             for (var i = 0; i < count; i++) {
                 Ext.ComponentQuery.query('servicetabdetailview #' + TimeStore.data.items[i].data.vServiceDay + '')[0].setHtml("<table style='border-bottom:1px solid #000;border-right:1px solid #000000;border-left:1px solid #000000;border-top:none;margin-bottom:0px;'><tr><td style='text-align:center;border-right:1px solid #000;width:33.33%;'>" + TimeStore.data.items[i].data.vServiceDay + "</td><td style='text-align:center;border-right:1px solid #000;width:33.33%;'>" + TimeStore.data.items[i].data.tServiceStartTime + "</td><td style='text-align:center;width:33.33%;'>" + TimeStore.data.items[i].data.tServiceEndTime + "</td></tr></table>");
-                Ext.ComponentQuery.query('servicetabdetailview #' + TimeStore.data.items[i].data.vServiceDay + '')[0].setHidden(false)
+                Ext.ComponentQuery.query('servicetabdetailview #' + TimeStore.data.items[i].data.vServiceDay + '')[0].setHidden(false);
             }
         }
     },
-    onBlogNaviActivate: function () {
+    onBlogNaviActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         var objblogStore = Ext.getStore("blosgstoreid");
-        objblogStore.removeAll()
-        var url = URLConstants.URL + 'action=easyapps_blog_details&iApplicationId=' + TextConstants.ApplicationId
+        objblogStore.removeAll();
+        var url = URLConstants.URL + 'action=easyapps_blog_details&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
                     objblogStore.add(Response.blog);
                     objblogStore.sync();
                     appUnmask();
-                    var bgimage = Response.backgroundimage.backgroundimage
-//                      alert(bgimage)
-                      console.log(Ext.ComponentQuery.query('servicesview'))
+                    var bgimage = Response.backgroundimage.backgroundimage;
+//                      alert(bgimage);
+                      console.log(Ext.ComponentQuery.query('servicesview'));
                     if (bgimage) {
                         Ext.ComponentQuery.query('blogview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     }
@@ -3028,6 +3034,47 @@ console.log('===================End=====================');
         var link = record.data.vBlogUrl;
         var webview = Ext.ComponentQuery.query('blogwebview #webid')[0];
         webview.setHtml(loadURL(link));
-    }
-
+    },
+	onMailingListViewActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onMenuNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onNotepadNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onMessageViewActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onMortgageCalculatorActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onScientificCalculatorViewActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onScannerViewActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onAppointmentViewActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onQuoteViewActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onReViewActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onCatelogNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onDonationNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onOrderNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	},
+	onLoyalitiNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+	}
 });

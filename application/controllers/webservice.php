@@ -2264,7 +2264,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_home_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-	
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != '')
 		{

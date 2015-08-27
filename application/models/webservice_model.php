@@ -572,6 +572,7 @@ class webservice_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('r_app_home_value as rh');
 		$this->db->where('rh.iApplicationId',$data['iApplicationId']);
+		$this->db->where('rh.iAppTabId',$data['iAppTabId']);
 		$query=$this->db->get();
 		return $query->row_array();
 	}
