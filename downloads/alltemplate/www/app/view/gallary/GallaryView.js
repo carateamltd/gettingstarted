@@ -4,6 +4,7 @@ Ext.define('MyApp.view.gallary.GallaryView', {
     requires: ['MyApp.view.gallary.CoverView'],
     config: {
         emptyText: Loc.t('GALLERY.NOIMAGESAVAILABLE'),
+        deferEmptyText: false,
     	 store: 'imagestoreid',
          baseCls: 'photoCls',
          selectedCls: 'color:transperent',

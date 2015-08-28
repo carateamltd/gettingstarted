@@ -945,7 +945,7 @@ Ext.define('MyApp.controller.MainController', {
     onVideosListInitialize: function (tab) {
         appMask();
         var me = this, tabId = tab.config.iAppTabId;
-        var url = URLConstants.URL + 'action=easyapps_youtube_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_youtube_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         var chennal = "";
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -1451,14 +1451,14 @@ console.log('===================End=====================');
     onGallaryActivates: function (tab) {
     	var tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_gallery_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_gallery_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
+                    var imgStore = Ext.getStore('imagestoreid');
+                    imgStore.removeAll();
                     if (Response.gallery.eImageServiceType == 'Custom') {
-                        var imgStore = Ext.getStore('imagestoreid');
-                        imgStore.removeAll();
                         imgStore.add(Response.custom_image);
                         imgStore.sync();
                     } else if (Response.gallery.eImageServiceType == 'Picasa') {
@@ -1601,7 +1601,7 @@ console.log('===================End=====================');
     onCustomActivate: function (tab) {
     	var tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_custom_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_custom_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
 
         Ext.Ajax.request({
             url: url,
@@ -1653,7 +1653,7 @@ console.log('===================End=====================');
         var objQrStore = Ext.getStore('qrstoreid'), tabId = tab.config.iAppTabId;
         objQrStore.removeAll();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_Qrcode_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_Qrcode_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
             function success(Response) {
@@ -1752,7 +1752,7 @@ console.log('===================End=====================');
         appMask();
         var objEventStore = Ext.getStore('eventstoreid');
         console.log(objEventStore);
-        var url = URLConstants.URL + 'action=easyapps_event_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_event_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -1828,7 +1828,7 @@ console.log('===================End=====================');
     onNewsActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapp_news_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapp_news_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -1848,7 +1848,7 @@ console.log('===================End=====================');
     onContactActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_get_contact_bg&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_get_contact_bg&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -1942,7 +1942,7 @@ console.log('===================End=====================');
         appMask();
         var reservationStore = Ext.getStore('resesrvationstoreid');
         reservationStore.removeAll();
-        var url = URLConstants.URL + 'action=easyapps_reservation_future_lists&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_reservation_future_lists&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -2228,7 +2228,7 @@ console.log('===================End=====================');
         appMask();
         var LocationStore = Ext.getStore('locationstoreid');
         LocationStore.removeAll();
-        var url = URLConstants.URL + 'action=easyapps_location_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_location_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -2639,7 +2639,7 @@ console.log('===================End=====================');
         var objNewArrivalStore = Ext.getStore('newarrivalstoreid');
         objNewArrivalStore.removeAll();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_arrival_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_arrival_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log("====================================================================");
         console.log(url);
         console.log("====================================================================");
@@ -2942,7 +2942,7 @@ console.log('===================End=====================');
         objServiceTimingTabStore.removeAll();
         var sizelength;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_service_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_service_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                 	try{
@@ -3037,44 +3037,58 @@ console.log('===================End=====================');
     },
 	onMailingListViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onMenuNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onNotepadNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onMessageViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onMortgageCalculatorActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onScientificCalculatorViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onScannerViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onAppointmentViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onQuoteViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onReViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onCatelogNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onDonationNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onOrderNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	},
 	onLoyalitiNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
+		console.log(tabId);
 	}
 });

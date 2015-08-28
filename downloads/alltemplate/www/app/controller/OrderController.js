@@ -22,18 +22,15 @@ Ext.define('MyApp.controller.OrderController', {
                 activate: 'onOrderListActivate',
                 pop: 'onOrderNaviPopToRoot'
             },
-
             orderViewList: {
                 itemtap: 'onOrderItemTap'
             },
-
             cartBtnID: {
                 tap: 'goToCart'
             },
             btnSaveOrderCustomerDetails: {
                 tap: 'onBtnSaveCustomerDetailsTap'
             },
-
             orderHistoryBtnID: {
                 tap: 'onOrderHistoryBtnIDTap'
             },
@@ -42,28 +39,26 @@ Ext.define('MyApp.controller.OrderController', {
             }
         }
     },
-
     onOrderHistoryBtnIDTap: function(){
         var OrderNavi = this.getOrderNavi();
         var objOrderstore = Ext.getStore('orderhistoryid');
         objOrderstore.removeAll();
-        appMask()
-        var url = URLConstants.URL + 'action=easyapps_order_history_get&iApplicationId=' + TextConstants.ApplicationId + '&iUserId=' + TextConstants.UserId
+        appMask();
+        var url = URLConstants.URL + 'action=easyapps_order_history_get&iApplicationId=' + TextConstants.ApplicationId + '&iUserId=' + TextConstants.UserId;
         console.log(url)
         MyApp.services.RemoteService.remoteCall(url,
             function success(Response) {
                 console.log(Response);
                 objOrderstore.add(Response.order_history_details);
                 objOrderstore.sync();
-                console.log(objOrderstore.getCount())
+                console.log(objOrderstore.getCount());
                 if (OrderNavi.getInnerItems().length == 1) {
                     app_PushView(OrderNavi, 'orderhistory', "");
                 }
-                Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true)
+                Ext.ComponentQuery.query('ordernavi #orderHistoryBtnID')[0].setHidden(true);
                 appUnmask();
             },
             function failure(Response) {
-
                 appUnmask();
                 appCustomAlert(TextConstants.Sorry, Loc.t('ORDER.ORDERHISTORYFOUND'));
             }
@@ -142,7 +137,6 @@ Ext.define('MyApp.controller.OrderController', {
         });
     },
 
-
     afterCheckoutPaypal: function(){
         var url = URLConstants.URL + 'action=easyapps_order_paypal_details';
         var formValues = this.getOrderCustomerDetails().getValues();
@@ -174,8 +168,9 @@ Ext.define('MyApp.controller.OrderController', {
         });
     },
 
-    onOrderListActivate: function(){
-        Ext.getStore('OrderStore').load({url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId});
+    onOrderListActivate: function(tab){
+    	var tabId = tab.config.iAppTabId;
+        Ext.getStore('OrderStore').load({url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId});
     },
 
     onOrderItemTap: function(list, index, target, record, e, eOpts){
@@ -314,7 +309,6 @@ Ext.define('MyApp.controller.OrderController', {
             Ext.getStore('OrderCartStore').add(cartData);
             Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMADD'));
         }
-
     },
 
     goToCart: function(){
@@ -336,8 +330,7 @@ Ext.define('MyApp.controller.OrderController', {
     },
 
     changeProductSizePrice: function(selectElement, view){
-
-        var productId = ''
+        var productId = '';
         if(view == 'cartView'){
             productId = selectElement.id.replace('ordercartsize_','');
         }else{
@@ -362,7 +355,7 @@ Ext.define('MyApp.controller.OrderController', {
         //get options price if option is selected
         var optionPrice = 0;
         if(selectedProduct.get('options').length>0){
-            var optionId = ''
+            var optionId = '';
             if(view == 'cartView'){
                 optionId = document.getElementById('orderoption_'+productId).value;
             }else{
@@ -387,7 +380,7 @@ Ext.define('MyApp.controller.OrderController', {
     },
 
     changeProductOptionPrice: function(selectElement, view){
-        var productId = ''
+        var productId = '';
         if(view == 'cartView'){
             productId = selectElement.id.replace('ordercartoption_','');
         }else{
@@ -412,7 +405,7 @@ Ext.define('MyApp.controller.OrderController', {
         }
         var sizePrice = 0;
         if(selectedProduct.get('sizes').length>0){
-            var sizeId = ''
+            var sizeId = '';
             if(view == 'cartView'){
                 sizeId = document.getElementById('ordercartsize_'+productId).value;
             }else{
@@ -443,7 +436,6 @@ Ext.define('MyApp.controller.OrderController', {
         var selectedProduct = Ext.getStore('OrderCartStore').getById(productId);
         var optionId = null;
         var sizeId = null;
-
         var optionPrice = 0;
         if(selectedProduct.get('options').length>0){
             optionId = document.getElementById('ordercartoption_'+productId).value;
@@ -489,7 +481,6 @@ Ext.define('MyApp.controller.OrderController', {
         this.orderCartView.query('#orderCartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency + Number(total).toFixed(2)+'</center>');
         TextConstants.TotalAmount = total;
         Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMUPDATE'));
-
     },
 
     removeProductInCart: function(button){
@@ -497,18 +488,15 @@ Ext.define('MyApp.controller.OrderController', {
             title: 'Message',
             message: 'Are you sure?',
             scope: this,
-            buttons: [
-                {
+            buttons: [{
                     itemId: 'no',
                     text: 'Cancel',
                     ui: 'action'
-                },
-                {
+                }, {
                     itemId: 'yes',
                     text: 'Ok',
                     ui: 'action'
-                }
-            ],
+            }],
             fn: function (btn) {
                 if (btn == 'yes') {
                     var productId = button.id.replace('ordercart_','');
@@ -604,7 +592,6 @@ Ext.define('MyApp.controller.OrderController', {
 				this.orderCustomerView = Ext.create('MyApp.view.OrderView.CustomerDetails', {title: Loc.t('CATELOG.CUSTOMER')});
 				this.getOrderNavi().push(this.orderCustomerView);
 				this.orderCustomerView.setValues(vals);
-			
 				var orderType = null;
 				var homeDelivery = Ext.ComponentQuery.query('#homeDelivery')[0];
 				var takeAway = Ext.ComponentQuery.query('#takeAway')[0];

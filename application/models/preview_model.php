@@ -1219,18 +1219,20 @@ class Preview_model extends CI_Model
 		foreach($features as $val)
 		{
 			/** Tabname **/
+			$title = str_replace(' ', '_', $val['vTitle']);
+			$title = preg_replace('/[^a-zA-Z0-9_.]/', '',$title);
 			switch($val['Tabname']){
 				case "Home":
 					$checkName = 0;	
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "homeview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "icnhomeTab","iconCls": "homeCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},'; 
+							$all_tabs .= '{"xtype": "homeview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "icnhomeTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},'; 
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "homeview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "icnhomeTab","iconCls": "homeCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "homeview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "icnhomeTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
                 case "Event":
@@ -1238,12 +1240,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "eventnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "eventnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}						
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "eventnavi","title": "'.$val['vTitle'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "eventnavi","title": "'.$val['vTitle'].'","tabCls": "eventTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Mailinglist":
@@ -1251,12 +1253,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "mailinglistview","title": "'.$ver['rField'].'","tabCls":"mailinglistTab","iconCls": "mailinglistCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "mailinglistview","title": "'.$ver['rField'].'","tabCls":"mailinglistTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "mailinglistview","title": "'.$val['vTitle'].'","tabCls":"mailinglistTab","iconCls": "mailinglistCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "mailinglistview","title": "'.$val['vTitle'].'","tabCls":"mailinglistTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "PDF":
@@ -1264,12 +1266,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "pdfnavi","title": "'.$ver['rField'].'","tabCls": "pdfTab","iconCls": "pdfCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "pdfnavi","title": "'.$ver['rField'].'","tabCls": "pdfTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "pdfnavi","title": "'.$val['vTitle'].'","tabCls": "pdfTab","iconCls": "pdfCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "pdfnavi","title": "'.$val['vTitle'].'","tabCls": "pdfTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "RSS Feeds":
@@ -1277,12 +1279,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "rssnavi","title":"'.$ver['rField'].'","tabCls":"rssTab","iconCls":"rssCls","iconMask":true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "rssnavi","title":"'.$ver['rField'].'","tabCls":"rssTab","iconCls":"'.$title.'Cls","iconMask":true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "rssnavi","title":"'.$val['vTitle'].'","tabCls":"rssTab","iconCls":"rssCls","iconMask":true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "rssnavi","title":"'.$val['vTitle'].'","tabCls":"rssTab","iconCls":"'.$title.'Cls","iconMask":true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Website":
@@ -1290,12 +1292,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "websitenavi","title": "'.$ver['rField'].'","tabCls": "websiteTab","iconCls": "websiteCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "websitenavi","title": "'.$ver['rField'].'","tabCls": "websiteTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "websitenavi","title": "'.$val['vTitle'].'","tabCls": "websiteTab","iconCls": "websiteCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "websitenavi","title": "'.$val['vTitle'].'","tabCls": "websiteTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "YouTube":
@@ -1303,12 +1305,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "youtubenavi","title": "'.$ver['rField'].'","tabCls": "youtubeTab","iconCls": "youtubeCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "youtubenavi","title": "'.$ver['rField'].'","tabCls": "youtubeTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "youtubenavi","title": "'.$val['vTitle'].'","tabCls": "youtubeTab","iconCls": "youtubeCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "youtubenavi","title": "'.$val['vTitle'].'","tabCls": "youtubeTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Location":
@@ -1316,12 +1318,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-						   $all_tabs .= '{"xtype": "locationnavi","title": "'.$ver['rField'].'","tabCls": "locationTab","iconCls": "locationCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						   $all_tabs .= '{"xtype": "locationnavi","title": "'.$ver['rField'].'","tabCls": "locationTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "locationnavi","title": "'.$val['vTitle'].'","tabCls": "locationTab","iconCls": "locationCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "locationnavi","title": "'.$val['vTitle'].'","tabCls": "locationTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Gallery":
@@ -1329,12 +1331,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-						   $all_tabs .= '{"xtype": "gallarynaviview","title": "'.$ver['rField'].'","tabCls": "gallaryTab","iconCls": "gallaryCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						   $all_tabs .= '{"xtype": "gallarynaviview","title": "'.$ver['rField'].'","tabCls": "gallaryTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "gallarynaviview","title": "'.$val['vTitle'].'","tabCls": "gallaryTab","iconCls": "gallaryCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "gallarynaviview","title": "'.$val['vTitle'].'","tabCls": "gallaryTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Around Us":
@@ -1342,12 +1344,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-						   $all_tabs .= '{"xtype": "arroundnavi","title": "'.$ver['rField'].'","tabCls": "arroundusTab","iconCls": "arroundusCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						   $all_tabs .= '{"xtype": "arroundnavi","title": "'.$ver['rField'].'","tabCls": "arroundusTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "arroundnavi","title": "'.$val['vTitle'].'","tabCls": "arroundusTab","iconCls": "arroundusCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "arroundnavi","title": "'.$val['vTitle'].'","tabCls": "arroundusTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "SocialMedia":
@@ -1355,12 +1357,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-						   $all_tabs .= '{"xtype": "socialmediaview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "socialsiteTab","iconCls": "socialsiteCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						   $all_tabs .= '{"xtype": "socialmediaview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "socialsiteTab","iconCls": "'.$title .'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "socialmediaview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "socialsiteTab","iconCls": "socialsiteCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "socialmediaview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "socialsiteTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Coupon":
@@ -1368,12 +1370,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-						   $all_tabs .= '{"xtype": "qrnavi","title": "'.$ver['rField'].'","tabCls": "qrTab","iconCls": "qrCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						   $all_tabs .= '{"xtype": "qrnavi","title": "'.$ver['rField'].'","tabCls": "qrTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "qrnavi","title": "'.$val['vTitle'].'","tabCls": "qrTab","iconCls": "qrCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "qrnavi","title": "'.$val['vTitle'].'","tabCls": "qrTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Informations":
@@ -1381,12 +1383,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "customview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "customTab","iconCls": "customCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "customview","title": "'.$ver['rField'].'","layout": "fit","tabCls": "customTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "customview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "customTab","iconCls": "customCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "customview","title": "'.$val['vTitle'].'","layout": "fit","tabCls": "customTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Menu":
@@ -1394,12 +1396,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "menunavi","title": "'.$ver['rField'].'","tabCls": "menuTab","iconCls": "menuCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "menunavi","title": "'.$ver['rField'].'","tabCls": "menuTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "menunavi","title": "'.$val['vTitle'].'","tabCls": "menuTab","iconCls": "menuCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "menunavi","title": "'.$val['vTitle'].'","tabCls": "menuTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Reservation":
@@ -1407,12 +1409,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "reservationnavi","title": "'.$ver['rField'].'","tabCls": "reservationTab","iconCls": "reservationCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "reservationnavi","title": "'.$ver['rField'].'","tabCls": "reservationTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "reservationnavi","title": "'.$val['vTitle'].'","tabCls": "reservationTab","iconCls": "reservationCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "reservationnavi","title": "'.$val['vTitle'].'","tabCls": "reservationTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Notepad":
@@ -1420,12 +1422,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "notepadnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "notepadnavi","title": "'.$ver['rField'].'","tabCls": "eventTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "notepadnavi","title": "'.$val['vTitle'].'","tabCls": "eventTab","iconCls": "eventCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "notepadnavi","title": "'.$val['vTitle'].'","tabCls": "eventTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Voice Recording":
@@ -1433,12 +1435,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "voicerecording","title": "'.$ver['rField'].'","tabCls": "voicerecordingTab","iconCls": "voicerecordingCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "voicerecording","title": "'.$ver['rField'].'","tabCls": "voicerecordingTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "voicerecording","title": "'.$val['vTitle'].'","tabCls": "voicerecordingTab","iconCls": "voicerecordingCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "voicerecording","title": "'.$val['vTitle'].'","tabCls": "voicerecordingTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "ContactUs":
@@ -1446,12 +1448,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "contactview","title": "'.$ver['rField'].'","tabCls": "contactTab","iconCls": "contactCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "contactview","title": "'.$ver['rField'].'","tabCls": "contactTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "contactview","title": "'.$val['vTitle'].'","tabCls": "contactTab","iconCls": "contactCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "contactview","title": "'.$val['vTitle'].'","tabCls": "contactTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Message":
@@ -1459,12 +1461,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "messageview","title": "'.$ver['rField'].'","tabCls": "messageTab","iconCls": "messageCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "messageview","title": "'.$ver['rField'].'","tabCls": "messageTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "messageview","title": "'.$val['vTitle'].'","tabCls": "messageTab","iconCls": "messageCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "messageview","title": "'.$val['vTitle'].'","tabCls": "messageTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "News":
@@ -1472,12 +1474,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "newsnavi","title": "'.$ver['rField'].'","tabCls": "newsTab","iconCls": "newsCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "newsnavi","title": "'.$ver['rField'].'","tabCls": "newsTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "newsnavi","title": "'.$val['vTitle'].'","tabCls": "newsTab","iconCls": "newsCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "newsnavi","title": "'.$val['vTitle'].'","tabCls": "newsTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Loan Calculator":
@@ -1485,12 +1487,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "mortgagecalculator","title": "'.$ver['rField'].'","tabCls": "MortgageCalcTab","iconCls": "MortgageCalcCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "mortgagecalculator","title": "'.$ver['rField'].'","tabCls": "MortgageCalcTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "mortgagecalculator","title": "'.$val['vTitle'].'","tabCls": "MortgageCalcTab","iconCls": "MortgageCalcCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "mortgagecalculator","title": "'.$val['vTitle'].'","tabCls": "MortgageCalcTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Calculator":
@@ -1498,12 +1500,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "scientificcalculatorview","title": "'.$ver['rField'].'","tabCls": "ScientificCalTab","iconCls": "ScientificCalCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "scientificcalculatorview","title": "'.$ver['rField'].'","tabCls": "ScientificCalTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "scientificcalculatorview","title": "'.$val['vTitle'].'","tabCls": "ScientificCalTab","iconCls": "ScientificCalCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "scientificcalculatorview","title": "'.$val['vTitle'].'","tabCls": "ScientificCalTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Scanner":
@@ -1511,12 +1513,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "scannerview","title": "'.$ver['rField'].'","tabCls": "scannerTab","iconCls": "scannerCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "scannerview","title": "'.$ver['rField'].'","tabCls": "scannerTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "scannerview","title": "'.$val['vTitle'].'","tabCls": "scannerTab","iconCls": "scannerCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "scannerview","title": "'.$val['vTitle'].'","tabCls": "scannerTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Appointment":
@@ -1524,12 +1526,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "appointmentview","title": "'.$ver['rField'].'","tabCls": "appointmentTab","iconCls": "appointmentCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "appointmentview","title": "'.$ver['rField'].'","tabCls": "appointmentTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "appointmentview","title": "'.$val['vTitle'].'","tabCls": "appointmentTab","iconCls": "appointmentCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "appointmentview","title": "'.$val['vTitle'].'","tabCls": "appointmentTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Quotation":
@@ -1537,12 +1539,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "quoteview","title": "'.$ver['rField'].'","tabCls": "quoteTab","iconCls": "quoteCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "quoteview","title": "'.$ver['rField'].'","tabCls": "quoteTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "quoteview","title": "'.$val['vTitle'].'","tabCls": "quoteTab","iconCls": "quoteCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "quoteview","title": "'.$val['vTitle'].'","tabCls": "quoteTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Review":
@@ -1550,12 +1552,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "review","title": "'.$ver['rField'].'","tabCls": "reviewTab","iconCls": "reviewCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "review","title": "'.$ver['rField'].'","tabCls": "reviewTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "review","title": "'.$val['vTitle'].'","tabCls": "reviewTab","iconCls": "reviewCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "review","title": "'.$val['vTitle'].'","tabCls": "reviewTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Testimonial":
@@ -1563,12 +1565,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "testimonialview","title": "'.$ver['rField'].'","tabCls": "testimonialTab","iconCls": "testimonialCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "testimonialview","title": "'.$ver['rField'].'","tabCls": "testimonialTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "testimonialview","title": "'.$val['vTitle'].'","tabCls": "testimonialTab","iconCls": "testimonialCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "testimonialview","title": "'.$val['vTitle'].'","tabCls": "testimonialTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Catalogue":
@@ -1576,12 +1578,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "catelognavi","title": "'.$ver['rField'].'","tabCls": "catelogTab","iconCls": "catelogCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "catelognavi","title": "'.$ver['rField'].'","tabCls": "catelogTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "catelognavi","title": "'.$val['vTitle'].'","tabCls": "catelogTab","iconCls": "catelogCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "catelognavi","title": "'.$val['vTitle'].'","tabCls": "catelogTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "New Arrival":
@@ -1589,12 +1591,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "newarrivalnavi","title": "'.$ver['rField'].'","tabCls": "newarrivalTab","iconCls": "newarrivalCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "newarrivalnavi","title": "'.$ver['rField'].'","tabCls": "newarrivalTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "newarrivalnavi","title": "'.$val['vTitle'].'","tabCls": "newarrivalTab","iconCls": "newarrivalCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "newarrivalnavi","title": "'.$val['vTitle'].'","tabCls": "newarrivalTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Donation":
@@ -1602,12 +1604,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "donationnavi","title": "'.$ver['rField'].'","tabCls": "donationTab","iconCls": "donationCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "donationnavi","title": "'.$ver['rField'].'","tabCls": "donationTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "donationnavi","title": "'.$val['vTitle'].'","tabCls": "donationTab","iconCls": "donationCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "donationnavi","title": "'.$val['vTitle'].'","tabCls": "donationTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Service":
@@ -1615,12 +1617,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "servicenavi","title": "'.$ver['rField'].'","tabCls": "serviceTab","iconCls": "serviceCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "servicenavi","title": "'.$ver['rField'].'","tabCls": "serviceTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "servicenavi","title": "'.$val['vTitle'].'","tabCls": "serviceTab","iconCls": "serviceCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "servicenavi","title": "'.$val['vTitle'].'","tabCls": "serviceTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Ticket Info":
@@ -1628,12 +1630,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "ticketinfoview","title": "'.$ver['rField'].'","tabCls": "ticketTab","iconCls": "ticketCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "ticketinfoview","title": "'.$ver['rField'].'","tabCls": "ticketTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "ticketinfoview","title": "'.$val['vTitle'].'","tabCls": "ticketTab","iconCls": "ticketCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "ticketinfoview","title": "'.$val['vTitle'].'","tabCls": "ticketTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Blog":
@@ -1641,12 +1643,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "blognavi","title": "'.$ver['rField'].'","tabCls": "blogTab","iconCls": "blogCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "blognavi","title": "'.$ver['rField'].'","tabCls": "blogTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "blognavi","title": "'.$val['vTitle'].'","tabCls": "blogTab","iconCls": "blogCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "blognavi","title": "'.$val['vTitle'].'","tabCls": "blogTab","iconCls": "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Menu of the day":
@@ -1654,12 +1656,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "menudaynavi","title": "'.$ver['rField'].'","tabCls": "menudayTab","iconCls":  "menudayCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "menudaynavi","title": "'.$ver['rField'].'","tabCls": "menudayTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "menudaynavi","title": "'.$val['vTitle'].'","tabCls": "menudayTab","iconCls":  "menudayCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "menudaynavi","title": "'.$val['vTitle'].'","tabCls": "menudayTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Order":
@@ -1667,12 +1669,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "ordernavi","title": "'.$ver['rField'].'","tabCls": "orderTab","iconCls":  "orderCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "ordernavi","title": "'.$ver['rField'].'","tabCls": "orderTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "ordernavi","title": "'.$val['vTitle'].'","tabCls": "orderTab","iconCls":  "orderCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "ordernavi","title": "'.$val['vTitle'].'","tabCls": "orderTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				case "Fidelity":
@@ -1680,12 +1682,12 @@ class Preview_model extends CI_Model
 					foreach($lang as $ver){
 						if($ver['rLabelName'] == $val['vTitle']){
 							$checkName = 1;
-							$all_tabs .= '{"xtype": "loyalitinavi","title": "'.$ver['rField'].'","tabCls": "loyalityTab","iconCls":  "LoyalityCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+							$all_tabs .= '{"xtype": "loyalitinavi","title": "'.$ver['rField'].'","tabCls": "loyalityTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 						}
 					}
 					if($checkName==0)
 					{
-						$all_tabs .= '{"xtype": "loyalitinavi","title": "'.$val['vTitle'].'","tabCls": "loyalityTab","iconCls":  "LoyalityCls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						$all_tabs .= '{"xtype": "loyalitinavi","title": "'.$val['vTitle'].'","tabCls": "loyalityTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				default:
@@ -1709,7 +1711,14 @@ class Preview_model extends CI_Model
         $style = '';
         $style.= '';
         foreach($iFeatureId as $val){
-            if($val['Tabname'] == 'Home'){
+        	$title = str_replace(' ', '_', $val['vTitle']);
+        	$title = preg_replace('/[^a-zA-Z0-9_.]/', '',$title);
+        	$style .= '.'.$title.'Cls {
+					background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
+					background-repeat: no-repeat !important;
+					background-size:100% 100% !important;
+			 }'; 
+            /*if($val['Tabname'] == 'Home'){
                  $style .= '.homeCls{
                         background-image: url("'.$base_upload.'tab_icon/1/'.$val['vImage'].'") !important;
                         background-repeat: no-repeat !important;
@@ -1908,7 +1917,7 @@ class Preview_model extends CI_Model
                         background-repeat: no-repeat !important;
                         background-size:100% 100% !important;
                  }'; 
-            }
+            }*/
         }
         $style.='.x-list .x-list-item .x-list-item-body, .x-list .x-list-item.x-list-item-tpl .x-innerhtml {
                          padding:0px; 

@@ -1998,7 +1998,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_custom_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != ''){
 			/** easyapps website **/
@@ -2053,7 +2053,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** Data Application **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-	
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != ''){
 			/** easyapps website **/
@@ -2191,7 +2191,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_Qrcode_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-	
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -2357,7 +2357,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_youtube_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-	
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -2415,7 +2415,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_gallery_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -2558,7 +2558,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** iApplication Id **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		if($Data['iApplicationId'] != ''){
 			/** iApplicationId **/
 			$get_news_details = $this->webservice_model->get_news_details($Data);
@@ -2993,6 +2993,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** Application Details **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		$Data['iUserId'] = $this->input->get('iUserId');
 		
 		/** iApplication Details **/
@@ -3063,6 +3064,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** Application Details **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		$background_image = $this->webservice_model->get_contact_background_image($Data);
 		//print_r($background_image);die;
 		if(count($background_image) >0){
@@ -3427,7 +3429,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** Application Details **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** iApplication Details **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -3886,7 +3888,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_arrival_details()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** get the arrival details **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -4723,7 +4725,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** ApplicationId **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check details **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -5140,7 +5142,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/* ApplicationId */
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/*	Get all Category and it's sub category	*/
 		$maincategory = $this->webservice_model->get_all_catalogue_main_category($Data);	
 

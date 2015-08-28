@@ -15,22 +15,17 @@ Ext.define('MyApp.controller.MenuController', {
 			menuNavi: {
                 activate: 'onMenuListActivate'
             },
-
 			menuViewList: {
                 itemtap: 'onMenuItemTap'
             }
-
         }
     },
-
-
-
-	onMenuListActivate: function(){
-        Ext.getStore('MenuStore').load({url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId});
+	onMenuListActivate: function(tab){
+		var tabId = tab.config.iAppTabId;
+        Ext.getStore('MenuStore').load({url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId});
     },
 
 	onMenuItemTap: function(list, index, target, record, e, eOpts){
-
 		var menuId = record.get('iMenuID');
         Ext.getStore('MenuDetailStore').load({url: URLConstants.URL + 'action=easyapps_item_get&iApplicationId=' + TextConstants.ApplicationId+'&iMenuId='+menuId});
         this.catalogProductView = Ext.create('MyApp.view.menu.MenuDetailView',{title: record.get('text')});
@@ -98,5 +93,4 @@ Ext.define('MyApp.controller.MenuController', {
         var newPrice = Number(sizePrice) + Number(optionPrice);
         document.getElementById('menuprice_'+productId).innerHTML = Loc.t('CATELOG.PRICE')+' : '+selectedProduct.get('vCurrency')+newPrice;
     }
-
 });

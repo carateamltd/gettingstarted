@@ -33,9 +33,9 @@ Ext.define('MyApp.controller.CatalogController', {
             }
         }
     },
-    onCatelogViewActivate: function () {
-        var objCatelogStore = Ext.getStore('catelogestoreid');
-        objCatelogStore.load({url: URLConstants.URL + 'action=easyapps_catalogue_category&iApplicationId=' + TextConstants.ApplicationId});
+    onCatelogViewActivate: function (tab) {
+        var objCatelogStore = Ext.getStore('catelogestoreid'), tabId = tab.config.iAppTabId;
+        objCatelogStore.load({url: URLConstants.URL + 'action=easyapps_catalogue_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId});
     },
     onBtnSaveCustomerDetailsTap: function(){
     	if(this.getCatelogNavi()){
@@ -71,7 +71,7 @@ Ext.define('MyApp.controller.CatalogController', {
         }
         formValues.orderSummary = a;
         formValues.cartItems = Ext.getStore('AddCartStore').getData();
-         appMask();debugger;
+         appMask();
         Ext.Ajax.request({
             url: url,
             params: formValues,
@@ -115,7 +115,6 @@ Ext.define('MyApp.controller.CatalogController', {
         }
         appMask();
         var url = URLConstants.URL + 'action=easyapps_catalogue_order_details';
-
         Ext.Ajax.request({
             url: url,
             params: {
@@ -219,12 +218,11 @@ Ext.define('MyApp.controller.CatalogController', {
         }else{
             cartData.selectedSize = sizeId;
             cartData.selectedOption = optionId;
-            cartData.selectedQty = qty ;
+            cartData.selectedQty = qty;
             cartData.price = Number(qty)*Number(price);
             Ext.getStore('AddCartStore').add(cartData);
             Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMADD'));
         }
-
     },
 
     changeProductSizePrice: function(selectElement){
@@ -343,18 +341,15 @@ Ext.define('MyApp.controller.CatalogController', {
             title: 'Message',
             message: 'Are you sure?',
             scope: this,
-            buttons: [
-                {
+            buttons: [{
                     itemId: 'no',
                     text: 'Cancel',
                     ui: 'action'
-                },
-                {
+                }, {
                     itemId: 'yes',
                     text: 'Ok',
                     ui: 'action'
-                }
-            ],
+            }],
             fn: function (btn) {
                 if (btn == 'yes') {
                 	var productId = button.id.replace('cart_','');
@@ -426,7 +421,6 @@ Ext.define('MyApp.controller.CatalogController', {
         this.catalogCartView.query('#cartTotal')[0].setHtml('<center>'+Loc.t('CATELOG.CARTTOTAL')+' : ' +currency + Number(total).toFixed(2)+'</center>');
         TextConstants.TotalAmount = total;
         Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMUPDATE'));
-        
     },
     
     showCustomerDetailsView: function(btn){

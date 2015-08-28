@@ -756,6 +756,7 @@ class webservice_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('r_app_gallery_value as rv');
 		$this->db->where('rv.iApplicationId',$data['iApplicationId']);
+		$this->db->where('rv.iAppTabId',$data['iAppTabId']);
 		$query=$this->db->get();
 		return $query->row_array();
 	}
