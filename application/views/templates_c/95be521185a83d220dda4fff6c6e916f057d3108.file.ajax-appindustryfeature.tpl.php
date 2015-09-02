@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-07 17:05:51
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-01 15:22:03
          compiled from "application/views/templates/ajax-appindustryfeature.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11311559105583b874ed5640-63789921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '95be521185a83d220dda4fff6c6e916f057d3108' => 
     array (
       0 => 'application/views/templates/ajax-appindustryfeature.tpl',
-      1 => 1438864761,
+      1 => 1441095130,
       2 => 'file',
     ),
   ),

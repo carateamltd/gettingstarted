@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class resturantinfo extends MY_Controller{
+class Resturantinfo extends MY_Controller{
     
     function __construct(){
         

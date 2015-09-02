@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class notification extends MY_Controller
+class Notification extends MY_Controller
 {
     
     function __construct(){

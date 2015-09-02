@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-	class app_reservation extends MY_Controller
+	class App_reservation extends MY_Controller
 	{
 		function __construct()
 	    {

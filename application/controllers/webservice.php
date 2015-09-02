@@ -10,7 +10,7 @@
      header('Access-Control-Max-Age: 86400');
      //header('content-type: application/json; charset=utf-8');
 		 
-class webservice extends MY_Controller 
+class Webservice extends MY_Controller 
 {
     function __construct()
 	{
