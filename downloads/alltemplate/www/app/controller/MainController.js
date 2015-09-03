@@ -697,6 +697,7 @@ Ext.define('MyApp.controller.MainController', {
     onHomeActivate: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
         appMask();
+        this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapps_home_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
 //        console.log("====================");
 //        console.log("home= "+url);
@@ -709,13 +710,23 @@ Ext.define('MyApp.controller.MainController', {
 
                 var homeStore = Ext.getStore('homestorid');
                 homeStore.removeAll();
-                homeStore.add(Response.home);
-                homeStore.sync();
+                try{
+					homeStore.add(Response.home);
+					homeStore.sync();
+                }
+                catch(e){
+                	console.log(e);
+                }
 
                 var openCloseStore = Ext.getStore('openclosestoreid');
                 openCloseStore.removeAll();
-                openCloseStore.add(Response.openingtime);
-                openCloseStore.sync();
+                try{
+					openCloseStore.add(Response.openingtime);
+					openCloseStore.sync();
+				}
+				catch(e){
+					console.log(e);
+				}
 //                alert(openCloseStore.getCount());
 //                alert(homeStore.getCount());
                 var desc = Response.home.vDescription;
@@ -956,10 +967,12 @@ Ext.define('MyApp.controller.MainController', {
                     Ext.ComponentQuery.query('youtube')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     chennal = Response.youtube.vChannelName;
                     me.youtubeVideo(chennal);
+                    me.setPageTitle(tab);
                     appUnmask();
                 },
                 function failure(Response) {
                     appUnmask();
+                    me.setPageTitle(tab);
                 }
         );
     },
@@ -1450,6 +1463,11 @@ console.log('===================End=====================');
     },
     onGallaryActivates: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+    	if(!tabId){
+    		tabId = mainView.getActiveItem().config.iAppTabId;
+    	}
+    	this.setPageTitle(tab);
         appMask();
         var url = URLConstants.URL + 'action=easyapps_gallery_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
@@ -1498,8 +1516,11 @@ console.log('===================End=====================');
     //    TextConstants.GallaryShareImage_Link = 'data:image/gif;base64,' + record.data.vGalleryImage;
         TextConstants.GallaryShareImage_Link = record.data.vGalleryImage;
         var gallaryNavi = this.getGallaryNaviView();
-        if (gallaryNavi.getInnerItems().length == 1) {
-            app_PushView(gallaryNavi, 'coverview', data);
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+        if (view.getInnerItems().length == 1) {
+			var title = view.down('[docked=top]').getTitle();
+            app_PushView(view, 'coverview', data, title);
         }
     },
     onWebsitListActivates: function (tab) {
@@ -1653,6 +1674,7 @@ console.log('===================End=====================');
         var objQrStore = Ext.getStore('qrstoreid'), tabId = tab.config.iAppTabId;
         objQrStore.removeAll();
         appMask();
+        this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapps_Qrcode_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
@@ -1750,6 +1772,7 @@ console.log('===================End=====================');
         var me = this, tabId = tab.config.iAppTabId;
         me.onEventNaviViewPopToRoot();
         appMask();
+        this.setPageTitle(tab);
         var objEventStore = Ext.getStore('eventstoreid');
         console.log(objEventStore);
         var url = URLConstants.URL + 'action=easyapps_event_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
@@ -1828,6 +1851,7 @@ console.log('===================End=====================');
     onNewsActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
         appMask();
+        this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapp_news_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
@@ -1848,6 +1872,7 @@ console.log('===================End=====================');
     onContactActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
         appMask();
+        this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapps_get_contact_bg&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
@@ -1940,6 +1965,7 @@ console.log('===================End=====================');
     onReservationNaviActivated: function (tab) {
     	var tabId = tab.config.iAppTabId;
         appMask();
+        this.setPageTitle(tab);
         var reservationStore = Ext.getStore('resesrvationstoreid');
         reservationStore.removeAll();
         var url = URLConstants.URL + 'action=easyapps_reservation_future_lists&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
@@ -2226,6 +2252,7 @@ console.log('===================End=====================');
     onLocationActivated: function (tab) {
     	var tabId = tab.config.iAppTabId;
         appMask();
+        this.setPageTitle(tab);
         var LocationStore = Ext.getStore('locationstoreid');
         LocationStore.removeAll();
         var url = URLConstants.URL + 'action=easyapps_location_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
@@ -2415,6 +2442,7 @@ console.log('===================End=====================');
     onMenu_MenuDayBtnTap: function (tab) {
         var menuNavi = this.getMenuDayNavi(), tabId = tab.config.iAppTabId;
         appMask();
+        this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapps_menuofthe_day&iApplicationId=' + TextConstants.ApplicationId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -2942,6 +2970,7 @@ console.log('===================End=====================');
         objServiceTimingTabStore.removeAll();
         var sizelength;
         appMask();
+        this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapps_service_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -3042,6 +3071,7 @@ console.log('===================End=====================');
 	onMenuNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
 		console.log(tabId);
+		this.setPageTitle(tab);
 	},
 	onNotepadNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
@@ -3050,6 +3080,7 @@ console.log('===================End=====================');
 	onMessageViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
 		console.log(tabId);
+		this.setPageTitle(tab);
 	},
 	onMortgageCalculatorActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
@@ -3086,9 +3117,22 @@ console.log('===================End=====================');
 	onOrderNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
 		console.log(tabId);
+		this.setPageTitle(tab);
 	},
 	onLoyalitiNaviActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
 		console.log(tabId);
+		this.setPageTitle(tab);
+	},
+	setPageTitle: function(tab){
+		if(!tab.config.title){
+			return;
+		}
+		var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+		view.down('[docked=top]').setTitle(tab.config.title);
+		if(view.down('toolbar')){
+			view.down('toolbar').setTitle(tab.config.title);
+		}
 	}
 });

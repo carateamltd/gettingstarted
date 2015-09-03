@@ -10,7 +10,7 @@ Ext.define("MyApp.view.gallary.GallaryNaviView", {
             items:[{
                       xtype:'button',
 //                      ui:'plain',
-                      text:Loc.t('LOYALTY.SHARE'),
+                      //text:Loc.t('LOYALTY.SHARE'),
                       align: 'right',
                       itemId:'galleryShareBtnid',
                       hidden:true
@@ -18,7 +18,7 @@ Ext.define("MyApp.view.gallary.GallaryNaviView", {
         },
         items: [{
                 xtype:'gallaryview',
-                title: Loc.t('GALLERY.TITLE'),
+                //title: Loc.t('GALLERY.TITLE'),
                 scrollable:{
                 	indicators:false
                 }

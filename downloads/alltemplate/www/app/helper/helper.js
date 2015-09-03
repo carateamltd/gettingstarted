@@ -16,11 +16,13 @@ function app_CallView(objView, viewName, viewTransition) {
         xtype: viewName
     }, viewTransition);
 }
-function app_PushView(objParent, objNavigate, extraData) {
+function app_PushView(objParent, objNavigate, extraData, title) {
     if (!extraData) {
         objParent.push({
             xtype: objNavigate,
+            title: title
         });
+        objParent.getNavigationBar().getBackButton().setText(title);
     } else {
         objParent.push({
             xtype: objNavigate,

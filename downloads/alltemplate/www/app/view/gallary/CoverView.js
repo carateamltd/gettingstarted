@@ -3,7 +3,7 @@ extend: 'Ext.Container',
         alias: 'widget.coverview',
         config: {
         layout: 'card',
-                title: Loc.t('GALLERY.TITLE')
+                //title: Loc.t('GALLERY.TITLE')
         },
         initialize: function () {
         var i = this.config.data;

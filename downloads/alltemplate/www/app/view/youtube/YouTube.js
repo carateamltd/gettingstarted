@@ -4,7 +4,7 @@ Ext.define('MyApp.view.youtube.YouTube', {
     config: {
         items:[{
                 	xtype:'toolbar',
-                	title:Loc.t('YOUTUBE.TITLE'),
+                	//title:Loc.t('YOUTUBE.TITLE'),
 //                        baseCls:'younaviCls',
 //                        height:50,
                 	docked:'top'
