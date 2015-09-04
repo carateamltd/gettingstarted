@@ -263,6 +263,9 @@ Ext.define('MyApp.controller.MainController', {
             locationList: {
                 itemtap: 'onLocationListTap'
             },
+            locationListView: {
+            	activate: 'onLocationActivated'
+            },
             mortgageCalculator: {
                 onCalucalate: 'onCalucalateTap',
                 activate: 'onMortgageCalculatorActivate'
@@ -911,7 +914,8 @@ Ext.define('MyApp.controller.MainController', {
         console.log(item.xtype);
         if (item.xtype == "coverview") {
             console.log("hidden false");
-            Ext.ComponentQuery.query('gallarynaviview #galleryShareBtnid')[0].setHidden(false);
+            //Ext.ComponentQuery.query('gallarynaviview #galleryShareBtnid')[0].setHidden(false);
+            view.down('#galleryShareBtnid').setHidden(false);
         }
     },
     onGallaryNaviPop: function (view, item) {
@@ -919,7 +923,7 @@ Ext.define('MyApp.controller.MainController', {
         console.log(item.xtype);
         if (item.xtype == "coverview") {
             console.log("hidden true");
-            Ext.ComponentQuery.query('gallarynaviview #galleryShareBtnid')[0].setHidden(true);
+            view.down('#galleryShareBtnid').setHidden(true);
         }
     },
     onLoyalityNaviViewPop: function (view, item) {
@@ -1465,7 +1469,9 @@ console.log('===================End=====================');
     	var tabId = tab.config.iAppTabId;
     	var mainView = Ext.ComponentQuery.query('mainview')[0];
     	if(!tabId){
-    		tabId = mainView.getActiveItem().config.iAppTabId;
+    		//tabId = mainView.getActiveItem().config.iAppTabId;
+    		this.setPageTitleOnBack();
+    		return;
     	}
     	this.setPageTitle(tab);
         appMask();
@@ -2251,7 +2257,13 @@ console.log('===================End=====================');
     },
     onLocationActivated: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	if(!tabId){
+    		//tabId = mainView.getActiveItem().config.iAppTabId;
+    		this.setPageTitleOnBack();
+    		return;
+    	}
         appMask();
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
         this.setPageTitle(tab);
         var LocationStore = Ext.getStore('locationstoreid');
         LocationStore.removeAll();
@@ -2275,10 +2287,16 @@ console.log('===================End=====================');
     onLocationListTap: function (dataView, index, target, record, e, eOpts) {
         var data = record.data;
         var locationNavi = this.getLocationNavi();
-        locationNavi.push({
+        /*locationNavi.push({
             xtype: 'mymap',
             data: data
-        });
+        });*/
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+        if (view.getInnerItems().length == 1) {
+			var title = view.down('[docked=top]').getTitle();
+            app_PushView(locationNavi, 'mymap', data, title);
+        }
     },
     onArroundListTap: function () {
         var arroundnavi = this.getArroundNavi();
@@ -3134,5 +3152,14 @@ console.log('===================End=====================');
 		if(view.down('toolbar')){
 			view.down('toolbar').setTitle(tab.config.title);
 		}
+	},
+	setPageTitleOnBack: function(){
+		setTimeout(function(){
+			var mainView = Ext.ComponentQuery.query('mainview')[0];
+			var view = mainView.getActiveItem();
+			if(mainView.getActiveItem().getNavigationBar){
+				mainView.getActiveItem().getNavigationBar().setTitle(view.$currentTitle);
+			}
+		}, 251);
 	}
 });

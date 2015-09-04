@@ -22,13 +22,14 @@ function app_PushView(objParent, objNavigate, extraData, title) {
             xtype: objNavigate,
             title: title
         });
-        objParent.getNavigationBar().getBackButton().setText(title);
     } else {
         objParent.push({
             xtype: objNavigate,
-            data: extraData
+            data: extraData,
+            title: title
         });
     }
+    objParent.getNavigationBar().getBackButton().setText(title);
 }
 function appCustomAlert(displaytitle, displayMessage) {
     Ext.Viewport.setMasked(false);
