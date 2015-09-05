@@ -1492,6 +1492,11 @@ console.log('===================End=====================');
                     if (Response.gallery.eImageServiceType == 'Custom') {
                         imgStore.add(Response.custom_image);
                         imgStore.sync();
+                        var text = "";
+                        if(imgStore.getCount() === 0){
+                        	text = Loc.t('GALLERY.NOIMAGESAVAILABLE');
+                        }
+                        view.down('gallaryview').setEmptyText(Loc.t('GALLERY.NOIMAGESAVAILABLE'));
                     } else if (Response.gallery.eImageServiceType == 'Picasa') {
                         var email = Response.gallery.PicassaEmail;
                         Picasa(email);

@@ -3,7 +3,7 @@ Ext.define('MyApp.view.gallary.GallaryView', {
     xtype: 'gallaryview',
     requires: ['MyApp.view.gallary.CoverView'],
     config: {
-        emptyText: Loc.t('GALLERY.NOIMAGESAVAILABLE'),
+        emptyText: '',//Loc.t('GALLERY.NOIMAGESAVAILABLE'),
         deferEmptyText: false,
     	 store: 'imagestoreid',
          baseCls: 'photoCls',
