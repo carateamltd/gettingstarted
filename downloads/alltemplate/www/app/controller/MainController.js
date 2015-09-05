@@ -1466,8 +1466,15 @@ console.log('===================End=====================');
         );
     },
     onGallaryActivates: function (tab) {
-    	var tabId = tab.config.iAppTabId;
     	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+		var tabId = tab.config.iAppTabId;
+        if (view.getInnerItems().length > 1 && tabId) {
+        	var anim = mainView.getLayout().getAnimation();
+        	mainView.getLayout().setAnimation(false);
+			view.pop();
+			mainView.getLayout().setAnimation(anim);
+        }
     	if(!tabId){
     		//tabId = mainView.getActiveItem().config.iAppTabId;
     		this.setPageTitleOnBack();
