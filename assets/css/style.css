@@ -6523,13 +6523,26 @@ h2.inner_hd {
     padding: 14px;
 }
 
-.galleryimg{ float:left; border: 1px solid #CCCCCC; border-radius: 5px !important; padding: 5px; margin:0 5px 5px 0;}
+.galleryimg{ float:left; border: 1px solid #CCCCCC; border-radius: 5px !important; margin:0 0 5px 0;}
+.galleryimg img {
+	width: 90px;
+	height: 90px;
+	margin: 5px 3px 5px 3px !important;
+}
 ul.gallerywrapper{ float:left; width:100%; list-style:none;}
-ul.gallerywrapper li{ float:left; position:relative; width: 107px; padding: 0px 15px}
+ul.gallerywrapper li{
+	float: left;
+    position: relative;
+    width: 100px;
+    padding: 0px 15px;
+    height: 225px;
+    min-height: 225px;
+    display: inline-block;
+}
 ul.gallerywrapper li a.icon-remove{ position:absolute; top:4px; right:8px; background-color: #E6E6E6 !important;
     background-image: linear-gradient(#FFFFFF, #FFFFFF 25%, #E6E6E6) !important;
     background-repeat: no-repeat; border: 1px solid #d3d3d3; border-radius:25px !important;}
-ul.gallerywrapper li span.gallery-desc{ float:left; /*width:60px;*/ padding:2px; font-size:11px; line-height:105%; border: 1px solid #ccc; height: 100px; overflow: auto;}
+ul.gallerywrapper li span.gallery-desc{ float:left; width:93px; padding:2px; font-size:11px; line-height:105%; border: 1px solid #ccc; height: 100px; overflow: auto;}
 
 
 .timg_wrapper {
