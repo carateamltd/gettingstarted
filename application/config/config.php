@@ -2,12 +2,12 @@
 if($_SERVER["HTTP_HOST"] == '188.165.238.102')
 {
 	//-- Added for new server configuration on 01 September
-	$sitefolder = "/easyapps/";
+	$sitefolder = "/";
 }
 else if($_SERVER["HTTP_HOST"] == 'admin.easyapps.fr')
 {
 	//-- Added for new server configuration on 01 September
-	$sitefolder = "/easyapps/";
+	$sitefolder = "/";
 }
 else
 {
