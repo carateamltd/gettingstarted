@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-26 18:55:40
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-08 21:14:39
          compiled from "application/views/templates/view-app-step4.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8335672395583cefe296ce4-95710053%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '53793fd0609b952a6cbb8a45ff4bb514688dacfe' => 
     array (
       0 => 'application/views/templates/view-app-step4.tpl',
-      1 => 1440505609,
+      1 => 1441721676,
       2 => 'file',
     ),
   ),
@@ -899,17 +899,17 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
 ?>				    
 																		<tr>
 																			<td>
-																				<!-- <div class="hover_active_color active_btn_mobile">
+																				<div class="hover_active_color active_btn_mobile">
 																				<label class="flt_lft_radio">
 																				<input type="radio" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
-" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iLunchheaderId']==$_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId']){?> checked="ckecked" <?php }?> class="onbtn_radi"  name="iLunchheaderId" id="iLunchheaderId" onClick="change_lun_header(<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
+" <?php if ($_smarty_tpl->tpl_vars['data']->value['allappdesignInfo'][0]['iLunchheaderId']==$_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId']){?> checked="ckecked" <?php }?> class="onbtn_radi"  name="lunch_header" id="iLunchheaderId" onClick="change_lun_header(<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 );"/>
 																				</label>
 																				<img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_upload'];?>
 lunch_header/<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iLunchheaderId'];?>
 /<?php echo $_smarty_tpl->tpl_vars['data']->value['get_all_buttons_lunch_header'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vImage'];?>
 " style="width:320px;height:44px;" /> 
-																				</div> -->
+																				</div>
 																			</td>
 																		</tr>					 
 																	<?php endfor; endif; ?>				    

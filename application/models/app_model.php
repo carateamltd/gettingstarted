@@ -245,6 +245,16 @@ class App_model extends CI_Model
 	    $this->db->where('iApplicationId',$iApplicationId);
         $this->db->delete('r_sorttab');
     } 
+    
+    function get_current_tab_order($iApplicationId) 
+	{
+		$this->db->select('*');
+	    $this->db->where('iApplicationId',$iApplicationId);
+        $res = $this->db->from('r_sorttab');
+        $this->db->order_by('iOrderId', 'ASC');
+        $query = $this->db->get();
+        return $query->result_array();
+    } 
 
    function get_all_appindustryfeature_data($iIndustryId)
     {
@@ -836,7 +846,16 @@ Purpose : to get Sort Client Name (Updated Function : allClientList())
         $this->db->where('iApplicationId',$iApplicationId);
         $this->db->where('iAppTabId',$iAppTabId);
         $query = $this->db->get();
-        return $query->row_array();
+        return $query->result_array();
+    }
+    
+    function get_infobyInfoId($infoId)
+    {
+    	$this->db->select('iInfotabId, iApplicationId,iAppTabId, vTitle,tDescription, eStatus');
+        $this->db->from('r_app_infotab_values');
+        $this->db->where('iInfotabId',$infoId);
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     function save_info($Data){
@@ -1341,6 +1360,7 @@ Purpose : to get Sort Client Name (Updated Function : allClientList())
         $this->db->join('r_app_gallery_value AS g','g.iGalleryId =gi.iGalleryId','LEFT');  
         $this->db->where('g.iApplicationId',$iApplicationId);
         $this->db->where('g.iAppTabId',$iAppTabId);
+        $this->db->order_by("gi.iGalleryImageId", "ASC");
         $query = $this->db->get();
         return $query->result_array();
     }

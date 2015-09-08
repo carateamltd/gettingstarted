@@ -768,6 +768,7 @@ class webservice_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('r_app_gallery_images as rv');
 		$this->db->where('rv.iGalleryId',$iGalleryId);
+		$this->db->order_by("rv.iGalleryImageId", "ASC");
 		$query=$this->db->get();
 		return $query->result_array();
 	}
@@ -878,7 +879,7 @@ class webservice_model extends CI_Model {
 	/** get appereance details**/
 	function get_appereance_details($data)
 	{
-		$this->db->select('*,rl.vImage Headerimage');
+		$this->db->select('*,rl.vImage as Headerimage, rl.iLunchheaderId');
 		$this->db->from('r_app_design_ifo as rv');
 		$this->db->join('r_lunch_header as rl','rv.iLunchheaderId = rl.iLunchheaderId','left');
 		$this->db->join('r_buttons_tab_background as rt','rv.iBackgroundId = rt.iBtntabbackgroundId','left');

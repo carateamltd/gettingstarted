@@ -1393,199 +1393,201 @@ function editsaveappicons() {
 }
 
 
-function saveappdesigndata(){
-show_loading();
-var extra = '';
+function saveappdesigndata()
+{
+	show_loading();
+	var extra = '';
 
-if($('#iApplicationId')){
-    var iApplicationId = $('#iApplicationId').val();
-    extra+='?iApplicationId='+iApplicationId; 
-}
+	if($('#iApplicationId')){
+		var iApplicationId = $('#iApplicationId').val();
+		extra+='?iApplicationId='+iApplicationId; 
+	}
 
-if($("#eCallBtn").is(':checked') == true){
-    extra+='&eCallBtn=Yes';
-}else{
-    extra+='&eCallBtn=No';
-}
+	if($("#eCallBtn").is(':checked') == true){
+		extra+='&eCallBtn=Yes';
+	}else{
+		extra+='&eCallBtn=No';
+	}
 
-if($("#eDirectionBtn").is(':checked') == true){
-    extra+='&eDirectionBtn=Yes';
-}else{
-    extra+='&eDirectionBtn=No';
-}
+	if($("#eDirectionBtn").is(':checked') == true){
+		extra+='&eDirectionBtn=Yes';
+	}else{
+		extra+='&eDirectionBtn=No';
+	}
 
-if($("#eTellFriendBtn").is(':checked') == true){
-    extra+='&eTellFriendBtn=Yes';
-}else{
-    extra+='&eTellFriendBtn=No';
-}
+	if($("#eTellFriendBtn").is(':checked') == true){
+		extra+='&eTellFriendBtn=Yes';
+	}else{
+		extra+='&eTellFriendBtn=No';
+	}
 
-if($("#eShowStatusBar").is(':checked') == true){
-    extra+='&eShowStatusBar=Yes';
-}else{
-    extra+='&eShowStatusBar=No';
-}
+	if($("#eShowStatusBar").is(':checked') == true){
+		extra+='&eShowStatusBar=Yes';
+	}else{
+		extra+='&eShowStatusBar=No';
+	}
 
-if($("#layoutbot").is(':checked') == true){
-    extra+='&eBtnLayout=Bottom';
-}
+	if($("#layoutbot").is(':checked') == true){
+		extra+='&eBtnLayout=Bottom';
+	}
 
-if($("#layouttop").is(':checked') == true){
-    extra+='&eBtnLayout=Top';
-}
+	if($("#layouttop").is(':checked') == true){
+		extra+='&eBtnLayout=Top';
+	}
 
-if($("#layoutleft").is(':checked') == true){
-    extra+='&eBtnLayout=Left';
-}
+	if($("#layoutleft").is(':checked') == true){
+		extra+='&eBtnLayout=Left';
+	}
 
-if($("#layoutright").is(':checked') == true){
-    extra+='&eBtnLayout=Right';
-}
+	if($("#layoutright").is(':checked') == true){
+		extra+='&eBtnLayout=Right';
+	}
 
-if($('#mapping_row')){
-    var mapping_row = $('#mapping_row').val();
-    extra+='&vMappingRow='+mapping_row; 
-}
+	if($('#mapping_row')){
+		var mapping_row = $('#mapping_row').val();
+		extra+='&vMappingRow='+mapping_row; 
+	}
 
-if($('#mapping_coll')){
-    var mapping_coll = $('#mapping_coll').val();
-    extra+='&vMappingCol='+mapping_coll; 
-}
+	if($('#mapping_coll')){
+		var mapping_coll = $('#mapping_coll').val();
+		extra+='&vMappingCol='+mapping_coll; 
+	}
 
-var iBackgroundId = $('input[name="tabbackimage"]:checked').val();
+	var iBackgroundId = $('input[name="tabbackimage"]:checked').val();
 
-if(iBackgroundId !=''){
-   extra+='&iBackgroundId='+iBackgroundId; 
-}
+	if(iBackgroundId !=''){
+	   extra+='&iBackgroundId='+iBackgroundId; 
+	}
 
-var iIconcolorId = $('input[name="iconcolor"]:checked').val();
+	var iIconcolorId = $('input[name="iconcolor"]:checked').val();
 
-if(iIconcolorId !=''){
-   extra+='&iIconcolorId='+iIconcolorId; 
-}
-
-
-if($('#vTabColor')){
-    var vTabColor = $('#vTabColor').val();
-    extra+='&vTabColor='+vTabColor; 
-}
-
-/*if($('#vTabTexColor')){
-    var vTabTexColor = $('#vTabTexColor').val();
-    extra+='&vTabTexColor='+vTabTexColor; 
-}*/
-
-var iLunchheaderId = $('input[name="iLunchheaderId"]:checked').val();
-
-if(iLunchheaderId !=''){
-   extra+='&iLunchheaderId='+iLunchheaderId; 
-}
-
-if($('#vLuncherTintColor')){
-    var vLuncherTintColor = $('#vLuncherTintColor').val();
-    extra+='&vLuncherTintColor='+vLuncherTintColor; 
-}
-
-if($('#navigation_bar')){
-    var vNavigationBar = $('#navigation_bar').val();
-    extra+='&vNavigationBar='+vNavigationBar;
-}
-
-if($('#navigation_text')){
-    var vNavigationText = $('#navigation_text').val();
-    extra+='&vNavigationText='+vNavigationText;
-}
-
-if($('#navigation_textshadow')){
-    var vNavigationShadow = $('#navigation_textshadow').val();
-    extra+='&vNavigationShadow='+vNavigationShadow;
-}
+	if(iIconcolorId !=''){
+	   extra+='&iIconcolorId='+iIconcolorId; 
+	}
 
 
-if($('#section_bars')){
-    var vSectionBar  = $('#section_bars').val();
-    extra+='&vSectionBar='+vSectionBar;
-}
+	if($('#vTabColor')){
+		var vTabColor = $('#vTabColor').val();
+		extra+='&vTabColor='+vTabColor; 
+	}
 
-if($('#section_text')){
-    var vSectionText  = $('#section_text').val();
-    extra+='&vSectionText='+vSectionText;
-}
+	/*if($('#vTabTexColor')){
+		var vTabTexColor = $('#vTabTexColor').val();
+		extra+='&vTabTexColor='+vTabTexColor; 
+	}*/
 
-if($('#oddRow_bar')){
-    var vOddRowBar   = $('#oddRow_bar').val();
-    extra+='&vOddRowBar='+vOddRowBar;
-}
+	//var iLunchheaderId = $('input[name="iLunchheaderId"]:checked').val();
+	//-- Changed by Rohit 08 September for Saving Lunch Header Detail
+	var iLunchheaderId = $('input[name="lunch_header"]:checked')[0].value
+	if(iLunchheaderId !=''){
+	   extra+='&iLunchheaderId='+iLunchheaderId; 
+	}
 
-if($('#oddRow_text')){
-    var vOddRowText   = $('#oddRow_text').val();
-    extra+='&vOddRowText='+vOddRowText;
-}
+	if($('#vLuncherTintColor')){
+		var vLuncherTintColor = $('#vLuncherTintColor').val();
+		extra+='&vLuncherTintColor='+vLuncherTintColor; 
+	}
 
-if($('#evenrow_bar')){
-    var vEvenRowBar   = $('#evenrow_bar').val();
-    extra+='&vEvenRowBar='+vEvenRowBar;
-}
+	if($('#navigation_bar')){
+		var vNavigationBar = $('#navigation_bar').val();
+		extra+='&vNavigationBar='+vNavigationBar;
+	}
 
-if($('#evenrow_text')){
-    var vEvenRowText   = $('#evenrow_text').val();
-    extra+='&vEvenRowText='+vEvenRowText;
-}
+	if($('#navigation_text')){
+		var vNavigationText = $('#navigation_text').val();
+		extra+='&vNavigationText='+vNavigationText;
+	}
 
-if($('#featurecolors_buttontext')){
-    var vButtonTextColor   = $('#featurecolors_buttontext').val();
-    extra+='&vButtonTextColor='+vButtonTextColor;
-}
-
-if($('#featurecolors_buttonimage')){
-    var vButtonImageColors   = $('#featurecolors_buttonimage').val();
-    extra+='&vButtonImageColors='+vButtonImageColors;
-}
-
-if($('#feature_text')){
-    var vFeatureText   = $('#feature_text').val();
-    extra+='&vFeatureText='+vFeatureText;
-}
-
-if($('#other_background')){
-    var vOtherBackgroundColor   = $('#other_background').val();
-    extra+='&vOtherBackgroundColor='+vOtherBackgroundColor;
-}
+	if($('#navigation_textshadow')){
+		var vNavigationShadow = $('#navigation_textshadow').val();
+		extra+='&vNavigationShadow='+vNavigationShadow;
+	}
 
 
-var iGlobalHeaderId = $('input[name="iGlobalHeaderId"]:checked').val();
+	if($('#section_bars')){
+		var vSectionBar  = $('#section_bars').val();
+		extra+='&vSectionBar='+vSectionBar;
+	}
 
-if(iGlobalHeaderId !=''){
-   extra+='&iGlobalHeaderId='+iGlobalHeaderId; 
-}
+	if($('#section_text')){
+		var vSectionText  = $('#section_text').val();
+		extra+='&vSectionText='+vSectionText;
+	}
 
-if($('#vGlobalTintColor')){
-    var vGlobalTintColor = $('#vGlobalTintColor').val();
-    extra+='&vGlobalTintColor='+vGlobalTintColor; 
-}
+	if($('#oddRow_bar')){
+		var vOddRowBar   = $('#oddRow_bar').val();
+		extra+='&vOddRowBar='+vOddRowBar;
+	}
+
+	if($('#oddRow_text')){
+		var vOddRowText   = $('#oddRow_text').val();
+		extra+='&vOddRowText='+vOddRowText;
+	}
+
+	if($('#evenrow_bar')){
+		var vEvenRowBar   = $('#evenrow_bar').val();
+		extra+='&vEvenRowBar='+vEvenRowBar;
+	}
+
+	if($('#evenrow_text')){
+		var vEvenRowText   = $('#evenrow_text').val();
+		extra+='&vEvenRowText='+vEvenRowText;
+	}
+
+	if($('#featurecolors_buttontext')){
+		var vButtonTextColor   = $('#featurecolors_buttontext').val();
+		extra+='&vButtonTextColor='+vButtonTextColor;
+	}
+
+	if($('#featurecolors_buttonimage')){
+		var vButtonImageColors   = $('#featurecolors_buttonimage').val();
+		extra+='&vButtonImageColors='+vButtonImageColors;
+	}
+
+	if($('#feature_text')){
+		var vFeatureText   = $('#feature_text').val();
+		extra+='&vFeatureText='+vFeatureText;
+	}
+
+	if($('#other_background')){
+		var vOtherBackgroundColor   = $('#other_background').val();
+		extra+='&vOtherBackgroundColor='+vOtherBackgroundColor;
+	}
 
 
+	var iGlobalHeaderId = $('input[name="iGlobalHeaderId"]:checked').val();
 
+	if(iGlobalHeaderId !=''){
+	   extra+='&iGlobalHeaderId='+iGlobalHeaderId; 
+	}
 
-
-
-//alert(tabback);return false; 
+	if($('#vGlobalTintColor')){
+		var vGlobalTintColor = $('#vGlobalTintColor').val();
+		extra+='&vGlobalTintColor='+vGlobalTintColor; 
+	}
 
 
 
 
-var pars = extra;
-var url = base_url+"app/saveappdesigninfo";
-//alert(url+pars);return false;
-$.post(url+pars,
-    function(data) {
-     //alert(data);
-     hide_loading();   
-     /*$('.tab_container').hide();
-     $('#displayfabricdata').show();
-     $('#displayfabricdata').html(data);*/
-     
-    });
+
+
+	//alert(tabback);return false; 
+
+
+
+
+	var pars = extra;
+	var url = base_url+"app/saveappdesigninfo";
+	//alert(url+pars);return false;
+	$.post(url+pars,
+		function(data) {
+		 //alert(data);
+		 hide_loading();   
+		 /*$('.tab_container').hide();
+		 $('#displayfabricdata').show();
+		 $('#displayfabricdata').html(data);*/
+	 
+		});
 
 }
 
@@ -11474,4 +11476,71 @@ function closeResetPopup(formId, imgId){
 	$('#'+imgId)[0].src = "";
 	$('#'+imgId)[0].setAttribute('style', "");
 	$.fancybox.close();
+}
+
+//function for opening popup
+function open_popup(popup_div_id,infoId)
+{
+	if (document.getElementById)
+	{
+		obj = document.getElementById(popup_div_id);
+		if (obj.style.display == "none")
+		{
+			obj.style.display = "block";
+			debugger;
+			if(infoId>0)
+			{
+				$("form[name=frminfotabEdit]")[0].reset();
+				$("#editInfoPopupTitle")[0].innerHTML="Edit Information";
+				$("#editInfoPopupUpdateBtn")[0].value="<i class='icon-ok'></i> Update Info";
+				var url = base_url+"app/getEditFormForInfo?infoId="+infoId;
+				$.post(url,
+					function(data)
+					{
+						try
+						{
+							var res = JSON.parse(data);
+							if(typeof res[0].iApplicationId != 'undefined' )
+							{
+								//-- put response data in popup
+								$("[name=editInfotabId]")[0].value=res[0].iInfotabId;
+								$("[name=editTitle]")[0].value=res[0].vTitle;
+								CKEDITOR.instances.editDescription.setData(res[0].tDescription);
+								$("[name=editStatus]")[0].value=res[0].eStatus;
+							}
+						}
+						catch(e)
+						{
+							console.log(e);
+						}
+					}
+				);
+			}
+			else
+			{
+			debugger;	
+				$("#editInfoPopupTitle")[0].innerHTML="Add Information";
+				$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> Save Info";
+				$("[name=editInfotabId]")[0].value="";
+				$("[name=editTitle]")[0].value="";
+				CKEDITOR.instances.editDescription.setData("");
+				$("[name=editStatus]")[0].value="";
+			}
+		}
+	}
+}
+
+function close_popup(popup_div_id){
+	if (document.getElementById)
+	{
+		obj = document.getElementById(popup_div_id);
+		if (obj.style.display == "block")
+		{
+			obj.style.display = "none";
+		}
+	}
+}
+
+function updateInfo(){
+	$("form[name=frminfotabEdit]")[0].submit();
 }

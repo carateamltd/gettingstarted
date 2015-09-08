@@ -535,12 +535,12 @@
 																	{section name=i loop=$data.get_all_buttons_lunch_header}				    
 																		<tr>
 																			<td>
-																				<!-- <div class="hover_active_color active_btn_mobile">
+																				<div class="hover_active_color active_btn_mobile">
 																				<label class="flt_lft_radio">
-																				<input type="radio" value="{$data.get_all_buttons_lunch_header[i].iLunchheaderId}" {if $data.allappdesignInfo[0].iLunchheaderId eq $data.get_all_buttons_lunch_header[i].iLunchheaderId} checked="ckecked" {/if} class="onbtn_radi"  name="iLunchheaderId" id="iLunchheaderId" onClick="change_lun_header({$data.get_all_buttons_lunch_header[i].iLunchheaderId});"/>
+																				<input type="radio" value="{$data.get_all_buttons_lunch_header[i].iLunchheaderId}" {if $data.allappdesignInfo[0].iLunchheaderId eq $data.get_all_buttons_lunch_header[i].iLunchheaderId} checked="ckecked" {/if} class="onbtn_radi"  name="lunch_header" id="iLunchheaderId" onClick="change_lun_header({$data.get_all_buttons_lunch_header[i].iLunchheaderId});"/>
 																				</label>
 																				<img src="{$data.base_upload}lunch_header/{$data.get_all_buttons_lunch_header[i].iLunchheaderId}/{$data.get_all_buttons_lunch_header[i].vImage}" style="width:320px;height:44px;" /> 
-																				</div> -->
+																				</div>
 																			</td>
 																		</tr>					 
 																	{/section}				    

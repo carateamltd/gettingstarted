@@ -3725,7 +3725,26 @@ class App extends MY_Controller
 		//echo $iApplicationId.'dsadas'.$iAppTabId;exit;
 		$iAppId = $this->app_model->delete_tab_related_data($iApplicationId,$iAppTabId,'r_appfeaturevalue');
 		$iAppTabId = $this->app_model->delete_tab_related_data($iApplicationId,$iAppTabId,'r_appfeature');
+		$tabOrderArr = $this->app_model->get_current_tab_order($iApplicationId);
+		
 		$isAppTabId = $this->app_model->delete_sorttab_related_data($iApplicationId);
+		
+		$in = 0;
+		$index = 0;
+		foreach($tabOrderArr as $order){
+			if($this->input->get('iAppTabId') !== $order['iAppTabId']){
+				$newArray['iSorttabId']=$tabOrderArr[$index]['iSorttabId'];
+				$newArray['iApplicationId']=$tabOrderArr[$index]['iApplicationId'];
+				$newArray['iAppTabId']=$tabOrderArr[$index]['iAppTabId'];
+				$newArray['iOrderId']=($in+1);
+				$this->app_model->save('r_sorttab',$newArray);
+				$in++;
+			}
+			$index++;
+		}
+		/*print_r($tabOrderArr);
+		echo "<br/>";
+		print_r($newArray);die;*/
 		
 		$this->session->set_flashdata('message','Tab Deleted Successfully.');	
 		redirect($this->data['base_url'] . 'app/step2/'.$iApplicationId);
@@ -5706,7 +5725,11 @@ class App extends MY_Controller
                                      break;	
 									 		
                                 case 'File':
-                                    $html .='<div class="control-group">
+                                	$style='';
+                                	if($val['vDataBaseFieldName'] === "vHeaderImage"){
+                                		$style='style="display:none;"';
+                                	}
+                                    $html .='<div class="control-group" '.$style.'>
                                                 <label class="control-label">';
                                                 foreach($this->data['mylang'] as $vals){
 													if($vals['rLabelName'] == $val['vLabelName']){
@@ -5838,8 +5861,8 @@ class App extends MY_Controller
                             		$k = $i+1; 
 					$html .='<tr class="row1a">
                                      <td width="25%"><p class="sp_title">'.$allappevents[$i]["vTitle"].'</p></td>
-                                     <td width="32%" align="center">'.date("jS F Y", strtotime($allappevents[$i]["dStartDate"])).'&nbsp;'.$allappevents[$i]["vStartTime"].'</td>
-                                     <td width="32%" align="center">'.date("jS F Y", strtotime($allappevents[$i]["dEndDate"])).'&nbsp;'.$allappevents[$i]["vEndTime"].'</td>
+                                     <td width="32%" align="center">'.date("d/m/Y", strtotime($allappevents[$i]["dStartDate"])).'&nbsp;'.$allappevents[$i]["vStartTime"].'</td>
+                                     <td width="32%" align="center">'.date("d/m/Y", strtotime($allappevents[$i]["dEndDate"])).'&nbsp;'.$allappevents[$i]["vEndTime"].'</td>
                                      <td align="center" width="7%"><a class="apptab_edit"  onclick="return edit_event('.$allappevents[$i]["iEventId"].','.$iFeatureId.');"><i class="icon-pencil helper-font-24"></i></a></td>
                                      <td align="center" width="7%"><a class="button grey" onclick="delete_event('.$allappevents[$i]["iEventId"].','.$iAppTabId.');" style="cursor:pointer;"><i class="icon-trash helper-font-24"></i></a></td>
                              </tr>';    
@@ -6051,7 +6074,11 @@ class App extends MY_Controller
                                     </div>';
                                      break;			
                                         case 'File':
-                                               $html .='<div class="control-group">
+                                        	$style='';
+											if($val['vDataBaseFieldName'] === "vHeaderImage"){
+												$style='style="display:none;"';
+											}
+                                               $html .='<div class="control-group" '.$style.'>
                                                         <label class="control-label">';
 							foreach($event_lang as $val1){
 								if($val1['rLabelName'] == $val['vLabelName']){
@@ -7014,10 +7041,92 @@ class App extends MY_Controller
         
         $lang= $this->session->userdata('language');
 		$information_language = $this->admin_model->get_language_details($lang);
-        // echo "<pre>";
-        // print_r($information_language);exit;        
         $all_featurefields = $this->app_model->get_featurefields($iFeatureId);
         $html .='<div id="addabout_validation'.$iAppTabId.'" style="display:none;"></div>';
+        $html .='<button type="button" class="btn btn-primary" onClick="open_popup(\'info_edit_model\',0);"><i class="icon-plus-sign"></i> ';
+        foreach($information_language as $val1)
+        {
+        	if($val1['rLabelName'] == "Add New")
+        	{
+        		$html.=$val1['rField'];
+        	}
+        }
+        $html .= '</button>';
+        $inc =1;
+        $html .= "<table width='100%' style='table-layout:auto; word-break:break-all; word-wrap:break-word;' cellspacing='0' cellpadding='0' class='table table-striped table-hover table-bordered'>";
+        $html .= "<tr class='nodrop'>";
+        $html .= "<th>No.</th>";
+        $html .= "<th>Title</th>";
+        $html .= "<th>Description</th>";
+        $html .= "<th>Status</th>";
+        $html .= "<th>Action</th>";
+        $html .= "</tr>";
+        foreach($appwise_infotabdata as $info_data)
+        {
+        	$html .= '<tr>';
+        	$html .= '<td>'.$inc.'</td>';
+        	$html .= '<td>'.$info_data['vTitle'].'</td>';
+        	$html .= '<td>'.$info_data['tDescription'].'</td>';
+        	$html .= '<td>'.$info_data['eStatus'].'</td>';
+        	$html .= '<td><a class="btn btn-primary" onclick="open_popup(\'info_edit_model\','.$info_data['iInfotabId'].');"><i class="icon-pencil"></i> Edit</a></td>';
+        	$html .= '</tr>';
+        	
+        	$inc = $inc+1;
+        }
+        $html .= "</table>";
+        
+        $html .= '<div id="info_edit_model" class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: none;">';
+        $html .= 	'<div class="fancybox-wrap fancybox-desktop fancybox-type-inline fancybox-opened" tabindex="-1" style="width: 800px; height: 600px; position: absolute; top: 0px; left: 0px; opacity: 1; overflow: visible;">';
+        $html .= 		'<div class="fancybox-skin" style="padding: 0px; width: auto; height: 600px;">';
+        $html .= 			'<div class="fancybox-outer">';
+        $html .= 				'<div class="fancybox-inner" style="overflow: hidden; width: 800px; height: 600px;">';
+        
+        $html .= '<div class="main_popup">';
+        $html .= 	'<div class="popup_header">';
+        $html .= 		'<h3 id="editInfoPopupTitle"></h3>';
+        $html .= 		'<a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="close_popup(\'info_edit_model\');"><i class="icon-remove"></i></a>';
+        $html .= 	'</div>';
+        $html .= 	'<div class="popup-body" style="max-height:450px;">';
+        $html .= 		'<div class="widget-body form">';
+        $html .=			'<form name="frminfotabEdit" method="post" action="'.$this->data['base_url'].'app/update_infotabdata" class="form-horizontal">';
+        $html .= 				'<input class="span6" type="hidden" name="editApplicationId" value="'.$this->data['iApplicationId'].'" />';
+        $html .= 				'<input class="span6" type="hidden" name="editAppTabId" value="'.$iAppTabId.'" />';
+        $html .= 				'<input class="span6" type="hidden" name="editInfotabId" />';
+        $html .= 				'<div class="control-group">';
+        $html .= 					'<label class="control-label">Title</label>';
+        $html .= 					'<div class="controls">';
+        $html .= 						'<input type="text" class="input-xlarge" name="editTitle" />';
+        $html .= 					'</div>';
+        $html .= 				'</div>';
+        $html .= 				'<div class="control-group">';
+        $html .= 					'<label class="control-label">Description</label>';
+        $html .= 					'<div class="controls">';
+        $html .= 						'<textarea class="input-xlarge ckeditor" rows="3" name="editDescription"></textarea>';
+        $html .= 					'</div>';
+        $html .= 				'</div>';
+        $html .= 				'<div class="control-group">';
+        $html .= 					'<label class="control-label">Status</label>';
+        $html .= 					'<div class="controls">';
+        $html .= 						'<select name="editStatus">';
+        $html .=							'<option value="Active">Active</option>';
+        $html .=							'<option value="Inactive">Inactive</option>';
+        $html .=						'</select>';
+        $html .= 					'</div>';
+        $html .= 				'</div>';
+        $html .=			'</form>';
+        $html .= 		'</div>';
+        $html .= 	'</div>';
+        $html .= 	'<div class="popup-footer">';
+        $html .= 		'<div style="margin-right:300px;">';
+		$html .= 			'<button type="button" id="editInfoPopupUpdateBtn" class="btn btn-primary" onclick="updateInfo()"><i class="icon-ok"></i> Update Info</button>';
+		$html .= 			'&nbsp;&nbsp;';
+        $html .= 			'<button aria-hidden="true" onclick="close_popup(\'info_edit_model\');" class="btn">Close</button>';
+		$html .= 		'</div>';
+        $html .= 	'</div>';
+        $html .= '</div></div></div></div></div></div>';
+        
+        
+        /*
         $html .='<form name="frminfotab" id="frminfotab_'.$iAppTabId.'" method="post" action="'.$this->data['base_url'].'app/save_infotabdata" class="form-horizontal">
                     <input class="span6" type="hidden" name="data[iApplicationId]" value="'.$this->data['iApplicationId'].'">
                     <input class="span6" type="hidden" name="data[iAppTabId]" value="'.$iAppTabId.'">
@@ -7100,7 +7209,7 @@ class App extends MY_Controller
                             
                         $html .='</div>
                     </div>    
-                </form>';
+                </form>';*/
                 
         return $html;
     }
@@ -7123,7 +7232,32 @@ class App extends MY_Controller
          redirect($this->data['base_url'] . 'app/step3/'.$iApplicationId);
     }
     
+    function update_infotabdata(){
+        $postArray['iApplicationId'] = $this->input->post('editApplicationId');
+       	$postArray['iInfotabId'] = $this->input->post('editInfotabId');
+        $postArray['iAppTabId'] = $this->input->post('editAppTabId');
+        $postArray['vTitle'] = $this->input->post('editTitle');
+        $postArray['eStatus'] = $this->input->post('editStatus');
+     	$postArray['tDescription'] = $this->input->post('editDescription');
+        if($this->input->post()){
+            if($postArray['iInfotabId']){
+				$iInfotabId = $postArray['iInfotabId'];
+				$iInfotabId = $this->app_model->update_info($postArray,$iInfotabId);
+
+            }else{
+				$iInfotabId = $this->app_model->save_info($postArray);
+
+            }
+        }
+         redirect($this->data['base_url'] . 'app/step3/'.$postArray['iApplicationId']);
+    }
     
+    function getEditFormForInfo()
+    {
+    	$infoId = $this->input->get('infoId');
+    	$informationArray = $this->app_model->get_infobyInfoId($infoId);
+    	echo json_encode($informationArray);
+    }
     
     function getpdfhtml($iFeatureId,$iAppTabId){
     	
