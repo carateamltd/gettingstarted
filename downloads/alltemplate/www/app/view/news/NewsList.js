@@ -6,7 +6,7 @@ Ext.define('MyApp.view.news.NewsList', {
         scrollable: {
             indicators: false
         },
-        emptyText:Loc.t('NEWS.NONEWSISAVAILABLE'),
+        emptyText:"",//Loc.t('NEWS.NONEWSISAVAILABLE'),
         store: 'newsstoreid',
         itemTpl: new Ext.XTemplate('<li style="padding:5px; font-family: "Times New Roman", Georgia, Serif;">\n\
 <div style="padding:10px 0px 0px 0px;  color:black;background-color:rgba(255, 255, 255, 1);border: 1px solid #efefef; border-radius: 10px;">\n\

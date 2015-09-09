@@ -1870,6 +1870,9 @@ console.log('===================End=====================');
         var me = this, tabId = tab.config.iAppTabId;
         appMask();
         this.setPageTitle(tab);
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+		view.down('newslist').setEmptyText(Loc.t('NEWS.NONEWSISAVAILABLE') + tab.config.title);
         var url = URLConstants.URL + 'action=easyapp_news_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,

@@ -138,7 +138,7 @@ Ext.define('locales.en', {
     },
     NEWS:{
         TITLE: 'Info',
-        NONEWSISAVAILABLE: 'No news is available'
+        NONEWSISAVAILABLE: 'No '
     },
     ORDER:{
         TITLE: 'Order',

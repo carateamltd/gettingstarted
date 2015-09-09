@@ -138,7 +138,7 @@ Ext.define('locales.de', {
     },
     NEWS:{
         TITLE: 'Info',
-        NONEWSISAVAILABLE: 'Non Nouvelles est disponible'
+        NONEWSISAVAILABLE: 'Pas de '
     },
     ORDER:{
         TITLE: 'Commande',

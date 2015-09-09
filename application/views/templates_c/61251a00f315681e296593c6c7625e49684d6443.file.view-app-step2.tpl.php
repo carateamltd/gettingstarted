@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-09 12:49:12
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-09 13:03:12
          compiled from "application/views/templates/view-app-step2.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19016884805582a0b55708b1-56806866%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61251a00f315681e296593c6c7625e49684d6443' => 
     array (
       0 => 'application/views/templates/view-app-step2.tpl',
-      1 => 1441777749,
+      1 => 1441778131,
       2 => 'file',
     ),
   ),
@@ -704,7 +704,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 <?php }?><?php } ?></h3>
       			</div>
       			<div class="modal-body">
-        			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
 $_smarty_tpl->tpl_vars['val']->_loop = true;
