@@ -11487,7 +11487,6 @@ function open_popup(popup_div_id,infoId)
 		if (obj.style.display == "none")
 		{
 			obj.style.display = "block";
-			debugger;
 			if(infoId>0)
 			{
 				$("form[name=frminfotabEdit]")[0].reset();
@@ -11517,8 +11516,7 @@ function open_popup(popup_div_id,infoId)
 				);
 			}
 			else
-			{
-			debugger;	
+			{	
 				$("#editInfoPopupTitle")[0].innerHTML="Add Information";
 				$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> Save Info";
 				$("[name=editInfotabId]")[0].value="";
@@ -11543,4 +11541,42 @@ function close_popup(popup_div_id){
 
 function updateInfo(){
 	$("form[name=frminfotabEdit]")[0].submit();
+}
+
+function openEditGalleryPopup(galleryImageId, popup_div_id)
+{
+	if (document.getElementById)
+	{
+		obj = document.getElementById(popup_div_id);
+		if (obj.style.display == "none")
+		{
+			obj.style.display = "block";
+			$("form[name=frmgalleryEdit]")[0].reset();
+			$("#editGalleryPopupTitle")[0].innerHTML="Edit Gallery Image";
+			$("#editGalleryPopupUpdateBtn")[0].value="<i class='icon-ok'></i> Update Image";
+			$("[name=editAppTabId]")[0].value=$.session.get("curTabId").split('_')[1];
+			var url = base_url+"app/getEditFormForGallery?imageId="+galleryImageId;
+			$.post(url,
+				function(data)
+				{
+					try
+					{
+						var res = JSON.parse(data);
+						if(typeof res[0].iApplicationId != 'undefined' )
+						{
+							//-- put response data in popup
+							/*$("[name=editInfotabId]")[0].value=res[0].iInfotabId;
+							$("[name=editTitle]")[0].value=res[0].vTitle;
+							CKEDITOR.instances.editDescription.setData(res[0].tDescription);
+							$("[name=editStatus]")[0].value=res[0].eStatus;*/
+						}
+					}
+					catch(e)
+					{
+						console.log(e);
+					}
+				}
+			);
+		}
+	}
 }

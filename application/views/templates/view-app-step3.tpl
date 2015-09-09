@@ -1,3 +1,4 @@
+{$data.popuphtml}
 <script src="{$data.base_js}jquery.form.js"></script>
 {include file="set_background_image_popup.tpl" }
 

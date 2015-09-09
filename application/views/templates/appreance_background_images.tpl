@@ -82,18 +82,28 @@
 										<span class="tabdata">
 											{section name=j loop=$data.your_tabbackground[i]['apptab_deatils']}						    
 												{if $data.your_tabbackground[i]['apptab_deatils'][j]['vTitle'] neq ''}
+													{$foundTranslation=0}
 													{foreach from=$lang item=val}
 														{if $val.rLabelName == $data.your_tabbackground[i]['apptab_deatils'][j]['vTitle']}
 															{$val.rField}
+															{$foundTranslation=1}
 														{/if}
 													{/foreach}
+													{if $foundTranslation==0}
+														{$data.your_tabbackground[i]['apptab_deatils'][j]['vTitle']}
+													{/if}
 													</br>
 												{else}
+													{$foundTranslation=0}
 													{foreach from=$lang item=val}
 														{if $val.rLabelName == $data.your_tabbackground[i]['apptab_deatils'][j]['default_vTitle']}
 															{$val.rField}
+															{$foundTranslation=1}
 														{/if}
 													{/foreach}
+													{if $foundTranslation==0}
+														{$data.your_tabbackground[i]['apptab_deatils'][j]['default_vTitle']}
+													{/if}
 													</br>
 												{/if}
 											{/section}
@@ -192,11 +202,16 @@
 								<li>								  
 									<input tabindex="17" name="iAppTabId[]" type="checkbox" value="{$data.selected_feature_details[i].iAppTabId}" class="democls" id="tabId" {if in_array($data.selected_feature_details[i].iAppTabId,$data['finalSelected_tab_array'])} checked="checked" {/if} />
 									<label for="tabId">
+										{$foundTranslation=0}
 										{foreach from=$lang item=val}
 											{if $val.rLabelName == $data.selected_feature_details[i].vTitle}
 												{$val.rField}
+												{$foundTranslation=1}
 											{/if}
-										{/foreach} 
+										{/foreach}
+										{if $foundTranslation==0}
+											{$data.selected_feature_details[i].vTitle}
+										{/if} 
 									</label>
 								</li>
 								<!--<li>
@@ -248,9 +263,27 @@
 										<input tabindex="17" name="iAppTabId[]" id="ckeck_box_close" type="checkbox" value="{$data.selected_feature_details[i].iAppTabId}" class="close_checkbox" />
 										<label for="tabId">
 											{if $data.selected_feature_details[i].vTitle == ""}
-												{$data.selected_feature_details[i].default_vTitle}
+												{$foundTranslation=0}
+												{foreach from=$lang item=val}
+													{if $val.rLabelName == $data.selected_feature_details[i].default_vTitle}
+														{$val.rField}
+														{$foundTranslation=1}
+													{/if}
+												{/foreach}
+												{if $foundTranslation==0}
+													{$data.selected_feature_details[i].default_vTitle}
+												{/if}	
 											{else}
-												{$data.selected_feature_details[i].vTitle}
+												{$foundTranslation=0}
+												{foreach from=$lang item=val}
+													{if $val.rLabelName == $data.selected_feature_details[i].vTitle}
+														{$val.rField}
+														{$foundTranslation=1}
+													{/if}
+												{/foreach}
+												{if $foundTranslation==0}
+													{$data.selected_feature_details[i].vTitle}
+												{/if}
 											{/if}
 										</label>
 									</li>								

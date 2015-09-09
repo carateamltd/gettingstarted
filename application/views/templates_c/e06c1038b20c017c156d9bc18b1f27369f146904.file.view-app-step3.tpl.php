@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-22 18:19:54
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-09 20:16:36
          compiled from "application/views/templates/view-app-step3.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28071995583b94bf016f6-36551925%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e06c1038b20c017c156d9bc18b1f27369f146904' => 
     array (
       0 => 'application/views/templates/view-app-step3.tpl',
-      1 => 1440242390,
+      1 => 1441804581,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5583b94c30d8e7_19130044')) {function content_5583b94c30d8e7_19130044($_smarty_tpl) {?><script src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_js'];?>
+<?php if ($_valid && !is_callable('content_5583b94c30d8e7_19130044')) {function content_5583b94c30d8e7_19130044($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['data']->value['popuphtml'];?>
+
+<script src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_js'];?>
 jquery.form.js"></script>
 <?php echo $_smarty_tpl->getSubTemplate ("set_background_image_popup.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 

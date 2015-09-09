@@ -293,6 +293,7 @@ class App extends MY_Controller
 		$back_tab_img_details = array();
 		
 		//echo "<pre>";print_r($selected_feature_details);exit;
+		$isPopupAdded=0;
 		foreach ($selected_feature_details as $key => $val) 
 		{	
 			$iFeatureId = $val['iFeatureId'];
@@ -332,6 +333,7 @@ class App extends MY_Controller
 		//echo '<pre>';print_r($this->data['your_tabbackground']);exit;
 		
 		$this->data['userdata'] = $this->session->userdata;
+		
 		$this->data['html'] = $html;
 		
 		//echo "<pre>";print_r($selected_feature_details);exit;
@@ -357,6 +359,12 @@ class App extends MY_Controller
 		  }
 		  $this->data['AllSubTabImages']=$getAllTabData;		  
 		  
+		  if($isPopupAdded==0)
+			{
+				$this->data['popuphtml'] = $this->getAllPopupData();
+				$html = $popuphtml.$html;
+				$isPopupAdded = 1;
+			}
 		  $buttonBckgroundData=$this->app_model->getAllButtonImg($this->data['getAdminImgData']);		
 		  $this->data['buttons_tab_background'] = $buttonBckgroundData;
 		  $this->data['get_all_buttons_lunch_header'] = $this->get_all_buttons_lunch_header($this->data['getAdminImgData']);
@@ -7074,57 +7082,6 @@ class App extends MY_Controller
         	$inc = $inc+1;
         }
         $html .= "</table>";
-        
-        $html .= '<div id="info_edit_model" class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: none;">';
-        $html .= 	'<div class="fancybox-wrap fancybox-desktop fancybox-type-inline fancybox-opened" tabindex="-1" style="width: 800px; height: 600px; position: absolute; top: 0px; left: 0px; opacity: 1; overflow: visible;">';
-        $html .= 		'<div class="fancybox-skin" style="padding: 0px; width: auto; height: 600px;">';
-        $html .= 			'<div class="fancybox-outer">';
-        $html .= 				'<div class="fancybox-inner" style="overflow: hidden; width: 800px; height: 600px;">';
-        
-        $html .= '<div class="main_popup">';
-        $html .= 	'<div class="popup_header">';
-        $html .= 		'<h3 id="editInfoPopupTitle"></h3>';
-        $html .= 		'<a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="close_popup(\'info_edit_model\');"><i class="icon-remove"></i></a>';
-        $html .= 	'</div>';
-        $html .= 	'<div class="popup-body" style="max-height:450px;">';
-        $html .= 		'<div class="widget-body form">';
-        $html .=			'<form name="frminfotabEdit" method="post" action="'.$this->data['base_url'].'app/update_infotabdata" class="form-horizontal">';
-        $html .= 				'<input class="span6" type="hidden" name="editApplicationId" value="'.$this->data['iApplicationId'].'" />';
-        $html .= 				'<input class="span6" type="hidden" name="editAppTabId" value="'.$iAppTabId.'" />';
-        $html .= 				'<input class="span6" type="hidden" name="editInfotabId" />';
-        $html .= 				'<div class="control-group">';
-        $html .= 					'<label class="control-label">Title</label>';
-        $html .= 					'<div class="controls">';
-        $html .= 						'<input type="text" class="input-xlarge" name="editTitle" />';
-        $html .= 					'</div>';
-        $html .= 				'</div>';
-        $html .= 				'<div class="control-group">';
-        $html .= 					'<label class="control-label">Description</label>';
-        $html .= 					'<div class="controls">';
-        $html .= 						'<textarea class="input-xlarge ckeditor" rows="3" name="editDescription"></textarea>';
-        $html .= 					'</div>';
-        $html .= 				'</div>';
-        $html .= 				'<div class="control-group">';
-        $html .= 					'<label class="control-label">Status</label>';
-        $html .= 					'<div class="controls">';
-        $html .= 						'<select name="editStatus">';
-        $html .=							'<option value="Active">Active</option>';
-        $html .=							'<option value="Inactive">Inactive</option>';
-        $html .=						'</select>';
-        $html .= 					'</div>';
-        $html .= 				'</div>';
-        $html .=			'</form>';
-        $html .= 		'</div>';
-        $html .= 	'</div>';
-        $html .= 	'<div class="popup-footer">';
-        $html .= 		'<div style="margin-right:300px;">';
-		$html .= 			'<button type="button" id="editInfoPopupUpdateBtn" class="btn btn-primary" onclick="updateInfo()"><i class="icon-ok"></i> Update Info</button>';
-		$html .= 			'&nbsp;&nbsp;';
-        $html .= 			'<button aria-hidden="true" onclick="close_popup(\'info_edit_model\');" class="btn">Close</button>';
-		$html .= 		'</div>';
-        $html .= 	'</div>';
-        $html .= '</div></div></div></div></div></div>';
-        
         
         /*
         $html .='<form name="frminfotab" id="frminfotab_'.$iAppTabId.'" method="post" action="'.$this->data['base_url'].'app/save_infotabdata" class="form-horizontal">
@@ -14097,7 +14054,7 @@ function save_hometabdata()
 				
 	            foreach($appwise_gallery as $val) {
 					$url = $this->data['base_upload'].'gallery/'.$val['iGalleryImageId'].'/'.$val['vGalleryImage'];
-					$html .= '<li><a href="#" class="galleryimg"><img src="'.$url.'" width="100px" height="100px"></a><a href="'.$this->data['base_url'].'app/delete_gallery_img/'.$val['iApplicationId'].'?iGalleryImageId='.$val['iGalleryImageId'].'" class="icon-remove" ></a><span class="gallery-desc">'.$val['tDescription'].'</span></li>';
+					$html .= '<li><a href="#" class="galleryimg"><img src="'.$url.'" width="100px" height="100px"></a><a href="'.$this->data['base_url'].'app/delete_gallery_img/'.$val['iApplicationId'].'?iGalleryImageId='.$val['iGalleryImageId'].'" class="icon-remove" ></a><a class="editImgGlryLink" onclick="openEditGalleryPopup(\''.$val['iGalleryImageId'].'\',\'galleryEditPopup\');" ><i class="icon-pencil"></i> Edit</a><span class="gallery-desc">'.$val['tDescription'].'</span></li>';
 		    	}
 		    	$html .= '</ul>';
 			
@@ -16905,6 +16862,128 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 			echo "fail";
 		}
 		exit;
+	}
+	
+	function getAllPopupData()
+	{
+		$html='';
+		//-- HTML for Gallery Edit Popup
+		
+		$html .= '<div id="galleryEditPopup" class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: none;">';
+		$html .= 	'<div class="fancybox-wrap fancybox-desktop fancybox-type-inline fancybox-opened" tabindex="-1" style="width: 800px; height: 600px; position: absolute; top: 0px; left: 0px; opacity: 1; overflow: visible;">';
+		$html .= 		'<div class="fancybox-skin" style="padding: 0px; width: auto; height: 600px;">';
+		$html .= 			'<div class="fancybox-outer">';
+		$html .= 				'<div class="fancybox-inner" style="overflow: hidden; width: 800px; height: 600px;">';
+
+		$html .= 					'<div class="main_popup">';
+		$html .= 						'<div class="popup_header">';
+		$html .= 							'<h3 id="editGalleryPopupTitle"></h3>';
+		$html .= 							'<a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="close_popup(\'galleryEditPopup\');"><i class="icon-remove"></i></a>';
+		$html .= 						'</div>';
+		$html .= 						'<div class="popup-body" style="max-height:450px;">';
+		$html .= 							'<div class="widget-body form">';
+		
+		$html .=								'<form name="frmgalleryEdit" method="post" action="'.$this->data['base_url'].'app/update_gallery" class="form-horizontal" enctype="multipart/form-data">';
+		$html .= 									'<input class="span6" type="hidden" name="iApplicationIdEdit" value="" />';
+		$html .= 									'<input class="span6" type="hidden" name="iAppTabIdEdit" value="" />';
+		$html .= 									'<input class="span6" type="hidden" name="imageNameOldEdit" value="" />';
+		$html .= 									'<div class="lean-body">';
+		$html .= 										'<div class="widget-body form" >';
+        $html .=											'<div class="control-group">';                                        	
+        $html .=												'<label class="control-label">';
+																	foreach($gallery_language as $val1)
+																	{
+																		if($val1['rLabelName'] ==$val['vLabelName'])
+																		{
+																			$html.=$val1['rField'];
+																		}	
+																	}
+        $html .=													'<span>  &nbsp;(200px *200px) </span>';
+        $html .=												'</label>';
+        $html .= 												'<div class="controls">';
+        $html .= 													'<input type="file" class="default" name="vGalleryImageEdit" style="float: left;" value="">';
+        $html .=												'</div>';
+        $html .=											'</div>';
+        $html .=											'<div class="control-group">';
+    	$html .=												'<label class="control-label">';
+                                            						foreach($gallery_language as $val1)
+                                            						{
+																		if($val1['rLabelName'] ==$val['vLabelName'])
+																		{
+																			$html.=$val1['rField'];
+																		}
+						       										}
+        $html .=													'</label>';
+        $html .= 												'<div class="controls">';
+        $html .= 													'<textarea class="input-xlarge ckeditor" rows="3" name="tDescriptionEdit"></textarea>';
+        $html .= 												'</div>';
+        $html .= 											'</div>';
+        $html .=										'</div>';
+        $html .=									'</div>';   
+        $html .=								'</form>';
+		$html .= 							'</div>';
+		$html .= 						'</div>';
+		$html .= 						'<div class="popup-footer">';
+		$html .= 							'<div style="margin-right:300px;">';
+		$html .= 								'<button type="button" id="editGalleryPopupUpdateBtn" class="btn btn-primary" onclick="updateInfo()"><i class="icon-ok"></i> Update Info</button>';
+		$html .= 								'&nbsp;&nbsp;';
+		$html .= 								'<button aria-hidden="true" onclick="close_popup(\'galleryEditPopup\');" class="btn">Close</button>';
+		$html .= 							'</div>';
+		$html .= 						'</div>';
+		$html .= '</div></div></div></div></div></div>';
+		
+		//-- HTML for information popup
+		$html .= '<div id="info_edit_model" class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: none;">';
+        $html .= 	'<div class="fancybox-wrap fancybox-desktop fancybox-type-inline fancybox-opened" tabindex="-1" style="width: 800px; height: 600px; position: absolute; top: 0px; left: 0px; opacity: 1; overflow: visible;">';
+        $html .= 		'<div class="fancybox-skin" style="padding: 0px; width: auto; height: 600px;">';
+        $html .= 			'<div class="fancybox-outer">';
+        $html .= 				'<div class="fancybox-inner" style="overflow: hidden; width: 800px; height: 600px;">';
+        
+        $html .= '<div class="main_popup">';
+        $html .= 	'<div class="popup_header">';
+        $html .= 		'<h3 id="editInfoPopupTitle"></h3>';
+        $html .= 		'<a class="pull-right" id="popup_close_btn" style="margin-top:-25px;color:#fff;" href="javascript:void(0);" onclick="close_popup(\'info_edit_model\');"><i class="icon-remove"></i></a>';
+        $html .= 	'</div>';
+        $html .= 	'<div class="popup-body" style="max-height:450px;">';
+        $html .= 		'<div class="widget-body form">';
+        $html .=			'<form name="frminfotabEdit" method="post" action="'.$this->data['base_url'].'app/update_infotabdata" class="form-horizontal">';
+        $html .= 				'<input class="span6" type="hidden" name="editApplicationId" value="'.$this->data['iApplicationId'].'" />';
+        $html .= 				'<input class="span6" type="hidden" name="editAppTabId" value="" />';
+        $html .= 				'<input class="span6" type="hidden" name="editInfotabId" />';
+        $html .= 				'<div class="control-group">';
+        $html .= 					'<label class="control-label">Title</label>';
+        $html .= 					'<div class="controls">';
+        $html .= 						'<input type="text" class="input-xlarge" name="editTitle" />';
+        $html .= 					'</div>';
+        $html .= 				'</div>';
+        $html .= 				'<div class="control-group">';
+        $html .= 					'<label class="control-label">Description</label>';
+        $html .= 					'<div class="controls">';
+        $html .= 						'<textarea class="input-xlarge ckeditor" rows="3" name="editDescription"></textarea>';
+        $html .= 					'</div>';
+        $html .= 				'</div>';
+        $html .= 				'<div class="control-group">';
+        $html .= 					'<label class="control-label">Status</label>';
+        $html .= 					'<div class="controls">';
+        $html .= 						'<select name="editStatus">';
+        $html .=							'<option value="Active">Active</option>';
+        $html .=							'<option value="Inactive">Inactive</option>';
+        $html .=						'</select>';
+        $html .= 					'</div>';
+        $html .= 				'</div>';
+        $html .=			'</form>';
+        $html .= 		'</div>';
+        $html .= 	'</div>';
+        $html .= 	'<div class="popup-footer">';
+        $html .= 		'<div style="margin-right:300px;">';
+		$html .= 			'<button type="button" id="editInfoPopupUpdateBtn" class="btn btn-primary" onclick="updateInfo()"><i class="icon-ok"></i> Update Info</button>';
+		$html .= 			'&nbsp;&nbsp;';
+        $html .= 			'<button aria-hidden="true" onclick="close_popup(\'info_edit_model\');" class="btn">Close</button>';
+		$html .= 		'</div>';
+        $html .= 	'</div>';
+        $html .= '</div></div></div></div></div></div>';
+		
+		return $html;
 	}
 }
 ?>

@@ -10,18 +10,11 @@ Ext.define("MyApp.view.youtube.YouTubeNavi", {
         },
         scrollable: false,
         navigationBar: {
-            hidden: true,
-//            baseCls: 'younaviCls',
-//            height: 50,
-//            items:[{
-//                      xtype:'button',
-//                      ui:'plain',
-//                      text:'<img src="img/backbtn.png" />'
-//            }]
+            hidden: true
         },
         items: [{
-                xtype: 'youtube',
-                style: "background-image: url('img/splash.png');",
-            }]
+            xtype: 'youtube',
+            style: "background-image: url('img/splash.png');"
+        }]
     }
 });

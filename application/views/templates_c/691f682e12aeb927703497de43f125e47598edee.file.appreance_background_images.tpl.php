@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-25 17:13:59
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-09 19:58:10
          compiled from "application/views/templates/appreance_background_images.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2288117235583d352c42734-54633238%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '691f682e12aeb927703497de43f125e47598edee' => 
     array (
       0 => 'application/views/templates/appreance_background_images.tpl',
-      1 => 1440494870,
+      1 => 1441803428,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
     'lang' => 0,
     'val' => 0,
+    'foundTranslation' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -188,6 +189,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['first']      = ($_smart
 $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['j']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['j']['total']);
 ?>						    
 												<?php if ($_smarty_tpl->tpl_vars['data']->value['your_tabbackground'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['apptab_deatils'][$_smarty_tpl->getVariable('smarty')->value['section']['j']['index']]['vTitle']!=''){?>
+													<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(0, null, 0);?>
 													<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -196,10 +198,16 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 														<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']==$_smarty_tpl->tpl_vars['data']->value['your_tabbackground'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['apptab_deatils'][$_smarty_tpl->getVariable('smarty')->value['section']['j']['index']]['vTitle']){?>
 															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
+															<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(1, null, 0);?>
 														<?php }?>
 													<?php } ?>
+													<?php if ($_smarty_tpl->tpl_vars['foundTranslation']->value==0){?>
+														<?php echo $_smarty_tpl->tpl_vars['data']->value['your_tabbackground'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['apptab_deatils'][$_smarty_tpl->getVariable('smarty')->value['section']['j']['index']]['vTitle'];?>
+
+													<?php }?>
 													</br>
 												<?php }else{ ?>
+													<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(0, null, 0);?>
 													<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -208,8 +216,13 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 														<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']==$_smarty_tpl->tpl_vars['data']->value['your_tabbackground'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['apptab_deatils'][$_smarty_tpl->getVariable('smarty')->value['section']['j']['index']]['default_vTitle']){?>
 															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
+															<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(1, null, 0);?>
 														<?php }?>
 													<?php } ?>
+													<?php if ($_smarty_tpl->tpl_vars['foundTranslation']->value==0){?>
+														<?php echo $_smarty_tpl->tpl_vars['data']->value['your_tabbackground'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['apptab_deatils'][$_smarty_tpl->getVariable('smarty')->value['section']['j']['index']]['default_vTitle'];?>
+
+													<?php }?>
 													</br>
 												<?php }?>
 											<?php endfor; endif; ?>
@@ -365,6 +378,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
 									<input tabindex="17" name="iAppTabId[]" type="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iAppTabId'];?>
 " class="democls" id="tabId" <?php if (in_array($_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iAppTabId'],$_smarty_tpl->tpl_vars['data']->value['finalSelected_tab_array'])){?> checked="checked" <?php }?> />
 									<label for="tabId">
+										<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(0, null, 0);?>
 										<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -373,8 +387,13 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 											<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']==$_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle']){?>
 												<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
+												<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(1, null, 0);?>
 											<?php }?>
-										<?php } ?> 
+										<?php } ?>
+										<?php if ($_smarty_tpl->tpl_vars['foundTranslation']->value==0){?>
+											<?php echo $_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle'];?>
+
+										<?php }?> 
 									</label>
 								</li>
 								<!--<li>
@@ -458,11 +477,39 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
 " class="close_checkbox" />
 										<label for="tabId">
 											<?php if ($_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle']==''){?>
-												<?php echo $_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['default_vTitle'];?>
+												<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(0, null, 0);?>
+												<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+													<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']==$_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['default_vTitle']){?>
+														<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
+														<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(1, null, 0);?>
+													<?php }?>
+												<?php } ?>
+												<?php if ($_smarty_tpl->tpl_vars['foundTranslation']->value==0){?>
+													<?php echo $_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['default_vTitle'];?>
+
+												<?php }?>	
 											<?php }else{ ?>
-												<?php echo $_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle'];?>
+												<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(0, null, 0);?>
+												<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+													<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']==$_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle']){?>
+														<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
+														<?php $_smarty_tpl->tpl_vars['foundTranslation'] = new Smarty_variable(1, null, 0);?>
+													<?php }?>
+												<?php } ?>
+												<?php if ($_smarty_tpl->tpl_vars['foundTranslation']->value==0){?>
+													<?php echo $_smarty_tpl->tpl_vars['data']->value['selected_feature_details'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle'];?>
+
+												<?php }?>
 											<?php }?>
 										</label>
 									</li>								
