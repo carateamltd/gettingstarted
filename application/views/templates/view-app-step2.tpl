@@ -401,7 +401,11 @@
         			<h3  id="myModalLabel">{foreach from=$lang item=val}{if $val.rLabelName == 'Confirm Delete'}{$val.rField}{/if}{/foreach}</h3>
       			</div>
       			<div class="modal-body">
-        			Are you sure?
+					{foreach from=$lang item=val}
+						{if $val.rLabelName == 'Are you sure'}
+							{$val.rField}?
+						{/if}
+					{/foreach}
       			</div>
       			<div class="modal-footer">
         			<button type="button" class="btn btn-default" data-dismiss="modal">
