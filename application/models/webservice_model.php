@@ -1457,6 +1457,7 @@ class webservice_model extends CI_Model {
 		$this->db->join('r_user_tabbackground as rut', 'rut.iAppTabId = rv.iAppTabId','inner');
 		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rut.iBackgroundimgId','inner');
 		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
+		$this->db->where('rut.iAppTabId',$Data['iAppTabId']);
 		$query=$this->db->get();
 		return $query->row_array();
 	}

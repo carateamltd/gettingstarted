@@ -1508,7 +1508,7 @@ console.log('===================End=====================');
                     try{
 						var bgimage = Response.backgroundimage.backgroundimage;
 						if (bgimage) {
-							Ext.ComponentQuery.query('gallaryview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+							view.down('gallaryview').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
 						}
                     }
                     catch(e){
