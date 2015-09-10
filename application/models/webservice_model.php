@@ -528,8 +528,9 @@ class webservice_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('r_app_infotab_values');
 		$this->db->where('iApplicationId',$data['iApplicationId']);
+		$this->db->where('eStatus', "Active");
 		$query=$this->db->get();
-		return $query->row_array();
+		return $query->result_array();
 	}
 	
 	/** Event Details **/

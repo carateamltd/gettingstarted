@@ -11492,6 +11492,7 @@ function open_popup(popup_div_id,infoId)
 				$("form[name=frminfotabEdit]")[0].reset();
 				$("#editInfoPopupTitle")[0].innerHTML="Edit Information";
 				$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> Update Info";
+				$("[name=editAppTabId]")[0].value=$.session.get("curTabId").split('_')[1];
 				var url = base_url+"app/getEditFormForInfo?infoId="+infoId;
 				$.post(url,
 					function(data)
@@ -11523,6 +11524,7 @@ function open_popup(popup_div_id,infoId)
 				$("[name=editTitle]")[0].value="";
 				CKEDITOR.instances.editDescription.setData("");
 				$("[name=editStatus]")[0].value="";
+				$("[name=editAppTabId]")[0].value=$.session.get("curTabId").split('_')[1];
 			}
 		}
 	}

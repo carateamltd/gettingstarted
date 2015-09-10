@@ -99,7 +99,9 @@ Ext.define('MyApp.controller.MainController', {
             ecommarceDetails_SizeList: 'ecommarcedetails  list[itemId=commerceSizeListid]',
             scientificCalculatorView: 'scientificcalculatorview',
             donationNavi: 'donationnavi',
-            orderNavi: 'ordernavi'
+            orderNavi: 'ordernavi',
+            customViewNavi: 'customview',
+            customListView: 'list[itemId=infoList]'
         },
         control: {
             mainView: {
@@ -413,7 +415,11 @@ Ext.define('MyApp.controller.MainController', {
 			},
 			orderNavi: {
 				activate: 'onOrderNaviActivate'
-			}
+			},
+			customListView: {
+                itemtap: 'onCustomListTap',
+                activate: 'onCustomActivate'
+            }
         }
     },
     slideLeftTransition: {
@@ -1639,7 +1645,17 @@ console.log('===================End=====================');
     },
     onCustomActivate: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	if(!tabId){
+    		this.setPageTitleOnBack();
+    		return;
+    	}
         appMask();
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+        this.setPageTitle(tab);
+		var view = mainView.getActiveItem();
+    	this.setPageTitle(tab);
+    	var customStore = Ext.getStore('customstoreid');
+        customStore.removeAll();
         var url = URLConstants.URL + 'action=easyapps_custom_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
 
         Ext.Ajax.request({
@@ -1647,9 +1663,10 @@ console.log('===================End=====================');
             success: function (response, opts) {
                 var Response = Ext.decode(response.responseText);
                 try{
-					var desc = {
+					/*var desc = {
 						describtion: Response.custom.tDescription
-					}
+					}*/
+					var desc = Response.custom;
                 }
                 catch(e){
                 	console.log(e);
@@ -1659,13 +1676,11 @@ console.log('===================End=====================');
                 //parthhu@gmail.com
                 //var Response = Ext.decode(response.responseText);
                 console.log(Response);
-                var customStore = Ext.getStore('customstoreid');
-                customStore.removeAll();
                 if(desc){
 					customStore.add(desc);
 					customStore.sync();
                 }
-                try{
+                /*try{
                 	Ext.ComponentQuery.query('customview #customTextId')[0].setHtml(Response.custom.tDescription);
 					//Ext.ComponentQuery.query('customview #customToolbarID')[0].setTitle(Response.custom.vTitle)
 					if (Response.background.vImage) {
@@ -1674,7 +1689,7 @@ console.log('===================End=====================');
 				}
                 catch(e){
                 	console.log(e);
-                }
+                }*/
                 appUnmask();
             },
             failure: function (Response, opts) {
@@ -3176,5 +3191,15 @@ console.log('===================End=====================');
 				mainView.getActiveItem().getNavigationBar().setTitle(view.$currentTitle);
 			}
 		}, 251);
-	}
+	},
+	onCustomListTap: function (dataView, index, target, record, e, eOpts) {
+        var data = record.data;
+        var customNavi = this.getCustomViewNavi();
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+        if (view.getInnerItems().length == 1) {
+			var title = view.down('[docked=top]').getTitle();
+            app_PushView(customNavi, 'customdetail', data, title);
+        }
+    }
 });

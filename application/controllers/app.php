@@ -16869,8 +16869,10 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 		$lang= $this->session->userdata('language');
 		$gallery_language = $this->admin_model->get_language_details($lang);
 		$html='';
-		//-- HTML for Gallery Edit Popup
 		
+		/*										*/
+		/*	-- HTML for Gallery Edit Popup --	*/
+		/*										*/
 		$html .= '<div id="galleryEditPopup" class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: none;">';
 		$html .= 	'<div class="fancybox-wrap fancybox-desktop fancybox-type-inline fancybox-opened" tabindex="-1" style="width: 800px; height: 600px; position: absolute; top: 0px; left: 0px; opacity: 1; overflow: visible;">';
 		$html .= 		'<div class="fancybox-skin" style="padding: 0px; width: auto; height: 600px;">';
@@ -16935,7 +16937,9 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 		$html .= 						'</div>';
 		$html .= '</div></div></div></div></div></div>';
 		
-		//-- HTML for information popup
+		/*										*/
+		/*	-- HTML for information popup	--	*/
+		/*										*/
 		$html .= '<div id="info_edit_model" class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: none;">';
         $html .= 	'<div class="fancybox-wrap fancybox-desktop fancybox-type-inline fancybox-opened" tabindex="-1" style="width: 800px; height: 600px; position: absolute; top: 0px; left: 0px; opacity: 1; overflow: visible;">';
         $html .= 		'<div class="fancybox-skin" style="padding: 0px; width: auto; height: 600px;">';

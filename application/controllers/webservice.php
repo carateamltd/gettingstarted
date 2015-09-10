@@ -2005,13 +2005,17 @@ header('Access-Control-Allow-Origin: *');
 			$custom = $this->webservice_model->get_custom_details($Data);
 			
 			if(count($custom) >0){
-				$Data['custom'] = array(
-					'iInfotabId'=>$custom['iInfotabId'],
-					'iApplicationId'=>$custom['iApplicationId'],
-					'iAppTabId'=>$custom['iAppTabId'],
-					'vTitle'=>$custom['vTitle'],
-					'tDescription'=>$custom['tDescription'],
-				);
+				$inc = 0;
+				foreach($custom as $cdata){
+					$Data['custom'][$inc] = array(
+						'iInfotabId'=>$cdata['iInfotabId'],
+						'iApplicationId'=>$cdata['iApplicationId'],
+						'iAppTabId'=>$cdata['iAppTabId'],
+						'vTitle'=>$cdata['vTitle'],
+						'tDescription'=>$cdata['tDescription'],
+					);
+					$inc++;
+				}
 				
 				/** background image **/
 				$background_custom = $this->webservice_model->get_custom_background_image($Data);
