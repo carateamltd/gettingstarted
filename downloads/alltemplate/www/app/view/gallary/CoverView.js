@@ -16,7 +16,7 @@ Ext.define('MyApp.view.gallary.CoverView', {
                     direction: 'vertical',
                     directionLock: true
                 },
-                html: '<div style="text-align:center;"><img  src="' + rec.get('vGalleryImage') + '" width="100%"/><span class="fullDescGal">'+rec.get("tDescription")+'</span></div>'
+                html: '<div><img src="' + rec.get('vGalleryImage') + '" width="100%"/><span class="fullDescGal">'+rec.get("tDescription")+'</span></div>'
             });
         });
         var panel = Ext.create('Ext.Carousel', {

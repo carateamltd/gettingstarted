@@ -616,7 +616,6 @@ background-image: -ms-linear-gradient(top, #067f49,#1be88c 3%,#067f49);
     background: #FEFEFE;
     /*border: 2px solid #FAFAFA;*/
     box-shadow: 2px 1px 2px 1px rgba(34, 25, 25, 0.4);
-    margin: 0 2px 0px;
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
@@ -633,8 +632,8 @@ background-image: -ms-linear-gradient(top, #067f49,#1be88c 3%,#067f49);
     color: #000;
     font-weight: 400;
     border-top: 1px solid transparent;
-    float: left;
-    width: 95px;
+    display: inline-block;
+    width: 100px;
     margin-left: 10px;
 }
 .x-title {

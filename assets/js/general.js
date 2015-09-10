@@ -11491,7 +11491,7 @@ function open_popup(popup_div_id,infoId)
 			{
 				$("form[name=frminfotabEdit]")[0].reset();
 				$("#editInfoPopupTitle")[0].innerHTML="Edit Information";
-				$("#editInfoPopupUpdateBtn")[0].value="<i class='icon-ok'></i> Update Info";
+				$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> Update Info";
 				var url = base_url+"app/getEditFormForInfo?infoId="+infoId;
 				$.post(url,
 					function(data)
@@ -11553,8 +11553,8 @@ function openEditGalleryPopup(galleryImageId, popup_div_id)
 			obj.style.display = "block";
 			$("form[name=frmgalleryEdit]")[0].reset();
 			$("#editGalleryPopupTitle")[0].innerHTML="Edit Gallery Image";
-			$("#editGalleryPopupUpdateBtn")[0].value="<i class='icon-ok'></i> Update Image";
-			$("[name=editAppTabId]")[0].value=$.session.get("curTabId").split('_')[1];
+			$("#editGalleryPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> Update Image";
+			$("[name=iAppTabIdEdit]")[0].value=$.session.get("curTabId").split('_')[1];
 			var url = base_url+"app/getEditFormForGallery?imageId="+galleryImageId;
 			$.post(url,
 				function(data)
@@ -11562,13 +11562,13 @@ function openEditGalleryPopup(galleryImageId, popup_div_id)
 					try
 					{
 						var res = JSON.parse(data);
-						if(typeof res[0].iApplicationId != 'undefined' )
+						if(typeof res[0].iGalleryImageId != 'undefined' )
 						{
 							//-- put response data in popup
-							/*$("[name=editInfotabId]")[0].value=res[0].iInfotabId;
-							$("[name=editTitle]")[0].value=res[0].vTitle;
-							CKEDITOR.instances.editDescription.setData(res[0].tDescription);
-							$("[name=editStatus]")[0].value=res[0].eStatus;*/
+							$("[name=imageNameOldEdit]")[0].value=res[0].vGalleryImage;
+							CKEDITOR.instances.tDescriptionEdit.setData(res[0].tDescription);
+							$('#edit_gallery_img_preview')[0].src = base_url + '/uploads/gallery/' + galleryImageId + '/' + res[0].vGalleryImage;
+							$('[name=imageIdEdit]')[0].value=res[0].iGalleryImageId;
 						}
 					}
 					catch(e)
@@ -11579,4 +11579,8 @@ function openEditGalleryPopup(galleryImageId, popup_div_id)
 			);
 		}
 	}
+}
+
+function updateGalleryImage(){
+	$("form[name=frmgalleryEdit]")[0].submit();
 }

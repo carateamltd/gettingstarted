@@ -2822,5 +2822,16 @@ function getservicetiminginfo($iServiceId)
         $arr = $query->result_array();
         return ($arr[0]['iOrderId'] + 1);
     }
+    
+    /*
+    	function to get gallery image data - edit functionality
+    */
+    public function get_gallery_img_data_by_id($img_id){
+    	$this->db->select('*');
+        $this->db->from('r_app_gallery_images');
+        $this->db->where('iGalleryImageId',$img_id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 ?>

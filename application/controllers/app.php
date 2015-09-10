@@ -16866,6 +16866,8 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 	
 	function getAllPopupData()
 	{
+		$lang= $this->session->userdata('language');
+		$gallery_language = $this->admin_model->get_language_details($lang);
 		$html='';
 		//-- HTML for Gallery Edit Popup
 		
@@ -16883,8 +16885,8 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 		$html .= 						'<div class="popup-body" style="max-height:450px;">';
 		$html .= 							'<div class="widget-body form">';
 		
-		$html .=								'<form name="frmgalleryEdit" method="post" action="'.$this->data['base_url'].'app/update_gallery" class="form-horizontal" enctype="multipart/form-data">';
-		$html .= 									'<input class="span6" type="hidden" name="iApplicationIdEdit" value="" />';
+		$html .=								'<form name="frmgalleryEdit" method="post" action="'.$this->data['base_url'].'app/update_gallery?appId='.$this->data['iApplicationId'].'" class="form-horizontal" enctype="multipart/form-data">';
+		$html .= 									'<input class="span6" type="hidden" name="imageIdEdit" value="" />';
 		$html .= 									'<input class="span6" type="hidden" name="iAppTabIdEdit" value="" />';
 		$html .= 									'<input class="span6" type="hidden" name="imageNameOldEdit" value="" />';
 		$html .= 									'<div class="lean-body">';
@@ -16893,7 +16895,7 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
         $html .=												'<label class="control-label">';
 																	foreach($gallery_language as $val1)
 																	{
-																		if($val1['rLabelName'] ==$val['vLabelName'])
+																		if($val1['rLabelName'] == "Image")
 																		{
 																			$html.=$val1['rField'];
 																		}	
@@ -16901,6 +16903,7 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
         $html .=													'<span>  &nbsp;(200px *200px) </span>';
         $html .=												'</label>';
         $html .= 												'<div class="controls">';
+        $html .=													'<img src="" id="edit_gallery_img_preview" style="width: 30%;" />';
         $html .= 													'<input type="file" class="default" name="vGalleryImageEdit" style="float: left;" value="">';
         $html .=												'</div>';
         $html .=											'</div>';
@@ -16908,7 +16911,7 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
     	$html .=												'<label class="control-label">';
                                             						foreach($gallery_language as $val1)
                                             						{
-																		if($val1['rLabelName'] ==$val['vLabelName'])
+																		if($val1['rLabelName'] == "Description")
 																		{
 																			$html.=$val1['rField'];
 																		}
@@ -16925,7 +16928,7 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 		$html .= 						'</div>';
 		$html .= 						'<div class="popup-footer">';
 		$html .= 							'<div style="margin-right:300px;">';
-		$html .= 								'<button type="button" id="editGalleryPopupUpdateBtn" class="btn btn-primary" onclick="updateInfo()"><i class="icon-ok"></i> Update Info</button>';
+		$html .= 								'<button type="button" id="editGalleryPopupUpdateBtn" class="btn btn-primary" onclick="updateGalleryImage()"><i class="icon-ok"></i></button>';
 		$html .= 								'&nbsp;&nbsp;';
 		$html .= 								'<button aria-hidden="true" onclick="close_popup(\'galleryEditPopup\');" class="btn">Close</button>';
 		$html .= 							'</div>';
@@ -16984,6 +16987,60 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
         $html .= '</div></div></div></div></div></div>';
 		
 		return $html;
+	}
+	
+	function getEditFormForGallery(){
+		$gallery_img_id = $this->input->get('imageId');
+		$gallery_img_data = $this->app_model->get_gallery_img_data_by_id($gallery_img_id);
+    	echo json_encode($gallery_img_data);
+	}
+	
+	function update_gallery(){
+		$imageIdEdit = $this->input->post('imageIdEdit');
+       	$imageNameOldEdit = $this->input->post('imageNameOldEdit');
+        $vGalleryImageEdit = $_FILES['vGalleryImageEdit']['name'];
+        $tDescriptionEdit = $this->input->post('tDescriptionEdit');
+        $iAppTabIdEdit = $this->input->post('iAppTabIdEdit');
+        
+        $postedArray['iGalleryImageId']= $imageIdEdit;
+        $postedArray['tDescription']=$tDescriptionEdit;
+        if($vGalleryImageEdit != ""){
+        	//-- calling image upload function here
+        	$size=array();
+            $size['width']=128;
+            $size['height']=164; 
+        	$galleryfile = $_FILES['vGalleryImageEdit']['name'];
+        	$filesize=$_FILES['vGalleryImageEdit']['size'];
+        	$extention = array("gif", "jpeg", "jpg", "png","GIF","JPEG","JPG","PNG");
+        	$allowext=end(explode('.',$galleryfile));
+        	if(in_array($allowext, $extention) )
+        	{
+        		$fileName = $this->do_upload_galleryimg($imageIdEdit,'gallery','vGalleryImageEdit',$size);
+        		$postedArray['vGalleryImage'] = $fileName;
+        		$oldImagePath = $this->data['base_path']."uploads/gallery/".$imageIdEdit."/".$imageNameOldEdit;
+        		$oldImageThumbPath = $this->data['base_path']."uploads/gallery/".$imageIdEdit."/thumb_".$imageNameOldEdit;
+        		if(file_exists($oldImagePath))
+        		{
+        			unlink($oldImagePath);
+        			unlink($oldImageThumbPath);
+        		}
+        	}
+        	else
+        	{
+        		$postedArray['vGalleryImage'] = $imageNameOldEdit;
+        	}
+        }
+        else
+        {
+        	$postedArray['vGalleryImage'] = $imageNameOldEdit;
+        }
+        if($this->input->post()){
+            if($postedArray['iGalleryImageId']){
+				$imageId = $postedArray['iGalleryImageId'];
+				$iGallerrytabId = $this->app_model->update_gallery_image($postedArray,$imageId);
+            }
+        }
+        redirect ($this->data['base_url'] . 'app/step3/'.$this->input->get('appId'));
 	}
 }
 ?>
