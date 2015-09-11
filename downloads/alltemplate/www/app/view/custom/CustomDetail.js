@@ -8,7 +8,6 @@ Ext.define('MyApp.view.custom.CustomDetail', {
     	var title=this.config.data.vTitle;
     	var desc=this.config.data.tDescription;
         var finalPanel = new Ext.Panel({
-            layout: 'fit',
             scrollable:true,
             items: [{
                 html:'<div style="width:100%;word-break: break-word;">'+

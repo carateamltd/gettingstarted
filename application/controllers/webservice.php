@@ -2376,27 +2376,25 @@ header('Access-Control-Allow-Origin: *');
 					'vChannelName'=>$youtube['vChannelName'],
 					'tDescription'=>$youtube['tDescription'],
 				);
-				
-				/** Background image  **/
-				/** background image **/
-				$background_image = $this->webservice_model->get_background_youtube_image($Data);
-
-				/** background image **/
-				if(count($background_image) >0)
-				{
-					$background = array(
-						'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-					);
-					
-					$Data['background'] = $background;
-				}else{
-					/** openingtime **/
-					$background = array('vImage'=>'');
-					$Data['background'] = $background;
-				}
-					
 			}else{
 				$Data['status'] = 'Fail';
+			}
+			/** Background image  **/
+			/** background image **/
+			$background_image = $this->webservice_model->get_background_youtube_image($Data);
+
+			/** background image **/
+			if(count($background_image) >0)
+			{
+				$background = array(
+					'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
+				);
+				
+				$Data['background'] = $background;
+			}else{
+				/** openingtime **/
+				$background = array('vImage'=>'');
+				$Data['background'] = $background;
 			}
 		}
 		

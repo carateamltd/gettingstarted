@@ -1645,14 +1645,19 @@ console.log('===================End=====================');
     },
     onCustomActivate: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+    	var view = mainView.getActiveItem();
+    	if (view.getInnerItems().length > 1 && tabId) {
+        	var anim = mainView.getLayout().getAnimation();
+        	mainView.getLayout().setAnimation(false);
+			view.pop();
+			mainView.getLayout().setAnimation(anim);
+        }
     	if(!tabId){
     		this.setPageTitleOnBack();
     		return;
     	}
         appMask();
-        var mainView = Ext.ComponentQuery.query('mainview')[0];
-        this.setPageTitle(tab);
-		var view = mainView.getActiveItem();
     	this.setPageTitle(tab);
     	var customStore = Ext.getStore('customstoreid');
         customStore.removeAll();
@@ -1680,16 +1685,14 @@ console.log('===================End=====================');
 					customStore.add(desc);
 					customStore.sync();
                 }
-                /*try{
-                	Ext.ComponentQuery.query('customview #customTextId')[0].setHtml(Response.custom.tDescription);
-					//Ext.ComponentQuery.query('customview #customToolbarID')[0].setTitle(Response.custom.vTitle)
+                try{
 					if (Response.background.vImage) {
-						Ext.ComponentQuery.query('customview #CustomPanelid')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
+						view.down('list').setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
 					}
 				}
                 catch(e){
                 	console.log(e);
-                }*/
+                }
                 appUnmask();
             },
             failure: function (Response, opts) {
@@ -3194,12 +3197,12 @@ console.log('===================End=====================');
 	},
 	onCustomListTap: function (dataView, index, target, record, e, eOpts) {
         var data = record.data;
-        var customNavi = this.getCustomViewNavi();
+        //var customNavi = this.getCustomViewNavi();
         var mainView = Ext.ComponentQuery.query('mainview')[0];
 		var view = mainView.getActiveItem();
         if (view.getInnerItems().length == 1) {
 			var title = view.down('[docked=top]').getTitle();
-            app_PushView(customNavi, 'customdetail', data, title);
+            app_PushView(view, 'customdetail', data, title);
         }
     }
 });
