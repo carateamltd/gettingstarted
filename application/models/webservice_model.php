@@ -1736,5 +1736,16 @@ class webservice_model extends CI_Model {
         	return false;
         }
     }
+    
+    //	-- function for getting bg image for all tab	--//
+    function get_tab_background_image($Data){
+		$this->db->select('*');
+		$this->db->from('r_app_background_img as rv');
+		$this->db->join('r_tabbackground as rt', 'rt.iBackgroundId = rv.iBackgroundId','inner');
+		$this->db->where('rv.iApplicationId',$Data['iApplicationId']);
+		$this->db->where('rv.iAppTabId',$Data['iAppTabId']);
+		$query=$this->db->get();
+		return $query->row_array();
+	}
 }
 ?>

@@ -705,6 +705,8 @@ Ext.define('MyApp.controller.MainController', {
     },
     onHomeActivate: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
         this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapps_home_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
@@ -749,8 +751,8 @@ Ext.define('MyApp.controller.MainController', {
                 var zip = Response.home.vZip;
                 var count = Response.openingtime.length;
 
-                if (Response.background.vImage) {
-                    Ext.ComponentQuery.query('homeview #homepanelId')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
+                if (Response.backgroundimage.backgroundimage) {
+                    view.down('panel').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                 }
                 for (var i = 0; i < count; i++) {
                     Ext.ComponentQuery.query('homeview #' + Response.openingtime[i].vDay + '')[0].setHtml("<div style='float:left;font-size:16px;width: 100%;'>\n\
@@ -966,6 +968,8 @@ Ext.define('MyApp.controller.MainController', {
     onVideosListInitialize: function (tab) {
         appMask();
         var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         var url = URLConstants.URL + 'action=easyapps_youtube_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         var chennal = "";
         MyApp.services.RemoteService.remoteCall(url,
@@ -973,8 +977,8 @@ Ext.define('MyApp.controller.MainController', {
                     console.log('============================================================');
                     console.log(Response);
                     console.log("=============================================================");
-                    var bgimage = Response.background.vImage;
-                    Ext.ComponentQuery.query('youtube')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                    var bgimage = Response.backgroundimage.backgroundimage;
+                    view.down('youtube').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     chennal = Response.youtube.vChannelName;
                     me.youtubeVideo(chennal);
                     me.setPageTitle(tab);
@@ -1073,18 +1077,20 @@ Ext.define('MyApp.controller.MainController', {
             }
         }
     },
-    onLoyalityActivate: function () {
-        var me = this;
+    onLoyalityActivate: function (tab) {
+        var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_loyalty_bgimg&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_loyalty_bgimg&iUserId=' + TextConstants.UserID + '&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log('============================================================');
                     console.log(Response);
                     console.log("=============================================================");
-                    if (Response.background.vImage) {
-                        Ext.ComponentQuery.query('loyalitiview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
+                    if (Response.backgroundimage.backgroundimage) {
+                        view.down('loyalitiview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\') '});
                     }
                     me.GetLoyalityList();
                     appUnmask();
@@ -1168,9 +1174,12 @@ Ext.define('MyApp.controller.MainController', {
             appCustomAlert("Message", Loc.t('LOYALTY.ENTERSECRETCODE'));
         }
     },
-    onOrderListActivate: function () {
+    onOrderListActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+        var url = URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
             function success(Response) {
                 console.log(Response);
@@ -1178,9 +1187,9 @@ Ext.define('MyApp.controller.MainController', {
                 objOrderStore.removeAll();
                 objOrderStore.add(Response.category);
                 objOrderStore.sync();
-                if (Response.background.vImage) {
-                    Ext.ComponentQuery.query('orderviewlist')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
-                    Ext.ComponentQuery.query('menuview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
+                if (Response.backgroundimage.backgroundimage) {
+                    view.down('orderviewlist').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\') '});
+                    view.down('menuview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\') '});
                 }
                 appUnmask();
             },
@@ -1549,8 +1558,10 @@ console.log('===================End=====================');
     },
     onWebsitListActivates: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_website_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_website_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -1560,7 +1571,7 @@ console.log('===================End=====================');
                     objwebStore.add(Response.website_details);
                     objwebStore.sync();
                     appUnmask();
-                    Ext.ComponentQuery.query('websitelistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
+                    view.down('websitelistview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\') '});
                 },
                 function failure(Response) {
                     console.log(Response);
@@ -1581,8 +1592,10 @@ console.log('===================End=====================');
     },
     onSocialActivates: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_socialmedia_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_socialmedia_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
             function success(Response) {
@@ -1591,8 +1604,8 @@ console.log('===================End=====================');
                 objsocialStore.removeAll();
                 objsocialStore.add(Response.socialmedia_details);
                 objsocialStore.sync();
-                if (Response.background.vImage) {
-                    Ext.ComponentQuery.query('socialmediaview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
+                if (Response.backgroundimage.backgroundimage) {
+                    view.down('socialmediaview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\') '});
                 }
                 appUnmask();
             },
@@ -1619,8 +1632,10 @@ console.log('===================End=====================');
     },
     onPdfNaviActivate: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_pdf_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_pdf_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
@@ -1629,8 +1644,8 @@ console.log('===================End=====================');
                     objpdfStore.removeAll();
                     objpdfStore.add(Response.pdfs);
                     objpdfStore.sync();
-                    if (Response.background.vImage) {
-                        Ext.ComponentQuery.query('pdflistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\') '});
+                    if (Response.backgroundimage.backgroundimage) {
+                        view.down('pdflistview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\') '});
                     }
                     appUnmask();
                 },
@@ -1686,8 +1701,8 @@ console.log('===================End=====================');
 					customStore.sync();
                 }
                 try{
-					if (Response.background.vImage) {
-						view.down('list').setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
+					if (Response.backgroundimage.backgroundimage) {
+						view.down('list').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
 					}
 				}
                 catch(e){
@@ -1708,6 +1723,8 @@ console.log('===================End=====================');
     },
     onQRViewActivate: function (tab) {
         var objQrStore = Ext.getStore('qrstoreid'), tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         objQrStore.removeAll();
         appMask();
         this.setPageTitle(tab);
@@ -1717,10 +1734,15 @@ console.log('===================End=====================');
             function success(Response) {
                 console.log(Response);
                 appUnmask();
-                objQrStore.add(Response.Qrcode)
-                objQrStore.sync();
+                try{
+					objQrStore.add(Response.Qrcode)
+					objQrStore.sync();
+                }
+                catch(e){
+                	console.log(e);
+                }
                 if (Response.backgroundimage.backgroundimage) {
-                    Ext.ComponentQuery.query('qrlistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+                    view.down('qrlistview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                 }
             },
             function failure(Response) {
@@ -1741,15 +1763,17 @@ console.log('===================End=====================');
     },
     onRssNaviViewActivate: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_RSS_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_RSS_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
                     TextConstants.ListImage = Response.RSS[0].vIcon;
                     if (Response.backgroundimage.backgroundimage) {
-                        Ext.ComponentQuery.query('rsslistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+                        view.down('rsslistview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     var rssurl = Response.RSS[0].vRSSURL;
                     if (rssurl) {
@@ -1806,6 +1830,8 @@ console.log('===================End=====================');
     },
     onEventActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         me.onEventNaviViewPopToRoot();
         appMask();
         this.setPageTitle(tab);
@@ -1820,7 +1846,7 @@ console.log('===================End=====================');
                     objEventStore.add(Response.event);
                     objEventStore.sync();
                     if (Response.backgroundimage.backgroundimage) {
-                        Ext.ComponentQuery.query('eventlistview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+                        view.down('eventlistview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     appUnmask();
                 },
@@ -1886,6 +1912,8 @@ console.log('===================End=====================');
     },
     onNewsActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
         this.setPageTitle(tab);
         var mainView = Ext.ComponentQuery.query('mainview')[0];
@@ -1896,8 +1924,8 @@ console.log('===================End=====================');
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    if (Response.background.vImage) {
-                        Ext.ComponentQuery.query('newslist')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
+                    if (Response.backgroundimage.backgroundimage) {
+                        view.down('newslist').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     var keyword = Response.News.vGoogleNewsKeyWords;
                     me.GetNews(keyword);
@@ -1910,6 +1938,8 @@ console.log('===================End=====================');
     },
     onContactActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
         this.setPageTitle(tab);
         var url = URLConstants.URL + 'action=easyapps_get_contact_bg&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
@@ -1918,7 +1948,7 @@ console.log('===================End=====================');
                 function success(Response) {
                     console.log(Response);
                     if (Response.backgroundimage.backgroundimage) {
-                        Ext.ComponentQuery.query('contactview')[0].setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+                        view.down('formpanel').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     appUnmask();
                 },
@@ -1985,14 +2015,16 @@ console.log('===================End=====================');
     },
     onVoiceRecordingActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_voicerecording_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_voicerecording_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    if (Response.background.vImage) {
-                        Ext.ComponentQuery.query('voicerecording #mypanelid')[0].setStyle({backgroundImage: 'url(\'http://' + Response.background.vImage + '\')'});
+                    if (Response.backgroundimage.backgroundimage) {
+                        view.down('voicerecording[itemId=mypanelid]').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
                     appUnmask();
                 },
@@ -2003,6 +2035,8 @@ console.log('===================End=====================');
     },
     onReservationNaviActivated: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         appMask();
         this.setPageTitle(tab);
         var reservationStore = Ext.getStore('resesrvationstoreid');
@@ -2011,8 +2045,21 @@ console.log('===================End=====================');
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    reservationStore.add(Response.reservation_list);
-                    reservationStore.sync();
+                    try{
+						reservationStore.add(Response.reservation_list);
+						reservationStore.sync();
+                    }
+                    catch(e){
+                    	console.log(e);
+                    }
+                    try{
+						if (Response.backgroundimage.backgroundimage) {
+							view.down('reservationview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+						}
+                    }
+                    catch(e){
+                    	console.log(e);
+                    }
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2253,7 +2300,7 @@ console.log('===================End=====================');
     onArroundusActivated: function (tab) {
     	var tabId = tab.config.iAppTabId;
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_aroundus_get&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_aroundus_get&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -2297,6 +2344,7 @@ console.log('===================End=====================');
     	}
         appMask();
         var mainView = Ext.ComponentQuery.query('mainview')[0];
+        var view = mainView.getActiveItem();
         this.setPageTitle(tab);
         var LocationStore = Ext.getStore('locationstoreid');
         LocationStore.removeAll();
@@ -2304,11 +2352,16 @@ console.log('===================End=====================');
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
-                    LocationStore.add(Response.Aroundus_category);
-                    LocationStore.sync();
+                    try{
+						LocationStore.add(Response.Aroundus_category);
+						LocationStore.sync();
+                    }
+                    catch(e){
+                    	console.log(e);
+                    }
                     var bgimage = Response.backgroundimage.backgroundimage;
                     if (bgimage) {
-                        Ext.ComponentQuery.query('locationnavi')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                        view.down('locationlist').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     }
                     appUnmask();
                 },
@@ -2715,6 +2768,8 @@ console.log('===================End=====================');
 
     onArrivalViewActivate: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         var objNewArrivalStore = Ext.getStore('newarrivalstoreid');
         objNewArrivalStore.removeAll();
         appMask();
@@ -2728,15 +2783,14 @@ console.log('===================End=====================');
                     try{
 						objNewArrivalStore.add(Response.arrival);
 						objNewArrivalStore.sync();
-					
-						var bgimage = Response.backgroundimage.backgroundimage;
-						if (bgimage) {
-							Ext.ComponentQuery.query('newarrivalview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
-						}
-                    }
-                    catch(e){
+					}
+					catch(e){
                     	console.log(e);
                     }
+					var bgimage = Response.backgroundimage.backgroundimage;
+					if (bgimage) {
+						view.down('newarrivalview').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+					}
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2782,7 +2836,7 @@ console.log('===================End=====================');
         var objtestmonialstore = Ext.getStore("testimonialstoreid");
         objtestmonialstore.removeAll();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_testonomial_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_testonomial_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -2849,10 +2903,11 @@ console.log('===================End=====================');
             app_PushView(catelogNavi, 'catelogdetails', data);
         }
     },
-    onAppointmentViewActivate: function () {
+    onAppointmentViewActivate: function (tab) {
+    	var tabId = tab.config.iAppTabId;
         Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHidden(true);
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_appointment_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_appointment_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -2875,10 +2930,12 @@ console.log('===================End=====================');
     },
     onTicketInfoViewActivate: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         var objTicketStore = Ext.getStore("ticketstoreid");
         objTicketStore.removeAll();
         appMask();
-        var url = URLConstants.URL + 'action=easyapps_ticket_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_ticket_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
@@ -2888,7 +2945,7 @@ console.log('===================End=====================');
 //                      alert(bgimage)
                       console.log(Ext.ComponentQuery.query('servicesview'));
                     if (bgimage) {
-                        Ext.ComponentQuery.query('ticketinfoview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                        view.down('ticketinfoview').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     }
                     appUnmask();
                 },
@@ -3015,6 +3072,8 @@ console.log('===================End=====================');
 
     onServiceNaviActivate: function (tab) {
 		var tabId = tab.config.iAppTabId;
+		var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         var objServiceTabStore = Ext.getStore("servicetabstoreid");
         objServiceTabStore.removeAll();
         var objServiceTimingTabStore = Ext.getStore("servicetimingtabstoreid");
@@ -3044,17 +3103,14 @@ console.log('===================End=====================');
 								}
 							}
 						}
-				  
-						var bgimage = Response.backgroundimage.backgroundimage;
-	//                      alert(bgimage);
-						  console.log(Ext.ComponentQuery.query('servicesview'));
-						if (bgimage) {
-							Ext.ComponentQuery.query('serviceview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
-						}
                     }
                     catch(e){
                     	console.log(e);
                     }
+                    var bgimage = Response.backgroundimage.backgroundimage;
+					if (bgimage) {
+						view.down('serviceview').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+					}
                     appUnmask();
                 },
                 function failure(Response) {
@@ -3081,9 +3137,11 @@ console.log('===================End=====================');
     },
     onBlogNaviActivate: function (tab) {
     	var tabId = tab.config.iAppTabId;
+    	var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
         var objblogStore = Ext.getStore("blosgstoreid");
         objblogStore.removeAll();
-        var url = URLConstants.URL + 'action=easyapps_blog_details&iApplicationId=' + TextConstants.ApplicationId;
+        var url = URLConstants.URL + 'action=easyapps_blog_details&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(Response);
@@ -3094,7 +3152,7 @@ console.log('===================End=====================');
 //                      alert(bgimage);
                       console.log(Ext.ComponentQuery.query('servicesview'));
                     if (bgimage) {
-                        Ext.ComponentQuery.query('blogview')[0].setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+                        view.down('blogview').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
                     }
                 },
                 function failure(Response) {

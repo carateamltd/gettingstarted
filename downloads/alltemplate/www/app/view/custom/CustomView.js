@@ -18,7 +18,7 @@ Ext.define('MyApp.view.custom.CustomView', {
         		 <tr>\n\
         		 <td valign="top">\n\
         		 <div style="font-weight:bold;font-size:14px; margin:0px; padding:5px 0 5px 10px;">{vTitle}</div>\n\
-        		 <div style="font-size:13px; margin:0px; padding:0px 0px 0px 10px;display:inline-block;width:'+(window.innerWidth-5)+'px;white-space: nowrap;overflow:hidden !important;text-overflow: ellipsis;">{[this.removeTags(values.tDescription)]}</div>\n\
+        		 <div style="font-size:13px; margin:0px; padding:0px 10px 0px 10px;display:inline-block;width:'+(window.innerWidth-5)+'px;white-space: nowrap;overflow:hidden !important;text-overflow: ellipsis;">{[this.removeTags(values.tDescription)]}</div>\n\
         		 </td></tr></table>',
         		 {
         		 	removeTags : function(txt)

@@ -35,7 +35,22 @@ Ext.define('MyApp.controller.CatalogController', {
     },
     onCatelogViewActivate: function (tab) {
         var objCatelogStore = Ext.getStore('catelogestoreid'), tabId = tab.config.iAppTabId;
-        objCatelogStore.load({url: URLConstants.URL + 'action=easyapps_catalogue_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId});
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+        objCatelogStore.load({
+        	url: URLConstants.URL + 'action=easyapps_catalogue_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId,
+        	callback: function(records, operation, success){
+        		try{
+        			var Response = Ext.decode(operation.getResponse().responseText);
+					if (Response.backgroundimage.backgroundimage) {
+						view.down('list').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+					}
+				}
+                catch(e){
+                	console.log(e);
+                }
+        	}
+        });
     },
     onBtnSaveCustomerDetailsTap: function(){
     	if(this.getCatelogNavi()){

@@ -1843,7 +1843,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_website_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != ''){
 			/** easyapps website **/
@@ -1852,29 +1852,8 @@ header('Access-Control-Allow-Origin: *');
 			if(count($web) >0){
 				/** website details **/
 				$Data['website_details'] = $web;	
-			
-				$background_image = $this->webservice_model->get_website_background_image($Data);
-				/** background image **/	
-				if(count($background_image) >0){
-					$background = array(
-						'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage'],
-					);
-					
-					/** background image **/
-					$Data['background'] = $background;
-				}else{
-					$background = array('vImage'=>'');
-					
-					/** background image **/
-					$Data['background'] = $background;
-				}
-				
-				
-				/** background image **/
-				$Data['status'] = 'Success';			
-			}else{
-				$Data['status'] = 'Fail';
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'No Record Found';
 		}
@@ -1898,29 +1877,15 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_socialmedia_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != ''){
 			/** easyapps website **/
 			$social = $this->webservice_model->get_socialmedia_details($Data);
 			if(count($social) >0){
 				$Data['socialmedia_details'] = $social;
-				
-				/** background image **/
-				$background_socialmedia = $this->webservice_model->get_socialmedia_background_image($Data);
-				
-				/** background pdf **/	
-				if(count($background_socialmedia) >0){
-					$Data['background'] = array('vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_socialmedia['iBackgroundId'].'/org_'.$background_socialmedia['vImage']); 
-				}else{
-					$Data['background'] = array('vImage' => '');
-				}
-				
-				/** status **/
-				$Data['status'] = 'Success';			
-			}else{
-				$Data['status'] = 'Fail';
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'No Record Found';
 		}
@@ -1945,7 +1910,8 @@ header('Access-Control-Allow-Origin: *');
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
 		$host_name = $_SERVER['HTTP_HOST'];
-		
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
+
 		/** check **/
 		if($Data['iApplicationId'] != ''){
 			/** PDF Details **/
@@ -1960,22 +1926,8 @@ header('Access-Control-Allow-Origin: *');
 					'vPdfUrl'=>$pdf[0]['vPdfUrl']
 				);
 				$Data['pdfs'] = $pdfs;
-				
-				/** background image **/
-				$background_pdf = $this->webservice_model->get_pdf_background_image($Data);
-				if(count($background_pdf) >0){
-					$Data['background'] = array('vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_pdf['iBackgroundId'].'/org_'.$background_pdf['vImage']); 
-				}else{
-					$Data['background'] = array('vImage' => '');
-				}
-				
-				/** PDFs **/
-				$Data['status'] = 'Success';	
-			}else{
-			
-				/** PDFs **/
-				$Data['status'] = 'Fail';	
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'Fail';						
 		}
@@ -2016,23 +1968,8 @@ header('Access-Control-Allow-Origin: *');
 					);
 					$inc++;
 				}
-				
-				/** background image **/
-				$background_custom = $this->webservice_model->get_custom_background_image($Data);
-				
-				if(count($background_custom) >0){
-					/** background image **/	
-					$Data['background'] = array('vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_custom['iBackgroundId'].'/org_'.$background_custom['vImage']);
-				}else{
-					/** background image **/
-					$Data['background'] = array('vImage'=>'');
-				}
-				
-				/** status **/
-				$Data['status'] = 'Success';			
-			}else{
-				$Data['status'] = 'Fail';
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'No Record Found';
 		}
@@ -2085,28 +2022,9 @@ header('Access-Control-Allow-Origin: *');
 				}
 				
 				/** event **/
-				$Data['event'] = $eve;
-				
-				/** background image **/
-				$background_image = $this->webservice_model->get_background_image_event($Data);
-
-				if(count($background_image) >0){
-				$back_event_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-					
-				/** event **/
-				$Data['backgroundimage'] = $back_event_image;
-				}else{
-					$back_event_image = array('vImage'=>'');
-				
-					/** event **/
-					$Data['backgroundimage'] = $back_event_image;
-				}
-				
-				/** Event **/
-				$Data['status'] = 'Success';			
-			}else{
-				$Data['status'] = 'Fail';
+				$Data['event'] = $eve;			
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'No Record Found';
 		}
@@ -2130,7 +2048,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_RSS_get()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-	
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check **/
 		if($Data['iApplicationId'] != ''){
 			/** easyapps website **/
@@ -2151,27 +2069,8 @@ header('Access-Control-Allow-Origin: *');
 				
 				/** RSS **/
 				$Data['RSS'] = $rss;
-				
-				/** background image **/
-				$background_image = $this->webservice_model->get_rss_background_image($Data);
-				if(count($background_image) >0){
-					$back_rss_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-					
-					/** event **/
-					$Data['backgroundimage'] = $back_rss_image;
-				}else{
-					/** back rss image **/
-					$back_rss_image = array('vImage'=>'');
-					
-					/** event **/
-					$Data['backgroundimage'] = $back_rss_image;
-				}
-				
-				$Data['status'] = 'Success';			
-			}else{
-				/** status **/
-				$Data['status'] = 'Fail';
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'No Record Found';
 		}
@@ -2225,27 +2124,9 @@ header('Access-Control-Allow-Origin: *');
 					);
 				}
 				
-				$Data['Qrcode'] = $Qrcodes;
-				
-				/** background image **/
-				$background_image = $this->webservice_model->get_qrcode_background_image($Data);
-				if(count($background_image) >0){
-					$back_qrcode_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-					
-					/** qrcode **/
-					$Data['backgroundimage'] = $back_qrcode_image;
-				}else{
-					/** back rss image **/
-					$back_qrcode_image = array('vImage'=>'');
-				
-					/** qrcode **/
-					$Data['backgroundimage'] = $back_qrcode_image;
-				}
-				
-				$Data['status'] = 'Success';			
-			}else{
-				$Data['status'] = 'Fail';
+				$Data['Qrcode'] = $Qrcodes;			
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'No Record Found';
 		}
@@ -2316,28 +2197,8 @@ header('Access-Control-Allow-Origin: *');
 					$openingtime = array();
 					$Data['openingtime'] = $openingtime;
 				}
-				
-				/** background image **/
-				$background_image = $this->webservice_model->get_background_home_image($Data);
-
-				/** background image **/
-				if(count($background_image) >0)
-				{
-					$background = array(
-						'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-					);
-					
-					$Data['background'] = $background;
-				}else{
-					/** openingtime **/
-					$background = array('vImage'=>'');
-					$Data['background'] = $background;
-				}
-				
-				$Data['status'] = 'Success';
-			}else{
-				$Data['status'] = 'Fail';
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = 'No Record Found';
 		}
@@ -2376,26 +2237,11 @@ header('Access-Control-Allow-Origin: *');
 					'vChannelName'=>$youtube['vChannelName'],
 					'tDescription'=>$youtube['tDescription'],
 				);
-			}else{
-				$Data['status'] = 'Fail';
 			}
-			/** Background image  **/
-			/** background image **/
-			$background_image = $this->webservice_model->get_background_youtube_image($Data);
-
-			/** background image **/
-			if(count($background_image) >0)
-			{
-				$background = array(
-					'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-				);
-				
-				$Data['background'] = $background;
-			}else{
-				/** openingtime **/
-				$background = array('vImage'=>'');
-				$Data['background'] = $background;
-			}
+			$Data = $this->getTabBgImg($Data);
+		}
+		else{
+			$Data['status'] = 'Fail';
 		}
 		
 		header('Content-type: application/json');
@@ -2460,30 +2306,9 @@ header('Access-Control-Allow-Origin: *');
 						/** custom image **/
 						$Data['custom_image'] = $custom_images;	
 					}
-					
-					$background_image = $this->webservice_model->get_gallery_background_image($Data);
-					if(count($background_image) >0){
-						$back_gallery_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-						/** event **/
-						$Data['backgroundimage'] = $back_gallery_image;
-					}else{
-						/** back rss image **/
-						$back_gallery_image = array('vImage'=>'');
-						/** event **/
-						$Data['backgroundimage'] = $back_gallery_image;
-					}
-					
-					/** status **/
-					$Data['status'] = 'Success'; 	
-				}else{
-					/** custom image **/
-					$custom_images = array();
-					$Data['custom_image'] = $custom_images;
-					
-					/** status **/
-					$Data['status'] = 'Fail'; 	
 				}
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			/** status **/
 			$Data['status'] = 'Record Not Found'; 		
@@ -2510,32 +2335,9 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** ApplicationId **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		
-		if($Data['iApplicationId'] != ''){
-			/** iApplicationId **/
-			$background_image = $this->webservice_model->get_loyalty_bg_image($Data);
-			
-			if(count($background_image) > 0){
-				/** background image **/
-				$loyalty_bg = array(
-					'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-				);
-				
-				
-				/** loyalty bg image **/
-				$Data['background'] = $loyalty_bg;
-				$Data['status'] = 'Success';
-			}else{
-				$loyalty_bg = array('vImage'=>'');
-				
-				/** loyalty bg image **/
-				$Data['background'] = $loyalty_bg;
-				$Data['status'] = 'Fail';
-			}
-		}else{
-			/** Application **/
-			$Data['status'] = 'Fail';
-		}
+		$Data = $this->getTabBgImg($Data);
 		
 		/** easyapp gallery details **/
 		header('Content-type: application/json');
@@ -2579,27 +2381,8 @@ header('Access-Control-Allow-Origin: *');
 				
 				/** category **/
 				$Data['News'] = $news;
-				/** background image **/
-				$background_image = $this->webservice_model->get_background_news_image($Data);
-				/** background image **/
-				if(count($background_image) >0)
-				{
-					$background = array(
-						'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-					);
-					
-					$Data['background'] = $background;
-				}else{
-					/** openingtime **/
-					$background = array('vImage'=>'');
-					$Data['background'] = $background;
-				}
-				
-				/** status **/
-				$Data['status'] = "Success";	
-			}else{
-				$Data['status'] = "Fail";
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = "Fail";
 		}
@@ -2687,6 +2470,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** iApplication Id **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		
 		if($Data['iApplicationId'] != ''){
 			/** iApplicationId **/
@@ -2704,28 +2488,8 @@ header('Access-Control-Allow-Origin: *');
 				
 				/** category **/
 				$Data['News'] = $news;
-				/** background image **/
-				$background_image = $this->webservice_model->get_background_voicerecording_image($Data);
-				
-				/** background image **/
-				if(count($background_image) >0)
-				{
-					$background = array(
-						'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-					);
-					
-					$Data['background'] = $background;
-				}else{
-					/** openingtime **/
-					$background = array('vImage'=>'');
-					$Data['background'] = $background;
-				}
-				
-				/** status **/
-				$Data['status'] = "Success";	
-			}else{
-				$Data['status'] = "Fail";
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$Data['status'] = "Fail";
 		}
@@ -3023,25 +2787,10 @@ header('Access-Control-Allow-Origin: *');
 						'vAddress2' => $val['vAddress2'],
            			);
 				}
-				
-				$background_image = $this->webservice_model->get_reservation_background_image($Data);
-				if(count($background_image) >0){
-					$back_reservation_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-					/** event **/
-					$Data['backgroundimage'] = $back_reservation_image;
-				}else{
-					/** back rss image **/
-					$back_reservation_image = array('vImage'=>'');
-					/** event **/
-					$Data['backgroundimage'] = $back_reservation_image;
-				}
-				
 				/** reservation list **/
 				$Data['reservation_list'] = $reservation;
-				$Data['status'] = 'Success';
-			}else{
-				$Data['status'] = 'Fail';
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			/** Reservation FAIL **/
 			$Data['status'] = 'Fail';
@@ -3461,25 +3210,10 @@ header('Access-Control-Allow-Origin: *');
 						'vLongitude'=>$val['vLongitude'],
 					);
 				}
-				
-				$background_image = $this->webservice_model->get_location_background_image($Data);
-				if(count($background_image) >0){
-					$back_location_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-					/** event **/
-					$Data['backgroundimage'] = $back_location_image;
-				}else{
-					/** back rss image **/
-					$back_location_image = array('vImage'=>'');
-					/** event **/
-					$Data['backgroundimage'] = $back_location_image;
-				}
-				
 				/** reservation list **/
 				$Data['Aroundus_category'] = $aroundus_details;
-				$Data['status'] = 'Success';
-			}else{
-				$Data['status'] = 'Fail';
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			/** Reservation FAIL **/
 			$Data['status'] = 'Fail';
@@ -3908,27 +3642,12 @@ header('Access-Control-Allow-Origin: *');
 				);
 			}
 			
-			/** background image **/
-			$background_image = $this->webservice_model->get_arrival_background_image($Data);
-			if(count($background_image) >0){
-				$back_arrival_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-				/** event **/
-				$Data['backgroundimage'] = $back_arrival_image;
-			}else{
-				/** back rss image **/
-				$back_arrival_image = array('vImage'=>'');
-				/** event **/
-				$Data['backgroundimage'] = $back_arrival_image;
-			}
+			$Data = $this->getTabBgImg($Data);
 
 			if(count($arrival_history) >0){
 				/** Success **/
-				$Data['arrival'] = $arrival;
-				$Data['Status'] = "Success";			
-			}else{
-				/** Fail **/
-				$Data['Status'] = "Fail";
-			}	
+				$Data['arrival'] = $arrival;			
+			}
 		}else{
 				$Data['Status'] = "Fail";			
 		}
@@ -3956,6 +3675,7 @@ header('Access-Control-Allow-Origin: *');
 	function easyapps_catalogue_details()
 	{
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		
 		if($Data['iApplicationId'] != '')
 		{
@@ -3996,29 +3716,13 @@ header('Access-Control-Allow-Origin: *');
 				);	
 			}
 
-			/** background image **/
-			$background_image = $this->webservice_model->get_catalogue_background_image($Data);
-			if(count($background_image) >0){
-				$back_catalogue_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-				/** event **/
-				$Data['backgroundimage'] = $back_catalogue_image;
-			}else{
-				/** back rss image **/
-				$back_catalogue_image = array('vImage'=>'');
-				/** event **/
-				$Data['backgroundimage'] = $back_catalogue_image;
-			}
-
 			/** count catalogue history **/
 			if(count($catalogue_history) >0)
 			{
 				/** catalogue details **/
 				$Data['catalogue_details'] = $catalogue_details;
-				$Data['status'] = "success";
-			}else{
-				/** Status **/
-				$Data['status'] = "fail";
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			/** Status **/
 			$Data['status'] = "fail";
@@ -4434,7 +4138,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** Application Details **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		/** check details **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -4457,29 +4161,11 @@ header('Access-Control-Allow-Origin: *');
 					);
 				}
 
-				/** background image **/
-				$background_image = $this->webservice_model->get_ticket_background_image($Data);
-				if(count($background_image) >0){
-					$back_ticket_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-				
-					/** event **/
-					$Data['backgroundimage'] = $back_ticket_image;
-				}else{
-					/** back rss image **/
-					$back_ticket_image = array('vImage'=>'');
-				
-					/** event **/
-					$Data['backgroundimage'] = $back_ticket_image;
-				}
-					
 
 				/** appointment **/
-				$Data['ticket'] = $tickets;	
-				$Data['status'] = 'success';	
-			}else{
-				/** status **/
-				$Data['status'] = 'fail';
+				$Data['ticket'] = $tickets;		
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			/** status **/
 			$Data['status'] = 'fail';
@@ -4767,28 +4453,9 @@ header('Access-Control-Allow-Origin: *');
 						'vImage'=> $val['vImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/service/'.$val['iServiceId'].'/'.$val['vImage'],
 						'service_timing'=>$get_service_timing
 					);
-				}
-
-				/** background image **/
-				$background_image = $this->webservice_model->get_service_background_image($Data);
-				if(count($background_image) >0){
-					$back_service_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-					/** event **/
-					$Data['backgroundimage'] = $back_service_image;
-				}else{
-					/** back rss image **/
-					$back_service_image = array('vImage'=>'');
-					/** event **/
-					$Data['backgroundimage'] = $back_service_image;
-				}
-					
-				/** appointment **/
-				$Data['service'] = $service;	
-				$Data['status'] = 'success';	
-			}else{
-				/** status **/
-				$Data['status'] = 'fail';
+				}	
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			/** status **/
 			$Data['status'] = 'fail';
@@ -4816,7 +4483,8 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** ApplicationId **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
-
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
+		
 		/** check details **/
 		if($Data['iApplicationId'] != '')
 		{
@@ -4837,29 +4505,11 @@ header('Access-Control-Allow-Origin: *');
 						'vBlogUrl'=>$val['vBlogUrl'],
 						'eStatus'=>$val['eStatus'],
 					);
-				}
-
-				/** background image **/
-				$background_image = $this->webservice_model->get_blog_background_image($Data);
-				if(count($background_image) >0){
-					$back_blog_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-				
-					/** event **/
-					$Data['backgroundimage'] = $back_blog_image;
-				}else{
-					/** back rss image **/
-					$back_blog_image = array('vImage'=>'');
-					/** event **/
-					$Data['backgroundimage'] = $back_blog_image;
-				}
-					
+				}	
 				/** appointment **/
-				$Data['blog'] = $blog;	
-				$Data['status'] = 'success';	
-			}else{
-				/** status **/
-				$Data['status'] = 'fail';
+				$Data['blog'] = $blog;
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			/** status **/
 			$Data['status'] = 'fail';
@@ -5174,28 +4824,14 @@ header('Access-Control-Allow-Origin: *');
 				'items' => $subcat
 			);
 		}
-		
-		$background_image = $this->webservice_model->get_catalogue_background_image($Data);
-		if(count($background_image) >0){
-			$back_catalogue_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
-			/** event **/
-			$result['backgroundimage'] = $back_catalogue_image;
-		}else{
-			/** back rss image **/
-			$back_catalogue_image = array('vImage'=>'');
-			/** event **/
-			$result['backgroundimage'] = $back_catalogue_image;
-		}
-
+		$result = $this->getTabBgImg($Data);
 		/*	Get all categories	*/
 		if(count($maincategory) > 0)
 		{
 			$result['text'] = "Catagories";
 			$result['items'] = $category;
-			$result['status'] = 'Success';
 		}else{
 			$result['text'] = "Catagories";
-			$result['status'] = 'Fail';
 		} 
 
 		/** easyapp gallery details **/
@@ -5220,6 +4856,7 @@ header('Access-Control-Allow-Origin: *');
 		/** iApplication Id **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
 		$Data['iMenuId'] = $this->input->get('iMenuId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		
 		if($Data['iApplicationId'] != ''){
 			/** iApplicationId **/
@@ -5295,31 +4932,8 @@ header('Access-Control-Allow-Origin: *');
 					$result['text'] = "Categories";
 					$result['status'] = 'Fail';
 				} 
-			
-				/** background image **/
-				$background_image = $this->webservice_model->get_category_bg_image($Data);
-				if(count($background_image) > 0){
-					/** background image **/
-					$category_bg = array(
-						'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-					);
-					
-					/** loyalty bg image **/
-					$Data['background'] = $category_bg;
-					$Data['status'] = 'Success';
-				}else{
-					$category_bg = array('vImage'=>'');
-					
-					/** loyalty bg image **/
-					$Data['background'] = $category_bg;
-					$Data['status'] = 'fail';
-				}
-			
-				/** status **/
-				$result['status'] = "Success";	
-			}else{
-				$result['status'] = "fail";
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$result['status'] = "fail";
 		}
@@ -5346,6 +4960,7 @@ header('Access-Control-Allow-Origin: *');
 	{
 		/** iApplication Id **/
 		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
 		
 		if($Data['iApplicationId'] != '')
 		{
@@ -5376,31 +4991,8 @@ header('Access-Control-Allow-Origin: *');
 					$result['text'] = "Categories";
 					$result['status'] = 'Fail';
 				} 
-				
-				/** background image **/
-				$background_image = $this->webservice_model->get_category_bg_image($Data);
-				
-				/* background image */
-				if(count($background_image) > 0){
-					/** background image **/
-					$category_bg = array(
-						'vImage'=>$this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/'.'org_'.$background_image['vImage'],
-					);
-					
-					/** loyalty bg image **/
-					$Data['background'] = $category_bg;
-					$Data['status'] = 'Success';
-				}else{
-					$category_bg = array('vImage'=>'');
-					
-					/** loyalty bg image **/
-					$Data['background'] = $category_bg;
-					$Data['status'] = 'fail';
-				}
-				$Data['status'] = "Success";	
-			}else{
-				$result['status'] = "fail";
 			}
+			$Data = $this->getTabBgImg($Data);
 		}else{
 			$result['status'] = "fail";
 		}
@@ -6173,6 +5765,20 @@ header('Access-Control-Allow-Origin: *');
 
 		echo json_encode($result);
         exit;
+    }
+    
+    //	-- get & return tab bg img	--//
+    function getTabBgImg($Data){
+		$background_image = $this->webservice_model->get_tab_background_image($Data);
+		if(count($background_image) >0){
+			$back_image = array('backgroundimage' => $this->data['base_url'].'uploads/background_image/'.$background_image['iBackgroundId'].'/org_'.$background_image['vImage']);
+			$Data['backgroundimage'] = $back_image;
+		}else{
+			$back_image = array('backgroundimage'=>'');
+			$Data['backgroundimage'] = $back_image;
+		}
+		$Data['status'] = 'Success';
+		return $Data;
     }
 }
 ?>
