@@ -11490,8 +11490,6 @@ function open_popup(popup_div_id,infoId)
 			if(infoId>0)
 			{
 				$("form[name=frminfotabEdit]")[0].reset();
-				$("#editInfoPopupTitle")[0].innerHTML="Edit Information";
-				$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> Update Info";
 				$("[name=editAppTabId]")[0].value=$.session.get("curTabId").split('_')[1];
 				var url = base_url+"app/getEditFormForInfo?infoId="+infoId;
 				$.post(url,
@@ -11507,6 +11505,8 @@ function open_popup(popup_div_id,infoId)
 								$("[name=editTitle]")[0].value=res[0].vTitle;
 								CKEDITOR.instances.editDescription.setData(res[0].tDescription);
 								$("[name=editStatus]")[0].value=res[0].eStatus;
+								$("#editInfoPopupTitle")[0].innerHTML=res.title;
+								$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> "+res.infoBtn;
 							}
 						}
 						catch(e)
@@ -11518,8 +11518,22 @@ function open_popup(popup_div_id,infoId)
 			}
 			else
 			{	
-				$("#editInfoPopupTitle")[0].innerHTML="Add Information";
-				$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> Save Info";
+				var url = base_url+"app/getAddFormForInfo";
+				$.post(url,
+					function(data)
+					{
+						try
+						{
+							var res = JSON.parse(data);
+							$("#editInfoPopupTitle")[0].innerHTML=res.title;
+							$("#editInfoPopupUpdateBtn")[0].innerHTML="<i class='icon-ok'></i> "+res.infoBtn;
+						}
+						catch(e)
+						{
+							console.log(e);
+						}
+					}
+				);
 				$("[name=editInfotabId]")[0].value="";
 				$("[name=editTitle]")[0].value="";
 				CKEDITOR.instances.editDescription.setData("");

@@ -1484,7 +1484,7 @@ console.log('===================End=====================');
     	var mainView = Ext.ComponentQuery.query('mainview')[0];
 		var view = mainView.getActiveItem();
 		var tabId = tab.config.iAppTabId;
-        if (view.getInnerItems().length > 1 && tabId) {
+        if (view && view.getInnerItems().length > 1 && tabId) {
         	var anim = mainView.getLayout().getAnimation();
         	mainView.getLayout().setAnimation(false);
 			view.pop();
@@ -1551,7 +1551,7 @@ console.log('===================End=====================');
         var gallaryNavi = this.getGallaryNaviView();
         var mainView = Ext.ComponentQuery.query('mainview')[0];
 		var view = mainView.getActiveItem();
-        if (view.getInnerItems().length == 1) {
+        if (view && view.getInnerItems().length == 1) {
 			var title = view.down('[docked=top]').getTitle();
             app_PushView(view, 'coverview', data, title);
         }
@@ -1662,7 +1662,7 @@ console.log('===================End=====================');
     	var tabId = tab.config.iAppTabId;
     	var mainView = Ext.ComponentQuery.query('mainview')[0];
     	var view = mainView.getActiveItem();
-    	if (view.getInnerItems().length > 1 && tabId) {
+    	if (view && view.getInnerItems().length > 1 && tabId) {
         	var anim = mainView.getLayout().getAnimation();
         	mainView.getLayout().setAnimation(false);
 			view.pop();
@@ -2379,7 +2379,7 @@ console.log('===================End=====================');
         });*/
         var mainView = Ext.ComponentQuery.query('mainview')[0];
 		var view = mainView.getActiveItem();
-        if (view.getInnerItems().length == 1) {
+        if (view && view.getInnerItems().length == 1) {
 			var title = view.down('[docked=top]').getTitle();
             app_PushView(locationNavi, 'mymap', data, title);
         }
@@ -3258,7 +3258,7 @@ console.log('===================End=====================');
         //var customNavi = this.getCustomViewNavi();
         var mainView = Ext.ComponentQuery.query('mainview')[0];
 		var view = mainView.getActiveItem();
-        if (view.getInnerItems().length == 1) {
+        if (view && view.getInnerItems().length == 1) {
 			var title = view.down('[docked=top]').getTitle();
             app_PushView(view, 'customdetail', data, title);
         }

@@ -7063,11 +7063,43 @@ class App extends MY_Controller
         $inc =1;
         $html .= "<table width='100%' style='table-layout:auto; word-break:break-all; word-wrap:break-word;' cellspacing='0' cellpadding='0' class='table table-striped table-hover table-bordered'>";
         $html .= "<tr class='nodrop'>";
-        $html .= "<th>No.</th>";
-        $html .= "<th>Title</th>";
-        $html .= "<th>Description</th>";
-        $html .= "<th>Status</th>";
-        $html .= "<th>Action</th>";
+        $html .= "<th>#</th>";
+        $html .= "<th>";
+        foreach($information_language as $val1)
+        {
+        	if($val1['rLabelName'] == "Title")
+        	{
+        		$html.=$val1['rField'];
+        	}
+        }
+        $html .= "</th>";
+        $html .= "<th>";
+        foreach($information_language as $val1)
+        {
+        	if($val1['rLabelName'] == "Description")
+        	{
+        		$html.=$val1['rField'];
+        	}
+        }
+        $html .= "</th>";
+        $html .= "<th>";
+        foreach($information_language as $val1)
+        {
+        	if($val1['rLabelName'] == "Status")
+        	{
+        		$html.=$val1['rField'];
+        	}
+        }
+        $html .= "</th>";
+        $html .= "<th>";
+        foreach($information_language as $val1)
+        {
+        	if($val1['rLabelName'] == "Action")
+        	{
+        		$html.=$val1['rField'];
+        	}
+        }
+        $html .= "</th>";
         $html .= "</tr>";
         foreach($appwise_infotabdata as $info_data)
         {
@@ -7075,8 +7107,24 @@ class App extends MY_Controller
         	$html .= '<td>'.$inc.'</td>';
         	$html .= '<td>'.$info_data['vTitle'].'</td>';
         	$html .= '<td>'.$info_data['tDescription'].'</td>';
-        	$html .= '<td>'.$info_data['eStatus'].'</td>';
-        	$html .= '<td><a class="btn btn-primary" onclick="open_popup(\'info_edit_model\','.$info_data['iInfotabId'].');"><i class="icon-pencil"></i> Edit</a></td>';
+        	$html .= '<td>';
+			foreach($information_language as $val1)
+			{
+				if($val1['rLabelName'] == $info_data['eStatus'])
+				{
+					$html.=$val1['rField'];
+				}
+			}
+			$html .= '</td>';
+        	$html .= '<td><a class="btn btn-primary" onclick="open_popup(\'info_edit_model\','.$info_data['iInfotabId'].');"><i class="icon-pencil"></i> ';
+			foreach($information_language as $val1)
+			{
+				if($val1['rLabelName'] == "Edit")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+			$html .= '</a></td>';
         	$html .= '</tr>';
         	
         	$inc = $inc+1;
@@ -7213,6 +7261,31 @@ class App extends MY_Controller
     {
     	$infoId = $this->input->get('infoId');
     	$informationArray = $this->app_model->get_infobyInfoId($infoId);
+    	$lang= $this->session->userdata('language');
+		$catalogue_language = $this->admin_model->get_language_details($lang);
+    	foreach($catalogue_language as $val1){
+			if($val1['rLabelName'] == 'EditInfo'){
+				$informationArray['title']=$val1['rField'];
+			}
+			if($val1['rLabelName'] == 'EditInfoBtn'){
+				$informationArray['infoBtn']=$val1['rField'];
+			}
+		}
+    	echo json_encode($informationArray);
+    }
+    
+    function getAddFormForInfo()
+    {
+    	$lang= $this->session->userdata('language');
+		$catalogue_language = $this->admin_model->get_language_details($lang);
+    	foreach($catalogue_language as $val1){
+			if($val1['rLabelName'] == 'AddInfo'){
+				$informationArray['title']=$val1['rField'];
+			}
+			if($val1['rLabelName'] == 'AddInfoBtn'){
+				$informationArray['infoBtn']=$val1['rField'];
+			}
+		}
     	echo json_encode($informationArray);
     }
     
@@ -16945,7 +17018,6 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
         $html .= 		'<div class="fancybox-skin" style="padding: 0px; width: auto; height: 600px;">';
         $html .= 			'<div class="fancybox-outer">';
         $html .= 				'<div class="fancybox-inner" style="overflow: hidden; width: 800px; height: 600px;">';
-        
         $html .= '<div class="main_popup">';
         $html .= 	'<div class="popup_header">';
         $html .= 		'<h3 id="editInfoPopupTitle"></h3>';
