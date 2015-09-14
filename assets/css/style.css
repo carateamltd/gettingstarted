@@ -6902,3 +6902,11 @@ color:#fff;font-style:italic;
 {
 	display:block;
 }
+
+.info_tr td, .info_tr td p {
+    width: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 150px;
+}

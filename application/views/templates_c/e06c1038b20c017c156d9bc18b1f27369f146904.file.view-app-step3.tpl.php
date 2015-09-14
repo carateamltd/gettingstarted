@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-09 20:16:36
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-14 16:02:39
          compiled from "application/views/templates/view-app-step3.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28071995583b94bf016f6-36551925%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e06c1038b20c017c156d9bc18b1f27369f146904' => 
     array (
       0 => 'application/views/templates/view-app-step3.tpl',
-      1 => 1441804581,
+      1 => 1442220815,
       2 => 'file',
     ),
   ),
@@ -201,7 +201,6 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 									           		<?php }?>
 									            <?php endfor; endif; ?>
 									          </ul>
-
 											<!--<div class="subtabbtn"> <a class="btn btn_upload_icon" style="text-decoration:none;color:white;float: right;" data-controls-modal="subTabs" data-backdrop="static" data-keyboard="false" href="#appr-buttons-subtbs" id="appearance_sub_tabs" role="presentation" tabindex="-1">Sub Tabs</a> </div>-->
                                             
 											<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);

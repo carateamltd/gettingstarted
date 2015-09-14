@@ -1196,6 +1196,13 @@ class Preview_model extends CI_Model
 			"MyApp.view.menuoftheday.MenudayNavi"
 		],
 		config: {
+			listeners: {
+				painted: function(){
+					var me = this;
+					var tab = me.getTabBar().getAt(0);
+					setTimeout(function(){MyApp.app.getApplication().getController("MainController").setPageTitle(tab);},150);
+				}
+			},
 			fullscreen: true,
 			tabBar: {
 				docked: "bottom",
@@ -1207,8 +1214,8 @@ class Preview_model extends CI_Model
 			layout: {
 				type: "card",
 				animation: {
-					type: "slide",
-					duration: 500,
+					type: "slide"//,
+					//duration: 500,
 				}
 			},
 			defaults: {

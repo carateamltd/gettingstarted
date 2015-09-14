@@ -1659,6 +1659,7 @@ console.log('===================End=====================');
         );
     },
     onCustomActivate: function (tab) {
+    	var me = this;
     	var tabId = tab.config.iAppTabId;
     	var mainView = Ext.ComponentQuery.query('mainview')[0];
     	var view = mainView.getActiveItem();
@@ -1699,6 +1700,9 @@ console.log('===================End=====================');
                 if(desc){
 					customStore.add(desc);
 					customStore.sync();
+					if(customStore.getCount() === 1){
+						me.onCustomListTap(null, null, null, customStore.getAt(0), null, null);
+					}
                 }
                 try{
 					if (Response.backgroundimage.backgroundimage) {
@@ -1721,7 +1725,7 @@ console.log('===================End=====================');
             }
         });
     },
-    onQRViewActivate: function (tab) {
+    onQRViewActivate: function (tab) {debugger;
         var objQrStore = Ext.getStore('qrstoreid'), tabId = tab.config.iAppTabId;
         var mainView = Ext.ComponentQuery.query('mainview')[0];
 		var view = mainView.getActiveItem();
@@ -3243,6 +3247,9 @@ console.log('===================End=====================');
 		if(view.down('toolbar')){
 			view.down('toolbar').setTitle(tab.config.title);
 		}
+		if(view.down('titlelbar')){
+			view.down('titlebar').setTitle(tab.config.title);
+		}
 	},
 	setPageTitleOnBack: function(){
 		setTimeout(function(){
@@ -3260,7 +3267,7 @@ console.log('===================End=====================');
 		var view = mainView.getActiveItem();
         if (view && view.getInnerItems().length == 1) {
 			var title = view.down('[docked=top]').getTitle();
-            app_PushView(view, 'customdetail', data, title);
+            app_PushView(view, 'customdetail', data, title, dataView);
         }
     }
 });

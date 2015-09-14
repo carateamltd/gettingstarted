@@ -236,6 +236,7 @@ class App extends MY_Controller
 	/** step3 **/
 	function step3()
 	{
+		$f_msg = $this->session->flashdata('message');
 		$this->data['tpl_name']= "view-app-step3.tpl";
 		$id = $this->uri->segment(3);
 		$this->data['iApplicationId'] = $id;
@@ -299,7 +300,7 @@ class App extends MY_Controller
 			$iFeatureId = $val['iFeatureId'];
 			$iAppTabId = $val['iAppTabId'];
 			//echo $iddtab
-			$rhtml = $this->make_tabwise_dynamic_form($iFeatureId,$iAppTabId);
+			$rhtml = $this->make_tabwise_dynamic_form($iFeatureId,$iAppTabId,$f_msg);
 			
 			$html[$iAppTabId] = $rhtml;
 			
@@ -375,7 +376,7 @@ class App extends MY_Controller
           $this->smarty->view('template.tpl'); 
 	}
 	
-	function make_tabwise_dynamic_form($iFeatureId,$iAppTabId)
+	function make_tabwise_dynamic_form($iFeatureId,$iAppTabId,$f_msg=null)
 	{
 		/*
 			$lang= $this->session->userdata('language');
@@ -454,7 +455,7 @@ class App extends MY_Controller
 		    $getloyaltyhtml = $this->getloyaltyhtml($iFeatureId,$iAppTabId);
 		    $mainhtml .=$getloyaltyhtml;	
 		}else if($iFeatureId == 25){
-		    $infotabhtml = $this->getinfotabhtml($iFeatureId,$iAppTabId);
+		    $infotabhtml = $this->getinfotabhtml($iFeatureId,$iAppTabId,$f_msg);
 		    $mainhtml .=$infotabhtml;
 		}else if($iFeatureId == 29){
 		//    $infotabhtml = $this->getcataloguetabhtml($iFeatureId,$iAppTabId);
@@ -7043,13 +7044,18 @@ class App extends MY_Controller
     }
     
     
-    function getinfotabhtml($iFeatureId,$iAppTabId)
+    function getinfotabhtml($iFeatureId,$iAppTabId,$f_msg)
     {
         $appwise_infotabdata = $this->app_model->get_appwise_infotabdata($this->data['iApplicationId'],$iAppTabId);
         
         $lang= $this->session->userdata('language');
 		$information_language = $this->admin_model->get_language_details($lang);
         $all_featurefields = $this->app_model->get_featurefields($iFeatureId);
+        if ($f_msg != ''){
+			$html .= '<div class="alert alert-info">';
+			$html .= $f_msg;
+			$html .= '</div>';
+		}
         $html .='<div id="addabout_validation'.$iAppTabId.'" style="display:none;"></div>';
         $html .='<button type="button" class="btn btn-primary" onClick="open_popup(\'info_edit_model\',0);"><i class="icon-plus-sign"></i> ';
         foreach($information_language as $val1)
@@ -7061,10 +7067,10 @@ class App extends MY_Controller
         }
         $html .= '</button>';
         $inc =1;
-        $html .= "<table width='100%' style='table-layout:auto; word-break:break-all; word-wrap:break-word;' cellspacing='0' cellpadding='0' class='table table-striped table-hover table-bordered'>";
+        $html .= "<table width='100%' style='table-layout:auto;' cellspacing='0' cellpadding='0' class='table table-striped table-hover table-bordered'>";
         $html .= "<tr class='nodrop'>";
-        $html .= "<th>#</th>";
-        $html .= "<th>";
+        $html .= "<th style='text-align:center;'>#</th>";
+        $html .= "<th style='text-align:center;'>";
         foreach($information_language as $val1)
         {
         	if($val1['rLabelName'] == "Title")
@@ -7073,7 +7079,7 @@ class App extends MY_Controller
         	}
         }
         $html .= "</th>";
-        $html .= "<th>";
+        $html .= "<th style='text-align:center;'>";
         foreach($information_language as $val1)
         {
         	if($val1['rLabelName'] == "Description")
@@ -7082,7 +7088,7 @@ class App extends MY_Controller
         	}
         }
         $html .= "</th>";
-        $html .= "<th>";
+        $html .= "<th style='text-align:center;'>";
         foreach($information_language as $val1)
         {
         	if($val1['rLabelName'] == "Status")
@@ -7091,7 +7097,7 @@ class App extends MY_Controller
         	}
         }
         $html .= "</th>";
-        $html .= "<th>";
+        $html .= "<th colspan='2' style='text-align:center;'>";
         foreach($information_language as $val1)
         {
         	if($val1['rLabelName'] == "Action")
@@ -7103,7 +7109,7 @@ class App extends MY_Controller
         $html .= "</tr>";
         foreach($appwise_infotabdata as $info_data)
         {
-        	$html .= '<tr>';
+        	$html .= '<tr class="info_tr">';
         	$html .= '<td>'.$inc.'</td>';
         	$html .= '<td>'.$info_data['vTitle'].'</td>';
         	$html .= '<td>'.$info_data['tDescription'].'</td>';
@@ -7116,14 +7122,39 @@ class App extends MY_Controller
 				}
 			}
 			$html .= '</td>';
-        	$html .= '<td><a class="btn btn-primary" onclick="open_popup(\'info_edit_model\','.$info_data['iInfotabId'].');"><i class="icon-pencil"></i> ';
-			foreach($information_language as $val1)
+        	$html .= '<td><a class="btn btn-primary" onclick="open_popup(\'info_edit_model\','.$info_data['iInfotabId'].');" title="';
+        	foreach($information_language as $val1)
 			{
 				if($val1['rLabelName'] == "Edit")
 				{
 					$html.=$val1['rField'];
 				}
 			}
+        	$html .= '"><i class="icon-pencil"></i> ';
+			/*foreach($information_language as $val1)
+			{
+				if($val1['rLabelName'] == "Edit")
+				{
+					$html.=$val1['rField'];
+				}
+			}*/
+			$html .= '</a></td>';
+			$html .= '<td><a class="btn btn-primary" onclick="delete_info('.$info_data['iInfotabId'].','.$this->data['iApplicationId'].');" title="';
+			foreach($information_language as $val1)
+			{
+				if($val1['rLabelName'] == "Delete")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+			$html .= '"><i class="icon-remove-sign"></i> ';
+			/*foreach($information_language as $val1)
+			{
+				if($val1['rLabelName'] == "Delete")
+				{
+					$html.=$val1['rField'];
+				}
+			}*/
 			$html .= '</a></td>';
         	$html .= '</tr>';
         	
@@ -17061,6 +17092,59 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 		$html .= 		'</div>';
         $html .= 	'</div>';
         $html .= '</div></div></div></div></div></div>';
+        
+        /*										*/
+		/*	-- HTML for confirm popup	--		*/
+		/*										*/
+		$html .= '<div class="modal fade" id="myModalDeleteInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+  		$html .= '<div class="modal-dialog">';
+    	$html .= '<div class="modal-content">';
+      	$html .= '<div class="modal-header">';
+        $html .= '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>';
+        $html .= '<h3  id="myModalLabelInfo">';
+        	foreach($gallery_language as $val1)
+            {
+				if($val1['rLabelName'] == "Confirm Delete")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html .= '</h3>';
+      	$html .= '</div>';
+      	$html .= '<div class="modal-body">';
+      		foreach($gallery_language as $val1)
+            {
+				if($val1['rLabelName'] == "Are you sure")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+      	$html .= '</div>';
+      	$html .= '<div class="modal-footer">';
+        $html .= '<button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right: 5px;">';
+        	foreach($gallery_language as $val1)
+            {
+				if($val1['rLabelName'] == "Close")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+       $html .= '</button>';
+       $html .= '<a href="" class="mylinkInfo">';
+       $html .= '<button type="button" class="btn btn-primary">';
+        	foreach($gallery_language as $val1)
+            {
+				if($val1['rLabelName'] == "Delete")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+       $html .= '</button>';
+       $html .= '</a>';
+       $html .= '</div>';
+       $html .= '</div>';
+       $html .= '</div>';
+       $html .= '</div>';
 		
 		return $html;
 	}
@@ -17117,6 +17201,28 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
             }
         }
         redirect ($this->data['base_url'] . 'app/step3/'.$this->input->get('appId'));
+	}
+	
+	//	-- function for delete information --	//
+	function delete_info()
+	{        
+		$lang = $this->session->userdata('language');
+		$info_id= $this->uri->segment(3);
+		$iApplicationId= $this->uri->segment(4);
+		$id = $this->app_model->delete_info($info_id, $iApplicationId);
+		if($id)
+		{
+			$this->data['message'] = $this->session->flashdata('message');
+			if($lang == 'rEnglish')
+			{
+				$this->session->set_flashdata('message','Information deleted successfully.');
+			}
+			else if($lang == 'rFrench')
+			{
+				$this->session->set_flashdata('message','Informations supprimé avec succès');
+			}
+			redirect($this->data['base_url'] . 'app/step3/'.$iApplicationId);
+		}
 	}
 }
 ?>

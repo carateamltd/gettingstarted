@@ -105,7 +105,6 @@
 									           		{/if}
 									            {/section}
 									          </ul>
-
 											<!--<div class="subtabbtn"> <a class="btn btn_upload_icon" style="text-decoration:none;color:white;float: right;" data-controls-modal="subTabs" data-backdrop="static" data-keyboard="false" href="#appr-buttons-subtbs" id="appearance_sub_tabs" role="presentation" tabindex="-1">Sub Tabs</a> </div>-->
                                             
 											{section name=i loop=$data.selected_feature_details}

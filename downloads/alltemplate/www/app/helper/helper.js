@@ -16,7 +16,7 @@ function app_CallView(objView, viewName, viewTransition) {
         xtype: viewName
     }, viewTransition);
 }
-function app_PushView(objParent, objNavigate, extraData, title) {
+function app_PushView(objParent, objNavigate, extraData, title, dv) {
     if (!extraData) {
         objParent.push({
             xtype: objNavigate,
@@ -30,6 +30,12 @@ function app_PushView(objParent, objNavigate, extraData, title) {
         });
     }
     objParent.getNavigationBar().getBackButton().setText(title);
+    if(dv === null){
+    	objParent.getNavigationBar().getBackButton().hide();
+    }
+    else{
+    	objParent.getNavigationBar().getBackButton().show();
+    }
 }
 function appCustomAlert(displaytitle, displayMessage) {
     Ext.Viewport.setMasked(false);

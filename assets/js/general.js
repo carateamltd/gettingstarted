@@ -11600,3 +11600,10 @@ function openEditGalleryPopup(galleryImageId, popup_div_id)
 function updateGalleryImage(){
 	$("form[name=frmgalleryEdit]")[0].submit();
 }
+
+//	--	function for delete information	--//
+function delete_info(infoId,iApplicationId){
+	$('#myModalDeleteInfo').modal('show');
+	var link = document.getElementsByClassName("mylinkInfo")[0];
+    link.setAttribute('href', base_url+'app/delete_info/'+infoId+'/'+iApplicationId);
+}

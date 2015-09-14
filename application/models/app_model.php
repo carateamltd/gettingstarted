@@ -2833,5 +2833,15 @@ function getservicetiminginfo($iServiceId)
         $query = $this->db->get();
         return $query->result_array();
     }
+    
+    /*
+    	function to delete information
+    */
+    public function delete_info($info_id, $iApplicationId){
+    	$this->db->where('iInfotabId',$info_id);
+    	$this->db->where('iApplicationId',$iApplicationId);
+        $this->db->delete('r_app_infotab_values');
+        return true;
+    }
 }
 ?>
