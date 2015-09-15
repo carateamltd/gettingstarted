@@ -77,7 +77,7 @@ class Preview extends MY_Controller
         $this->data['appinformation']=$appinformation;
         $this->data['Ipone_app_url']=urlencode($GLOBALS['Configration_value']['IPHONE_APP_URL']);
         $this->data['Andriod_app_url']= urlencode($GLOBALS['Configration_value']['ANDROID_APP_URL']);
-        $this->data['mobile_preview']= "http://admin.easy-apps.co.uk/webservice/previewapp?appcode=".$appinformation['vApplicationCode'];
+        $this->data['mobile_preview']= $this->data['base_url']."webservice/previewapp?appcode=".$appinformation['vApplicationCode'];
         $this->data['client_info'] = $this->preview_model->get_client_info($iApplicationId); 
         
         //########################### START: ALL DESIGN DATA GET HERE  ###############

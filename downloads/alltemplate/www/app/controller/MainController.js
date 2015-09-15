@@ -740,28 +740,36 @@ Ext.define('MyApp.controller.MainController', {
 				}
 //                alert(openCloseStore.getCount());
 //                alert(homeStore.getCount());
-                var desc = Response.home.vDescription;
-                var image = Response.home.vImage;
-                var website = Response.home.vWebsite
-                var email = Response.home.vEmail
-                var Telephone = Response.home.vTelephone
-                var address = Response.home.vAddress1
-                var city = Response.home.vCity
-                var state = Response.home.vState
-                var zip = Response.home.vZip;
-                var count = Response.openingtime.length;
 
-                if (Response.backgroundimage.backgroundimage) {
-                    view.down('panel').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
-                }
-                for (var i = 0; i < count; i++) {
-                    Ext.ComponentQuery.query('homeview #' + Response.openingtime[i].vDay + '')[0].setHtml("<div style='float:left;font-size:16px;width: 100%;'>\n\
-                       <div style='float:left;padding: 10px;width: 35%;font-size: 14px;border-bottom:1px solid black;border-left: 1px solid black;border-right: 1px solid black;text-align: center;background-color:rgba(255, 255, 255, 0.22);'> " + Response.openingtime[i].vDay + "</div>\n\
-                       <div style='float:left;padding: 10px;width: 35%;font-size: 14px;border: 1px solid sliver;text-align: center;'> " + Response.openingtime[i].vOpenfrom + "</div>\n\
-                       <div style='float:left;padding: 10px;width: 30%;font-size: 14px;border: 1px solid sliver;text-align: center;'> " + Response.openingtime[i].vOpento + "</div></div>");
-                    Ext.ComponentQuery.query('homeview #' + Response.openingtime[i].vDay + '')[0].setHidden(false)
-                }
-                me.onSetHome(desc, image, website, email, Telephone, address, city, state, zip);
+				if(typeof Response.openingtime != 'undefined')
+                {
+                	var count = Response.openingtime.length;
+					for (var i = 0; i < count; i++) {
+						Ext.ComponentQuery.query('homeview #' + Response.openingtime[i].vDay + '')[0].setHtml("<div style='float:left;font-size:16px;width: 100%;'>\n\
+						   <div style='float:left;padding: 10px;width: 35%;font-size: 14px;border-bottom:1px solid black;border-left: 1px solid black;border-right: 1px solid black;text-align: center;background-color:rgba(255, 255, 255, 0.22);'> " + Response.openingtime[i].vDay + "</div>\n\
+						   <div style='float:left;padding: 10px;width: 35%;font-size: 14px;border: 1px solid sliver;text-align: center;'> " + Response.openingtime[i].vOpenfrom + "</div>\n\
+						   <div style='float:left;padding: 10px;width: 30%;font-size: 14px;border: 1px solid sliver;text-align: center;'> " + Response.openingtime[i].vOpento + "</div></div>");
+						Ext.ComponentQuery.query('homeview #' + Response.openingtime[i].vDay + '')[0].setHidden(false)
+					}
+				}
+				
+				if(typeof Response.home != 'undefined')
+                {
+					var desc = Response.home.vDescription;
+					var image = Response.home.vImage;
+					var website = Response.home.vWebsite
+					var email = Response.home.vEmail
+					var Telephone = Response.home.vTelephone
+					var address = Response.home.vAddress1
+					var city = Response.home.vCity
+					var state = Response.home.vState
+					var zip = Response.home.vZip;
+					
+					me.onSetHome(desc, image, website, email, Telephone, address, city, state, zip);
+				}
+				if (Response.backgroundimage.backgroundimage) {
+					view.down('panel').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+				}
             },
             failure: function (response, opts) {
                 appUnmask();
@@ -979,8 +987,11 @@ Ext.define('MyApp.controller.MainController', {
                     console.log("=============================================================");
                     var bgimage = Response.backgroundimage.backgroundimage;
                     view.down('youtube').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
-                    chennal = Response.youtube.vChannelName;
-                    me.youtubeVideo(chennal);
+                    if(typeof Response.youtube != 'undefined')
+                    {
+                    	chennal = Response.youtube.vChannelName;
+                    	me.youtubeVideo(chennal);
+                    }
                     me.setPageTitle(tab);
                     appUnmask();
                 },
@@ -1725,7 +1736,7 @@ console.log('===================End=====================');
             }
         });
     },
-    onQRViewActivate: function (tab) {debugger;
+    onQRViewActivate: function (tab) {
         var objQrStore = Ext.getStore('qrstoreid'), tabId = tab.config.iAppTabId;
         var mainView = Ext.ComponentQuery.query('mainview')[0];
 		var view = mainView.getActiveItem();
@@ -1845,10 +1856,15 @@ console.log('===================End=====================');
         console.log(url);
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
-                    console.log(Response);
-                    objEventStore.removeAll();
-                    objEventStore.add(Response.event);
-                    objEventStore.sync();
+					try{
+						console.log(Response);
+						objEventStore.removeAll();
+						objEventStore.add(Response.event);
+						objEventStore.sync();
+					}
+					catch(e){
+						console.log(e);
+					}                    
                     if (Response.backgroundimage.backgroundimage) {
                         view.down('eventlistview').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
                     }
