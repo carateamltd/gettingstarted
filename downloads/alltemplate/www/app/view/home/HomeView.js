@@ -22,15 +22,16 @@ Ext.define('MyApp.view.home.HomeView', {
                     {
                         html: '',
                         itemId:'homeImageID'
-                    }, 
-                    {
+                    },
+                    //CODE CHANGES FOR TASK "REMOVE Description for HOME tab"
+                    /*{
                         style: 'word-wrap: break-word;',
                         html: "<p class='title' style='text-align:center;margin-bottom: 0px;font-size: 40px;'><strong>"+Loc.t('HOME.DESCRIPTION')+"</strong></p>",
                     },{
                         style:'word-wrap:break-word;',
                         itemId:'homeDescribtionID',
                         html:"<div style='text-align:center;font-weight:bold;'>"+Loc.t('HOME.NODESCMESSAGE')+"</div>"
-                    },{
+                    },*/{
                         style: 'word-wrap: break-word;',
                         html: "<div style='text-align:center;font-size:40px;font-weight:bold;font-family: KleymisskyRegular !important;'>"+Loc.t('HOME.DETAILS')+"</div>",
                     },{

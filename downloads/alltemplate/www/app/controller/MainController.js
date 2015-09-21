@@ -886,10 +886,11 @@ Ext.define('MyApp.controller.MainController', {
     onSetHome: function (desc, image, website, email, Telephone, address, city, state, zip) {
     	var mainView = Ext.ComponentQuery.query('mainview')[0];
     	var view = mainView.getActiveItem();
-        if (desc) {
+		//CODE CHANGES FOR TASK "REMOVE Description for HOME tab"
+        /*if (desc) {
             //Ext.ComponentQuery.query('homeview #homeDescribtionID')[0].setHtml("<div class='descCls'>" + desc + "</div>");
             view.down('#homeDescribtionID').setHtml("<div class='descCls'>" + desc + "</div>");
-        }
+        }*/
         if(image.indexOf('assets/images/empty.png') === -1){
         	view.down('#homeImageID').setHtml("<div style='text-align:center'><img src='http://" + image + "' width='98%' /></div>");
         }
@@ -1182,7 +1183,7 @@ Ext.define('MyApp.controller.MainController', {
                 appCustomAlert(Loc.t('LOYALTY.SORRY'), Loc.t('LOYALTY.NOMORECOUPONAVAILABLE'));
             }
         } else {
-            appCustomAlert("Message", Loc.t('LOYALTY.ENTERSECRETCODE'));
+            appCustomAlert(Loc.t('CATELOG.ALERT'), Loc.t('LOYALTY.ENTERSECRETCODE'));
         }
     },
     onOrderListActivate: function (tab) {
@@ -1428,22 +1429,22 @@ console.log('===================End=====================');
         /** validation **/
         var alert_msg='';
         if(name==''){
-           alert_msg+="Plesae enter Name";
+           alert_msg+=Loc.t('CATELOG.NAMEERROR');
         }
         if(phonenumber==null){
-            alert_msg+="<br />Please enter phonenumber";
+            alert_msg+="<br />"+Loc.t('CATELOG.EMPTYTEL');
         }
         if(address==''){
-            alert_msg+="<br />Please enter address";
+            alert_msg+="<br />"+Loc.t('CATELOG.ADDRESSERROR');
         }
         if(email==''){
-            alert_msg+="<br />Please enter email";
+            alert_msg+="<br />"+Loc.t('CATELOG.EMAILERROR');
         }
         if(areaname==''){
-            alert_msg+="<br />Please enter area name";
+            alert_msg+="<br />"+Loc.t('CATELOG.AREAERROR');
         }
         if(pincode==''){
-            alert_msg+="<br />Please enter pincode";
+            alert_msg+="<br />"+Loc.t('CATELOG.PINERROR');
         }
 
     if (name && phonenumber && address && email && areaname && pincode) 
@@ -2524,7 +2525,7 @@ console.log('===================End=====================');
                             console.log(Response);
                             Ext.ComponentQuery.query('mailinglistview #emailid')[0].setValue('');
                             Ext.ComponentQuery.query('mailinglistview #fullnameid')[0].setValue('');
-                            appCustomAlert(TextConstants.MESSAGE, "Thank you for subscribe");
+                            appCustomAlert(TextConstants.MESSAGE, Loc.t('MAIN.THANKSSUBSCRIBE'));
                             appUnmask();
                         },
                         function failure(Response) {
@@ -2532,10 +2533,10 @@ console.log('===================End=====================');
                         }
                 );
             } else {
-                appCustomAlert(TextConstants.MESSAGE, "Please enter name");
+                appCustomAlert(TextConstants.MESSAGE, Loc.t('CATELOG.NAMEERROR'));
             }
         } else {
-            appCustomAlert(TextConstants.MESSAGE, "Please enter email address");
+            appCustomAlert(TextConstants.MESSAGE, Loc.t('CATELOG.EMAILERROR'));
         }
 
     },
@@ -2634,18 +2635,18 @@ console.log('===================End=====================');
         var length = TextConstants.MSGITEMARRAYCONSTANT.length;
         var msgStore = Ext.getStore('messagestoreid');
         Ext.Msg.show({
-            title: 'Message',
-            message: 'Are you sure you want delete messages',
+            title: Loc.t('CATELOG.ALERT'),
+            message: Loc.t('MESSAGE.SUREDELETEMSG'),
             scope: this,
             buttons: [
                 {
                     itemId: 'no',
-                    text: 'Cancel',
+                    text: Loc.t('BUTTON.CANCEL'),
                     ui: 'action'
                 },
                 {
                     itemId: 'yes',
-                    text: 'Ok',
+                    text: Loc.t('BUTTON.OK'),
                     ui: 'action'
                 }
             ],
@@ -2885,7 +2886,7 @@ console.log('===================End=====================');
                     Ext.ComponentQuery.query('testimonialview #nameid')[0].setValue('');
                     Ext.ComponentQuery.query('testimonialview #feedbacktextid')[0].setValue('');
                     me.onTestimonialViewActivate();
-                    appCustomAlert(TextConstants.MESSAGE, "Testimonial added successfully come");
+                    appCustomAlert(TextConstants.MESSAGE, Loc.t('TESTIMONIAL.ADDSUCCESS'));
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2905,7 +2906,7 @@ console.log('===================End=====================');
                     console.log(JSON.stringify(Response));
                     Ext.ComponentQuery.query('review #nameid')[0].setValue('');
                     Ext.ComponentQuery.query('review #feedbacktextid')[0].setValue('');
-                    appCustomAlert(TextConstants.MESSAGE, "Review added successfully come");
+                    appCustomAlert(TextConstants.MESSAGE, Loc.t('REVIEW.ADDSUCCESS'));
                     appUnmask();
                 },
                 function failure(Response) {
@@ -2934,9 +2935,9 @@ console.log('===================End=====================');
 
                     Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHidden(false);
                     if (Response.appointment.eStatus != "Active") {
-                        Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHtml('<div style="text-align: center;  margin-top: 10px;  color: red;font-weight: bold;">Your Appointment is still not confirm</div>');
+                        Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHtml('<div style="text-align: center;  margin-top: 10px;  color: red;font-weight: bold;">'+Loc.t('APPOINTMENT.NOTCONFIRMMSG')+'</div>');
                     } else {
-                        Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHtml('<div style="text-align: center;  margin-top: 10px;  color: green;font-weight: bold;">Your Appointment is confirm now</div>');
+                        Ext.ComponentQuery.query('appointmentview #appointmentcnfrmTextid')[0].setHtml('<div style="text-align: center;  margin-top: 10px;  color: green;font-weight: bold;">'+Loc.t('APPOINTMENT.CONFIRMMSG')+'</div>');
                     }
                     appUnmask();
                 },
@@ -3024,10 +3025,10 @@ console.log('===================End=====================');
             app_PushView(EcommarceNavi, 'ecommarcedetails', data);
         }
         if (index >= 0) {
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Remove From Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText(Loc.t('CART.REMOVE'));
             Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('decline');
         } else {
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Add to Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText(Loc.t('CART.ADD'));
             Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('action');
         }
     },
@@ -3042,17 +3043,17 @@ console.log('===================End=====================');
         var itemText = storeData.iCatelogueId;
         var cartstoreid = Ext.getStore("addcartstoreid");
 
-        if (BtnText == "Remove From Cart") {
+        if (BtnText == Loc.t('CART.REMOVE')) {
             var index = cartstoreid.find("iCatelogueId", itemText);
             console.log(index);
             cartstoreid.removeAt(index);
             cartstoreid.sync();
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Add to Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText(Loc.t('CART.ADD'));
             Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('action');
         } else {
             cartstoreid.add(storeData);
             cartstoreid.sync();
-            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText('Remove From Cart');
+            Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setText(Loc.t('CART.REMOVE'));
             Ext.ComponentQuery.query('ecommarcedetails #ecommerce_AddtocartBtnid')[0].setUi('decline');
         }
         //        TextConstants.PayOption = 'ecommarcebuy'
@@ -3072,7 +3073,7 @@ console.log('===================End=====================');
         MyApp.services.RemoteService.remoteCall(url,
                 function success(Response) {
                     console.log(JSON.stringify(Response));
-                    appCustomAlert(TextConstants.MESSAGE, "Purchased Successfully");
+                    appCustomAlert(TextConstants.MESSAGE, Loc.t('PURCHASE.SUCCESS'));
                     appUnmask();
                 },
                 function failure(Response) {
