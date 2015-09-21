@@ -7,6 +7,7 @@
 Ext.define('locales.en', {
     extend: 'Ext.Base',
     singleton: true,
+    LOADMSG: 'Loading...',
     BUTTON: {
         BACK: 'Back',
         OK: 'OK',
@@ -22,7 +23,8 @@ Ext.define('locales.en', {
         WELCOMETEXT1: "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the contents of ",
         WELCOMETEXT2: " - edit that file and refresh to change what's rendered here.",
         GETSTARTED: 'Get Started',
-        GETTINGSTARTED: 'Getting Started'
+        GETTINGSTARTED: 'Getting Started',
+        THANKSSUBSCRIBE: 'Thank you for subscribe'
     },
     HOME:{
         TITLE: 'Home',
@@ -213,7 +215,8 @@ Ext.define('locales.en', {
     },
     MESSAGE:{
         TITLE: 'Message',
-        NOMESSAGEAVAILABLE: 'No messages available'
+        NOMESSAGEAVAILABLE: 'No messages available',
+        SUREDELETEMSG: 'Are you sure you want delete messages'
     },
     DOWNLOAD:{
         TITLE: 'DOWNLOAD',
@@ -249,18 +252,21 @@ Ext.define('locales.en', {
         TITLE: 'Appointment',
         SUCCESSFULLYADDED:'Appointment added successfully',
         CHECKINTERNETCONNECTION: 'Please check your internet connection.',
-        NOTCONFIRMMSG: 'Your Appointment is still not confirm'
+        NOTCONFIRMMSG: 'Your Appointment is still not confirm',
+        CONFIRMMSG: 'Your Appointment is confirm now'
     },
     QUOTATION:{
         TITLE: 'Quotation',
         SUCCESSFULLYADDED: 'Quote successfully added'
     },
     REVIEW:{
-        TITLE: 'Review'
+        TITLE: 'Review',
+        ADDSUCCESS: 'Review added successfully come'
     },
     TESTIMONIAL:{
         TITLE: 'TESTIMONIAL',
-        NOTESTIMONIALAVL: 'No Testimonial is available'
+        NOTESTIMONIALAVL: 'No Testimonial is available',
+        ADDSUCCESS: 'Testimonial added successfully come'
     },
     COUPOUN:{
         TITLE: 'Coupon',
@@ -290,6 +296,7 @@ Ext.define('locales.en', {
         ALERT: 'Alert',
         NAMEERROR: 'Please enter your name',
     	EMAILERROR: 'Please enter your email',
+    	AREAERROR: 'Please enter area name',
     	ADDRESSERROR: 'Address can not be blank',
     	CITYERROR: 'City can not be blank',
     	STATEERROR: 'State can not be blank',
@@ -328,7 +335,8 @@ Ext.define('locales.en', {
     	AREANAME: "Area Name",
     	COMMENT: 'Comment',
     	ERROR: 'Error',
-    	TYPE: 'Type'
+    	TYPE: 'Type',
+    	SURE: 'Are you sure?'
     },
     NEWARRIVAL:{
         TITLE: 'New Arrival',
@@ -393,5 +401,12 @@ Ext.define('locales.en', {
     PAYPAL: {
     	TITLE:'Paypal View',
     	BUTTON: 'Pay Pal'
+    },
+    CART: {
+    	REMOVE: 'Remove From Cart',
+    	ADD: 'Add to Cart'
+    },
+    PURCHASE: {
+    	SUCCESS: 'Purchased Successfully'
     }
 });

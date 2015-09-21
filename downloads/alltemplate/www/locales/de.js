@@ -7,6 +7,7 @@
 Ext.define('locales.de', {
     extend: 'Ext.Base',
     singleton: true,
+    LOADMSG: 'Chargement...',
     BUTTON: {
         BACK: 'Retour',
         OK: 'OK',
@@ -22,7 +23,8 @@ Ext.define('locales.de', {
         WELCOMETEXT1: "Sie haben gerade ein neues Sencha Touch 2 Projekt erstellt. Was Sie hier sehen ist der Inhalt von ",
         WELCOMETEXT2: " - bearbeiten Sie diese Datei und aktualisieren Sie die Seite um Änderungen hier zu sehen.",
         GETSTARTED: 'Einführung',
-        GETTINGSTARTED: 'Einführung'
+        GETTINGSTARTED: 'Einführung',
+        THANKSSUBSCRIBE: 'Merci de vous inscrire'
     },
     HOME:{
         TITLE: 'Accueil',
@@ -213,7 +215,8 @@ Ext.define('locales.de', {
     },
     MESSAGE:{
         TITLE: 'Message',
-        NOMESSAGEAVAILABLE: 'Pas de messages disponibles'
+        NOMESSAGEAVAILABLE: 'Pas de messages disponibles',
+        SUREDELETEMSG: 'Etes-vous sûr que vous voulez supprimer les messages'
     },
     DOWNLOAD:{
         TITLE: 'TÉLÉCHARGER',
@@ -249,18 +252,21 @@ Ext.define('locales.de', {
         TITLE: 'Rendez Vou',
         SUCCESSFULLYADDED:'Nomination ajouté avec succès',
         CHECKINTERNETCONNECTION: 'Veuillez verifier votre Connexion internet svp.',
-        NOTCONFIRMMSG: 'Votre rendez-vous est toujours pas confirmer'
+        NOTCONFIRMMSG: 'Votre rendez-vous est toujours pas confirmer',
+        CONFIRMMSG: 'Votre rendez-vous est maintenant confirmer'
     },
     QUOTATION:{
         TITLE: 'Citation',
         SUCCESSFULLYADDED: 'Devis ajouté avec succès'
     },
     REVIEW:{
-        TITLE: 'Examen'
+        TITLE: 'Examen',
+        ADDSUCCESS: 'Revue ajoutée viennent succès'
     },
     TESTIMONIAL:{
         TITLE: 'TÉMOIGNAGE',
-        NOTESTIMONIALAVL: "Pas d'appréciation est disponible"
+        NOTESTIMONIALAVL: "Pas d'appréciation est disponible",
+        ADDSUCCESS: 'Témoignage ajoutée viennent succès'
     },
     COUPOUN:{
         TITLE: 'Coupoun',
@@ -291,6 +297,7 @@ Ext.define('locales.de', {
         ALERT: 'Message',
         NAMEERROR: 'Veuillez entrer votre nom',
     	EMAILERROR: 'Veuillez entrer votre email',
+    	AREAERROR: "S'il vous plaît entrez le nom de domaine",
     	ADDRESSERROR: 'Adresse ne peut être vide',
     	CITYERROR: 'Ville ne peut pas être vide',
     	STATEERROR: 'État ne peut pas être vide',
@@ -328,7 +335,8 @@ Ext.define('locales.de', {
     	AREANAME: "Nom de la zone",
     	COMMENT: 'Commentaire',
     	ERROR: 'erreur',
-    	TYPE: 'Type'
+    	TYPE: 'Type',
+    	SURE: 'Êtes-vous sûr?'
     },
     NEWARRIVAL:{
         TITLE: 'Nouvel Arrivage',
@@ -393,5 +401,12 @@ Ext.define('locales.de', {
     PAYPAL: {
     	TITLE:'Paypal Voir',
     	BUTTON: 'Pay Pal'
+    },
+    CART: {
+    	REMOVE: 'Retirer du panier',
+    	ADD: 'Ajouter au panier'
+    },
+    PURCHASE: {
+    	SUCCESS: 'acheté avec succès'
     }
 });

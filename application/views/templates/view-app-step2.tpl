@@ -257,7 +257,13 @@
 	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   		<div class="modal-header">
     		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-    		<h3 id="myModalLabel">Pick Your App Features</h3>
+    		<h3 id="myModalLabel">
+    			{foreach from=$lang item=val}
+                    {if $val.rLabelName == "Pick your App Features"}
+                    	{$val.rField}
+                    {/if}
+                {/foreach}
+    		</h3>
   		</div>
   		<br>
 		<div id="err"></div>
@@ -267,14 +273,47 @@
    				<div class="toptab">
       				<table width="100%" border="0" cellspacing="0" cellpadding="0">
   						<tr>
-    						<th align="left"><strong>Industry</strong> <span class="qmark">&nbsp;</span></th>
-    						<th align="left"><strong>App Name</strong> <span class="qmark">&nbsp;</span></th>
-    						<th align="left"><strong>App Icon Name</strong> <span class="qmark">&nbsp;</span></th>
+    						<th align="left">
+    							<strong>
+    								{foreach from=$lang item=val}
+										{if $val.rLabelName == "Industry"}
+											{$val.rField}
+										{/if}
+									{/foreach}
+    							</strong> 
+    							<span class="qmark">&nbsp;</span>
+    						</th>
+    						<th align="left">
+    							<strong>
+									{foreach from=$lang item=val}
+										{if $val.rLabelName == "App Name"}
+											{$val.rField}
+										{/if}
+									{/foreach}
+    							</strong> 
+    							<span class="qmark">&nbsp;</span>
+    						</th>
+    						<th align="left">
+    							<strong>
+    								{foreach from=$lang item=val}
+										{if $val.rLabelName == "App Icon Name"}
+											{$val.rField}
+										{/if}
+									{/foreach}
+    							</strong> 
+    							<span class="qmark">&nbsp;</span>
+    						</th>
   						</tr>
   						<tr>
     						<td>
       							<select class="indst" id="industry" name="appinformation[iIndustryId]">
-        							<option value="">Select App Industry</option>
+        							<option value="">
+        								{foreach from=$lang item=val}
+											{if $val.rLabelName == "Select App Industry"}
+												{$val.rField}
+											{/if}
+										{/foreach}
+        							</option>
          							{section name = i loop = $data.appindustry}
           								<option value="{$data.appindustry[i].iIndustryId}">{$data.appindustry[i].vTitle}</option>
         							{/section}
@@ -288,14 +327,26 @@
 				<div class="midparttp">
         			<div class="midleft">
       					<fieldset>
-        					<legend>Recommended:</legend>
+        					<legend>
+        						{foreach from=$lang item=val}
+									{if $val.rLabelName == "Recommended"}
+										{$val.rField}
+									{/if}
+								{/foreach}
+        					:</legend>
         					<div class="innerlft" id="inlft">
         					</div>
        					</fieldset>
     				</div>
     				<div class="midright">
       					<fieldset>
-        					<legend>Optional:</legend>
+        					<legend>
+        						{foreach from=$lang item=val}
+									{if $val.rLabelName == "Optional"}
+										{$val.rField}
+									{/if}
+								{/foreach}
+        					:</legend>
         					<div class="innercont"></div>
        					</fieldset>
     				</div>
@@ -303,8 +354,20 @@
 			</div>
 		</form>
   		<div class="modal-footer">
-    		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    		<button type="button" class="btn btn-primary" id="save_feature">Save Feature & Continue</button>
+    		<button class="btn" data-dismiss="modal" aria-hidden="true">
+    			{foreach from=$lang item=val}
+					{if $val.rLabelName == "Close"}
+						{$val.rField}
+					{/if}
+				{/foreach}
+    		</button>
+    		<button type="button" class="btn btn-primary" id="save_feature">
+    			{foreach from=$lang item=val}
+					{if $val.rLabelName == "Save Feature & Continue"}
+						{$val.rField}
+					{/if}
+				{/foreach}
+    		</button>
   		</div>
 	</div>
 	<!-- Modal -->

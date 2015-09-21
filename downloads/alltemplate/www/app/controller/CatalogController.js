@@ -229,7 +229,7 @@ Ext.define('MyApp.controller.CatalogController', {
             cartProduct.set('selectedOption',optionId);
             cartProduct.set('selectedQty',Number(cartProduct.get('selectedQty'))+Number(qty));
             cartProduct.set('price',Number(cartProduct.get('selectedQty'))*Number(price));
-            Ext.Msg.alert('Alert', Loc.t('CATELOG.CARTITEMUPDATE'));
+            Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('CATELOG.CARTITEMUPDATE'));
         }else{
             cartData.selectedSize = sizeId;
             cartData.selectedOption = optionId;
@@ -353,16 +353,16 @@ Ext.define('MyApp.controller.CatalogController', {
 
     removeProductInCart: function(button){
     	Ext.Msg.show({
-            title: 'Message',
-            message: 'Are you sure?',
+            title: Loc.t('CATELOG.ALERT'),
+            message: Loc.t('CATELOG.SURE'),
             scope: this,
             buttons: [{
                     itemId: 'no',
-                    text: 'Cancel',
+                    text: Loc.t('BUTTON.CANCEL'),
                     ui: 'action'
                 }, {
                     itemId: 'yes',
-                    text: 'Ok',
+                    text: Loc.t('BUTTON.OK'),
                     ui: 'action'
             }],
             fn: function (btn) {

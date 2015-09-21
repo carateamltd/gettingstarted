@@ -1,7 +1,7 @@
 function appMask() {
     Ext.Viewport.setMasked({
         xtype: 'loadmask',
-        message: 'Loading...'
+        message: Loc.t('LOADMSG')
     });
 }
 function appUnmask() {

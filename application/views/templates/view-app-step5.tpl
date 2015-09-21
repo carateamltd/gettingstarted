@@ -1,4 +1,3 @@
-
 <div class="rightpanel">
 	<ul class="breadcrumbs">	
         	<li><a href="#"><i class="icon-book"></i></a> <span class="separator"></span></li>
@@ -50,7 +49,13 @@
                                     <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i>
                                     </button>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#">Print</a></li>
+                                        <li><a href="#">
+                                        	{foreach from=$lang item=val}
+												{if $val.rLabelName == 'Print'}
+												   {$val.rField}
+												{/if}
+											{/foreach}
+                                        </a></li>
                                         <li><a href="#">Save as PDF</a></li>
                                         <li><a href="#">Export to Excel</a></li>
                                     </ul>

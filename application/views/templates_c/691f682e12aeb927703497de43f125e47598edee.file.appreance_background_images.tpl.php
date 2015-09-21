@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-09 19:58:10
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-17 14:47:06
          compiled from "application/views/templates/appreance_background_images.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2288117235583d352c42734-54633238%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '691f682e12aeb927703497de43f125e47598edee' => 
     array (
       0 => 'application/views/templates/appreance_background_images.tpl',
-      1 => 1441803428,
+      1 => 1442475958,
       2 => 'file',
     ),
   ),
@@ -1072,7 +1072,18 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="table buttons_tbl">
 							<tr>
 								<td>
-									<label class="spec_label">These sections already have backgrounds assigned:</label>
+									<label class="spec_label">
+										<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+											<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=="These sections already have backgrounds assigned"){?>
+												<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+											<?php }?>
+										<?php } ?>: 
+									</label>
 								</td>
 							</tr>
 						</table>

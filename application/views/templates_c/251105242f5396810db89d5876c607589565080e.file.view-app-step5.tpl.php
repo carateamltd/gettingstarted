@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-07 17:14:09
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-21 17:45:21
          compiled from "application/views/templates/view-app-step5.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:17112883435582a0cdeec611-59300077%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '251105242f5396810db89d5876c607589565080e' => 
     array (
       0 => 'application/views/templates/view-app-step5.tpl',
-      1 => 1438864761,
+      1 => 1442647712,
       2 => 'file',
     ),
   ),
@@ -27,8 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5582a0ce064981_85725992')) {function content_5582a0ce064981_85725992($_smarty_tpl) {?>
-<div class="rightpanel">
+<?php if ($_valid && !is_callable('content_5582a0ce064981_85725992')) {function content_5582a0ce064981_85725992($_smarty_tpl) {?><div class="rightpanel">
 	<ul class="breadcrumbs">	
         	<li><a href="#"><i class="icon-book"></i></a> <span class="separator"></span></li>
             <li><?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
@@ -94,7 +93,18 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                                     <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i>
                                     </button>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#">Print</a></li>
+                                        <li><a href="#">
+                                        	<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+												<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Print'){?>
+												   <?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+												<?php }?>
+											<?php } ?>
+                                        </a></li>
                                         <li><a href="#">Save as PDF</a></li>
                                         <li><a href="#">Export to Excel</a></li>
                                     </ul>

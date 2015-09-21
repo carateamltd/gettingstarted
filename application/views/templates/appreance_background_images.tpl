@@ -603,7 +603,13 @@
 						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="table buttons_tbl">
 							<tr>
 								<td>
-									<label class="spec_label">These sections already have backgrounds assigned:</label>
+									<label class="spec_label">
+										{foreach from=$lang item=val}
+											{if $val.rLabelName == "These sections already have backgrounds assigned"}
+												{$val.rField}
+											{/if}
+										{/foreach}: 
+									</label>
 								</td>
 							</tr>
 						</table>

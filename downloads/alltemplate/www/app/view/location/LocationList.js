@@ -10,8 +10,7 @@ Ext.define('MyApp.view.location.LocationList', {
     initialize: function () {
         var arround_ListView = new Ext.create('Ext.List', {
             selectedCls: 'color:transperent',
-           
-//            height: 300,
+			//height: 300,
             flex:1,
             emptyText: Loc.t('LOCATION.NOLOCATIONAVAILABLE'),
             hidden: false,
@@ -26,9 +25,6 @@ Ext.define('MyApp.view.location.LocationList', {
         		 </td></tr></table>'),
         });
 
-       
-        
-
         var finalPanel = new Ext.Panel({
             layout: 'vbox',
             scrollable: false,
@@ -36,7 +32,6 @@ Ext.define('MyApp.view.location.LocationList', {
             items: [arround_ListView]
         })
         this.add([finalPanel])
-
     },
     onConfirm: function () {
         this.fireEvent('onConfirmBtn', this)

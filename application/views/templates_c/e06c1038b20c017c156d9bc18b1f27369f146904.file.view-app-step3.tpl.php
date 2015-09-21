@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-14 16:02:39
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-21 17:31:26
          compiled from "application/views/templates/view-app-step3.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28071995583b94bf016f6-36551925%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e06c1038b20c017c156d9bc18b1f27369f146904' => 
     array (
       0 => 'application/views/templates/view-app-step3.tpl',
-      1 => 1442220815,
+      1 => 1442646960,
       2 => 'file',
     ),
   ),
@@ -325,10 +325,30 @@ administrator/save_paypal_onfo" method="post" id="paypal_info_admin">
 																</div>
 																<div class="form-actions">
 																	<button type="submit" class="btn btn-success" id="btn-paypal_save">
-																		Save
+																		<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+                    														<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Save'){?>
+                    															<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+                     														<?php }?>
+                     													<?php } ?>
 																	</button>
 																	<?php if ($_smarty_tpl->tpl_vars['data']->value['user_info']['iRoleId']=='1'){?>
-																		<button type="button" class="btn" onclick="returnme()">Cancel</button>
+																		<button type="button" class="btn" onclick="returnme()">
+																			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+																				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Cancel'){?>
+																					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+																				<?php }?>
+																			<?php } ?>
+																		</button>
 																	<?php }?>
 																</div>
 															</form>
@@ -531,14 +551,66 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 		<div class="toptab">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<th align="left"><strong>Industry</strong> <span class="qmark">&nbsp;</span></th>
-					<th align="left"><strong>App Name</strong> <span class="qmark">&nbsp;</span></th>
-					<th align="left"><strong>App Icon Name</strong> <span class="qmark">&nbsp;</span></th>
+					<th align="left">
+						<strong>
+							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Industry'){?>
+									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+								<?php }?>
+							<?php } ?>
+						</strong> 
+						<span class="qmark">&nbsp;</span>
+					</th>
+					<th align="left">
+						<strong>
+							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='App Name'){?>
+									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+								<?php }?>
+							<?php } ?>
+						</strong> 
+						<span class="qmark">&nbsp;</span>
+					</th>
+					<th align="left">
+						<strong>
+							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+								<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='App Icon Name'){?>
+									<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+								<?php }?>
+							<?php } ?>
+						</strong> 
+						<span class="qmark">&nbsp;</span>
+					</th>
 				</tr>
 				<tr>
 					<td><select class="indst" id="industry" name="appindustry">
-							<option value="">Select App Industry</option>
-							
+							<option value="">
+								<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+									<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Select App Industry'){?>
+										<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+									<?php }?>
+								<?php } ?>
+							</option>
 				 <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['i'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['i']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['name'] = 'i';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['data']->value['appindustry']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -563,13 +635,10 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['index_next'] = $_smarty
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['i']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['total']);
 ?>
-					
 							<option value="<?php echo $_smarty_tpl->tpl_vars['data']->value['appindustry'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['iIndustryId'];?>
 "><?php echo $_smarty_tpl->tpl_vars['data']->value['appindustry'][$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['vTitle'];?>
 </option>
-							
 				<?php endfor; endif; ?>
-			
 						</select>
 					</td>
 					<td><input class="indst" type="text" value="" size="30" id="app_name" name="app_name"></td>
@@ -581,7 +650,18 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
 			<div id="err"></div>
 			<div class="midleft">
 				<fieldset>
-				<legend>Recommended:</legend>
+				<legend>
+					<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+						<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=="Recommended"){?>
+							<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+						<?php }?>
+					<?php } ?>
+				:</legend>
 				<div class="innerlft"> Right part<br/>
 					Right part<br/>
 					Right part<br/>
@@ -626,8 +706,30 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		<button type="button" class="btn btn-primary" id="save_feature">Save Feature & Continue</button>
+		<button class="btn" data-dismiss="modal" aria-hidden="true">
+			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=="Close"){?>
+					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+				<?php }?>
+			<?php } ?>
+		</button>
+		<button type="button" class="btn btn-primary" id="save_feature">
+			<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=="Save Feature & Continue"){?>
+					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+				<?php }?>
+			<?php } ?>
+		</button>
 	</div>
 </div>
 

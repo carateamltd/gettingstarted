@@ -52,7 +52,13 @@
 								<div class="btn-group pull-right" style="display:none;">
 									<button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i></button>
 									<ul class="dropdown-menu pull-right">
-										<li><a href="#">Print</a></li>
+										<li><a href="#">
+											{foreach from=$lang item=val}
+												{if $val.rLabelName == 'Print'}
+													{$val.rField}
+												{/if}
+											{/foreach}
+										</a></li>
 										<li><a href="#">Save as PDF</a></li>
 										<li><a href="#">Export to Excel</a></li>
 									</ul>
@@ -608,7 +614,11 @@
 															</div>
 														</div>
 														<div id="appr-header-gt">
-															Global Tint
+															{foreach from=$lang item=val}
+																{if $val.rLabelName == "Global Tint"}
+																	{$val.rField}
+																{/if}
+															{/foreach}
 															<input type="text"  value="{$data.allappdesignInfo[0].vGlobalTintColor}" name="vGlobalTintColor" id="vGlobalTintColor" data-color-format="rgb" class="cp2" onblur="colordatepicker(this.id,this.value)" />
 														</div>
 													</div>
@@ -958,19 +968,12 @@
 			   </div> -->
 			</div>
 		     </div>
-			
 			<div class="rightpartappearance">
 			<!--Start Phone-->	
 				{include file="default_template/template1.tpl" }
 			<!--End-->
-		     </div>
-
-
-
-			
-				
+		     </div>	
 			   </div>
-			
 			</div>
 			<!--************Tab 1 End**************-->	
 			
@@ -982,13 +985,9 @@
 			
 			<!--************Tab 3 start**************-->	
 			<div id="maintabs-applayout">
-			
 			 {include file="appreance_maintabs_applayout.tpl" }
-			 
 			 </div>
 			<!--************Tab 3 End**************-->	
-			
-			
 			</div>
 		  </div>
        		</div>
@@ -1077,23 +1076,59 @@
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-      <h3 id="myModalLabel">Pick Your App Features</h3>
+      <h3 id="myModalLabel">
+      	{foreach from=$lang item=val}
+			{if $val.rLabelName == "Pick your App Features"}
+				{$val.rField}
+			{/if}
+		{/foreach}
+      </h3>
    </div>
    <div class="modal-body">
-   
-   
-   
    <div class="toptab">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <tr>
-   <th align="left"><strong>Industry</strong> <span class="qmark">&nbsp;</span></th>
-   <th align="left"><strong>App Name</strong> <span class="qmark">&nbsp;</span></th>
-   <th align="left"><strong>App Icon Name</strong> <span class="qmark">&nbsp;</span></th>
+   <th align="left">
+   	<strong>
+		{foreach from=$lang item=val}
+			{if $val.rLabelName == "Industry"}
+				{$val.rField}
+			{/if}
+		{/foreach}
+   	</strong> 
+   	<span class="qmark">&nbsp;</span>
+   </th>
+   <th align="left">
+   	<strong>
+   		{foreach from=$lang item=val}
+			{if $val.rLabelName == "App Name"}
+				{$val.rField}
+			{/if}
+		{/foreach}
+   	</strong> 
+   	<span class="qmark">&nbsp;</span>
+   </th>
+   <th align="left">
+   	<strong>
+   		{foreach from=$lang item=val}
+			{if $val.rLabelName == "App Icon Name"}
+				{$val.rField}
+			{/if}
+		{/foreach}
+   	</strong> 
+   	<span class="qmark">&nbsp;</span>
+   </th>
    </tr>
    <tr>
    <td>
    <select class="indst" id="industry" name="appindustry">
-   <option value="">Select App Industry</option>
+   <option value="">
+   		{foreach from=$lang item=val}
+			{if $val.rLabelName == "Select App Industry"}
+				{$val.rField}
+			{/if}
+		{/foreach}
+   </option>
    {section name = i loop = $data.appindustry}
    <option value="{$data.appindustry[i].iIndustryId}">{$data.appindustry[i].vTitle}</option>
    {/section}
@@ -1102,16 +1137,19 @@
    <td><input class="indst" type="text" value="" size="30" id="app_name" name="app_name"></td>
    <td><input class="indst" type="text" maxlength="12" value="" size="30" id="app_icon" name="app_icon"></td>
    </tr>
-   
    </table>
-   
    </div>
-   
    <div class="midparttp">
    <div id="err"></div>
    <div class="midleft">
    <fieldset>
-   <legend>Recommended:</legend>
+   <legend>
+   		{foreach from=$lang item=val}
+			{if $val.rLabelName == "Recommended"}
+				{$val.rField}
+			{/if}
+		{/foreach}
+   :</legend>
    <div class="innerlft">
    Right part<br/>
    Right part<br/>
@@ -1133,7 +1171,13 @@
    </div>
    <div class="midright">
    <fieldset>
-   <legend>Optional:</legend>
+   <legend>
+   		{foreach from=$lang item=val}
+			{if $val.rLabelName == "Optional"}
+				{$val.rField}
+			{/if}
+		{/foreach}
+   :</legend>
    <div class="innercont">
    Right part<br/>
    Right part<br/>
@@ -1156,8 +1200,20 @@
    </div>
    </div>
    <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <button type="button" class="btn btn-primary" id="save_feature">Save Feature & Continue</button>
+      <button class="btn" data-dismiss="modal" aria-hidden="true">
+      		{foreach from=$lang item=val}
+				{if $val.rLabelName == "Close"}
+					{$val.rField}
+				{/if}
+			{/foreach}
+      </button>
+      <button type="button" class="btn btn-primary" id="save_feature">
+      		{foreach from=$lang item=val}
+				{if $val.rLabelName == "Save Feature & Continue"}
+					{$val.rField}
+				{/if}
+			{/foreach}
+      </button>
    </div>
 </div>
 {literal}
