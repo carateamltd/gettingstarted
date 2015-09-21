@@ -18,6 +18,7 @@ Ext.define('MyApp.view.home.HomeView', {
                 },
                 styleHtmlContent: true,
                 layout: 'vbox',
+                cls: 'home_page',
                 items: [
                     {
                         html: '',
@@ -38,37 +39,37 @@ Ext.define('MyApp.view.home.HomeView', {
                         style: 'word-wrap: break-word;',
                         itemId:'home_WebsiteTagID',
                         margin:'0 0 5 0',
-                        html: "<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.WEBSITE')+":</span></div>",
+                        html: "<div style='word-break: break-all;padding: 10px 5px;;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.WEBSITE')+":</span></div>",
                     },{
                         style: 'word-wrap: break-word;',
                         itemId:'home_EmailTagID',
                         margin:'0 0 5 0',
-                        html: "<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.EMAIL')+":</span></div>",
+                        html: "<div style='word-break: break-all;padding: 10px 5px;;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.EMAIL')+":</span></div>",
                     },{
                         style: 'word-wrap: break-word;',
                         itemId:'home_TelephoneTagID',
                         margin:'0 0 5 0',
-                        html: "<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.TELEPHONE')+":</span></div>",
+                        html: "<div style='padding: 10px 5px;;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.TELEPHONE')+":</span></div>",
                     },{
                         style: 'word-wrap: break-word;',
                         itemId:'home_AddressTagID',
                         margin:'0 0 5 0',
-                        html: "<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ADDRESS')+":</span></div>",
+                        html: "<div style='padding: 10px 5px;;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ADDRESS')+":</span></div>",
                     },{
                         style: 'word-wrap: break-word;',
                         itemId:'home_CityTagID',
                         margin:'0 0 5 0',
-                        html: "<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.CITY')+":</span></div>",
+                        html: "<div style='padding: 10px 5px;;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.CITY')+":</span></div>",
                     },{
                         style: 'word-wrap: break-word;',
                         itemId:'home_StateTagID',
                         margin:'0 0 5 0',
-                        html: "<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.STATE')+":</span></div>",
+                        html: "<div style='padding: 10px 5px;;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.STATE')+":</span></div>",
                     },{
                         style: 'word-wrap: break-word;',
                         itemId:'home_ZipTagID',
                         margin:'0 0 5 0',
-                        html: "<div style='padding: 10px;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ZIP')+":</span></div>",
+                        html: "<div style='padding: 10px 5px;;text-align:left;font-size:16px;background-color: rgba(255, 255, 255, 0.22);margin-bottom:10px;border-radius: 10px;border: 1px dotted black;'><span style='font-weight:bold;font-size:16px;'>"+Loc.t('HOME.ZIP')+":</span></div>",
                     }
                 ]
             }]
