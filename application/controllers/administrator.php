@@ -40,7 +40,8 @@ class Administrator extends MY_Controller
        
         $this->data['message'] = $this->session->flashdata('message');        
         $this->data['warning'] = $this->session->flashdata('warning');        
-        
+        $user_list = $this->admin_model->get_all_userslist();
+        $this->data['user_list'] = $user_list;
         //breadcrumb 
         $this->breadcrumb->add('Dashboard', base_url());
        if($iRoleId==1){
@@ -50,7 +51,7 @@ class Administrator extends MY_Controller
        }
         $this->data['breadcrumb'] = $this->breadcrumb->output();
         //ends
-
+//print_r(json_encode($this->data));die;
         $this->smarty->assign('data', $this->data);
         $this->smarty->view('template.tpl'); 
     }
@@ -69,7 +70,8 @@ class Administrator extends MY_Controller
         if($this->input->post())
         { 
             $Administrator = $this->input->post('Data');
-
+			$packages = $Administrator['vPackages'];
+			unset($Administrator['vPackages']);
             //check existing email id
             $vEmail = $Administrator['vEmail'];
             $check_existing_email = $this->admin_model->duplicate_checking($vEmail,'');
@@ -95,7 +97,19 @@ class Administrator extends MY_Controller
                     $datas['iAdminId'] = $id;
                    /*print_r($datas);exit;*/
                    $save_record=$this->app_model->resturantinfo_save('r_resturant_info',$datas);
-                 }  
+                 } 
+                 
+                 //-- Save packages in database
+                 	$pkgData['vTransactoinId'] = '';
+                 	$pkgData['iAdminId'] = $id;
+                 	$pkgData['vPackage'] = 'gold';
+                 	$pkgData['vFirstName'] = $Administrator['vFirstName'];
+                 	$pkgData['vLastName'] = $Administrator['vLastName'];
+                 	$pkgData['fAmt'] = 0;
+                 	$pkgData['dDateTime'] = '0000-00-00 00:00:00';
+                 	$pkgData['eStatus'] = 'Success';
+                 	$this->admin_model->save_packages($packages,$pkgData);
+                  
                 $this->session->set_flashdata('message',"User Added Successfully."); 
 
                 redirect($this->data['base_url'].'administrator');
@@ -108,7 +122,7 @@ class Administrator extends MY_Controller
         $this->breadcrumb->add('Add Administrator', '');
         $this->data['breadcrumb'] = $this->breadcrumb->output();
         //ends
-
+		$industries = $this->admin_model->get_all_app_industries();
         # for get all roles
         $this->data['roles']=$this->role_model->get_all_role();
         # for get all countries
@@ -121,6 +135,7 @@ class Administrator extends MY_Controller
         $this->smarty->assign('operation','add'); 
         $this->smarty->assign('data', $this->data);
         $this->smarty->assign('eStatuses', $eStatuses);
+        $this->smarty->assign('industries', $industries);
         $this->smarty->view('template.tpl'); 
     }
    
@@ -429,7 +444,86 @@ class Administrator extends MY_Controller
         redirect($this->data['base_url'] . 'administrator/update/'.$iClientId);
     }
 
+	//edit user
+	function edituser(){
+		$adminId = $this->uri->segment(3);
+		$currentUserId = $this->session->userdata('user_info');
+        if($this->session->userdata['user_info']['iRoleId'] != '1' || ($adminId ==  $currentUserId))
+        {
+            $this->session->set_flashdata('warning', '1');
+            redirect($this->data['base_url'] . 'home');
+            exit;
+        }
+        $eStatuses = field_enums('r_administrator', 'eStatus');
+        
+        $this->data['message'] = $this->session->flashdata('message');
+        
+		if($this->input->post())
+        { 
+            $Administrator = $this->input->post('Data');
+			$packages = $Administrator['vPackages'];
+			unset($Administrator['vPackages']);
+            //check existing email id
+            //$vEmail = $Administrator['vEmail'];
+            //$check_existing_email = $this->admin_model->duplicate_checking($vEmail,'');
+            #echo "<pre>";
+            #print_r($check_existing_email);exit;
+            
+            
+            
+                //$encPass= $this->encrypt($Administrator['vPassword']);
+                //$Administrator['vPassword'] = $encPass;  
+                $data = $Administrator;
+            /*    echo "<pre>";
+                print_r($data);exit;*/
+                $this->admin_model->edit_admin($adminId,$data);
+                 
+                 //-- Save packages in database
+                 	$pkgData['vTransactoinId'] = '';
+                 	$pkgData['iAdminId'] = $adminId;
+                 	$pkgData['vPackage'] = 'gold';
+                 	$pkgData['vFirstName'] = $Administrator['vFirstName'];
+                 	$pkgData['vLastName'] = $Administrator['vLastName'];
+                 	$pkgData['fAmt'] = 0;
+                 	$pkgData['dDateTime'] = '0000-00-00 00:00:00';
+                 	$pkgData['eStatus'] = 'Success';
+                 	$this->admin_model->delete_packages($adminId);
+                 	$this->admin_model->save_packages($packages,$pkgData);
+                  
+                $this->session->set_flashdata('message',"User Updated Successfully."); 
 
+                redirect($this->data['base_url'].'administrator');
+                exit;
+            
+        } 
+        
+        $admin_details = $this->admin_model->get_admin_details($adminId);
+        $industries = $this->admin_model->get_all_app_industries($adminId);
+        $selectedindustries = $this->admin_model->get_selected_industries($adminId);
+        //breadcrumb 
+        $this->breadcrumb->add('Dashboard', base_url());
+        $this->breadcrumb->add('View Administrator', base_url()."administrator");
+        $this->breadcrumb->add('Add Administrator', '');
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+        //ends
+
+        # for get all roles
+        $this->data['roles']=$this->role_model->get_all_role();
+        # for get all countries
+        $this->data['countries']=$this->country_model->get_all_Country();
+        # for get all states
+        $this->data['states']=$this->state_model->get_all_selectedstate();
+       	$this->data['admin'] = $admin_details;
+        $this->data['mode'] = 'edituser/'.$adminId;
+        $this->data['tpl_name']= "administrator.tpl"; 
+        $this->smarty->assign('operation','edit'); 
+        $this->smarty->assign('data', $this->data);
+        $this->smarty->assign('eStatuses', $eStatuses);
+        $this->smarty->assign('industries', $industries);
+        $this->smarty->assign('selectedindustries', $selectedindustries);
+        $this->smarty->view('template.tpl'); 
+    }
+    
 
 }
 /* End of file administrator.php */

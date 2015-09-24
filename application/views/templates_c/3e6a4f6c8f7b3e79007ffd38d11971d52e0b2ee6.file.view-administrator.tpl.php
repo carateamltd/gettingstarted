@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-06-22 18:37:53
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-24 16:38:05
          compiled from "application/views/templates/view-administrator.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19109468405587f39194f6f1-14217971%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3e6a4f6c8f7b3e79007ffd38d11971d52e0b2ee6' => 
     array (
       0 => 'application/views/templates/view-administrator.tpl',
-      1 => 1429177254,
+      1 => 1443087481,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5587f391b23207_95586431',
   'variables' => 
   array (
     'data' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'admin_url' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5587f391b23207_95586431',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5587f391b23207_95586431')) {function content_5587f391b23207_95586431($_smarty_tpl) {?><script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['data']->value['basedatatable_js'];?>
 administrator_listing.js"></script>
@@ -128,7 +128,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 		        	</div>
 				
 		        <?php if ($_smarty_tpl->tpl_vars['data']->value['message']!=''){?>
-		            <div class="alert alert-info offset4 span3">
+		            <div class="alert alert-info offset4 span4">
 		               <?php echo $_smarty_tpl->tpl_vars['data']->value['message'];?>
 
 		            </div>
@@ -184,8 +184,8 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 		    <table class="table table-striped table-bordered" id="AdminlistId" border="0" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                    	<th width="5%"><input type="checkbox" id="check_all" name="check_all" value="1"></th>
-                        <th width="20%">
+                    	<th width="1%" style="text-align:center;"><input type="checkbox" id="check_all" name="check_all"></th>
+                        <th width="25%" style="text-align:center;">
 							<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -197,7 +197,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 							<?php }?>
 							<?php } ?>
 						</th>
-                        <th width="20%">
+                        <th width="29%" style="text-align:center;">
                         	<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -208,7 +208,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 
 							<?php }?>
 							<?php } ?></th>
-                        <th width="15%">
+                        <th width="20%" style="text-align:center;">
                         <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -220,7 +220,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                         <?php }?>
                         <?php } ?>
                         	</th>
-                        <th width="10%">
+                        <th width="10%" style="text-align:center;">
                         	<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -232,7 +232,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                         		<?php }?>
                         	<?php } ?>
                         	</th>
-                        <th width="8%" style="text-align:center;">
+                        <th width="9%" style="text-align:center;">
                         <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -243,7 +243,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 
                         <?php }?>
                         <?php } ?></th>
-                        <th width="8%" style="text-align:center;">
+                        <th width="6%" style="text-align:center;">
                         <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -254,7 +254,8 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 
                         <?php }?>
                         <?php } ?></th>
-                        <th width="10%" style="text-align:center;">
+                        <!-- 
+<th width="2%" style="text-align:center;">
                         <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -264,8 +265,63 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                         	<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
 
                         <?php }?>
-                        <?php } ?></th>				    
+                        <?php } ?></th>
+ -->
                     </tr>
+                    <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['user_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+						<tr>
+							<td style="text-align:center;background: none !important;"><input type="checkbox" id="check_admin<?php echo $_smarty_tpl->tpl_vars['val']->value['iAdminId'];?>
+" name="iId[]" value="<?php echo $_smarty_tpl->tpl_vars['val']->value['iAdminId'];?>
+"></td>
+							<td style="text-align:center;background: none !important;"><?php echo $_smarty_tpl->tpl_vars['val']->value['vFirstName'];?>
+ <?php echo $_smarty_tpl->tpl_vars['val']->value['vLastName'];?>
+</td>
+							<td style="text-align:center;background: none !important;"><?php echo $_smarty_tpl->tpl_vars['val']->value['vEmail'];?>
+</td>
+							<td style="text-align:center;background: none !important;"><?php echo $_smarty_tpl->tpl_vars['val']->value['vPhone'];?>
+</td>
+							<td style="text-align:center;background: none !important;"><?php echo $_smarty_tpl->tpl_vars['val']->value['vTitle'];?>
+</td>
+							<td style="text-align:center;background: none !important;"><?php echo $_smarty_tpl->tpl_vars['val']->value['eStatus'];?>
+</td>
+							<td style="text-align:center;background: none !important;">
+								<a href="<?php echo $_smarty_tpl->tpl_vars['admin_url']->value;?>
+administrator/edituser/<?php echo $_smarty_tpl->tpl_vars['val']->value['iAdminId'];?>
+" data-toggle="modal">
+                                	<i title=<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+                        				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Edit'){?>
+                        					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+                        				<?php }?>
+                        			<?php } ?> class="icon-pencil helper-font-24"></i>
+                                </a>
+                            </td>
+                            <!-- 
+<td style="text-align:center;">
+								<a href="#" data-toggle="modal">
+                                	<i title=<?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
+                        				<?php if ($_smarty_tpl->tpl_vars['val']->value['rLabelName']=='Delete'){?>
+                        					<?php echo $_smarty_tpl->tpl_vars['val']->value['rField'];?>
+
+                        				<?php }?>
+                        			<?php } ?> class="icon-trash helper-font-24"></i>
+                                </a>
+                            </td>
+ -->
+						</tr>
+					<?php } ?>
                 </thead>
             </table>         
 		        <!-- END EXAMPLE TABLE widget-->

@@ -5,6 +5,7 @@ class admin_model extends CI_Model
     function __construct()
     {
         parent::__construct();
+        $this->load->library('Session');
     }
 
     #check authentication
@@ -151,6 +152,19 @@ class admin_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+    
+    function get_all_userslist()
+    {
+    	$currentUserId = $this->session->userdata('user_info');
+    	$currentUserId = $currentUserId['iAdminId'];
+        $this->db->select('a.iAdminId,a.vFirstName,a.vLastName,a.vEmail,a.vPhone,a.iRoleId,a.eStatus,r.iRoleId,r.vTitle');
+        $this->db->from('r_administrator a');
+        $this->db->join('r_role AS r','r.iRoleId=a.iRoleId','LEFT');
+        $this->db->where("a.iAdminId != $currentUserId");
+        $this->db->order_by('a.iAdminId ASC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
     #update all
     function get_update_all($ids,$action)
@@ -267,6 +281,72 @@ class admin_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-   
+    
+    function get_all_app_industries()
+    {
+    	$this->db->select('');
+        $this->db->from('r_appindustry');
+        $this->db->order_by('vTitle','ASC');
+        $query = $this->db->get();
+        return $query->result_array();    	
+    }
+    
+    function save_packages($packages,$pkgData)
+    {
+    	foreach($packages as $package)
+    	{
+    		$pkgData['vCategoryId'] = $package;
+    		$this->db->insert('r_packages_value_paypal',$pkgData);
+    	}
+    }
+    
+    function get_selected_industries($adminId)
+    {
+    	$this->db->select('ra.*,rp.*');
+        $this->db->from('r_appindustry AS ra');
+        $this->db->join('r_packages_value_paypal AS rp',"rp.vCategoryId=ra.iIndustryId",'LEFT');
+        $this->db->where("rp.iAdminId = $adminId");
+        $this->db->order_by('ra.vTitle','ASC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
+    function delete_packages($iAdminId)
+    {
+    	$this->db->where_in('iAdminId',$iAdminId);
+        $this->db->delete('r_packages_value_paypal');
+    }
+    
+    /*function update_packages($packages,$pkgData)
+    {
+    	foreach($packages as $package)
+    	{
+    		$checkAlreadyPackage = $this->checkAlreadyPackage($package,$pkgData['iAdminId']);
+    		if($checkAlreadyPackage==false) // if package not already added
+    		{
+				$pkgData['vCategoryId'] = $package;
+				$this->db->insert('r_packages_value_paypal',$pkgData);
+    		}
+    	}
+    }
+    
+    function checkAlreadyPackage($vCategoryId, $iAdminId)
+    {
+    	$this->db->select('*');
+		$this->db->from('r_packages_value_paypal');
+		$this->db->where('vCategoryId', $vCategoryId);
+		$this->db->where('iAdminId', $iAdminId);
+		$query = $this->db->get();
+		$result = $query->row_array();
+		$count = $result['COUNT(*)'];
+		if($count==0)
+		{
+			return false; //package not already added
+		}
+		else
+		{
+			return true; //package already added
+		}
+    }*/
 }
 ?>

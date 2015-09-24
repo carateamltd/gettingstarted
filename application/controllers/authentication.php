@@ -76,7 +76,12 @@ class Authentication extends MY_Controller
 			$iLoginLogId = $this->loginlogs_model->loginentry($logindata);
 			$auth_exists['iLoginLogId'] = $iLoginLogId;
 			$sessionid = $this->session->set_userdata('user_info', $auth_exists);
-			redirect($this->data['base_url'] . 'home');
+			if($logindata['iRoleId'] == 1){
+				redirect($this->data['base_url'] . 'administrator');
+			}
+			else{
+				redirect($this->data['base_url'] . 'home');
+			}
 			exit;
 		    }else{
 

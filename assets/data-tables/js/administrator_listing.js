@@ -12,6 +12,24 @@ $(document).ready(function() {
 
     });
     
+    $('input:checkbox').change(function(){
+    	var boxes = $('input:checkbox'), count = 0;
+    	for(var i=1;i<boxes.length;i++){
+    		if(boxes[i].checked === true){
+    			count++;
+    		}
+    		else{
+    			count--;
+    		}
+    	}
+    	if(count === (boxes.length - 1)){
+    		$("#check_all").prop('checked', true);
+    	}
+    	else{
+    		$("#check_all").prop('checked', false);
+    	}
+    });
+    
     $("#btn-active").click(function() {
         $("#action").val("Active");
         var atLeastOneIsChecked = $('input[name="iId[]"]:checked').length > 0;
@@ -22,6 +40,7 @@ $(document).ready(function() {
         }
     });
     $("#btn-inactive").click(function() {
+    debugger;
         $("#action").val("Inactive");
         var atLeastOneIsChecked = $('input[name="iId[]"]:checked').length > 0;
         if(atLeastOneIsChecked == false){

@@ -77,7 +77,7 @@
 		        	</div>
 				
 		        {if $data.message neq ''}
-		            <div class="alert alert-info offset4 span3">
+		            <div class="alert alert-info offset4 span4">
 		               {$data.message}
 		            </div>
 		        {/if}            
@@ -111,53 +111,85 @@
 		    <table class="table table-striped table-bordered" id="AdminlistId" border="0" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                    	<th width="5%"><input type="checkbox" id="check_all" name="check_all" value="1"></th>
-                        <th width="20%">
+                    	<th width="1%" style="text-align:center;"><input type="checkbox" id="check_all" name="check_all"></th>
+                        <th width="25%" style="text-align:center;">
 							{foreach from=$lang item=val}
 							{if $val.rLabelName == 'Name'}
 							{$val.rField}
 							{/if}
 							{/foreach}
 						</th>
-                        <th width="20%">
+                        <th width="29%" style="text-align:center;">
                         	{foreach from=$lang item=val}
 							{if $val.rLabelName == 'Email'}
 							{$val.rField}
 							{/if}
 							{/foreach}</th>
-                        <th width="15%">
+                        <th width="20%" style="text-align:center;">
                         {foreach from=$lang item=val}
                         {if $val.rLabelName == 'Phone'}
                         	{$val.rField}
                         {/if}
                         {/foreach}
                         	</th>
-                        <th width="10%">
+                        <th width="10%" style="text-align:center;">
                         	{foreach from=$lang item=val}
                         		{if $val.rLabelName =='Role'}
                         		{$val.rField}
                         		{/if}
                         	{/foreach}
                         	</th>
-                        <th width="8%" style="text-align:center;">
+                        <th width="9%" style="text-align:center;">
                         {foreach from=$lang item=val}
                         {if $val.rLabelName == 'Status'}
                         	{$val.rField}
                         {/if}
                         {/foreach}</th>
-                        <th width="8%" style="text-align:center;">
+                        <th width="6%" style="text-align:center;">
                         {foreach from=$lang item=val}
                         {if $val.rLabelName == 'Edit'}
                         	{$val.rField}
                         {/if}
                         {/foreach}</th>
-                        <th width="10%" style="text-align:center;">
+                        <!-- 
+<th width="2%" style="text-align:center;">
                         {foreach from=$lang item=val}
                         {if $val.rLabelName == 'Delete'}
                         	{$val.rField}
                         {/if}
-                        {/foreach}</th>				    
+                        {/foreach}</th>
+ -->
                     </tr>
+                    {foreach from=$data.user_list item=val}
+						<tr>
+							<td style="text-align:center;background: none !important;"><input type="checkbox" id="check_admin{$val.iAdminId}" name="iId[]" value="{$val.iAdminId}"></td>
+							<td style="text-align:center;background: none !important;">{$val.vFirstName} {$val.vLastName}</td>
+							<td style="text-align:center;background: none !important;">{$val.vEmail}</td>
+							<td style="text-align:center;background: none !important;">{$val.vPhone}</td>
+							<td style="text-align:center;background: none !important;">{$val.vTitle}</td>
+							<td style="text-align:center;background: none !important;">{$val.eStatus}</td>
+							<td style="text-align:center;background: none !important;">
+								<a href="{$admin_url}administrator/edituser/{$val.iAdminId}" data-toggle="modal">
+                                	<i title={foreach from=$lang item=val}
+                        				{if $val.rLabelName == 'Edit'}
+                        					{$val.rField}
+                        				{/if}
+                        			{/foreach} class="icon-pencil helper-font-24"></i>
+                                </a>
+                            </td>
+                            <!-- 
+<td style="text-align:center;">
+								<a href="#" data-toggle="modal">
+                                	<i title={foreach from=$lang item=val}
+                        				{if $val.rLabelName == 'Delete'}
+                        					{$val.rField}
+                        				{/if}
+                        			{/foreach} class="icon-trash helper-font-24"></i>
+                                </a>
+                            </td>
+ -->
+						</tr>
+					{/foreach}
                 </thead>
             </table>         
 		        <!-- END EXAMPLE TABLE widget-->

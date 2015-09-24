@@ -1,6 +1,6 @@
 <script type="text/javascript" src="{$data.base_js}administrator.js"></script>
-
-
+<script type="text/javascript" src="{$data.base_js}multiselect.min.js"></script>
+<link rel="stylesheet" href="{$data.base_css}bootstrap.min.css">
  <div class="rightpanel">
    		<ul class="breadcrumbs">	
         	<li><a href="#"><i class="iconfa-user"></i></a> <span class="separator"></span></li>
@@ -132,6 +132,7 @@
                                         <input type="text" placeholder="" data-toggle="tooltip" data-placement="right" title="Max 50 and Min 2 characters allowed" class="input-large" id="vLastName" name="Data[vLastName]" value="{$data.admin['vLastName']}" minlength="2" maxlength="50"/>
                                     </div>
                             </div>
+                            {if $data.admin['vEmail'] eq ''}
                             <div class="control-group">
                                 <label class="control-label">{foreach from=$lang item=val}
                                  {if $val.rLabelName == 'Email'}
@@ -143,6 +144,8 @@
 
                                 </div>
                             </div>
+                            {/if}
+                            {if $data.admin['vPassword'] eq ''}
                             <div class="control-group">
                                 <label class="control-label">{foreach from=$lang item=val}
                                  {if $val.rLabelName == 'Password'}
@@ -154,6 +157,7 @@
 
                                 </div>
                             </div>
+                            {/if}
                             <div class="control-group">
                                 <label class="control-label">{foreach from=$lang item=val}
                                  {if $val.rLabelName == 'Contact Number'}
@@ -264,6 +268,38 @@
                                         </select>
                                     </div>
                             </div> 
+                            <!--	multiselect for package start	--> 
+                            <label class="control-label">Select Package</label>
+						   <div class="row">
+							<div class="col-xs-3">
+								<select name="from[]" id="multiselect" class="form-control" size="8" multiple="multiple">
+									<!--<option value="1">Item 1</option>
+									<option value="2">Item 5</option>
+									<option value="2">Item 2</option>
+									<option value="2">Item 4</option>
+									<option value="3">Item 3</option>-->
+                                 	{section name=i loop=$industries}
+                                        <option value="{$industries[i].iIndustryId}">{$industries[i].vTitle}</option>
+                                    {/section}
+								</select>
+							</div>
+	
+							<div class="col-xs-2">
+								<button type="button" id="multiselect_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+								<button type="button" id="multiselect_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+								<button type="button" id="multiselect_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+								<button type="button" id="multiselect_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+							</div>
+	
+							<div class="col-xs-3">
+								<select name="Data[vPackages][]" id="multiselect_to" class="form-control" size="8" multiple="multiple">
+								{section name=i loop=$selectedindustries}
+									<option value="{$selectedindustries[i].iIndustryId}">{$selectedindustries[i].vTitle}</option>
+								{/section}
+								</select>
+							</div>
+						</div>
+						<!--	multiselect for package end	--> 
                             <div class="form-actions">
                                <button type="submit" class="btn btn-success" id="btn-save">
                                {foreach from=$lang item=val}
@@ -376,7 +412,7 @@
     <!--</div>-->
 <!-- END PAGE CONTAINER-->
 <!--</div>-->
-    
+   
 {literal}
 <script>
     $(window).load(function() {  
@@ -390,7 +426,10 @@
         $("#vEmail").val("");
         $("#vPassword").val("");
     });
-    
+    //code for multiselect
+    jQuery(document).ready(function($) {
+		$('#multiselect').multiselect();
+	});
 </script>
 {/literal}
     

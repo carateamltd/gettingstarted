@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 20:17:01
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-22 21:16:26
          compiled from "application/views/templates/left-sidebar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5548081445582a05c19bc33-10989021%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '93384a38ce6e22dabb3822e348204524b98cb6fd' => 
     array (
       0 => 'application/views/templates/left-sidebar.tpl',
-      1 => 1438864761,
+      1 => 1442931368,
       2 => 'file',
     ),
   ),
@@ -30,6 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class="leftmenu"> 
     	<ul class="nav nav-tabs nav-stacked">
         	<li class="nav-header">Navigation</li>
+        	<?php if ($_smarty_tpl->tpl_vars['data']->value['user_info']['iRoleId']!='1'){?>
             <li class="sub-menu <?php if (strpos($_smarty_tpl->tpl_vars['data']->value['tpl_name'],'home')!==false){?>active<?php }?>">
               <a class="" href="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
 home">
@@ -46,6 +47,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                        <?php } ?></span>
               </a>
           </li>
+          <?php }?>
           <?php if ($_smarty_tpl->tpl_vars['data']->value['user_info']['iRoleId']=='1'){?>
           <li class="sub-menu <?php if (strpos($_smarty_tpl->tpl_vars['data']->value['tpl_name'],'administrator')!==false){?>active<?php }?>">
               <a href="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
@@ -64,7 +66,8 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                   <!--<span class="arrow"></span>-->
               </a>
           </li>
-          <li class="sub-menu <?php if (strpos($_smarty_tpl->tpl_vars['data']->value['tpl_name'],'-app')!==false){?>active<?php }?>">
+          <!-- 
+<li class="sub-menu <?php if (strpos($_smarty_tpl->tpl_vars['data']->value['tpl_name'],'-app')!==false){?>active<?php }?>">
               <a href="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
 app" class="">
                   <i class="icon-book"></i>
@@ -126,9 +129,10 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 
                          <?php }?>
                        <?php } ?></span>
-                  <!--<span class="arrow"></span>-->
+                  <!~~<span class="arrow"></span>~~>
               </a>
           </li>
+ -->
           <?php }else{ ?>
           <li class="sub-menu <?php if (strpos($_smarty_tpl->tpl_vars['data']->value['tpl_name'],'-app')!==false){?>active<?php }?>">
               <a href="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>

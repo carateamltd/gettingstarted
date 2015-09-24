@@ -3,6 +3,7 @@
 	<div class="leftmenu"> 
     	<ul class="nav nav-tabs nav-stacked">
         	<li class="nav-header">Navigation</li>
+        	{if $data['user_info']['iRoleId'] neq '1'}
             <li class="sub-menu {if strpos($data.tpl_name,'home') !== false }active{/if}">
               <a class="" href="{$data.base_url}home">
                   <i class="icon-dashboard"></i>
@@ -13,6 +14,7 @@
                        {/foreach}</span>
               </a>
           </li>
+          {/if}
           {if $data['user_info']['iRoleId'] eq '1'}
           <li class="sub-menu {if strpos($data.tpl_name,'administrator') !== false }active{/if}">
               <a href="{$data.base_url}administrator" class="">
@@ -25,7 +27,8 @@
                   <!--<span class="arrow"></span>-->
               </a>
           </li>
-          <li class="sub-menu {if strpos($data.tpl_name,'-app') !== false }active{/if}">
+          <!-- 
+<li class="sub-menu {if strpos($data.tpl_name,'-app') !== false }active{/if}">
               <a href="{$data.base_url}app" class="">
                   <i class="icon-book"></i>
                   <span>{foreach from=$lang item=val}
@@ -63,9 +66,10 @@
                             {$val.rField}
                          {/if}
                        {/foreach}</span>
-                  <!--<span class="arrow"></span>-->
+                  <!~~<span class="arrow"></span>~~>
               </a>
           </li>
+ -->
           {else}
           <li class="sub-menu {if strpos($data.tpl_name,'-app') !== false }active{/if}">
               <a href="{$data.base_url}app" class="">
