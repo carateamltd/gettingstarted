@@ -887,10 +887,10 @@ Ext.define('MyApp.controller.MainController', {
     	var mainView = Ext.ComponentQuery.query('mainview')[0];
     	var view = mainView.getActiveItem();
 		//CODE CHANGES FOR TASK "REMOVE Description for HOME tab"
-        /*if (desc) {
+        if (desc) {
             //Ext.ComponentQuery.query('homeview #homeDescribtionID')[0].setHtml("<div class='descCls'>" + desc + "</div>");
             view.down('#homeDescribtionID').setHtml("<div class='descCls'>" + desc + "</div>");
-        }*/
+        }
         if(image.indexOf('assets/images/empty.png') === -1){
         	view.down('#homeImageID').setHtml("<div style='text-align:center'><img src='http://" + image + "' width='98%' /></div>");
         }

@@ -13163,18 +13163,18 @@ function save_feepayment(){
 							switch ($val['eType']){
 								case 'Editor':
 								//CODE CHANGES FOR TASK "REMOVE Description for HOME tab"
-								/*$html.='<div class="control-group">
-								<label class="control-label">';
+								$html.='<div class="control-group">';
+								/*<label class="control-label">';
 									foreach($home_language as $val1){
 										if($val1['rLabelName'] == $val['vLabelName']){
 											$html.=$val1['rField'];
 										}
 									}	
-									$html.=' :</label>
-								<div class="controls">';
+									$html.=' :</label>*/
+								$html.='<div class="controls" style="margin-left: 0;">';
 								$html.='<textarea class="input-xlarge ckeditor" rows="3" name="data['.$val['vDataBaseFieldName'].']" id="'.$val['vDataBaseFieldName'].''.$iAppTabId.'" >'.$home_page_details[0][$val['vDataBaseFieldName']].'</textarea>';	
 								$html.='</div>
-								</div>';*/
+								</div>';
 								break;
 								
 								case 'Textxbox':
