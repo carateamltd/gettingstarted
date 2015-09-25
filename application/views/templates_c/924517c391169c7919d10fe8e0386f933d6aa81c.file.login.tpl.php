@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-22 21:14:17
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-25 19:34:43
          compiled from "application/views/templates/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19247794525582a2e6de19e6-24404200%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '924517c391169c7919d10fe8e0386f933d6aa81c' => 
     array (
       0 => 'application/views/templates/login.tpl',
-      1 => 1442930645,
+      1 => 1443184465,
       2 => 'file',
     ),
   ),
@@ -77,12 +77,14 @@ assets/images/fr.png"></a>
         <?php if ($_smarty_tpl->tpl_vars['mylang']->value=='rEnglish'){?>
         <a class="center" id="logo" href="">
             <img class="center easyapp" alt="logo" src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
-logo.png">
+<?php echo $_smarty_tpl->tpl_vars['data']->value['logo_name_en'];?>
+">
         </a>
         <?php }elseif($_smarty_tpl->tpl_vars['mylang']->value=='rFrench'){?>
         <a class="center" id="logo" href="">
             <img class="center easyapp" alt="logo" src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
-logo_french.png">
+<?php echo $_smarty_tpl->tpl_vars['data']->value['logo_name_fr'];?>
+">
         </a>
         <?php }?>
   <!-- END LOGO -->

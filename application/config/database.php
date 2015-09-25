@@ -9,13 +9,21 @@ if($_SERVER["HTTP_HOST"] == '188.165.238.102')
 	$db['default']['password'] = 'neweraeasyapps123';
 	$db['default']['database'] = 'easyappsdb';
 }
-else if($_SERVER["HTTP_HOST"] == 'admin.easyapps.fr')
+else if($_SERVER["HTTP_HOST"] == 'admin.easyapps.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.easyapps.fr')
 {
 	//-- Added for new server configuration on 01 September
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'easyappcarateam';
 	$db['default']['password'] = 'neweraeasyapps123';
 	$db['default']['database'] = 'easyappsdb';
+}
+else if($_SERVER["HTTP_HOST"] == 'admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'admin.metappli.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.fr')
+{
+	//-- Added for new server configuration on 01 September
+	$db['default']['hostname'] = 'localhost';
+	$db['default']['username'] = 'easyappcarateam';
+	$db['default']['password'] = 'neweraeasyapps123';
+	$db['default']['database'] = 'metappliddb';
 }
 else 
 {

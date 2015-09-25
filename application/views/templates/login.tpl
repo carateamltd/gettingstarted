@@ -36,11 +36,11 @@
         <!-- BEGIN LOGO -->
         {if $mylang == 'rEnglish'}
         <a class="center" id="logo" href="">
-            <img class="center easyapp" alt="logo" src="{$data.base_logo}logo.png">
+            <img class="center easyapp" alt="logo" src="{$data.base_logo}{$data.logo_name_en}">
         </a>
         {else if $mylang == 'rFrench'}
         <a class="center" id="logo" href="">
-            <img class="center easyapp" alt="logo" src="{$data.base_logo}logo_french.png">
+            <img class="center easyapp" alt="logo" src="{$data.base_logo}{$data.logo_name_fr}">
         </a>
         {/if}
   <!-- END LOGO -->

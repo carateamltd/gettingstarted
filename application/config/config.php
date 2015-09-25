@@ -4,7 +4,7 @@ if($_SERVER["HTTP_HOST"] == '188.165.238.102')
 	//-- Added for new server configuration on 01 September
 	$sitefolder = "/";
 }
-else if($_SERVER["HTTP_HOST"] == 'admin.easyapps.fr')
+else if($_SERVER["HTTP_HOST"] == 'admin.easyapps.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.easyapps.fr' || $_SERVER["HTTP_HOST"] == 'admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'admin.metappli.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.fr')
 {
 	//-- Added for new server configuration on 01 September
 	$sitefolder = "/";
@@ -12,6 +12,23 @@ else if($_SERVER["HTTP_HOST"] == 'admin.easyapps.fr')
 else
 {
 	$sitefolder = "/easyapps/gettingstarted/";;
+}
+
+if($_SERVER["HTTP_HOST"] == '188.165.238.102' || $_SERVER["HTTP_HOST"] == 'admin.easyapps.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.easyapps.fr')
+{
+	//-- Added for new server configuration on 01 September
+	$config['logo_name_en']	= "logo.png";
+	$config['logo_name_fr']	= "logo_french.png";
+}
+else if ($_SERVER["HTTP_HOST"] == 'admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'admin.metappli.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.fr')
+{
+	$config['logo_name_en']	= "mattapli-logo.png";
+	$config['logo_name_fr']	= "mattapli-logo.png";
+}
+else
+{
+	$config['logo_name_en']	= "logo.png";
+	$config['logo_name_fr']	= "logo_french.png";
 }
  
 $config['base_url']	= "http://".$_SERVER["HTTP_HOST"].$sitefolder;

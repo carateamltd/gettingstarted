@@ -2,11 +2,11 @@
 <div class="logo">
 {if $lang.0.rField == 'Connexion'}
 <a class="brand" href="{$data.base_url}home">
-           <img src="{$data.base_logo}logo_french.png" alt="SLB" /> 
+           <img src="{$data.base_logo}{$data.logo_name_fr}" alt="SLB" /> 
   </a>
 {else if $lang.0.rField != 'Connexion'}
 <a class="brand" href="{$data.base_url}home">
-           <img src="{$data.base_logo}logo.png" alt="SLB" /> 
+           <img src="{$data.base_logo}{$data.logo_name_en}" alt="SLB" /> 
   </a>
 {/if}
 	

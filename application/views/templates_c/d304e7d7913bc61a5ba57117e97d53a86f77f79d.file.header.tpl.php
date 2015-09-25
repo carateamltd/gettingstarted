@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-06 20:17:01
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-25 18:57:32
          compiled from "application/views/templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8419581615582a05c1074a8-04656769%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd304e7d7913bc61a5ba57117e97d53a86f77f79d' => 
     array (
       0 => 'application/views/templates/header.tpl',
-      1 => 1438864761,
+      1 => 1443182100,
       2 => 'file',
     ),
   ),
@@ -31,13 +31,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <a class="brand" href="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
 home">
            <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
-logo_french.png" alt="SLB" /> 
+<?php echo $_smarty_tpl->tpl_vars['data']->value['logo_name_fr'];?>
+" alt="SLB" /> 
   </a>
 <?php }elseif($_smarty_tpl->tpl_vars['lang']->value[0]['rField']!='Connexion'){?>
 <a class="brand" href="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
 home">
            <img src="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_logo'];?>
-logo.png" alt="SLB" /> 
+<?php echo $_smarty_tpl->tpl_vars['data']->value['logo_name_en'];?>
+" alt="SLB" /> 
   </a>
 <?php }?>
 	

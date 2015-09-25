@@ -26,6 +26,8 @@ class MY_Controller extends CI_Controller
 			$this->data['basedatatable_js']	= $this->config->item('basedatatable_js');
 			$this->data['base_image'] 	= $this->config->item('base_image');
 			$this->data['base_logo'] 			= $this->config->item('base_logo');
+			$this->data['logo_name_en'] 			= $this->config->item('logo_name_en');
+			$this->data['logo_name_fr'] 			= $this->config->item('logo_name_fr');
 			$this->data['base_css'] 		= $this->config->item('base_css');
 			$this->data['basedatatable_css'] 		= $this->config->item('basedatatable_css');
 			$this->data['base_font_awsome'] 		= $this->config->item('base_font_awsome');
@@ -98,7 +100,7 @@ class MY_Controller extends CI_Controller
 			$language = $this->session->userdata('language');
 
 			/** easyapps french **/
-			if($_SERVER['HTTP_HOST'] == 'admin.easyapps.fr' || $_SERVER['HTTP_HOST'] == 'www.admin.easyapps.fr' || $country_name == 'France'){
+			if($_SERVER['HTTP_HOST'] == 'admin.easyapps.fr' || $_SERVER['HTTP_HOST'] == 'www.admin.easyapps.fr' || $country_name == 'France' || $_SERVER["HTTP_HOST"] == 'admin.metappli.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.fr'){
 					$language = 'rFrench';
 					$data = $this->session->set_userdata('language', $language);
 			}else{
