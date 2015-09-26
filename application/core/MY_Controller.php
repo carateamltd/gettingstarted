@@ -26,6 +26,7 @@ class MY_Controller extends CI_Controller
 			$this->data['basedatatable_js']	= $this->config->item('basedatatable_js');
 			$this->data['base_image'] 	= $this->config->item('base_image');
 			$this->data['base_logo'] 			= $this->config->item('base_logo');
+			$this->data['domain_title'] = $this->config->item('domain_title');
 			$this->data['logo_name_en'] 			= $this->config->item('logo_name_en');
 			$this->data['logo_name_fr'] 			= $this->config->item('logo_name_fr');
 			$this->data['base_css'] 		= $this->config->item('base_css');

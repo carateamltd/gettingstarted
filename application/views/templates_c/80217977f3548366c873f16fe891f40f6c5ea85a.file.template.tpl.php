@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-11 20:52:37
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-26 17:43:35
          compiled from "application/views/templates/template.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:20318264705582a05bee7567-43648757%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '80217977f3548366c873f16fe891f40f6c5ea85a' => 
     array (
       0 => 'application/views/templates/template.tpl',
-      1 => 1439300516,
+      1 => 1443264182,
       2 => 'file',
     ),
   ),
@@ -30,7 +30,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <!-- BEGIN HEAD -->
 <head>
    <meta charset="utf-8" />
-   <title>EasyApps</title>
+   <title><?php echo $_smarty_tpl->tpl_vars['data']->value['domain_title'];?>
+</title>
    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
    <meta content="" name="description" />
    <meta content="Mosaddek" name="author" />

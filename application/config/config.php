@@ -19,16 +19,19 @@ if($_SERVER["HTTP_HOST"] == '188.165.238.102' || $_SERVER["HTTP_HOST"] == 'admin
 	//-- Added for new server configuration on 01 September
 	$config['logo_name_en']	= "logo.png";
 	$config['logo_name_fr']	= "logo_french.png";
+	$config['domain_title']	= "EasyApps";
 }
 else if ($_SERVER["HTTP_HOST"] == 'admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'admin.metappli.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.fr')
 {
 	$config['logo_name_en']	= "mattapli-logo.png";
 	$config['logo_name_fr']	= "mattapli-logo.png";
+	$config['domain_title']	= "METAPPLI";
 }
 else
 {
 	$config['logo_name_en']	= "logo.png";
 	$config['logo_name_fr']	= "logo_french.png";
+	$config['domain_title']	= "EasyApps";
 }
  
 $config['base_url']	= "http://".$_SERVER["HTTP_HOST"].$sitefolder;

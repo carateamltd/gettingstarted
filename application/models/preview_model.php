@@ -1716,7 +1716,20 @@ class Preview_model extends CI_Model
     public function get_stylesheet_sencha_touch($iFeatureId,$base_upload){
 
         $style = '';
-        $style.= '';
+        $style.= '.splash_bg_img{';
+			if($_SERVER["HTTP_HOST"] == '188.165.238.102' || $_SERVER["HTTP_HOST"] == 'admin.easyapps.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.easyapps.fr')
+			{
+				$style.= 'background-image: url("../img/splash2.png");';
+			}
+			else if ($_SERVER["HTTP_HOST"] == 'admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.com' || $_SERVER["HTTP_HOST"] == 'admin.metappli.fr' || $_SERVER["HTTP_HOST"] == 'www.admin.metappli.fr')
+			{
+				$style.= 'background-image: url("../img/splash_metappli.png");';
+			}
+			else
+			{
+				$style.= 'background-image: url("../img/splash2.png");';
+			}
+		$style.= 'background-repeat: no-repeat fixed;background-size:100% 85%;background-position:center center;}';
         foreach($iFeatureId as $val){
         	$title = str_replace(' ', '_', $val['vTitle']);
         	$title = preg_replace('/[^a-zA-Z0-9_.]/', '',$title);
