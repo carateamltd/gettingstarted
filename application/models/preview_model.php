@@ -2104,8 +2104,6 @@ class Preview_model extends CI_Model
                         line-height: 36px;
                         font-size: 33px;
                         margin: 0 0.3em;
-                        padding: 7px 0.3em 0px;
-                        font-family: KleymisskyRegular !important;
                         }
                     .title{
                         line-height: 32px;
