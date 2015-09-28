@@ -17,7 +17,7 @@ Ext.define("MyApp.view.location.LocationNavi", {
         },
         items: [{
                 xtype:'locationlist',
-                title: Loc.t('LOCATION.TITLE'),
+                //title: Loc.t('LOCATION.TITLE'),
                 //style: "background-image: url('img/splash.png');",
                 scrollable:{
                 	indicators:false
