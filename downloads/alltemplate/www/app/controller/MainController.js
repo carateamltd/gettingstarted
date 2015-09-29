@@ -1717,8 +1717,12 @@ console.log('===================End=====================');
 					}
                 }
                 try{
-					if (Response.backgroundimage.backgroundimage) {
+					if (Response.backgroundimage.backgroundimage && customStore.getCount() != 1) {
 						view.down('list').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+					}
+					else if (Response.backgroundimage.backgroundimage && customStore.getCount() === 1) {
+						view.down('customdetail').setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+						view.down('customdetail').element.dom.getElementsByClassName('x-layout-card-item')[0].style.backgroundColor = "transparent";
 					}
 				}
                 catch(e){

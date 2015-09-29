@@ -7298,7 +7298,7 @@ class App extends MY_Controller
 			if($val1['rLabelName'] == 'EditInfo'){
 				$informationArray['title']=$val1['rField'];
 			}
-			if($val1['rLabelName'] == 'EditInfoBtn'){
+			if($val1['rLabelName'] == 'Save Changes'){
 				$informationArray['infoBtn']=$val1['rField'];
 			}
 		}
@@ -7313,7 +7313,7 @@ class App extends MY_Controller
 			if($val1['rLabelName'] == 'AddInfo'){
 				$informationArray['title']=$val1['rField'];
 			}
-			if($val1['rLabelName'] == 'AddInfoBtn'){
+			if($val1['rLabelName'] == 'SaveItem'){
 				$informationArray['infoBtn']=$val1['rField'];
 			}
 		}
@@ -17062,13 +17062,29 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
         $html .= 				'<input class="span6" type="hidden" name="editAppTabId" value="" />';
         $html .= 				'<input class="span6" type="hidden" name="editInfotabId" />';
         $html .= 				'<div class="control-group">';
-        $html .= 					'<label class="control-label">Title</label>';
+        $html .= 					'<label class="control-label">';
+        								foreach($gallery_language as $val1)
+										{
+											if($val1['rLabelName'] == "Title")
+											{
+												$html.=$val1['rField'];
+											}
+										}
+        $html .=					'</label>';
         $html .= 					'<div class="controls">';
         $html .= 						'<input type="text" class="input-xlarge" name="editTitle" />';
         $html .= 					'</div>';
         $html .= 				'</div>';
         $html .= 				'<div class="control-group">';
-        $html .= 					'<label class="control-label">Description</label>';
+        $html .= 					'<label class="control-label">';
+        								foreach($gallery_language as $val1)
+										{
+											if($val1['rLabelName'] == "Description")
+											{
+												$html.=$val1['rField'];
+											}
+										}
+        $html .=					'</label>';
         $html .= 					'<div class="controls">';
         $html .= 						'<textarea class="input-xlarge ckeditor" rows="3" name="editDescription"></textarea>';
         $html .= 					'</div>';
@@ -17089,7 +17105,15 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
         $html .= 		'<div style="margin-right:300px;">';
 		$html .= 			'<button type="button" id="editInfoPopupUpdateBtn" class="btn btn-primary" onclick="updateInfo()"><i class="icon-ok"></i> Update Info</button>';
 		$html .= 			'&nbsp;&nbsp;';
-        $html .= 			'<button aria-hidden="true" onclick="close_popup(\'info_edit_model\');" class="btn">Close</button>';
+        $html .= 			'<button aria-hidden="true" onclick="close_popup(\'info_edit_model\');" class="btn">';
+        						foreach($gallery_language as $val1)
+								{
+									if($val1['rLabelName'] == "Close")
+									{
+										$html.=$val1['rField'];
+									}
+								}
+        $html .=			'</button>';
 		$html .= 		'</div>';
         $html .= 	'</div>';
         $html .= '</div></div></div></div></div></div>';

@@ -12,9 +12,9 @@ Ext.define('MyApp.view.catelog.CatelogView', {
                 //style: "background-image: url('img/splash.png');",
                 store: 'catelogestoreid',
                 emptyText: Loc.t('CATELOG.NODATAAVAILABLE'),
-                onItemDisclosure: true,
+                //onItemDisclosure: true,
                 getItemTextTpl: function(recordnode) {
-                    return '<div style="height:100px;"><img width="100" height="100" src="http://{vImage}" /> <span style="position: relative;top:-85px;">{text}</span></div>';
+                    return '<table class="catelogue_list"><tr><td><img width="80" height="80" src="http://{vImage}" /></td><td> <p style="width:'+(window.innerWidth-100)+'px";>{[values.text.substr(0, 120)]}...</p></td></tr></table>';
                 },
                 backText: Loc.t('BUTTON.BACK')
             }

@@ -29,7 +29,7 @@ function app_PushView(objParent, objNavigate, extraData, title, dv) {
             title: title
         });
     }
-    objParent.getNavigationBar().getBackButton().setText(title);
+    objParent.getNavigationBar().getBackButton().setText(Loc.t('BUTTON.BACK'));
     if(dv === null){
     	objParent.getNavigationBar().getBackButton().hide();
     }
