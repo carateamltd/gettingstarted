@@ -194,6 +194,7 @@ Ext.define('MyApp.controller.OrderController', {
         Ext.getStore('OrderDetailStore').load({url: URLConstants.URL + 'action=easyapps_item_get&iApplicationId=' + TextConstants.ApplicationId+'&iMenuId='+menuId});
         this.catalogProductView = Ext.create('MyApp.view.OrderView.OrderDetailView',{title: record.get('text')});
         this.getOrderNavi().push(this.catalogProductView);
+        this.getOrderNavi().getNavigationBar().getBackButton().setText(Loc.t('BUTTON.BACK'));
     },
 
     changeProductSizePrice: function(selectElement){
