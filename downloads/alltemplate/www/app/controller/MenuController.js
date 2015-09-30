@@ -22,7 +22,22 @@ Ext.define('MyApp.controller.MenuController', {
     },
 	onMenuListActivate: function(tab){
 		var tabId = tab.config.iAppTabId;
-        Ext.getStore('MenuStore').load({url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId});
+		var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+        Ext.getStore('MenuStore').load({
+			url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId,
+			callback: function(records, options, success){
+				try{
+					var response = Ext.decode(options.getResponse().responseText);
+					if (response.backgroundimage.backgroundimage) {
+						view.down('menuviewlist').setStyle({backgroundImage: 'url(\'http://' + response.backgroundimage.backgroundimage + '\') '});
+					}
+				}
+				catch(e){
+					console.log(e);
+				}
+			}
+        });
     },
 
 	onMenuItemTap: function(list, index, target, record, e, eOpts){

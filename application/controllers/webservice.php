@@ -4984,17 +4984,17 @@ header('Access-Control-Allow-Origin: *');
 				/** category **/
 				if(count($category) > 0)
 				{
-					$result['text'] = 'Categories';
-					$result['items'] = $category;
-					$result['status'] = 'Success';
+					$Data['text'] = 'Categories';
+					$Data['items'] = $category;
+					$Data['status'] = 'Success';
 				}else{
-					$result['text'] = "Categories";
-					$result['status'] = 'Fail';
+					$Data['text'] = "Categories";
+					$Data['status'] = 'Fail';
 				} 
 			}
 			$Data = $this->getTabBgImg($Data);
 		}else{
-			$result['status'] = "fail";
+			$Data['status'] = "fail";
 		}
 		
 		/** easyapp gallery details **/
@@ -5007,7 +5007,7 @@ header('Access-Control-Allow-Origin: *');
         {
             $callback = filter_var($_REQUEST['callback'], FILTER_SANITIZE_STRING);
         }
-        $main = json_encode($result);
+        $main = json_encode($Data);
         echo $callback . $main;
         exit;	
 	}

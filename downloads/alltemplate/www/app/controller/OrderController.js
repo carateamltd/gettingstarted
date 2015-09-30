@@ -170,7 +170,22 @@ Ext.define('MyApp.controller.OrderController', {
 
     onOrderListActivate: function(tab){
     	var tabId = tab.config.iAppTabId;
-        Ext.getStore('OrderStore').load({url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId});
+		var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+		Ext.getStore('OrderStore').load({
+			url:URLConstants.URL + 'action=easyapp_menu_category&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId,
+			callback: function(records, options, success){
+				try{
+					var response = Ext.decode(options.getResponse().responseText);
+					if (response.backgroundimage.backgroundimage) {
+						view.down('orderviewlist').setStyle({backgroundImage: 'url(\'http://' + response.backgroundimage.backgroundimage + '\') '});
+					}
+				}
+				catch(e){
+					console.log(e);
+				}
+			}
+        });
     },
 
     onOrderItemTap: function(list, index, target, record, e, eOpts){
