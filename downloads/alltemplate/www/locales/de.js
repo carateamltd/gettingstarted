@@ -11,7 +11,7 @@ Ext.define('locales.de', {
     BUTTON: {
         BACK: 'Retour',
         OK: 'OK',
-        CANCEL: 'Abbrechen',
+        CANCEL: 'Annuler',
         YES: 'Ja',
         NO: 'Nein',
         SUBSCRIBE: "S'abonner"

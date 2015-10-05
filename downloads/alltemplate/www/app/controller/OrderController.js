@@ -501,16 +501,16 @@ Ext.define('MyApp.controller.OrderController', {
 
     removeProductInCart: function(button){
         Ext.Msg.show({
-            title: 'Message',
-            message: 'Are you sure?',
+            title: Loc.t('CATELOG.ALERT'),
+            message: Loc.t('CATELOG.SURE'),
             scope: this,
             buttons: [{
                     itemId: 'no',
-                    text: 'Cancel',
+                    text: Loc.t('BUTTON.CANCEL'),
                     ui: 'action'
                 }, {
                     itemId: 'yes',
-                    text: 'Ok',
+                    text: Loc.t('BUTTON.OK'),
                     ui: 'action'
             }],
             fn: function (btn) {
