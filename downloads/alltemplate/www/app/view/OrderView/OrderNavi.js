@@ -5,6 +5,8 @@ Ext.define("MyApp.view.OrderView.OrderNavi", {
     ],
     alias: "widget.ordernavi",
     config: {
+    	useTitleForBackButtonText: false,
+    	defaultBackButtonText: Loc.t('BUTTON.BACK'), 
         navigationBar: {
             hidden: false,
             items: [{
