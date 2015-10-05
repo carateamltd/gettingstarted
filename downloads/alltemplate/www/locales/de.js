@@ -305,7 +305,7 @@ Ext.define('locales.de', {
     	CUSTOMERSAVE: 'Détails Saved',
     	SIZESELECT: 'Sélectionnez une taille svp.',
     	CARTITEMADD: 'Panier mis à jour',
-    	CARTITEMDELETE: 'Item deleted from cart',
+		CARTITEMDELETE: 'Article supprimer',
     	CARTITEMUPDATE: 'Panier mis à jour',
     	CARTTOTAL: 'Montant Total',
     	ORDERDETAILS: 'Détail de la commande',
