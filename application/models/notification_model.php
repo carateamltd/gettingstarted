@@ -146,6 +146,19 @@ class notification_model extends CI_Model{
 		$query = $this->db->get();
 		return $query->row_array();
 	}
+	
+	function get_regIds($iApplicationId,$group_name)
+	{
+		$this->db->select('*');
+		$this->db->from('r_application_user');
+		if($group_name!='All')
+		{
+			$this->db->where('vType',$group_name);
+		}
+		$this->db->where('iApplicationId',$iApplicationId);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 
 }
 ?>

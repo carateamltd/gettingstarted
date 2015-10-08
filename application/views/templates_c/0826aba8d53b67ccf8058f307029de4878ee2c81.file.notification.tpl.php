@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-01 15:54:13
+<?php /* Smarty version Smarty-3.1.11, created on 2015-10-08 14:00:51
          compiled from "application/views/templates/notification.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:107543395583e8eaad6ec6-87692851%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0826aba8d53b67ccf8058f307029de4878ee2c81' => 
     array (
       0 => 'application/views/templates/notification.tpl',
-      1 => 1438864761,
+      1 => 1444287595,
       2 => 'file',
     ),
   ),
@@ -172,7 +172,7 @@ notification/<?php echo $_smarty_tpl->tpl_vars['data']->value['mode'];?>
 "-->
 <!--action="http://184.107.213.34/~projects/demo_projects/mobile/pushnotification/notfiyfromXMl.php"-->
 				<form class="form-horizontal" id="form_notification"   method="post" action="<?php echo $_smarty_tpl->tpl_vars['data']->value['base_url'];?>
-notification">
+notification/sendPushMessage">
 				        <input type="hidden" name="iAdminId" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['user_info']['iAdminId'];?>
 ">
 						
@@ -327,7 +327,8 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                              <?php }?>
                         <?php } ?></label>
                                     <div class="controls">
-                                        <label class="radio">
+                                        <!-- 
+<label class="radio">
                                             <input type="radio" style="margin-top:4px !important;" name="Data[eType]" value="Individual" id="Individual">
                                             <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -340,8 +341,9 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                              <?php }?>
                         <?php } ?>
                                         </label>
+ -->
                                         <label class="radio">
-                                            <input type="radio" style="margin-top:4px !important;" name="Data[eType]" value="Group" id="Group" >
+                                            <input type="radio" style="margin-top:2px !important;margin-right: 5px !important;" name="Data[eType]" value="Group" id="Group" >
                                             <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['lang']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
@@ -354,7 +356,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                         <?php } ?>
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" style="margin-top:4px !important;" name="Data[eType]" value="All" id="All">
+                                            <input type="radio" style="margin-top:2px !important;margin-right: 5px !important;" name="Data[eType]" value="All" id="All">
                                             All
                                         </label>
                                     </div>

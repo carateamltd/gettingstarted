@@ -108,7 +108,7 @@
 				
 				<!--action="{$data.base_url}notification/{$data['mode']}"-->
 <!--action="http://184.107.213.34/~projects/demo_projects/mobile/pushnotification/notfiyfromXMl.php"-->
-				<form class="form-horizontal" id="form_notification"   method="post" action="{$data.base_url}notification">
+				<form class="form-horizontal" id="form_notification"   method="post" action="{$data.base_url}notification/sendPushMessage">
 				        <input type="hidden" name="iAdminId" value="{$data['user_info']['iAdminId']}">
 						
 						<input type="hidden" name="iApplicationId" value="{$data['user_applications'][i]['iApplicationId']}">
@@ -174,7 +174,8 @@
                              {/if}
                         {/foreach}</label>
                                     <div class="controls">
-                                        <label class="radio">
+                                        <!-- 
+<label class="radio">
                                             <input type="radio" style="margin-top:4px !important;" name="Data[eType]" value="Individual" id="Individual">
                                             {foreach from=$lang item=val}
                              {if $val.rLabelName == 'Individual'}
@@ -182,8 +183,9 @@
                              {/if}
                         {/foreach}
                                         </label>
+ -->
                                         <label class="radio">
-                                            <input type="radio" style="margin-top:4px !important;" name="Data[eType]" value="Group" id="Group" >
+                                            <input type="radio" style="margin-top:2px !important;margin-right: 5px !important;" name="Data[eType]" value="Group" id="Group" >
                                             {foreach from=$lang item=val}
                              {if $val.rLabelName == 'Group'}
                                 {$val.rField}
@@ -191,7 +193,7 @@
                         {/foreach}
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" style="margin-top:4px !important;" name="Data[eType]" value="All" id="All">
+                                            <input type="radio" style="margin-top:2px !important;margin-right: 5px !important;" name="Data[eType]" value="All" id="All">
                                             All
                                         </label>
                                     </div>

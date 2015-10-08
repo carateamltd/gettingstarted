@@ -517,6 +517,101 @@ class Notification extends MY_Controller
 		// Close the connection to the server
 		fclose($fp);
  	}
+ 	
+ 	function sendPushMessage()
+ 	{
+ 		$postedData = $this->input->post();
+ 		$iAdminId = $postedData['iAdminId'];
+ 		$iApplicationId = $postedData['data']['iApplicationId'];
+ 		$message = $postedData['message'];
+ 		$tabname = $postedData['data']['tabname'];
+ 		$eType = $postedData['Data']['eType'];
+ 		$group_name = $postedData['group_name'];
+ 		$individual_name = $postedData['data']['individual_name'];
+ 		if($eType=='All')
+ 		{
+ 			 $registatoin_details = $this->notification_model->get_regIds($iApplicationId,'All');
+ 		}
+ 		else
+ 		{
+ 			$registatoin_details = $this->notification_model->get_regIds($iApplicationId,$group_name);
+ 		}
+ 		$iosDevices = Array();
+ 		$androidDevices = Array();
+ 		$ai=0;
+ 		$ii=0;
+ 		foreach($registatoin_details as $registerArray)
+ 		{
+ 			if($registerArray['devices_type']=='Android')
+ 			{
+ 				$androidDevices[$ai]=$registerArray['devices_uuid'];
+ 				$ai=$ai+1;
+ 			}
+ 			else
+ 			{
+ 				$iosDevices[$ii]=$registerArray['devices_uuid'];
+ 				$ii=$ii+1;
+ 			}
+ 		}
+ 		if(count($androidDevices)>0)
+ 		{
+ 			//-- Android notification code here
+ 			//require_once 'pushnotification/pushnotify_Android/GCM.php';
+ 			
+ 			//$gcm = new GCM();
+ 			
+ 			//$message = array("message" => $message,"msgcnt"=>1);
+ 
+			//$result = $gcm->send_notification($androidDevices, $message);
+ 
+			//echo $result;
+			
+			define( 'API_ACCESS_KEY', 'AIzaSyDz9Nu2s7V_UDwRt7wz42gYvA0hsauLE-k' );
+			//$registrationIds = array( 'APA91bGqHGotUukLZDuw5SdQwQsNGI2kbMlPgPJy585lIMPt-njOnU50EA9vs9wOWXmoVyGm_OKxsNAoO5J5aD_nGpzq6zhjCvLd4Hto2A1o01sstwdpV1wkvcVX6EELZJYvnNzEq9EK' );
+			$registrationIds = $androidDevices;
+			$msg = array
+			(
+				'message' 	=> $message,
+				'title'		=> 'Fashion Theory',
+				'subtitle'	=> '',
+				'tickerText'	=> '',
+				'vibrate'	=> 1,
+				'sound'		=> 1/*,
+				'largeIcon'	=> 'large_icon',
+				'smallIcon'	=> 'small_icon'*/
+			);
+			
+			$fields = array
+			(
+				'registration_ids' 	=> $registrationIds,
+				'data'			=> $msg
+			);
+ 
+			$headers = array
+			(
+				'Authorization: key=' . API_ACCESS_KEY,
+				'Content-Type: application/json'
+			);
+ 
+			$ch = curl_init();
+			curl_setopt( $ch,CURLOPT_URL, 'https://android.googleapis.com/gcm/send' );
+			curl_setopt( $ch,CURLOPT_POST, true );
+			curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+			curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+			curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+			curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+			$result = curl_exec($ch );
+			curl_close( $ch );
+			echo $result;		
+			
+ 		}
+ 		if(count($iosDevices)>0)
+ 		{
+ 			//-- iOs notification code here
+ 			$regId = $iosDevices;
+ 		}
+ 		
+ 	}
 }
 /* End of file notification.php */
 /* Location: ./application/controllers/notification.php */
