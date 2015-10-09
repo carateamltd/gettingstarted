@@ -46,7 +46,7 @@ function appCustomAlert(displaytitle, displayMessage) {
 
 }
 function PushRegister() {
-     var url = 'http://admin.easy-apps.co.uk/webservice?action=easyapps_pushnotification_save&iApplicationId=264&vDeviceid=0&vDevicename=0&vVerifiedNumber=&vToken='+TextConstants.DeviceToken+'&vType=Android&ePushNotification=yes&eStatus=Active'
+     var url = URLConstants.URL + 'action=easyapps_pushnotification_save&iApplicationId='+TextConstants.ApplicationId+'&vDeviceid='+TextConstants.DeviceId+'&vDevicename='+device.model+'&vVerifiedNumber=&vToken='+TextConstants.DeviceToken+'&vType='+device.platform+'&ePushNotification=yes&eStatus=Active'
      console.log(url);
      Ext.Ajax.request({
              url: url,

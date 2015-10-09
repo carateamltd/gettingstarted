@@ -542,14 +542,14 @@ class Notification extends MY_Controller
  		$ii=0;
  		foreach($registatoin_details as $registerArray)
  		{
- 			if($registerArray['devices_type']=='Android')
+ 			if($registerArray['vType']=='Android')
  			{
- 				$androidDevices[$ai]=$registerArray['devices_uuid'];
+ 				$androidDevices[$ai]=$registerArray['vToken'];
  				$ai=$ai+1;
  			}
  			else
  			{
- 				$iosDevices[$ii]=$registerArray['devices_uuid'];
+ 				$iosDevices[$ii]=$registerArray['vToken'];
  				$ii=$ii+1;
  			}
  		}
@@ -576,7 +576,8 @@ class Notification extends MY_Controller
 				'subtitle'	=> '',
 				'tickerText'	=> '',
 				'vibrate'	=> 1,
-				'sound'		=> 1/*,
+				'sound'		=> 1,
+				'tabname' => $tabname/*,
 				'largeIcon'	=> 'large_icon',
 				'smallIcon'	=> 'small_icon'*/
 			);
@@ -610,7 +611,7 @@ class Notification extends MY_Controller
  			//-- iOs notification code here
  			$regId = $iosDevices;
  		}
- 		
+ 		redirect($this->data['base_url'] . 'notification');
  	}
 }
 /* End of file notification.php */
