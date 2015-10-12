@@ -67,12 +67,12 @@ Ext.define("MyApp.view.location.MyMap", {
                     xtype: 'panel',
                     layout: 'hbox',
                     docked:'bottom',
-                    height:40,
+                    height:50,
                     items: [{
                             xtype: 'button',
                             html: '<img src="img/Tabicon/call.png" />',
                             ui:'plain',
-                            style:'width:50px;height:50px;margin-top: -15px;',
+                            style:'width:50px;height:50px;margin-top: -1px;',
                             flex:1,
                             listeners:{
                                 tap:function(){
@@ -83,7 +83,7 @@ Ext.define("MyApp.view.location.MyMap", {
                             xtype: 'button',
                             html: '<img src="img/Tabicon/web.png" />',
                             ui:'plain',
-                            style:'width:50px;height:50px;margin-top: -15px;',
+                            style:'width:50px;height:50px;margin-top: -1px;',
                             flex:1,
                             listeners:{
                                 tap:function(){
@@ -94,7 +94,7 @@ Ext.define("MyApp.view.location.MyMap", {
                             xtype: 'button',
                             html: '<img src="img/Tabicon/send.png" />',
                             ui:'plain',
-                            style:'width:50px;height:50px;margin-top: -15px;',
+                            style:'width:50px;height:50px;margin-top: -1px;',
                             flex:1,
                                listeners:{
                                 tap:function(){

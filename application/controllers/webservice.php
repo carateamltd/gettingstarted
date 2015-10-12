@@ -313,6 +313,9 @@ class Webservice extends MY_Controller
 	        case 'easyapps_get_contact_bg':
 	        	$this->easyapps_get_contact_bg();
 	        	break;
+	        case 'get_msg_bg_img':
+	        	$this->get_msg_bg_img();
+	        	break;
 		    default:
 				break;
 		}
@@ -5779,6 +5782,26 @@ header('Access-Control-Allow-Origin: *');
 		}
 		$Data['status'] = 'Success';
 		return $Data;
+    }
+    
+    //	--	get message tab bg img	--	//
+    function get_msg_bg_img(){
+    	$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
+		$Data = $this->getTabBgImg($Data);
+		header('Content-type: application/json');
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        
+        $callback = '';
+		if (isset($_REQUEST['callback']))
+		{
+		    $callback = filter_var($_REQUEST['callback'], FILTER_SANITIZE_STRING);
+		}
+		
+		$main = json_encode($Data);
+		echo $callback . $main;
+		exit;
     }
 }
 ?>

@@ -3213,8 +3213,24 @@ console.log('===================End=====================');
 	},
 	onMessageViewActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
-		console.log(tabId);
+		var mainView = Ext.ComponentQuery.query('mainview')[0];
+		var view = mainView.getActiveItem();
+        appMask();
 		this.setPageTitle(tab);
+		var url = URLConstants.URL + 'action=get_msg_bg_img&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
+        console.log(url);
+        MyApp.services.RemoteService.remoteCall(url,
+                function success(Response) {
+                    console.log(Response);
+                    if (Response.backgroundimage.backgroundimage) {
+                        view.setStyle({backgroundImage: 'url(\'http://' + Response.backgroundimage.backgroundimage + '\')'});
+                    }
+                    appUnmask();
+                },
+                function failure(Response) {
+                    appUnmask();
+                }
+        );
 	},
 	onMortgageCalculatorActivate: function(tab){
 		var me, tabId = tab.config.iAppTabId;
