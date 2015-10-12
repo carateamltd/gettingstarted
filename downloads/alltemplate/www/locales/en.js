@@ -207,7 +207,8 @@ Ext.define('locales.en', {
         SUBMITCODE: 'Stamp',
         NOOFUSE: 'Number of use',
         SHARE: 'Share',
-        TOTAL:'Total use'
+        TOTAL:'Total use',
+        SORRY: 'Sorry'
     },
     CUSTOM:{
         TITLE: 'Custom',

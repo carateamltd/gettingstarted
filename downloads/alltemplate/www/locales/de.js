@@ -198,7 +198,7 @@ Ext.define('locales.de', {
     LOYALTY:{
         TITLE: 'Fidélité',
         NOLOYALTYAVAILABE: 'Aucun programme de fidélité disponible.',
-        NOLOYALTYSECRETAVAILABE: 'Se il vous plaît entrer le code secret correct',
+        NOLOYALTYSECRETAVAILABE: 'Veuillez entrer le bon code.',
         NOMORECOUPONAVAILABLE: 'Code Scret Incorrecte',
         ENTERSECRETCODE: 'Entrez le code secret',
         STAMPCARD: 'Tamponner la Carte',
@@ -207,7 +207,8 @@ Ext.define('locales.de', {
         SUBMITCODE: 'Tamponner',
         NOOFUSE: 'Nombre de tampon',
         SHARE: 'Partager',
-        TOTAL:'Total tampon'
+        TOTAL:'Total tampon',
+        SORRY: 'Pardon'
     },
     CUSTOM:{
         TITLE: 'Les Informations',
