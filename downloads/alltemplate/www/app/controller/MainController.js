@@ -1142,13 +1142,13 @@ Ext.define('MyApp.controller.MainController', {
         var scretText = Ext.ComponentQuery.query('loyalitydetail #secretCodeID')[0].getValue();
         if (scretText) {
             if (TextConstants.NO_OF_USE_CONST != 0) {
-                TextConstants.NO_OF_USE_CONST = TextConstants.NO_OF_USE_CONST - 1;
                 appMask();
                 var url = URLConstants.URL + 'action=save_coupons&iLoyaltyId=' + TextConstants.loyalityid + '&tabid=1796&applicationid="' + TextConstants.ApplicationId + '"&iSecretCode=' + scretText;
                 MyApp.services.RemoteService.remoteCall(url,
                         function success(Response) {
+                        	TextConstants.NO_OF_USE_CONST = TextConstants.NO_OF_USE_CONST - 1;
                             console.log(Response);
-                            appUnmask();
+                            appUnmask();debugger;
                             var objLoyalityStore = Ext.getStore('loyalitistoreid');
                             objLoyalityStore.removeAll();
                             objLoyalityStore.add(Response.data);
@@ -1158,6 +1158,16 @@ Ext.define('MyApp.controller.MainController', {
                             switch (index) {
                                 case 0:
                                     Ext.ComponentQuery.query('loyalitydetail #coupenBtnId')[0].setHtml('');
+                                    var url1 = URLConstants.URL + 'action=delete_coupons&iLoyaltyId=' + TextConstants.loyalityid + '&tabid=1796&applicationid="' + TextConstants.ApplicationId + '"&iSecretCode=' + scretText;
+                                    MyApp.services.RemoteService.remoteCall(url1,
+										function success(Response) {
+											appUnmask();
+										},
+										function failure(Response) {
+											console.log(Response);
+											appUnmask();
+										}
+									);
                                     break;
                                 case 1:
                                     Ext.ComponentQuery.query('loyalitydetail #coupenBtnId')[0].setHtml('<img src="img/Tabicon/cupen.png" width="25px" heigt="25px" />');
