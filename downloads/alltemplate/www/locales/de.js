@@ -208,7 +208,8 @@ Ext.define('locales.de', {
         NOOFUSE: 'Nombre de tampon',
         SHARE: 'Partager',
         TOTAL:'Total tampon',
-        SORRY: 'Pardon'
+        SORRY: 'Pardon',
+        CONGRATS: 'Félicitation'
     },
     CUSTOM:{
         TITLE: 'Les Informations',

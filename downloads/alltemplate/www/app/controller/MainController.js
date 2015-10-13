@@ -1158,6 +1158,7 @@ Ext.define('MyApp.controller.MainController', {
                             switch (index) {
                                 case 0:
                                     Ext.ComponentQuery.query('loyalitydetail #coupenBtnId')[0].setHtml('');
+                                    appCustomAlert(Loc.t('CATELOG.ALERT'), Loc.t('LOYALTY.CONGRATS'));
                                     var url1 = URLConstants.URL + 'action=delete_coupons&iLoyaltyId=' + TextConstants.loyalityid + '&tabid=1796&applicationid="' + TextConstants.ApplicationId + '"&iSecretCode=' + scretText;
                                     MyApp.services.RemoteService.remoteCall(url1,
 										function success(Response) {

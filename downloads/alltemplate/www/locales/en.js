@@ -208,7 +208,8 @@ Ext.define('locales.en', {
         NOOFUSE: 'Number of use',
         SHARE: 'Share',
         TOTAL:'Total use',
-        SORRY: 'Sorry'
+        SORRY: 'Sorry',
+        CONGRATS: 'Congratulations'
     },
     CUSTOM:{
         TITLE: 'Custom',
