@@ -433,7 +433,7 @@ class Webservice extends MY_Controller
         {
 	        $this->load->model('admin_model', '', TRUE);
 			$ci = get_instance();
-			$ci->load->library('email');
+			/*$ci->load->library('email');
 			//$config['protocol'] = "smtp";
 			//$config['smtp_host'] = "ssl://smtp.gmail.com";
 			//$config['smtp_port'] = "465";//"25";
@@ -441,16 +441,26 @@ class Webservice extends MY_Controller
 			//$config['smtp_pass'] = "easyapps1@French";
 			$config['charset'] = "utf-8";
 			$config['mailtype'] = "html";
+			$config['newline'] = "\r\n";*/
+			$ci->load->library('email');
+			$config['protocol'] = "smtp";
+			$config['smtp_host'] = "mail.easy-apps.co.uk";
+			$config['smtp_port'] = "25";
+			$config['smtp_user'] = "mail@easy-apps.co.uk"; 
+			$config['smtp_pass'] = "F8VyakZDeasyapp";
+			$config['charset'] = "utf-8";
+			$config['mailtype'] = "html";
 			$config['newline'] = "\r\n";
-
 			
 
 			//-- Send Email to Customer/AppOwner
 				$ci->email->initialize($config);
-				$ci->email->from($fromEmail, "Contact Us Form - ".$applicationName." - EasyApps");
+				//$ci->email->from($fromEmail, "Contact Us Form - ".$applicationName." - EasyApps");
+				$ci->email->from('mail@easy-apps.co.uk', ucfirst($applicationName));
 				$ci->email->to($toEmail);
-				$this->email->reply_to($fromEmail, $applicationName);
-				$ci->email->subject('Contact Us Form');
+				//$this->email->reply_to($fromEmail, $applicationName);
+				$this->email->reply_to($fromEmail, ucfirst($applicationName));
+				$ci->email->subject(ucfirst($applicationName). " APPS");
 				if($type=="Customer")
 				{
 					if($lang=='rFrench')
@@ -475,7 +485,7 @@ class Webservice extends MY_Controller
 				}
 				$ci->email->message($html);
 				$result = $ci->email->send();
-			
+			$result = $this->email->print_debugger(); 
 			return $result;
         }
     
