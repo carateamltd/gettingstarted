@@ -608,7 +608,58 @@ class Notification extends MY_Controller
  		}
  		if(count($iosDevices)>0)
  		{
- 			//-- iOs notification code here
+ 			// Put your devre (without spaces):
+			// Put your devre (without spaces):
+			$deviceToken = '86fd9b41c321b69555d2b8a52fab683ff0ed9e92d92239097e1f10d78b191097';
+
+			// Put your private key's passphrase here:
+			$passphrase = 'fashiontheory';
+
+			// Put your alert message here:
+			$message = 'fashiontheory Testing msg in easyapp';
+
+			////////////////////////////////////////////////////////////////////////////////
+
+			$ctx = stream_context_create();
+			stream_context_set_option($ctx, 'ssl', 'local_cert', 'apns_cert.pem');
+			stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
+
+			// Open a connection to the APNS server
+			$fp = stream_socket_client(
+				'ssl://gateway.sandbox.push.apple.com:2195', $err,
+				$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+
+			if (!$fp){
+			echo "fp".$fp;
+				exit("Failed to connect: $err $errstr" . PHP_EOL);
+			}else{
+			echo 'Connected to APNS' . PHP_EOL;
+			}
+
+			// Create the payload body
+			$body['aps'] = array(
+				'alert' => $message,
+				'sound' => 'default'
+				);
+
+			// Encode the payload as JSON
+			$payload = json_encode($body);
+
+			// Build the binary notification
+			$msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
+
+			// Send it to the server
+			$result = fwrite($fp, $msg, strlen($msg));
+
+			if (!$result)
+				echo 'Message not delivered' . PHP_EOL;
+			else
+				echo 'Message successfully delivered' . PHP_EOL;
+
+			// Close the connection to the server
+			fclose($fp);
+			
+ 			/*//-- iOs notification code here
  			$regId = $iosDevices;
 
  			// Provide the Host Information.
@@ -681,7 +732,7 @@ class Notification extends MY_Controller
 				}
 			}
 			// Close the Connection to the Server.
-			fclose ($tSocket);
+			fclose ($tSocket);*/
  		}
  		redirect($this->data['base_url'] . 'notification');
  	}
