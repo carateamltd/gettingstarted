@@ -101,7 +101,11 @@ Ext.define('MyApp.controller.MainController', {
             donationNavi: 'donationnavi',
             orderNavi: 'ordernavi',
             customViewNavi: 'customview',
-            customListView: 'list[itemId=infoList]'
+            customListView: 'list[itemId=infoList]',
+            urlTabNavi: 'urlnavi',
+            urlListView: 'urllist',
+            socialMediaTabNavi: 'socialmedianavi',
+            socialMediaListView: 'socialmedialist'
         },
         control: {
             mainView: {
@@ -343,7 +347,6 @@ Ext.define('MyApp.controller.MainController', {
             donationView: {
                 onSubmitTap: "onOrgnizationSubmitBtnTap"
             },
-
             testimonialView: {
                 activate: 'onTestimonialViewActivate'
             },
@@ -419,6 +422,18 @@ Ext.define('MyApp.controller.MainController', {
 			customListView: {
                 itemtap: 'onCustomListTap',
                 activate: 'onCustomActivate'
+            },
+            urlTabNavi: {
+            	activate: 'onUrlTabNaviActivate'
+            },
+            urlListView: {
+            	itemtap: 'onUrlListTap'
+            },
+            socialMediaTabNavi: {
+            	activate: 'onSocialMediaTabNaviActivate'
+            },
+            socialMediaListView: {
+            	itemtap: 'onSocialMediaListTap'
             }
         }
     },
@@ -2046,8 +2061,20 @@ console.log('===================End=====================');
             xtype: 'newswebview'
         });
         var webview = Ext.ComponentQuery.query('newswebview #newswebid')[0];
-        webview.setHtml(loadURL(link));
-        appUnmask();
+        //webview.setHtml(loadURL(link));
+        Ext.Ajax.request({
+        	url: link,
+        	method: 'GET',
+        	success: function(res){
+        		webview.setHtml(res.responseText);
+        		appUnmask();
+        	},
+        	failure: function(res){
+        		console.log(res.responseText);
+        		appUnmask();
+        	}
+        });
+        //appUnmask();
     },
     onVoiceRecordingActivated: function (tab) {
         var me = this, tabId = tab.config.iAppTabId;
@@ -3316,6 +3343,126 @@ console.log('===================End=====================');
         if (view && view.getInnerItems().length == 1) {
 			var title = view.down('[docked=top]').getTitle();
             app_PushView(view, 'customdetail', data, title, dataView);
+        }
+    },
+    onUrlTabNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+		if(!tabId){
+    		this.setPageTitleOnBack();
+    		return;
+    	}
+        appMask();
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+        var view = mainView.getActiveItem();
+        this.setPageTitle(tab);
+        var urlStore = Ext.getStore('urlstoreid');
+        urlStore.removeAll();
+        var url = URLConstants.URL + 'action=get_url_list&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
+        MyApp.services.RemoteService.remoteCall(url,
+			function success(Response) {
+				console.log(Response);
+				try{
+					urlStore.add(Response.UrlList);
+					urlStore.sync();
+				}
+				catch(e){
+					console.log(e);
+				}
+				var bgimage = Response.backgroundimage.backgroundimage;
+				if (bgimage) {
+					view.down('urllist').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+				}
+				appUnmask();
+			},
+			function failure(Response) {
+				appUnmask();
+			}
+        );
+	},
+	onUrlListTap: function (dataView, index, target, record, e, eOpts) {
+		if(IS_APP){
+			var mainView = Ext.ComponentQuery.query('mainview')[0];
+			var view = mainView.getActiveItem();
+			if (view && view.getInnerItems().length == 1) {
+				var title = view.down('[docked=top]').getTitle();
+				app_PushView(view, 'urlwebview', record.data, title);
+			}
+			appUnmask();
+        }
+        else{
+        	//window.open(record.data.vURLLink, "_BLANK");
+        	Ext.Ajax.request({
+				url: record.data.vURLLink,
+				method: 'GET',
+				success: function(res){
+					webview.setHtml(res.responseText);
+					appUnmask();
+				},
+				failure: function(res){
+					console.log(res.responseText);
+					appUnmask();
+				}
+			});
+        }
+    },
+    onSocialMediaTabNaviActivate: function(tab){
+		var me, tabId = tab.config.iAppTabId;
+		if(!tabId){
+    		this.setPageTitleOnBack();
+    		return;
+    	}
+        appMask();
+        var mainView = Ext.ComponentQuery.query('mainview')[0];
+        var view = mainView.getActiveItem();
+        this.setPageTitle(tab);
+        var socialMediaStore = Ext.getStore('socialmediastoreid');
+        socialMediaStore.removeAll();
+        var url = URLConstants.URL + 'action=get_social_media_list&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
+        MyApp.services.RemoteService.remoteCall(url,
+			function success(Response) {
+				console.log(Response);
+				try{
+					socialMediaStore.add(Response.SocialMediaList);
+					socialMediaStore.sync();
+				}
+				catch(e){
+					console.log(e);
+				}
+				var bgimage = Response.backgroundimage.backgroundimage;
+				if (bgimage) {
+					view.down('socialmedialist').setStyle({backgroundImage: 'url(\'http://' + bgimage + '\')'});
+				}
+				appUnmask();
+			},
+			function failure(Response) {
+				appUnmask();
+			}
+        );
+	},
+	onSocialMediaListTap: function (dataView, index, target, record, e, eOpts) {
+		if(IS_APP){
+			var mainView = Ext.ComponentQuery.query('mainview')[0];
+			var view = mainView.getActiveItem();
+			if (view && view.getInnerItems().length == 1) {
+				var title = view.down('[docked=top]').getTitle();
+				app_PushView(view, 'webview', record.data, title);
+			}
+			appUnmask();
+        }
+        else{
+        	//window.open(record.data.vSocialMediaLink, "_BLANK");
+        	Ext.Ajax.request({
+				url: record.data.vSocialMediaLink,
+				method: 'GET',
+				success: function(res){
+					webview.setHtml(res.responseText);
+					appUnmask();
+				},
+				failure: function(res){
+					console.log(res.responseText);
+					appUnmask();
+				}
+			});
         }
     }
 });

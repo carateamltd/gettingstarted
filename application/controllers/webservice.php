@@ -316,11 +316,16 @@ class Webservice extends MY_Controller
 	        case 'get_msg_bg_img':
 	        	$this->get_msg_bg_img();
 	        	break;
+	        case 'get_url_list':
+				$this->get_url_list();
+				break;
+			case 'get_social_media_list':
+				$this->get_social_media_list();
+				break;
 		    default:
 				break;
 		}
     }
-
 
 	function sendAttechEmail()
 	{   
@@ -1037,7 +1042,6 @@ class Webservice extends MY_Controller
         }	
 	}  
     
-    
     /* send order mail details */
     function send_order_mail_details($tEmail,$iOrderId)
     {
@@ -1069,7 +1073,6 @@ class Webservice extends MY_Controller
             return false;
         }
     }
-	
 	
     /**
         get order details
@@ -1598,7 +1601,6 @@ header('Access-Control-Allow-Origin: *');
         }
     }
     
-    
     function Do_direct_payment_order_details($payment_details, $client_details) 
     {
 		// api details
@@ -1690,9 +1692,7 @@ header('Access-Control-Allow-Origin: *');
         return $result;
     }
     
-    
     /** send order receipt details **/
-    
     function send_order_receipt_details()
     {
         //$this->load->library('WriteHTML');
@@ -1796,7 +1796,6 @@ header('Access-Control-Allow-Origin: *');
         echo $callback . $main;
         exit;
     }
-	
 	
 	/** loyalty easyapps **/
 	function easyapps_loyalty_get_details()
@@ -2367,8 +2366,6 @@ header('Access-Control-Allow-Origin: *');
         echo $callback . $main;
         exit;	
 	}
-	
-	
 	
 	/** get order category list **/
 	function easyapp_news_details()
@@ -3442,7 +3439,6 @@ header('Access-Control-Allow-Origin: *');
         exit;
 	 }
 	
-	
 	 /** Add subscribe list mailchimp **/	
      function add_subscribe_list_mailchimp($iApplicationId, $email, $name) 
 	 {
@@ -3629,7 +3625,6 @@ header('Access-Control-Allow-Origin: *');
         echo $callback . $main;
         exit;
 	}
-
 
 	/**
 		Arrival webservice
@@ -4420,7 +4415,6 @@ header('Access-Control-Allow-Origin: *');
         exit;
 	}	
 
-
 	/** easyapps service details **/
 	function easyapps_service_details()
 	{
@@ -4544,7 +4538,6 @@ header('Access-Control-Allow-Origin: *');
         echo $callback . $main;
         exit;
 	}
-
 
 	/*	Easyapps New order save  details   */
 	function easyapps_new_order_details()
@@ -4966,7 +4959,6 @@ header('Access-Control-Allow-Origin: *');
 		echo $callback . $main;
 		exit;	
 	}
-
 
 	/** get order category list **/
 	function easyapp_menu_category()
@@ -5813,5 +5805,92 @@ header('Access-Control-Allow-Origin: *');
 		echo $callback . $main;
 		exit;
     }
+    
+    /** get url tab list **/
+	function get_url_list()
+	{
+		/** Application Details **/
+		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
+		/** iApplication Details **/
+		if($Data['iApplicationId'] != '')
+		{
+			$location = $this->webservice_model->get_url_list($Data);
+			
+			if(count($location) >0){
+				/** details **/
+				foreach($location as $val)
+				{
+					$url_list[] = array(
+						'urlId'=>$val['urlId'],
+						'iApplicationId'=>$val['iApplicationId'],
+						'iAppTabId'=>$val['iAppTabId'],
+						'vURLTitle'=>$val['vURLTitle'],
+						'vURLLink'=>$val['vURLLink'],
+						'vURLImage'=>$val['vURLImage'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/url_icons/'.$val['vURLImage']
+					);
+				}
+				$Data['UrlList'] = $url_list;
+			}
+			$Data = $this->getTabBgImg($Data);
+		}else{
+			$Data['status'] = 'Fail';
+		}
+		header('Content-type: application/json');
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        $callback = '';
+        if (isset($_REQUEST['callback']))
+        {
+            $callback = filter_var($_REQUEST['callback'], FILTER_SANITIZE_STRING);
+        }
+        
+        $main = json_encode($Data);
+        echo $callback . $main;
+        exit;
+	}
+    
+    /** get social media tab list **/
+	function get_social_media_list()
+	{
+		/** Application Details **/
+		$Data['iApplicationId'] = $this->input->get('iApplicationId');
+		$Data['iAppTabId'] = $this->input->get('iAppTabId');
+		/** iApplication Details **/
+		if($Data['iApplicationId'] != '')
+		{
+			$location = $this->webservice_model->get_social_media_list($Data);
+			
+			if(count($location) >0){
+				foreach($location as $val)
+				{
+					$url_list[] = array(
+						'socialMediaId'=>$val['socialMediaId'],
+						'iApplicationId'=>$val['iApplicationId'],
+						'iAppTabId'=>$val['iAppTabId'],
+						'vSocialMediaTitle'=>$val['vSocialMediaTitle'],
+						'vSocialMediaLink'=>$val['vSocialMediaLink'],
+						'vSocialMediaIcon'=>$val['vSocialMediaIcon'] == "" ? $this->config->item('empty_image_app') : $this->data['base_url'].'uploads/socialmedia_icons/'.$val['vSocialMediaIcon']
+					);
+				}
+				$Data['SocialMediaList'] = $url_list;
+			}
+			$Data = $this->getTabBgImg($Data);
+		}else{
+			$Data['status'] = 'Fail';
+		}
+		header('Content-type: application/json');
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        $callback = '';
+        if (isset($_REQUEST['callback']))
+        {
+            $callback = filter_var($_REQUEST['callback'], FILTER_SANITIZE_STRING);
+        }
+        
+        $main = json_encode($Data);
+        echo $callback . $main;
+        exit;
+	}
 }
 ?>

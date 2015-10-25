@@ -2482,6 +2482,26 @@ function getservicetiminginfo($iServiceId)
 	function get_blog_tabhtml($iApplicationId){
 		/** get blog tab html **/
 	}
+	
+	/** get new url tab details **/
+	function get_new_url_tab_details($iApplicationId,$iAppTabId)
+	{
+		$this->db->select('*');	
+		$this->db->from('r_app_url_tab_details');
+		$this->db->where('iApplicationId',$iApplicationId);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+	
+	/** get social media tab details **/
+	function get_social_media_tab_details($iApplicationId,$iAppTabId)
+	{
+		$this->db->select('*');	
+		$this->db->from('r_app_social_media_tab_details');
+		$this->db->where('iApplicationId',$iApplicationId);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 
 	/** get quotation details **/
 	function get_quotation_details($iApplicationId)
@@ -2841,6 +2861,46 @@ function getservicetiminginfo($iServiceId)
     	$this->db->where('iInfotabId',$info_id);
     	$this->db->where('iApplicationId',$iApplicationId);
         $this->db->delete('r_app_infotab_values');
+        return true;
+    }
+    
+    /*
+    	function to delete url
+    */
+    public function delete_url($url_id, $iApplicationId){
+    	$this->db->where('urlId',$url_id);
+    	$this->db->where('iApplicationId',$iApplicationId);
+        $this->db->delete('r_app_url_tab_details');
+        return true;
+    }
+    
+    /*
+    	function for updating url
+    */
+    public function updateURL($data)
+    {
+    	$this->db->where('urlId',$data['urlId']);
+        $this->db->update('r_app_url_tab_details',$data);
+        return $data['urlId'];
+    }
+    
+    /*
+    	function for updating social media details
+    */
+    public function updateSocialMedia($data)
+    {
+    	$this->db->where('socialMediaId',$data['socialMediaId']);
+        $this->db->update('r_app_social_media_tab_details',$data);
+        return $data['socialMediaId'];
+    }
+    
+    /*
+    	function to delete social media details
+    */
+    public function delete_socialMedia($socialMedia_id, $iApplicationId){
+    	$this->db->where('socialMediaId',$socialMedia_id);
+    	$this->db->where('iApplicationId',$iApplicationId);
+        $this->db->delete('r_app_social_media_tab_details');
         return true;
     }
 }

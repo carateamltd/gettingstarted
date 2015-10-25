@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
+        <!-- <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"> -->
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+        <!-- <meta name="viewport" content="width=device-width"> -->
         <link href="css/sencha-touch.css" rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="css/kleymissky.css" type="text/css" />
@@ -29,9 +32,10 @@
 			/*setTimeout(function(){
 				app.initPaymentUI();
 			}, 5000);  */          
-
+			var IS_APP = false;
             document.addEventListener('deviceready', onRegister, false);
             function onRegister() {
+            	IS_APP = true;
                 try
                 {
                     pushNotification = window.plugins.pushNotification;
@@ -225,6 +229,12 @@
 					}
    				);
         	}
+        	function resizeIframe(){
+            	var scale = window.innerWidth/1000;
+            	var a = 1/scale;
+            	var iframeHeight = (window.innerHeight-120)*a;
+            	document.getElementById('scaled-frame').style.height = iframeHeight+'px';
+        	}
         </script>
         <style type="text/css">
 			.descGal {
@@ -273,6 +283,27 @@
 				word-break: break-all;
 				margin: 0 0 0 -8px;
 			}
+			body{
+				padding-top: 0 !important;
+			}
+			.newswebviewpnl .x-html{
+				padding: 0.2em;
+			}
+			#wrapperiframe { padding: 0; overflow: hidden; }
+#scaled-frame { width: 1000px; border: 0px; }
+/*#scaled-frame {
+    zoom: 0.71;
+    -moz-transform: scale(0.71);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.71);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.71);
+    -webkit-transform-origin: 0 0;
+}*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ #scaled-frame  { zoom: 1;  }
+}
         </style>
     </head>
     <body class="splash_bg_img">

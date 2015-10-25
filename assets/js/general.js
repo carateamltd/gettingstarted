@@ -3,6 +3,14 @@ var load_ckeditor_count = 0;
 
 // Kick off the jQuery with the document ready function on page load
 	$(document).ready(function(){
+		$("#uploadBtn").on('change', function(){
+			if(this.value === ""){
+				document.getElementById("uploadtxt").innerText = "Upload";
+			}
+			else{
+				document.getElementById("uploadtxt").innerText = "Change";
+			}
+		});
 	    $('.eventd').datepicker({
               format: "yyyy-mm-dd",
               startDate: "0d",
@@ -11606,4 +11614,125 @@ function delete_info(infoId,iApplicationId){
 	$('#myModalDeleteInfo').modal('show');
 	var link = document.getElementsByClassName("mylinkInfo")[0];
     link.setAttribute('href', base_url+'app/delete_info/'+infoId+'/'+iApplicationId);
+}
+
+//-- function for showing edit row for editURL functionality
+function edit_url(urlId){
+	var showId = "url_edit_"+urlId;
+	var hideId = "url_noedit_"+urlId;
+	$('#'+hideId)[0].style.display="none";
+	$('#'+showId)[0].style.display="table-row";
+}
+
+function delete_url(urlId,iApplicationId,imgName){
+	$('#myModalDeleteInfo').modal('show');
+	var link = document.getElementsByClassName("mylinkInfo")[0];
+    link.setAttribute('href', base_url+'app/delete_url/'+urlId+'/'+iApplicationId+'/'+imgName);
+}
+
+//--- function for validating new url form
+function urlValidate()
+{
+	var urlLink = $('[name=new_urlLink]')[0].value;
+	var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}$/;
+	if(!pattern.test(urlLink))
+	{
+		alert("URL is not valid");
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+//--- function for validating edit url form
+function urlValidateEdit(textId)
+{
+	var urlLink = $('#'+textId)[0].value;
+	var pattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}$/;
+	if(!pattern.test(urlLink))
+	{
+		alert("URL is not valid");
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+function updateBtnTxt(ths, id){
+	if(ths.value === ""){
+		document.getElementById(id).innerText = "Upload";
+	}
+	else{
+		document.getElementById(id).innerText = "Change";
+	}
+}
+
+function changeUploadBtnTxt(ths, id){
+	if(ths.value === ""){
+		document.getElementById(id).innerText = "Upload";
+	}
+	else{
+		document.getElementById(id).innerText = "Change";
+	}
+}
+
+/*
+ *	validate social media URL
+ */
+function validateSocialMediaURL(str) {
+  var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+    '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+    '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+    '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+    '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
+    '(\#[-a-z\d_]*)?$','i'); // fragment locater
+  if(!pattern.test(str)) {
+    alert("URL is not valid");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+/*
+ *	validate social media URL on edit
+ */
+function validateSocialMediaURLEdit(textId)
+{
+	var urlLink = $('#'+textId)[0].value;
+	var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+    '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+    '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+    '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+    '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
+    '(\#[-a-z\d_]*)?$','i'); // fragment locater
+  if(!pattern.test(urlLink)) {
+    alert("URL is not valid");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+/*
+ *	edit social media details
+ */
+function edit_socialmedia(socialId){
+	var showId = "socialmedia_edit_"+socialId;
+	var hideId = "socialmedia_noedit_"+socialId;
+	$('#'+hideId)[0].style.display="none";
+	$('#'+showId)[0].style.display="table-row";
+}
+
+/*
+ *	delete social media details
+ */
+function delete_socialMedia(socialMediaId,iApplicationId,imgName){
+	$('#myModalDeleteInfo').modal('show');
+	var link = document.getElementsByClassName("mylinkInfo")[0];
+    link.setAttribute('href', base_url+'app/delete_socialMedia/'+socialMediaId+'/'+iApplicationId+'/'+imgName);
 }

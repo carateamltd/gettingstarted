@@ -1749,5 +1749,27 @@ class webservice_model extends CI_Model {
 		$query=$this->db->get();
 		return $query->row_array();
 	}
+	
+	/** get url list **/
+	function get_url_list($data)
+	{
+		$this->db->select('*');
+		$this->db->from('r_app_url_tab_details as rl');
+		$this->db->where('rl.iApplicationId',$data['iApplicationId']);
+		$this->db->where('rl.iAppTabId',$data['iAppTabId']);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
+	
+	/** get social media list **/
+	function get_social_media_list($data)
+	{
+		$this->db->select('*');
+		$this->db->from('r_app_social_media_tab_details as rl');
+		$this->db->where('rl.iApplicationId',$data['iApplicationId']);
+		$this->db->where('rl.iAppTabId',$data['iAppTabId']);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
 }
 ?>

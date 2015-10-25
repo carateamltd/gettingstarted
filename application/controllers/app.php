@@ -501,13 +501,271 @@ class App extends MY_Controller
 		    $newshtml = $this->getnewshtml($iFeatureId,$iAppTabId);
 		    $mainhtml .=$newshtml;
 		}else if($iFeatureId == 46){
+		}else if($iFeatureId == 47){
+			$urlhtml = $this->getnewurltabhtml($iFeatureId,$iAppTabId);
+		    $mainhtml .=$urlhtml;
+		}else if($iFeatureId == 48){
+			$socialmediahtml = $this->getsocialmediatabhtml($iFeatureId,$iAppTabId);
+		    $mainhtml .=$socialmediahtml;
 		}
 
 		#echo "<pre>";
 		#print_r($all_featurefields);exit;
 		return $mainhtml;
 	    }
+	    
+	/** social media tab details **/
+	function getsocialmediatabhtml($iFeatureId,$iAppTabId)
+	{
+		/** ApplicationId **/ 
+		$Data['iApplicationId'] = $this->data['iApplicationId'];
+		$iApplicationId = $this->data['iApplicationId'];
+		$language= $this->session->userdata('language');
+		$language = $this->admin_model->get_language_details($language);
+		$allAppSocialMedia = $this->app_model->get_social_media_tab_details($iApplicationId,$iAppTabId);
+		$html = '';
+		$html .= "<table style='width:110%;table-layout:auto;' cellspacing='0' cellpadding='0' class='table table-striped table-hover table-bordered'>";
+		$html.='<tr class="nodrop">';
+		$html.='<th style="text-align: center;">#</th>';
+		$html.='<th style="text-align: center;">';
+			foreach($language as $val1)
+			{
+				if($val1['rLabelName'] == "Icon")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html.='</th>';
+		$html.='<th style="text-align: center;">';
+			foreach($language as $val1)
+			{
+				if($val1['rLabelName'] == "Title")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html.='</th>';
+		$html.='<th style="text-align: center;">URL</th>';
+		$html.='<th colspan="2" style="text-align: center;">';
+			foreach($language as $val1)
+			{
+				if($val1['rLabelName'] == "Action")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html.='</th>';
+	    $html.='</tr>';
+	    $inc = 1;	
+		foreach($allAppSocialMedia as $appSocialMedia)
+		{
+			//--- Start - Table row for showing data --//
+				$html.='<tr class="row1a" id="socialmedia_noedit_'.$appSocialMedia['socialMediaId'].'" style="display:table-row;">';
+				$html.='<td style="vertical-align: middle;text-align: center;">'.$inc.'</td>';
+				$html.='<td style="padding: 4px 4px 0px 4px;vertical-align: middle;text-align: center;">';
+				if($appSocialMedia['vSocialMediaIcon']=='')
+				{
+					$imagePath = $this->config->item('empty_image');
+				}
+				else
+				{
+					$imagePath = "../../uploads/socialmedia_icons/".$appSocialMedia['vSocialMediaIcon'];
+				}
+				$html.='<img src="'.$imagePath.'" style="width:60px;" />';
+				$html.='</td>';
+				$html.='<td style="vertical-align: middle;text-align: center;">'.$appSocialMedia['vSocialMediaTitle'].'</td>';
+				$html.='<td style="vertical-align: middle;">'.$appSocialMedia['vSocialMediaLink'].'</td>';
+				$html.='<td style="vertical-align: middle;text-align: center;">';
+				$html.='<a href="javascript:edit_socialmedia(\''.$appSocialMedia['socialMediaId'].'\');"><i title="Edit" class="icon-pencil helper-font-24"></i></a>';
+				$html.='</td>';
+				$html.='<td style="vertical-align: middle;text-align: center;">';
+				$html.='<a href="javascript:delete_socialMedia(\''.$appSocialMedia['socialMediaId'].'\',\''.$iApplicationId.'\',\''.$appSocialMedia['vSocialMediaIcon'].'\');"><i title="Delete" class="icon-trash helper-font-24"></i></a>';
+				$html.='</td>';	
+				$html.='</tr>';
+			//--- End - Table row for showing data --//
+			
+			//--- Start - Table row for Editing data --//
+				$html.='<form name="edit_social_media" enctype="multipart/form-data" method="post" action="../editSocialMedia/'.$iAppTabId.'/'.$iApplicationId.'/'.$appSocialMedia['socialMediaId'].'" onsubmit="return validateSocialMediaURLEdit(\'editSocialLink'.$appSocialMedia['socialMediaId'].'\');">';
+					$html.='<tr class="row1a" id="socialmedia_edit_'.$appSocialMedia['socialMediaId'].'" style="display:none;">';
+						$html.='<td style="vertical-align: middle;text-align:center;">'.$inc.'</td>';
+						$html.='<td style="padding: 4px 4px 0px 4px;vertical-align: middle;text-align:center;">';
+						if($appSocialMedia['vSocialMediaIcon']=='')
+						{
+							$imagePath = $this->config->item('empty_image');
+						}
+						else
+						{
+							$imagePath = "../../uploads/socialmedia_icons/".$appSocialMedia['vSocialMediaIcon'];
+						}
+						$html.='<img src="'.$imagePath.'" style="width:60px;" />';
+						$html.='<div style="vertical-align: middle;" class="file_upload_fld btn btn-primary">';
+						$html.='<span id="uploadBtn'.$appSocialMedia['socialMediaId'].'">Upload</span>';
+						$html.='<input onchange="updateBtnTxt(this, \'uploadBtn'.$appSocialMedia['socialMediaId'].'\')" type="file" name="edit_socialIcon" style="width: 95%;" class="upload" />';
+						$html.='<input type="hidden" name="old_socialIcon" value="'.$appSocialMedia['vSocialMediaIcon'].'" />';
+						$html.='</div>';
+						$html.='</td>';
+						$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="edit_socialTitle" style="width:90%;" value="'.$appSocialMedia['vSocialMediaTitle'].'" required="required" /></td>';
+						$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="edit_socialLink" style="width:90%;" value="'.$appSocialMedia['vSocialMediaLink'].'" id="editSocialLink'.$appSocialMedia['socialMediaId'].'" required="required" /></td>';
+						$html.='<td style="vertical-align: middle;">';
+						$html.='<button type="submit" style="background: transparent;border: none;margin: 0 auto;display: block;margin-top: -10px;padding: 5px 6px;">';
+						$html.='<i title="" style="color:#03AC92;" class="icon-save helper-font-24"></i></button>';
+						$html.='</td>';
+						$html.='<td style="vertical-align: middle;">';
+						$html.='<a href="" style="margin: 0 auto;
+    display: block;margin-top: -10px;padding: 5px 6px;"><i title="" class="icon-remove helper-font-24"></i></a>';
+						$html.='</td>';	
+					$html.='</tr>';
+				$html.='</form>';
+			//--- End - Table row for Editing data --//
+			
+			$inc = $inc +1;	
+		}
+		$html.='<form name="save_new_social_media" enctype="multipart/form-data" method="post" action="../saveSocialMedia/'.$iAppTabId.'/'.$iApplicationId.'" onsubmit="return validateSocialMediaURL();">';
+		$html.='<tr class="row1a">';
+		$html.='<td style="vertical-align: middle;text-align:center;"><i style="color:#03AC92;" class="icon-plus white helper-font-24" title="" aria-describedby=""></i></td>';
+		$html.='<td style="vertical-align: middle;text-align:center;"><div style="vertical-align: middle;" class="file_upload_fld btn btn-primary"><span id="uploadtxt_socialmedia">Upload</span><input onchange="changeUploadBtnTxt(this, \'uploadtxt_socialmedia\')" id="uploadBtn" type="file" name="new_social_icon" style="width: 95%;" class="upload" /></div></td>';
+		$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="new_socialTitle" required="required" style="width: 90%;" /></td>';
+		$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="new_socialLink" required="required" style="width: 90%;" /></td>';
+		$html.='<td colspan="2" align="center">';
+		$html.='<button type="submit" style="background: transparent;border: none;margin: 0 auto;display: block;margin-top: 5px;"><i title=""  style="color:#03AC92;" class="icon-save helper-font-24"></i></button>';
+		$html.='</td>';	
+		$html.='</tr>';
+		$html.='</form>';
+		$html.='</table>';
+		return $html;		
+	}
 
+	/** new url tab details **/
+	function getnewurltabhtml($iFeatureId,$iAppTabId)
+	{
+		/** ApplicationId **/ 
+		$Data['iApplicationId'] = $this->data['iApplicationId'];
+		$iApplicationId = $this->data['iApplicationId'];
+		$language= $this->session->userdata('language');
+		$language = $this->admin_model->get_language_details($language);
+		/** get Testomonial tab html **/
+		$allappurl = $this->app_model->get_new_url_tab_details($iApplicationId,$iAppTabId);
+		/** get Testomonial tab html **/
+		$html = '';
+		$html .= "<table style='width:110%;table-layout:auto;' cellspacing='0' cellpadding='0' class='table table-striped table-hover table-bordered'>";
+		$html.='<tr class="nodrop">';
+		$html.='<th style="text-align: center;">#</th>';
+		$html.='<th style="text-align: center;">';
+			foreach($language as $val1)
+			{
+				if($val1['rLabelName'] == "Icon")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html.='</th>';
+		$html.='<th style="text-align: center;">';
+			foreach($language as $val1)
+			{
+				if($val1['rLabelName'] == "Title")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html.='</th>';
+		$html.='<th style="text-align: center;">URL</th>';
+		$html.='<th colspan="2" style="text-align: center;">';
+			foreach($language as $val1)
+			{
+				if($val1['rLabelName'] == "Action")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html.='</th>';
+		/*$html.='<th style="padding-left: 5px;padding-right: 5px;width: 45px;text-align: center;">';
+			foreach($language as $val1)
+			{
+				if($val1['rLabelName'] == "Delete")
+				{
+					$html.=$val1['rField'];
+				}
+			}
+		$html.='</th>';*/
+	    $html.='</tr>';
+	    $inc = 1;	
+		foreach($allappurl as $appurl)
+		{
+			//--- Start - Table row for showing data --//
+				$html.='<tr class="row1a" id="url_noedit_'.$appurl['urlId'].'" style="display:table-row;">';
+				$html.='<td style="vertical-align: middle;text-align: center;">'.$inc.'</td>';
+				$html.='<td style="padding: 4px 4px 0px 4px;vertical-align: middle;text-align: center;">';
+				if($appurl['vURLImage']=='')
+				{
+					$imagePath = $this->config->item('empty_image');
+				}
+				else
+				{
+					$imagePath = "../../uploads/url_icons/".$appurl['vURLImage'];
+				}
+				$html.='<img src="'.$imagePath.'" style="width:60px;" />';
+				$html.='</td>';
+				$html.='<td style="vertical-align: middle;text-align: center;">'.$appurl['vURLTitle'].'</td>';
+				$html.='<td style="vertical-align: middle;">'.$appurl['vURLLink'].'</td>';
+				$html.='<td style="vertical-align: middle;text-align: center;">';
+				$html.='<a href="javascript:edit_url(\''.$appurl['urlId'].'\');"><i title="Edit" class="icon-pencil helper-font-24"></i></a>';
+				$html.='</td>';
+				$html.='<td style="vertical-align: middle;text-align: center;">';
+				$html.='<a href="javascript:delete_url(\''.$appurl['urlId'].'\',\''.$iApplicationId.'\',\''.$appurl['vURLImage'].'\');"><i title="Delete" class="icon-trash helper-font-24"></i></a>';
+				$html.='</td>';	
+				$html.='</tr>';
+			//--- End - Table row for showing data --//
+			
+			//--- Start - Table row for Editing data --//
+				$html.='<form name="edit_new_url" enctype="multipart/form-data" method="post" action="../editURL/'.$iAppTabId.'/'.$iApplicationId.'/'.$appurl['urlId'].'" onsubmit="return urlValidateEdit(\'editURLLink'.$appurl['urlId'].'\');">';
+					$html.='<tr class="row1a" id="url_edit_'.$appurl['urlId'].'" style="display:none;">';
+						$html.='<td style="vertical-align: middle;text-align:center;">'.$inc.'</td>';
+						$html.='<td style="padding: 4px 4px 0px 4px;vertical-align: middle;text-align:center;">';
+						if($appurl['vURLImage']=='')
+						{
+							$imagePath = $this->config->item('empty_image');
+						}
+						else
+						{
+							$imagePath = "../../uploads/url_icons/".$appurl['vURLImage'];
+						}
+						$html.='<img src="'.$imagePath.'" style="width:60px;" />';
+						$html.='<div style="vertical-align: middle;" class="file_upload_fld btn btn-primary">';
+						$html.='<span id="uploadBtn'.$appurl['urlId'].'">Upload</span>';
+						$html.='<input onchange="updateBtnTxt(this, \'uploadBtn'.$appurl['urlId'].'\')" type="file" name="edit_urlImg" style="width: 95%;" class="upload" />';
+						$html.='<input type="hidden" name="old_urlImg" value="'.$appurl['vURLImage'].'" />';
+						$html.='</div>';
+						$html.='</td>';
+						$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="edit_urlTitle" style="width:90%;" value="'.$appurl['vURLTitle'].'" required="required" /></td>';
+						$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="edit_urlLink" style="width:90%;" value="'.$appurl['vURLLink'].'" id="editURLLink'.$appurl['urlId'].'" required="required" /></td>';
+						$html.='<td style="vertical-align: middle;">';
+						$html.='<button type="submit" style="background: transparent;border: none;margin: 0 auto;display: block;margin-top: -10px;padding: 5px 6px;">';
+						$html.='<i title="" style="color:#03AC92;" class="icon-save helper-font-24"></i></button>';
+						$html.='</td>';
+						$html.='<td style="vertical-align: middle;">';
+						$html.='<a href="" style="margin: 0 auto;
+    display: block;margin-top: -10px;padding: 5px 6px;"><i title="" class="icon-remove helper-font-24"></i></a>';
+						$html.='</td>';	
+					$html.='</tr>';
+				$html.='</form>';
+			//--- End - Table row for Editing data --//
+			
+			$inc = $inc +1;	
+		}
+		$html.='<form name="save_new_url" enctype="multipart/form-data" method="post" action="../saveURL/'.$iAppTabId.'/'.$iApplicationId.'" onsubmit="return urlValidate();">';
+		$html.='<tr class="row1a">';
+		$html.='<td style="vertical-align: middle;text-align:center;"><i style="color:#03AC92;" class="icon-plus white helper-font-24" title="" aria-describedby=""></i></td>';
+		$html.='<td style="vertical-align: middle;text-align:center;"><div style="vertical-align: middle;" class="file_upload_fld btn btn-primary"><span id="uploadtxt">Upload</span><input id="uploadBtn" type="file" name="new_urlImg" style="width: 95%;" class="upload" /></div></td>';
+		$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="new_urlTitle" required="required" style="width: 90%;" /></td>';
+		$html.='<td style="vertical-align: middle;text-align:center;"><input type="text" name="new_urlLink" required="required" style="width: 90%;" /></td>';
+		$html.='<td colspan="2" align="center">';
+		$html.='<button type="submit" style="background: transparent;border: none;margin: 0 auto;display: block;margin-top: 5px;"><i title=""  style="color:#03AC92;" class="icon-save helper-font-24"></i></button>';
+		$html.='</td>';	
+		$html.='</tr>';
+		$html.='</form>';
+		$html.='</table>';
+		return $html;		
+	}
 
 	/** Quotation Details **/
 	function getquotationtabhtml($iFeatureId,$iAppTabId)
@@ -17245,6 +17503,268 @@ position: relative;" onclick="open_modal(\'basicModal4\');">';
 			else if($lang == 'rFrench')
 			{
 				$this->session->set_flashdata('message','Informations supprimé avec succès');
+			}
+			redirect($this->data['base_url'] . 'app/step3/'.$iApplicationId);
+		}
+	}
+	
+	//	-- function for delete url --	//
+	function delete_url()
+	{        
+		$lang = $this->session->userdata('language');
+		$url_id= $this->uri->segment(3);
+		$iApplicationId= $this->uri->segment(4);
+		$imageName= $this->uri->segment(5);
+		$id = $this->app_model->delete_url($url_id, $iApplicationId);
+		if($imageName!='')
+		{
+			$imageThumbPath = $this->data['base_path']."uploads/url_icons/".$imageName;
+			if(file_exists($imageThumbPath))
+			{
+				unlink($imageThumbPath);
+			}
+		}
+		if($id)
+		{
+			$this->data['message'] = $this->session->flashdata('message');
+			if($lang == 'rEnglish')
+			{
+				$this->session->set_flashdata('message','URL deleted successfully.');
+			}
+			else if($lang == 'rFrench')
+			{
+				$this->session->set_flashdata('message','URL supprimé avec succès');
+			}
+			redirect($this->data['base_url'] . 'app/step3/'.$iApplicationId);
+		}
+	}
+	
+	function saveURL()
+	{
+		$postedData = $this->input->post();
+		$data['iApplicationId'] = $this->uri->segment(4);
+		$data['iAppTabId'] = $this->uri->segment(3);
+		$data['vURLTitle'] = $postedData['new_urlTitle'];
+		$data['vURLLink'] = $postedData['new_urlLink'];
+		$vImageURL = $_FILES['new_urlImg']['name'];
+		if($vImageURL!='')
+		{
+			$size=array();
+			$size['width']=60;
+			$size['height']=60; 
+			//$galleryfile = $_FILES['new_urlImg']['name'];
+			$filesize=$_FILES['new_urlImg']['size'];
+			$extention = array("gif", "jpeg", "jpg", "png","GIF","JPEG","JPG","PNG");
+			$allowext=end(explode('.',$vImageURL));
+			if(in_array($allowext, $extention) )
+			{
+				$fileName = $this->do_upload_urlimg('new_urlImg',$size,$data['iApplicationId']);
+				$data['vURLImage'] = $fileName;
+			}
+		}
+		else
+		{
+			$data['vURLImage']= '';
+		}
+		$id = $this->app_model->save('r_app_url_tab_details', $data);
+		redirect($this->data['base_url'] . 'app/step3/'.$data['iApplicationId']);
+	}
+	
+	function do_upload_urlimg($image,$size,$applicationId)
+	{
+		// echo $image;exit;
+	   if(!is_dir('uploads/url_icons/')){
+		   @mkdir('uploads/url_icons/', 0777);
+	   } 
+
+		$fileName=preg_replace('/[^a-zA-Z0-9_.]/', '',$_FILES[$image]['name']);
+		$fileName=$applicationId."_".rand(1111,9999)."_".$fileName;
+
+		$config1 = array(	  
+			  'source_image' => $_FILES[$image]['tmp_name'], //get original image
+			  'new_image' => 'uploads/url_icons/'.$fileName, 
+			  'maintain_ratio' => false,
+			  'width' =>  $size['width'],
+			  'height' => $size['height'],
+			  'master_dim' => 'width'
+		   );
+		   $this->load->library('image_lib', $config1);
+		   $this->image_lib->initialize($config1);
+		   $resize_img = $this->image_lib->resize(); //do whatever specified in config
+		return $fileName;    
+    }
+    
+    function editURL()
+	{
+		$postedData = $this->input->post();
+		$data['iApplicationId'] = $this->uri->segment(4);
+		$data['iAppTabId'] = $this->uri->segment(3);
+		$data['urlId'] = $this->uri->segment(5);
+		$data['vURLTitle'] = $postedData['edit_urlTitle'];
+		$data['vURLLink'] = $postedData['edit_urlLink'];
+		$vImageURL = $_FILES['edit_urlImg']['name'];
+		if($vImageURL!='')
+		{
+			$size=array();
+			$size['width']=60;
+			$size['height']=60; 
+			$filesize=$_FILES['edit_urlImg']['size'];
+			$extention = array("gif", "jpeg", "jpg", "png","GIF","JPEG","JPG","PNG");
+			$allowext=end(explode('.',$vImageURL));
+			if(in_array($allowext, $extention) )
+			{
+				$fileName = $this->do_upload_urlimg('edit_urlImg',$size,$data['iApplicationId']);
+				$data['vURLImage'] = $fileName;
+			}
+			
+			if($postedData['old_urlImg']!='')
+			{
+				$imageThumbPath = $this->data['base_path']."uploads/url_icons/".$postedData['old_urlImg'];
+				if(file_exists($imageThumbPath))
+				{
+					unlink($imageThumbPath);
+				}
+			}
+		}
+		else
+		{
+			$data['vURLImage']= $postedData['old_urlImg'];
+		}
+		$id = $this->app_model->updateURL($data);
+		redirect($this->data['base_url'] . 'app/step3/'.$data['iApplicationId']);
+	}
+	
+	/*
+	 *	save new social media details
+	 */
+	function saveSocialMedia()
+	{
+		$postedData = $this->input->post();
+		$data['iApplicationId'] = $this->uri->segment(4);
+		$data['iAppTabId'] = $this->uri->segment(3);
+		$data['vSocialMediaTitle'] = $postedData['new_socialTitle'];
+		$data['vSocialMediaLink'] = $postedData['new_socialLink'];
+		$vImageURL = $_FILES['new_social_icon']['name'];
+		if($vImageURL!='')
+		{
+			$size=array();
+			$size['width']=60;
+			$size['height']=60; 
+			//$galleryfile = $_FILES['new_urlImg']['name'];
+			$filesize=$_FILES['new_social_icon']['size'];
+			$extention = array("gif", "jpeg", "jpg", "png","GIF","JPEG","JPG","PNG");
+			$allowext=end(explode('.',$vImageURL));
+			if(in_array($allowext, $extention) )
+			{
+				$fileName = $this->do_upload_social_icon('new_social_icon',$size,$data['iApplicationId']);
+				$data['vSocialMediaIcon'] = $fileName;
+			}
+		}
+		else
+		{
+			$data['vSocialMediaIcon']= '';
+		}
+		$id = $this->app_model->save('r_app_social_media_tab_details', $data);
+		redirect($this->data['base_url'] . 'app/step3/'.$data['iApplicationId']);
+	}
+	
+	/*
+	 *	upload social media icon
+	 */
+	function do_upload_social_icon($image,$size,$applicationId)
+	{
+	   if(!is_dir('uploads/socialmedia_icons/')){
+		   @mkdir('uploads/socialmedia_icons/', 0777);
+	   } 
+
+		$fileName=preg_replace('/[^a-zA-Z0-9_.]/', '',$_FILES[$image]['name']);
+		$fileName=$applicationId."_".rand(1111,9999)."_".$fileName;
+
+		$config1 = array(	  
+		  'source_image' => $_FILES[$image]['tmp_name'], //get original image
+		  'new_image' => 'uploads/socialmedia_icons/'.$fileName, 
+		  'maintain_ratio' => false,
+		  'width' =>  $size['width'],
+		  'height' => $size['height'],
+		  'master_dim' => 'width'
+	   );
+	   $this->load->library('image_lib', $config1);
+	   $this->image_lib->initialize($config1);
+	   $resize_img = $this->image_lib->resize(); //do whatever specified in config
+		return $fileName;    
+    }
+	
+	/*
+	 *	edit social media details
+	 */
+    function editSocialMedia()
+	{
+		$postedData = $this->input->post();
+		$data['iApplicationId'] = $this->uri->segment(4);
+		$data['iAppTabId'] = $this->uri->segment(3);
+		$data['socialMediaId'] = $this->uri->segment(5);
+		$data['vSocialMediaTitle'] = $postedData['edit_socialTitle'];
+		$data['vSocialMediaLink'] = $postedData['edit_socialLink'];
+		$vImageURL = $_FILES['edit_socialIcon']['name'];
+		if($vImageURL!='')
+		{
+			$size=array();
+			$size['width']=60;
+			$size['height']=60; 
+			$filesize=$_FILES['edit_socialIcon']['size'];
+			$extention = array("gif", "jpeg", "jpg", "png","GIF","JPEG","JPG","PNG");
+			$allowext=end(explode('.',$vImageURL));
+			if(in_array($allowext, $extention) )
+			{
+				$fileName = $this->do_upload_social_icon('edit_socialIcon',$size,$data['iApplicationId']);
+				$data['vSocialMediaIcon'] = $fileName;
+			}
+			
+			if($postedData['old_socialIcon']!='')
+			{
+				$imageThumbPath = $this->data['base_path']."uploads/socialmedia_icons/".$postedData['old_socialIcon'];
+				if(file_exists($imageThumbPath))
+				{
+					unlink($imageThumbPath);
+				}
+			}
+		}
+		else
+		{
+			$data['vSocialMediaIcon']= $postedData['old_socialIcon'];
+		}
+		$id = $this->app_model->updateSocialMedia($data);
+		redirect($this->data['base_url'] . 'app/step3/'.$data['iApplicationId']);
+	}
+	
+	/*
+	 *	delete social media details
+	 */
+	function delete_socialMedia()
+	{        
+		$lang = $this->session->userdata('language');
+		$social_media_id= $this->uri->segment(3);
+		$iApplicationId= $this->uri->segment(4);
+		$imageName= $this->uri->segment(5);
+		$id = $this->app_model->delete_socialMedia($social_media_id, $iApplicationId);
+		if($imageName!='')
+		{
+			$imageThumbPath = $this->data['base_path']."uploads/socialmedia_icons/".$imageName;
+			if(file_exists($imageThumbPath))
+			{
+				unlink($imageThumbPath);
+			}
+		}
+		if($id)
+		{
+			$this->data['message'] = $this->session->flashdata('message');
+			if($lang == 'rEnglish')
+			{
+				$this->session->set_flashdata('message','URL deleted successfully.');
+			}
+			else if($lang == 'rFrench')
+			{
+				$this->session->set_flashdata('message','Média social supprimé avec succès');
 			}
 			redirect($this->data['base_url'] . 'app/step3/'.$iApplicationId);
 		}

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-10-08 14:00:51
+<?php /* Smarty version Smarty-3.1.11, created on 2015-10-20 18:01:52
          compiled from "application/views/templates/notification.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:107543395583e8eaad6ec6-87692851%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0826aba8d53b67ccf8058f307029de4878ee2c81' => 
     array (
       0 => 'application/views/templates/notification.tpl',
-      1 => 1444287595,
+      1 => 1445338907,
       2 => 'file',
     ),
   ),
@@ -357,7 +357,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
                                         </label>
                                         <label class="radio">
                                             <input type="radio" style="margin-top:2px !important;margin-right: 5px !important;" name="Data[eType]" value="All" id="All">
-                                            All
+                                            IOS/Android
                                         </label>
                                     </div>
 					   </div>

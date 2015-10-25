@@ -1193,7 +1193,9 @@ class Preview_model extends CI_Model
 			"MyApp.view.ticketinfo.TicketInfoView",
 			"MyApp.view.ecommarce.EcommarceNavi",
 			"MyApp.view.blog.BlogNavi",
-			"MyApp.view.menuoftheday.MenudayNavi"
+			"MyApp.view.menuoftheday.MenudayNavi",
+			"MyApp.view.urltab.UrlNavi",
+			"MyApp.view.socialmediatab.SocialMediaNavi"
 		],
 		config: {
 			listeners: {
@@ -1695,6 +1697,32 @@ class Preview_model extends CI_Model
 					if($checkName==0)
 					{
 						$all_tabs .= '{"xtype": "loyalitinavi","title": "'.$val['vTitle'].'","tabCls": "loyalityTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+					}
+					break;
+				case "URL Tab":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "urlnavi","title": "'.$ver['rField'].'","tabCls": "urlTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "urlnavi","title": "'.$val['vTitle'].'","tabCls": "urlTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+					}
+					break;
+				case "Social Media":
+					$checkName = 0;
+					foreach($lang as $ver){
+						if($ver['rLabelName'] == $val['vTitle']){
+							$checkName = 1;
+							$all_tabs .= '{"xtype": "socialmedianavi","title": "'.$ver['rField'].'","tabCls": "urlTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
+						}
+					}
+					if($checkName==0)
+					{
+						$all_tabs .= '{"xtype": "socialmedianavi","title": "'.$val['vTitle'].'","tabCls": "urlTab","iconCls":  "'.$title.'Cls","iconMask": true, "iAppTabId": "'.$val['iAppTabId'].'"},';
 					}
 					break;
 				default:

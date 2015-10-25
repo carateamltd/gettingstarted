@@ -10,14 +10,15 @@ Ext.define('MyApp.view.news.WebView', {
                     indicators:false
                 },
                 styleHtmlContent: true,
+                cls: 'newswebviewpnl',
                 layout: 'vbox',
                 items: [
                     {
                         itemId:'newswebid',
-                        html:'',
+                        html:''
                     }
                 ]
-            }],
+            }]
     }
 });
 

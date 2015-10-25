@@ -194,7 +194,7 @@
                                         </label>
                                         <label class="radio">
                                             <input type="radio" style="margin-top:2px !important;margin-right: 5px !important;" name="Data[eType]" value="All" id="All">
-                                            All
+                                            IOS/Android
                                         </label>
                                     </div>
 					   </div>

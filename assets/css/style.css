@@ -6910,3 +6910,21 @@ color:#fff;font-style:italic;
     text-overflow: ellipsis !important;
     max-width: 150px;
 }
+
+.file_upload_fld {
+    position: relative;
+    overflow: hidden;
+    width: 50px;
+    padding: 5px 6px;
+}
+.file_upload_fld input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
