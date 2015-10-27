@@ -188,12 +188,25 @@ Ext.define('locales.en', {
         FIRSTNAME: 'First name',
         LASTNAME: 'Last name',
         EMAIL: 'E-mail',
-        MOBILENO: 'Mobile',
+        MOBILENO: 'Mobile phone number',
         CONFIRMBOOKING : 'Confirm booking',
         SCHEDULERESERVATION: 'Booking Schedule',
         PAST: 'Previous',
         UPCOMING: 'Upcoming',
-        NODATAAVAILABLE: 'No Data Available'
+        NODATAAVAILABLE: 'No Data Available',
+        NOOFPERSON: 'Number of people',
+        PERTICULAR: 'Particularities',
+        MIDDAY: 'Midday',
+        EVENING: 'Evening',
+        BOOKBUTTON: 'Book',
+        VALIDATIONS: {
+        	NAME: 'Name cannot be blank',
+        	EMAIL: 'Invalid email',
+        	MOBILE: 'Mobile number cannot be blank',
+        	DATE: 'Date cannot be blank',
+        	TIME: 'Time cannot be blank',
+        	PERSONS: 'Number of people cannot be blank'
+        }
     },
     LOYALTY:{
         TITLE: 'Loyalty',

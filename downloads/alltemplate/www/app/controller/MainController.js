@@ -105,7 +105,8 @@ Ext.define('MyApp.controller.MainController', {
             urlTabNavi: 'urlnavi',
             urlListView: 'urllist',
             socialMediaTabNavi: 'socialmedianavi',
-            socialMediaListView: 'socialmedialist'
+            socialMediaListView: 'socialmedialist',
+            sumbitReservationBtn: 'button[itemId=sumbitReservation]'
         },
         control: {
             mainView: {
@@ -434,6 +435,9 @@ Ext.define('MyApp.controller.MainController', {
             },
             socialMediaListView: {
             	itemtap: 'onSocialMediaListTap'
+            },
+            sumbitReservationBtn: {
+				tap: 'onSumbitReservationBtnTap'
             }
         }
     },
@@ -2102,7 +2106,9 @@ console.log('===================End=====================');
 		var view = mainView.getActiveItem();
         appMask();
         this.setPageTitle(tab);
-        var reservationStore = Ext.getStore('resesrvationstoreid');
+        appUnmask();
+        //CODE COMMENTED FOR TASK New restaurant Reservation tab
+        /*var reservationStore = Ext.getStore('resesrvationstoreid');
         reservationStore.removeAll();
         var url = URLConstants.URL + 'action=easyapps_reservation_future_lists&iApplicationId=' + TextConstants.ApplicationId + '&iAppTabId=' + tabId;
         MyApp.services.RemoteService.remoteCall(url,
@@ -2128,7 +2134,7 @@ console.log('===================End=====================');
                 function failure(Response) {
                     appUnmask();
                 }
-        );
+        );*/
     },
     onScheduleBtnID: function () {
         appMask();
@@ -3464,5 +3470,41 @@ console.log('===================End=====================');
 				}
 			});
         }
+    },
+    onSumbitReservationBtnTap: function(btn, e, eOpts){
+    	var form = btn.up('formpanel');
+		var vals = form.getValues();
+    	var model = Ext.ModelMgr.create(vals, 'MyApp.model.DoReservationModel');
+		var errors = model.validate();
+		if (errors.isValid()) {
+			appMask();
+			vals.date = Ext.Date.format(vals.date, 'd/m/Y');
+			Ext.Ajax.request({
+				url: URLConstants.URL + 'action=do_restaurant_reservation',
+				method: 'POST',
+				params: {
+					data: Ext.encode(vals)
+				},
+				success: function(res){
+					appUnmask();
+					form.reset();
+					Ext.Msg.alert(Loc.t('CATELOG.ALERT'), Loc.t('RESERVATION.SCHEDULETITLE'));
+				},
+				failure: function(res){
+					console.log(res.responseText);
+					appUnmask();
+				}
+			});
+		}
+		else {
+			var msg = "";
+			errors.each(function (errorObj){
+				if(msg != ""){
+					msg += "<br/>";
+				}
+				msg += errorObj.getMessage() + ".";
+			});
+			Ext.Msg.alert(Loc.t('CATELOG.ALERT'), msg);
+		}
     }
 });

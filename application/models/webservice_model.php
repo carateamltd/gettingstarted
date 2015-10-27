@@ -1771,5 +1771,21 @@ class webservice_model extends CI_Model {
 		$query=$this->db->get();
 		return $query->result_array();
 	}
+
+	/** get admin reservation email id **/
+	function get_admin_reservation_emailid($id)
+	{
+		$this->db->select('vAdminEmail');
+		$this->db->from('r_app_reservation_general_info as rl');
+		$this->db->where('rl.iApplicationId',$id);
+		return $this->db->get()->row()->vAdminEmail;
+	}
+
+	function get_app_name($id){
+		$this->db->select('tAppName');
+		$this->db->from('r_appinformation as rl');
+		$this->db->where('rl.iApplicationId',$id);
+		return $this->db->get()->row()->tAppName;
+	}
 }
 ?>

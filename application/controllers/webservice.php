@@ -322,6 +322,9 @@ class Webservice extends MY_Controller
 			case 'get_social_media_list':
 				$this->get_social_media_list();
 				break;
+			case 'do_restaurant_reservation':
+				$this->do_restaurant_reservation();
+				break;
 		    default:
 				break;
 		}
@@ -434,65 +437,65 @@ class Webservice extends MY_Controller
 		exit;	
         }
 
-        function send_contactus_details($type,$fromEmail,$toEmail,$message,$applicationName,$lang)
-        {
-	        $this->load->model('admin_model', '', TRUE);
-			$ci = get_instance();
-			/*$ci->load->library('email');
-			//$config['protocol'] = "smtp";
-			//$config['smtp_host'] = "ssl://smtp.gmail.com";
-			//$config['smtp_port'] = "465";//"25";
-			//$config['smtp_user'] = "rohit.sharma@aplitetech.com";
-			//$config['smtp_pass'] = "easyapps1@French";
-			$config['charset'] = "utf-8";
-			$config['mailtype'] = "html";
-			$config['newline'] = "\r\n";*/
-			$ci->load->library('email');
-			$config['protocol'] = "smtp";
-			$config['smtp_host'] = "mail.easy-apps.co.uk";
-			$config['smtp_port'] = "25";
-			$config['smtp_user'] = "mail@easy-apps.co.uk"; 
-			$config['smtp_pass'] = "F8VyakZDeasyapp";
-			$config['charset'] = "utf-8";
-			$config['mailtype'] = "html";
-			$config['newline'] = "\r\n";
-			
+    function send_contactus_details($type,$fromEmail,$toEmail,$message,$applicationName,$lang)
+    {
+		$this->load->model('admin_model', '', TRUE);
+		$ci = get_instance();
+		/*$ci->load->library('email');
+		//$config['protocol'] = "smtp";
+		//$config['smtp_host'] = "ssl://smtp.gmail.com";
+		//$config['smtp_port'] = "465";//"25";
+		//$config['smtp_user'] = "rohit.sharma@aplitetech.com";
+		//$config['smtp_pass'] = "easyapps1@French";
+		$config['charset'] = "utf-8";
+		$config['mailtype'] = "html";
+		$config['newline'] = "\r\n";*/
+		$ci->load->library('email');
+		$config['protocol'] = "smtp";
+		$config['smtp_host'] = "mail.easy-apps.co.uk";
+		$config['smtp_port'] = "25";
+		$config['smtp_user'] = "mail@easy-apps.co.uk"; 
+		$config['smtp_pass'] = "F8VyakZDeasyapp";
+		$config['charset'] = "utf-8";
+		$config['mailtype'] = "html";
+		$config['newline'] = "\r\n";
+		
 
-			//-- Send Email to Customer/AppOwner
-				$ci->email->initialize($config);
-				//$ci->email->from($fromEmail, "Contact Us Form - ".$applicationName." - EasyApps");
-				$ci->email->from('mail@easy-apps.co.uk', ucfirst($applicationName));
-				$ci->email->to($toEmail);
-				//$this->email->reply_to($fromEmail, $applicationName);
-				$this->email->reply_to($fromEmail, ucfirst($applicationName));
-				$ci->email->subject(ucfirst($applicationName). " APPS");
-				if($type=="Customer")
+		//-- Send Email to Customer/AppOwner
+			$ci->email->initialize($config);
+			//$ci->email->from($fromEmail, "Contact Us Form - ".$applicationName." - EasyApps");
+			$ci->email->from('mail@easy-apps.co.uk', ucfirst($applicationName));
+			$ci->email->to($toEmail);
+			//$this->email->reply_to($fromEmail, $applicationName);
+			$this->email->reply_to($fromEmail, ucfirst($applicationName));
+			$ci->email->subject(ucfirst($applicationName). " APPS");
+			if($type=="Customer")
+			{
+				if($lang=='rFrench')
 				{
-					if($lang=='rFrench')
-					{
-						$html = "<p>Bonjour</p><p>Merci pour votre message. Nos services reprendrons contact avec vous dans le plus bref délai.</p>".$message;
-					}
-					else
-					{
-						$html = "<p>Hello</p><p>Thank you for contacting us, we will get back to you soon. Your details are:</p>".$message;
-					}
+					$html = "<p>Bonjour</p><p>Merci pour votre message. Nos services reprendrons contact avec vous dans le plus bref délai.</p>".$message;
 				}
 				else
 				{
-					if($lang=='rFrench')
-					{
-						$html = "<p>Bonjour</p><p>Un client a essayé de vous contacter via votre application. Les détails du client sont:</p>".$message;
-					}
-					else
-					{
-						$html = "<p>Hello</p><p>A customer tried to contact you via your application. Customer details are:</p>".$message;
-					}
+					$html = "<p>Hello</p><p>Thank you for contacting us, we will get back to you soon. Your details are:</p>".$message;
 				}
-				$ci->email->message($html);
-				$result = $ci->email->send();
-			$result = $this->email->print_debugger(); 
-			return $result;
-        }
+			}
+			else
+			{
+				if($lang=='rFrench')
+				{
+					$html = "<p>Bonjour</p><p>Un client a essayé de vous contacter via votre application. Les détails du client sont:</p>".$message;
+				}
+				else
+				{
+					$html = "<p>Hello</p><p>A customer tried to contact you via your application. Customer details are:</p>".$message;
+				}
+			}
+			$ci->email->message($html);
+			$result = $ci->email->send();
+		$result = $this->email->print_debugger(); 
+		return $result;
+	}
     
     function save_mail()
     {
@@ -5891,6 +5894,76 @@ header('Access-Control-Allow-Origin: *');
         $main = json_encode($Data);
         echo $callback . $main;
         exit;
+	}
+
+	/** set restaurant reservation **/
+	function do_restaurant_reservation(){
+		$lang = $this->session->userdata('language');
+		$postedData = json_decode($this->input->post('data'));
+		$iAdminEmailId = $this->webservice_model->get_admin_reservation_emailid($postedData->iApplicationId);
+
+		$applicationName = $this->webservice_model->get_app_name($postedData->iApplicationId);
+		if($lang=='rFrench'){
+			$details = "<b>Nom: </b>".$postedData->fullname."<br/>";
+			$details .= "<b>Téléphone Mobile: </b>".$postedData->mobile."<br/>";
+			$details .= "<b>Date réservation: </b>".$postedData->date."<br/>";
+			$details .= "<b>Horaire: </b>".$postedData->time."<br/>";
+			$details .= "<b>Nombre de personnes: </b>".$postedData->noOfPersons."<br/>";
+			$details .= "<b>Particularités: </b>".$postedData->particular."<br/><br/>";
+			$details .= "Cordialement<br/><p>";
+
+			$emailSubjectAppOwner = "Nouvelle Réservation";
+			$emailBodyAppOwner = "<p>Bonjour,</p><p>Vous avez reçu une nouvelle réservation via votre application mobile</p><p>".$details;
+
+			$emailSubjectCustomer = "Votre Réservation";
+			$emailBodyCustomer = "<p>Bonjour,</p><p>Ceci est une copie de la réservation que vous avez faite via l’application mobile ".$applicationName." Vous avez reçu une nouvelle réservation via votre application mobile</p><p>".$details;
+		}
+		else{
+			$details = "<b>Name: </b>".$postedData->fullname."<br/>";
+			$details .= "<b>Mobile Phone: </b>".$postedData->mobile."<br/>";
+			$details .= "<b>Reservation Date: </b>".$postedData->date."<br/>";
+			$details .= "<b>Time: </b>".$postedData->time."<br/>";
+			$details .= "<b>Number of people: </b>".$postedData->noOfPersons."<br/>";
+			$details .= "<b>Specials: </b>".$postedData->particular."<br/><br/>";
+			$details .= "Best regards<br/><p>";
+
+			$emailSubjectAppOwner = "New Reservation";
+			$emailBodyAppOwner = "<p>Hello,</p><p>You have received a new reservation via your mobile application</p><p>".$details;
+
+			$emailSubjectCustomer = "Your reservation";
+			$emailBodyCustomer = "<p>Hello,</p><p>This is a copy of the booking you made via mobile application ".$applicationName." You have received a new reservation via your mobile application</p><p>".$details;
+		}
+
+		$emailToAppOwner = $this->send_restaurant_reservation_mail($iAdminEmailId, $postedData->email, $emailSubjectAppOwner, $emailBodyAppOwner, $applicationName);
+		$emailToCustomer = $this->send_restaurant_reservation_mail($postedData->email, $iAdminEmailId, $emailSubjectCustomer, $emailBodyCustomer, $applicationName);
+
+		echo $emailToAppOwner."-".$emailToCustomer;
+	}
+
+	/*	send email for restaurant reservation tab	*/
+	function send_restaurant_reservation_mail($to, $from, $sub, $msg, $applicationName){
+		$this->load->model('admin_model', '', TRUE);
+		$ci = get_instance();
+		$ci->load->library('email');
+		$config['protocol'] = "smtp";
+		$config['smtp_host'] = "mail.easy-apps.co.uk";
+		$config['smtp_port'] = "25";
+		$config['smtp_user'] = "mail@easy-apps.co.uk";
+		$config['smtp_pass'] = "F8VyakZDeasyapp";
+		$config['charset'] = "utf-8";
+		$config['mailtype'] = "html";
+		$config['newline'] = "\r\n";
+
+		//-- Send Email to Customer/AppOwner
+		$ci->email->initialize($config);
+		$ci->email->from('mail@easy-apps.co.uk', ucfirst($applicationName));
+		$ci->email->to($to);
+		$this->email->reply_to($from, ucfirst($applicationName));
+		$ci->email->subject($sub);
+		$ci->email->message($msg);
+		$result = $ci->email->send();
+		$result = $this->email->print_debugger();
+		return $result;
 	}
 }
 ?>

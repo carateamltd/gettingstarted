@@ -29,7 +29,7 @@ Ext.application({
     'ArroundSubModel','LocationModel','HomeModel','OpencloseModel','CustomModel','DownloadModel',"PartnerModel",
     "AlbumModel","AppointmentModel","QuotationModel","OrderHistoryModel","SizeItemModel","OptionItemModel","NewArrivalModel",
     "CatelogModel","TestimonialModel","TicketModel","CatelogSizeModel","AddCartModel","ServiveTabModel","ServiceTimingTabModel","BlogModel",'CatalogProduct','OrderCartModel','MenuModel','MenuDetailModel',
-    'MenuOfDayModel', 'UrlModel', 'SocialMediaModel'],
+    'MenuOfDayModel', 'UrlModel', 'SocialMediaModel', 'DoReservationModel'],
     views : ['Ext.ux.panel.PDF','catelog.CatalogProducts','catelog.CatalogCart','catelog.CustomerDetails','OrderView.OrderCart','OrderView.CustomerDetails'],
     launch: function() {
     	this.chrome43Fix();

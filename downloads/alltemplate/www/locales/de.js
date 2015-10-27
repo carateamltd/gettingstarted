@@ -175,7 +175,7 @@ Ext.define('locales.de', {
         NORESERVATIONAVAILABLE: 'Aucune Réservation.',
         SCHEDULETITLE: 'Horaire Réservation',
         CUSTOMERDETAILS: 'Détails du client',
-        TIME: 'Temps',
+        TIME: 'Horaire',
         PRICE: 'Prix',
         PREPAYMENT: 'Prépaiement',
         CONFIRM: 'Confirmer',
@@ -188,12 +188,25 @@ Ext.define('locales.de', {
         FIRSTNAME: 'Prénom',
         LASTNAME: 'Nom De Famille',
         EMAIL: 'E-mail',
-        MOBILENO: 'Mobile',
+        MOBILENO: 'Numéro téléphone mobile',
         CONFIRMBOOKING : 'Confirmer la réservation',
         SCHEDULERESERVATION: 'Horaire Réservation',
         PAST: 'Précédent',
         UPCOMING: 'Suivant',
-        NODATAAVAILABLE: 'Pas De Données Disponibles'
+        NODATAAVAILABLE: 'Pas De Données Disponibles',
+        NOOFPERSON: 'Nombre de personnes',
+        PERTICULAR: 'Particularités',
+        MIDDAY: 'Midi',
+        EVENING: 'Soir',
+        BOOKBUTTON: 'Réserver',
+        VALIDATIONS: {
+        	NAME: 'Nom ne peut être vide',
+        	EMAIL: 'Email invalide',
+        	MOBILE: 'Numéro de téléphone mobile ne peut être vide',
+        	DATE: 'La date ne peut pas être vide',
+        	TIME: 'Horaire ne peut être vide',
+        	PERSONS: 'Nombre de personnes ne peut être vide'
+        }
     },
     LOYALTY:{
         TITLE: 'Fidélité',
