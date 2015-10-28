@@ -5904,14 +5904,6 @@ header('Access-Control-Allow-Origin: *');
 
 		$applicationName = $this->webservice_model->get_app_name($postedData->iApplicationId);
 		if($lang=='rFrench'){
-			$details = "<b>Nom: </b>".$postedData->fullname."<br/>";
-			$details .= "<b>Téléphone Mobile: </b>".$postedData->mobile."<br/>";
-			$details .= "<b>Date réservation: </b>".$postedData->date."<br/>";
-			$details .= "<b>Horaire: </b>".$postedData->time."<br/>";
-			$details .= "<b>Nombre de personnes: </b>".$postedData->noOfPersons."<br/>";
-			$details .= "<b>Particularités: </b>".$postedData->particular."<br/><br/>";
-			$details .= "Cordialement<br/><p>";
-
 			$emailSubjectAppOwner = "Nouvelle Réservation";
 			$emailBodyAppOwner = "<p>Bonjour,</p><p>Vous avez reçu une nouvelle réservation via votre application mobile</p><p>".$details;
 
@@ -5919,14 +5911,6 @@ header('Access-Control-Allow-Origin: *');
 			$emailBodyCustomer = "<p>Bonjour,</p><p>Ceci est une copie de la réservation que vous avez faite via l’application mobile ".$applicationName." Vous avez reçu une nouvelle réservation via votre application mobile</p><p>".$details;
 		}
 		else{
-			$details = "<b>Name: </b>".$postedData->fullname."<br/>";
-			$details .= "<b>Mobile Phone: </b>".$postedData->mobile."<br/>";
-			$details .= "<b>Reservation Date: </b>".$postedData->date."<br/>";
-			$details .= "<b>Time: </b>".$postedData->time."<br/>";
-			$details .= "<b>Number of people: </b>".$postedData->noOfPersons."<br/>";
-			$details .= "<b>Specials: </b>".$postedData->particular."<br/><br/>";
-			$details .= "Best regards<br/><p>";
-
 			$emailSubjectAppOwner = "New Reservation";
 			$emailBodyAppOwner = "<p>Hello,</p><p>You have received a new reservation via your mobile application</p><p>".$details;
 
@@ -5934,14 +5918,14 @@ header('Access-Control-Allow-Origin: *');
 			$emailBodyCustomer = "<p>Hello,</p><p>This is a copy of the booking you made via mobile application ".$applicationName." You have received a new reservation via your mobile application</p><p>".$details;
 		}
 
-		$emailToAppOwner = $this->send_restaurant_reservation_mail($iAdminEmailId, $postedData->email, $emailSubjectAppOwner, $emailBodyAppOwner, $applicationName);
-		$emailToCustomer = $this->send_restaurant_reservation_mail($postedData->email, $iAdminEmailId, $emailSubjectCustomer, $emailBodyCustomer, $applicationName);
+		$emailToAppOwner = $this->send_restaurant_reservation_mail($iAdminEmailId, $postedData->email, $emailSubjectAppOwner, $emailBodyAppOwner, $applicationName, $lang, $postedData);
+		$emailToCustomer = $this->send_restaurant_reservation_mail($postedData->email, $iAdminEmailId, $emailSubjectCustomer, $emailBodyCustomer, $applicationName, $lang, $postedData);
 
 		echo $emailToAppOwner."-".$emailToCustomer;
 	}
 
 	/*	send email for restaurant reservation tab	*/
-	function send_restaurant_reservation_mail($to, $from, $sub, $msg, $applicationName){
+	function send_restaurant_reservation_mail($to, $from, $sub, $msg, $applicationName, $lang, $postedData){
 		$this->load->model('admin_model', '', TRUE);
 		$ci = get_instance();
 		$ci->load->library('email');
@@ -5960,6 +5944,27 @@ header('Access-Control-Allow-Origin: *');
 		$ci->email->to($to);
 		$this->email->reply_to($from, ucfirst($applicationName));
 		$ci->email->subject($sub);
+		if($lang=='rFrench'){
+			$details = "<b>Nom: </b>".$postedData->fullname."<br/>";
+			$details .= "<b>Email De: </b>".$from."<br/>";
+			$details .= "<b>Téléphone Mobile: </b>".$postedData->mobile."<br/>";
+			$details .= "<b>Date réservation: </b>".$postedData->date."<br/>";
+			$details .= "<b>Horaire: </b>".$postedData->time."<br/>";
+			$details .= "<b>Nombre de personnes: </b>".$postedData->noOfPersons."<br/>";
+			$details .= "<b>Particularités: </b>".$postedData->particular."<br/><br/>";
+			$details .= "Cordialement<br/><p>";
+		}
+		else{
+			$details = "<b>Name: </b>".$postedData->fullname."<br/>";
+			$details .= "<b>Email From: </b>".$from."<br/>";
+			$details .= "<b>Mobile Phone: </b>".$postedData->mobile."<br/>";
+			$details .= "<b>Reservation Date: </b>".$postedData->date."<br/>";
+			$details .= "<b>Time: </b>".$postedData->time."<br/>";
+			$details .= "<b>Number of people: </b>".$postedData->noOfPersons."<br/>";
+			$details .= "<b>Specials: </b>".$postedData->particular."<br/><br/>";
+			$details .= "Best regards<br/><p>";
+		}
+		$msg = $msg.$details;
 		$ci->email->message($msg);
 		$result = $ci->email->send();
 		$result = $this->email->print_debugger();
