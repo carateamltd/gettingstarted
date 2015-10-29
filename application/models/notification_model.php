@@ -160,5 +160,13 @@ class notification_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	function get_application_details($iApplicationId)
+	{
+		$this->db->select('*');
+        $this->db->where('iApplicationId', $iApplicationId);
+        $this->db->from('r_appinformation');
+        $query = $this->db->get();
+        return $query->result_array();
+	}
 }
 ?>

@@ -528,6 +528,8 @@ class Notification extends MY_Controller
  		$eType = $postedData['Data']['eType'];
  		$group_name = $postedData['group_name'];
  		$individual_name = $postedData['data']['individual_name'];
+
+		$applicationDetails = $this->notification_model->get_application_details($iApplicationId);
  		if($eType=='All')
  		{
  			 $registatoin_details = $this->notification_model->get_regIds($iApplicationId,'All');
@@ -606,59 +608,62 @@ class Notification extends MY_Controller
 			echo $result;		
 			
  		}
+
  		if(count($iosDevices)>0)
  		{
- 			// Put your devre (without spaces):
-			// Put your devre (without spaces):
-			$deviceToken = '86fd9b41c321b69555d2b8a52fab683ff0ed9e92d92239097e1f10d78b191097';
+			$message = $applicationDetails[0]['tAppName']." - " . $message;
+			foreach($iosDevices as $token_id){
+				$deviceToken = $token_id;
 
-			// Put your private key's passphrase here:
-			$passphrase = 'fashiontheory';
+				// Put your private key's passphrase here:
+				$passphrase = 'fashiontheory';
 
-			// Put your alert message here:
-			$message = 'fashiontheory Testing msg in easyapp';
+				// Put your alert message here:
+				//$message = $message;
 
-			////////////////////////////////////////////////////////////////////////////////
+				////////////////////////////////////////////////////////////////////////////////
 
-			$ctx = stream_context_create();
-			stream_context_set_option($ctx, 'ssl', 'local_cert', 'apns_cert.pem');
-			stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
+				$ctx = stream_context_create();
+				stream_context_set_option($ctx, 'ssl', 'local_cert', 'apns_prod_cert.pem');
+				stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
 
-			// Open a connection to the APNS server
-			$fp = stream_socket_client(
-				'ssl://gateway.sandbox.push.apple.com:2195', $err,
-				$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+				// Open a connection to the APNS server
+				$fp = stream_socket_client(
+					'ssl://gateway.push.apple.com:2195', $err,
+					$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
-			if (!$fp){
-			echo "fp".$fp;
-				exit("Failed to connect: $err $errstr" . PHP_EOL);
-			}else{
-			echo 'Connected to APNS' . PHP_EOL;
-			}
+				if (!$fp){
+				echo "fp".$fp;
+					exit("Failed to connect: $err $errstr" . PHP_EOL);
+				}else{
+				echo 'Connected to APNS' . PHP_EOL.'<br/><br/>';
+				}
 
-			// Create the payload body
-			$body['aps'] = array(
-				'alert' => $message,
-				'sound' => 'default'
+				// Create the payload body
+				$body['aps'] = array(
+					'alert' => $message,
+					'sound' => 'default',
+					'badge' => 1,
+					'tabname' => $tabname
 				);
 
-			// Encode the payload as JSON
-			$payload = json_encode($body);
+				// Encode the payload as JSON
+				$payload = json_encode($body);
 
-			// Build the binary notification
-			$msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
+				// Build the binary notification
+				$msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
 
-			// Send it to the server
-			$result = fwrite($fp, $msg, strlen($msg));
+				// Send it to the server
+				$result = fwrite($fp, $msg, strlen($msg));
 
-			if (!$result)
-				echo 'Message not delivered' . PHP_EOL;
-			else
-				echo 'Message successfully delivered' . PHP_EOL;
+				if (!$result)
+					echo 'Message not delivered' . PHP_EOL;
+				else
+					echo 'Message successfully delivered' . PHP_EOL;
 
-			// Close the connection to the server
-			fclose($fp);
-			
+				// Close the connection to the server
+				fclose($fp);
+			}
  			/*//-- iOs notification code here
  			$regId = $iosDevices;
 
