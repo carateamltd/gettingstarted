@@ -40,6 +40,8 @@ Ext.define("MyApp.view.reservation.ReservationNavi", {
 					placeHolder: Loc.t('CATELOG.DATE') + '*',
 					dateFormat: 'd/m/Y',
 					picker: {
+						doneButton: Loc.t('BUTTON.OK'),
+						cancelButton: Loc.t('BUTTON.CANCEL'),
 						yearFrom: new Date().getFullYear(),
 						yearTo: new Date().getFullYear() + 1
 					}
