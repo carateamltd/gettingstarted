@@ -71,7 +71,11 @@ Ext.define('MyApp.view.appointment.AppointmentView', {
                             label: Loc.t('CATELOG.DATE'),
                             itemId: 'dateID',
                             name: 'appointmentdate',
-                            value: new Date()
+                            value: new Date(),
+							picker: {
+								doneButton: Loc.t('BUTTON.OK'),
+								cancelButton: Loc.t('BUTTON.CANCEL')
+							}
                         }, {
                             xtype: 'selectfield',
                             label: Loc.t('CATELOG.TIME'),

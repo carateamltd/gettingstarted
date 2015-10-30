@@ -33,7 +33,11 @@ Ext.define('MyApp.view.OrderView.HomeDelivery', {
 				label: Loc.t('CATELOG.DATE'),
 				name: 'deliverydate',
 				value: new Date(),
-				dateFormat: 'd/m/y'
+				dateFormat: 'd/m/y',
+				picker: {
+					doneButton: Loc.t('BUTTON.OK'),
+					cancelButton: Loc.t('BUTTON.CANCEL')
+				}
 			}, {
 				xtype: "textfield",
 				label: Loc.t('CATELOG.TIME'),
